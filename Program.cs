@@ -26,7 +26,7 @@ namespace rice_store
 
             var services = new ServiceCollection()
                 .AddApplicationServices(connectionString)
-                .AddScoped<DashBoardForm>()
+                .AddScoped<ProductManagementForm>()
                 .AddScoped<ContractManagementForm>()
                 .AddScoped<PaymentManagementForm>()
                 .AddScoped<ShortTermRentalManagementForm>()

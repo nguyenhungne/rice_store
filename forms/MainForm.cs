@@ -13,7 +13,7 @@ namespace rice_store.forms
     public partial class MainForm : Form
     {
 
-        DashBoardForm? dashboardForm;
+        ProductManagementForm? dashboardForm;
         ContractManagementForm? contractManagementForm;
         PaymentManagementForm? paymentManagementForm;
         ShortTermRentalManagementForm? shortTermRentalManagementForm;
@@ -82,7 +82,7 @@ namespace rice_store.forms
         {
             if (dashboardForm == null)
             {
-                dashboardForm = new DashBoardForm();
+                dashboardForm = new ProductManagementForm();
                 dashboardForm.FormClosed += onDashboardFormClosed;
                 dashboardForm.MdiParent = this;
                 dashboardForm.Dock = DockStyle.Fill;

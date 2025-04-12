@@ -11,12 +11,31 @@ public class ProductRepository : IProductRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<Product>> GetAllProductsAsync()
+    public async Task<IEnumerable<Product>> GetAllProductsAsync(ProductFilter filter)
+{
+    var query = _context.Product.AsQueryable();
+
+    // Apply filter for Product ID (Mã SP) if provided
+    if (!string.IsNullOrEmpty(filter.ProductId))
     {
-        return await _context.Product
-            .Include(p => p.Category) // Include related Category
-            .ToListAsync();
+        query = query.Where(p => p.Id.ToString().Contains(filter.ProductId));
     }
+
+    // Apply filter for Product Name (Tên SP) if provided
+    if (!string.IsNullOrEmpty(filter.ProductName))
+    {
+        query = query.Where(p => p.Name.Contains(filter.ProductName));
+    }
+
+    // Apply filter for Category Name (Loại SP) if provided
+    if (!string.IsNullOrEmpty(filter.CategoryName))
+    {
+        query = query.Where(p => p.Category.Name.Contains(filter.CategoryName));
+    }
+
+    // Include the related Category data
+    return await query.Include(p => p.Category).ToListAsync();
+}
 
     public async Task<Product> GetProductByIdAsync(int id)
     {

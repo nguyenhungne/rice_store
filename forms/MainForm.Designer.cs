@@ -67,7 +67,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1127, 69);
+            panel1.Size = new Size(1406, 69);
             panel1.TabIndex = 0;
             // 
             // hamburgerButton
@@ -85,7 +85,7 @@
             label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(441, 18);
+            label1.Location = new Point(581, 18);
             label1.Name = "label1";
             label1.Size = new Size(335, 41);
             label1.TabIndex = 0;
@@ -294,7 +294,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1127, 684);
+            ClientSize = new Size(1406, 684);
             Controls.Add(sidebar);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -319,7 +319,6 @@
 
         private Panel panel1;
         private Label label1;
-        private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
         private FlowLayoutPanel sidebar;
         private Panel dashboardButtonPanel;
         private Button dashboardButton;

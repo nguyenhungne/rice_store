@@ -2,7 +2,7 @@ using rice_store.models;
 
 public interface IProductService
 {
-    Task<IEnumerable<Product>> GetAllProductsAsync();
+    Task<IEnumerable<Product>> GetAllProductsAsync(ProductFilter filter);
     Task<Product> GetProductByIdAsync(int id);
 }
 
@@ -15,9 +15,9 @@ public class ProductService : IProductService
         _productRepository = productRepository;
     }
 
-    public async Task<IEnumerable<Product>> GetAllProductsAsync()
+    public async Task<IEnumerable<Product>> GetAllProductsAsync(ProductFilter filter)
     {
-        return await _productRepository.GetAllProductsAsync();
+        return await _productRepository.GetAllProductsAsync(filter);
     }
 
     public async Task<Product> GetProductByIdAsync(int id)
