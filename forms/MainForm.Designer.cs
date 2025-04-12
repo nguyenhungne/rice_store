@@ -58,42 +58,42 @@
             sendNotificationPanel.SuspendLayout();
             systemSettingPanel.SuspendLayout();
             SuspendLayout();
-            //
+            // 
             // panel1
-            //
-            panel1.BackColor = Color.White;
+            // 
+            panel1.BackColor = Color.PowderBlue;
             panel1.Controls.Add(hamburgerButton);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1127, 43);
+            panel1.Size = new Size(1127, 69);
             panel1.TabIndex = 0;
-            //
+            // 
             // hamburgerButton
-            //
-            hamburgerButton.Location = new Point(21, 8);
+            // 
+            hamburgerButton.Location = new Point(21, 24);
             hamburgerButton.Name = "hamburgerButton";
             hamburgerButton.Size = new Size(123, 29);
             hamburgerButton.TabIndex = 2;
             hamburgerButton.Text = "Expand";
             hamburgerButton.UseVisualStyleBackColor = true;
             hamburgerButton.Click += hamburgerButton_Click;
-            //
+            // 
             // label1
-            //
+            // 
             label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 10.2F);
-            label1.Location = new Point(490, 9);
+            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(441, 18);
             label1.Name = "label1";
-            label1.Size = new Size(221, 23);
+            label1.Size = new Size(335, 41);
             label1.TabIndex = 0;
-            label1.Text = "PLUMERIA | MANAGEMENT";
+            label1.Text = "Quản Lí Cửa Hàng Gạo";
             label1.TextAlign = ContentAlignment.MiddleCenter;
-            //
+            // 
             // sidebar
-            //
+            // 
             sidebar.BackColor = Color.FromArgb(23, 24, 29);
             sidebar.Controls.Add(dashboardButtonPanel);
             sidebar.Controls.Add(contractManagementPanel);
@@ -104,22 +104,22 @@
             sidebar.Controls.Add(systemSettingPanel);
             sidebar.Dock = DockStyle.Left;
             sidebar.FlowDirection = FlowDirection.TopDown;
-            sidebar.Location = new Point(0, 43);
+            sidebar.Location = new Point(0, 69);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(299, 641);
+            sidebar.Size = new Size(299, 615);
             sidebar.TabIndex = 1;
-            //
+            // 
             // dashboardButtonPanel
-            //
+            // 
             dashboardButtonPanel.Controls.Add(dashboardButton);
             dashboardButtonPanel.Location = new Point(3, 60);
             dashboardButtonPanel.Margin = new Padding(3, 60, 3, 20);
             dashboardButtonPanel.Name = "dashboardButtonPanel";
             dashboardButtonPanel.Size = new Size(295, 60);
             dashboardButtonPanel.TabIndex = 6;
-            //
+            // 
             // dashboardButton
-            //
+            // 
             dashboardButton.BackColor = Color.FromArgb(23, 24, 29);
             dashboardButton.Cursor = Cursors.Hand;
             dashboardButton.ForeColor = Color.White;
@@ -133,9 +133,9 @@
             dashboardButton.TextAlign = ContentAlignment.MiddleLeft;
             dashboardButton.UseVisualStyleBackColor = false;
             dashboardButton.Click += handleDashboardButtonClick;
-            //
+            // 
             // contractManagementPanel
-            //
+            // 
             contractManagementPanel.Controls.Add(contractManagementButton);
             contractManagementPanel.Cursor = Cursors.Hand;
             contractManagementPanel.Location = new Point(3, 143);
@@ -143,9 +143,9 @@
             contractManagementPanel.Name = "contractManagementPanel";
             contractManagementPanel.Size = new Size(295, 60);
             contractManagementPanel.TabIndex = 7;
-            //
+            // 
             // contractManagementButton
-            //
+            // 
             contractManagementButton.BackColor = Color.FromArgb(23, 24, 29);
             contractManagementButton.ForeColor = Color.White;
             contractManagementButton.ImageAlign = ContentAlignment.MiddleLeft;
@@ -158,9 +158,9 @@
             contractManagementButton.TextAlign = ContentAlignment.MiddleLeft;
             contractManagementButton.UseVisualStyleBackColor = false;
             contractManagementButton.Click += contractManagementButton_Click;
-            //
+            // 
             // paymentManagementPanel
-            //
+            // 
             paymentManagementPanel.Controls.Add(paymentManagementButton);
             paymentManagementPanel.Cursor = Cursors.Hand;
             paymentManagementPanel.Location = new Point(3, 226);
@@ -168,9 +168,9 @@
             paymentManagementPanel.Name = "paymentManagementPanel";
             paymentManagementPanel.Size = new Size(295, 60);
             paymentManagementPanel.TabIndex = 7;
-            //
+            // 
             // paymentManagementButton
-            //
+            // 
             paymentManagementButton.BackColor = Color.FromArgb(23, 24, 29);
             paymentManagementButton.ForeColor = Color.White;
             paymentManagementButton.ImageAlign = ContentAlignment.MiddleLeft;
@@ -183,9 +183,9 @@
             paymentManagementButton.TextAlign = ContentAlignment.MiddleLeft;
             paymentManagementButton.UseVisualStyleBackColor = false;
             paymentManagementButton.Click += paymentManagementButton_Click;
-            //
+            // 
             // shortTermRentalManagementPanel
-            //
+            // 
             shortTermRentalManagementPanel.Controls.Add(shortTermRentalManagementButton);
             shortTermRentalManagementPanel.Cursor = Cursors.Hand;
             shortTermRentalManagementPanel.Location = new Point(3, 309);
@@ -193,9 +193,9 @@
             shortTermRentalManagementPanel.Name = "shortTermRentalManagementPanel";
             shortTermRentalManagementPanel.Size = new Size(295, 60);
             shortTermRentalManagementPanel.TabIndex = 7;
-            //
+            // 
             // shortTermRentalManagementButton
-            //
+            // 
             shortTermRentalManagementButton.BackColor = Color.FromArgb(23, 24, 29);
             shortTermRentalManagementButton.ForeColor = Color.White;
             shortTermRentalManagementButton.ImageAlign = ContentAlignment.MiddleLeft;
@@ -208,9 +208,9 @@
             shortTermRentalManagementButton.TextAlign = ContentAlignment.MiddleLeft;
             shortTermRentalManagementButton.UseVisualStyleBackColor = false;
             shortTermRentalManagementButton.Click += shortTermRentalManagementButton_Click;
-            //
+            // 
             // utilityBillManagementPanel
-            //
+            // 
             utilityBillManagementPanel.Controls.Add(utilityBillManagementButton);
             utilityBillManagementPanel.Cursor = Cursors.Hand;
             utilityBillManagementPanel.Location = new Point(3, 392);
@@ -218,9 +218,9 @@
             utilityBillManagementPanel.Name = "utilityBillManagementPanel";
             utilityBillManagementPanel.Size = new Size(295, 60);
             utilityBillManagementPanel.TabIndex = 7;
-            //
+            // 
             // utilityBillManagementButton
-            //
+            // 
             utilityBillManagementButton.BackColor = Color.FromArgb(23, 24, 29);
             utilityBillManagementButton.ForeColor = Color.White;
             utilityBillManagementButton.ImageAlign = ContentAlignment.MiddleLeft;
@@ -233,9 +233,9 @@
             utilityBillManagementButton.TextAlign = ContentAlignment.MiddleLeft;
             utilityBillManagementButton.UseVisualStyleBackColor = false;
             utilityBillManagementButton.Click += utilityBillManagementButton_Click;
-            //
+            // 
             // sendNotificationPanel
-            //
+            // 
             sendNotificationPanel.Controls.Add(sendNotificationButton);
             sendNotificationPanel.Cursor = Cursors.Hand;
             sendNotificationPanel.Location = new Point(3, 475);
@@ -243,9 +243,9 @@
             sendNotificationPanel.Name = "sendNotificationPanel";
             sendNotificationPanel.Size = new Size(295, 60);
             sendNotificationPanel.TabIndex = 7;
-            //
+            // 
             // sendNotificationButton
-            //
+            // 
             sendNotificationButton.BackColor = Color.FromArgb(23, 24, 29);
             sendNotificationButton.ForeColor = Color.White;
             sendNotificationButton.ImageAlign = ContentAlignment.MiddleLeft;
@@ -258,19 +258,19 @@
             sendNotificationButton.TextAlign = ContentAlignment.MiddleLeft;
             sendNotificationButton.UseVisualStyleBackColor = false;
             sendNotificationButton.Click += sendNotificationButton_Click;
-            //
+            // 
             // systemSettingPanel
-            //
+            // 
             systemSettingPanel.Controls.Add(systemSettingButton);
             systemSettingPanel.Cursor = Cursors.Hand;
-            systemSettingPanel.Location = new Point(3, 558);
+            systemSettingPanel.Location = new Point(304, 3);
             systemSettingPanel.Margin = new Padding(3, 3, 3, 20);
             systemSettingPanel.Name = "systemSettingPanel";
             systemSettingPanel.Size = new Size(295, 60);
             systemSettingPanel.TabIndex = 7;
-            //
+            // 
             // systemSettingButton
-            //
+            // 
             systemSettingButton.BackColor = Color.FromArgb(23, 24, 29);
             systemSettingButton.ForeColor = Color.White;
             systemSettingButton.ImageAlign = ContentAlignment.MiddleLeft;
@@ -283,14 +283,14 @@
             systemSettingButton.TextAlign = ContentAlignment.MiddleLeft;
             systemSettingButton.UseVisualStyleBackColor = false;
             systemSettingButton.Click += systemSettingButton_Click;
-            //
+            // 
             // sidebarTransition
-            //
+            // 
             sidebarTransition.Interval = 10;
             sidebarTransition.Tick += sidebarTransition_Tick;
-            //
+            // 
             // MainForm
-            //
+            // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
