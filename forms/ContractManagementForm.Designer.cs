@@ -49,7 +49,6 @@
             dataGridViewContracts.RowHeadersWidth = 51;
             dataGridViewContracts.Size = new Size(553, 336);
             dataGridViewContracts.TabIndex = 0;
-            dataGridViewContracts.CellContentClick += dataGridViewContracts_CellContentClick;
             //
             // panel1
             //

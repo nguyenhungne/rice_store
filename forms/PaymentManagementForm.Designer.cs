@@ -104,7 +104,6 @@
             paymentDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             paymentDataGridView.Size = new Size(580, 269);
             paymentDataGridView.TabIndex = 0;
-            paymentDataGridView.CellClick += paymentDataGridView_CellClick;
             //
             // contractId
             //
@@ -202,7 +201,6 @@
             filterButton.TabIndex = 5;
             filterButton.Text = "Lọc";
             filterButton.UseVisualStyleBackColor = true;
-            filterButton.Click += filterButton_Click;
             //
             // headerPanel
             //
@@ -292,7 +290,6 @@
             editButton.TabIndex = 15;
             editButton.Text = "Chỉnh sửa";
             editButton.UseVisualStyleBackColor = true;
-            editButton.Click += editButton_Click;
             //
             // panel1
             //
