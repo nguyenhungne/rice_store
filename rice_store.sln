@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rice_store", "rice_store.csproj", "{CC73D34D-B101-0652-A7A8-42542ED59334}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC73D34D-B101-0652-A7A8-42542ED59334}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC73D34D-B101-0652-A7A8-42542ED59334}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC73D34D-B101-0652-A7A8-42542ED59334}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC73D34D-B101-0652-A7A8-42542ED59334}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A2556BC8-1EF6-4F71-A2EE-D4A52569E627}
+	EndGlobalSection
+EndGlobal
