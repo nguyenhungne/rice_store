@@ -67,7 +67,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1406, 69);
+            panel1.Size = new Size(1446, 69);
             panel1.TabIndex = 0;
             // 
             // hamburgerButton
@@ -85,7 +85,7 @@
             label1.Anchor = AnchorStyles.Top;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(581, 18);
+            label1.Location = new Point(601, 18);
             label1.Name = "label1";
             label1.Size = new Size(335, 41);
             label1.TabIndex = 0;
@@ -106,7 +106,7 @@
             sidebar.FlowDirection = FlowDirection.TopDown;
             sidebar.Location = new Point(0, 69);
             sidebar.Name = "sidebar";
-            sidebar.Size = new Size(299, 615);
+            sidebar.Size = new Size(299, 719);
             sidebar.TabIndex = 1;
             // 
             // dashboardButtonPanel
@@ -263,7 +263,7 @@
             // 
             systemSettingPanel.Controls.Add(systemSettingButton);
             systemSettingPanel.Cursor = Cursors.Hand;
-            systemSettingPanel.Location = new Point(304, 3);
+            systemSettingPanel.Location = new Point(3, 558);
             systemSettingPanel.Margin = new Padding(3, 3, 3, 20);
             systemSettingPanel.Name = "systemSettingPanel";
             systemSettingPanel.Size = new Size(295, 60);
@@ -294,7 +294,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1406, 684);
+            ClientSize = new Size(1446, 788);
             Controls.Add(sidebar);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;

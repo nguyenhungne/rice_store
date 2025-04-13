@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             productSearchPanel = new Panel();
             searchButton = new Guna.UI2.WinForms.Guna2Button();
             productIdTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -77,14 +77,14 @@
             productSearchPanel.Dock = DockStyle.Right;
             productSearchPanel.Location = new Point(822, 0);
             productSearchPanel.Name = "productSearchPanel";
-            productSearchPanel.Size = new Size(328, 586);
+            productSearchPanel.Size = new Size(328, 766);
             productSearchPanel.TabIndex = 0;
             productSearchPanel.Tag = "";
             // 
             // searchButton
             // 
             searchButton.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
-            searchButton.CustomizableEdges = customizableEdges9;
+            searchButton.CustomizableEdges = customizableEdges1;
             searchButton.DisabledState.BorderColor = Color.DarkGray;
             searchButton.DisabledState.CustomBorderColor = Color.DarkGray;
             searchButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -93,7 +93,7 @@
             searchButton.ForeColor = Color.White;
             searchButton.Location = new Point(14, 467);
             searchButton.Name = "searchButton";
-            searchButton.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            searchButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
             searchButton.Size = new Size(277, 74);
             searchButton.TabIndex = 10;
             searchButton.Text = "Tìm Kiếm";
@@ -101,7 +101,7 @@
             // 
             // productIdTextBox
             // 
-            productIdTextBox.CustomizableEdges = customizableEdges11;
+            productIdTextBox.CustomizableEdges = customizableEdges3;
             productIdTextBox.DefaultText = "";
             productIdTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             productIdTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -115,14 +115,14 @@
             productIdTextBox.Name = "productIdTextBox";
             productIdTextBox.PlaceholderText = "";
             productIdTextBox.SelectedText = "";
-            productIdTextBox.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            productIdTextBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
             productIdTextBox.Size = new Size(182, 41);
             productIdTextBox.TabIndex = 9;
             // 
             // productCategoryComboBox
             // 
             productCategoryComboBox.BackColor = Color.Transparent;
-            productCategoryComboBox.CustomizableEdges = customizableEdges13;
+            productCategoryComboBox.CustomizableEdges = customizableEdges5;
             productCategoryComboBox.DrawMode = DrawMode.OwnerDrawFixed;
             productCategoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             productCategoryComboBox.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -132,7 +132,7 @@
             productCategoryComboBox.ItemHeight = 30;
             productCategoryComboBox.Location = new Point(102, 191);
             productCategoryComboBox.Name = "productCategoryComboBox";
-            productCategoryComboBox.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            productCategoryComboBox.ShadowDecoration.CustomizableEdges = customizableEdges6;
             productCategoryComboBox.Size = new Size(185, 36);
             productCategoryComboBox.TabIndex = 8;
             // 
@@ -148,7 +148,7 @@
             // 
             // productNameTextBox
             // 
-            productNameTextBox.CustomizableEdges = customizableEdges15;
+            productNameTextBox.CustomizableEdges = customizableEdges7;
             productNameTextBox.DefaultText = "";
             productNameTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             productNameTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -162,7 +162,7 @@
             productNameTextBox.Name = "productNameTextBox";
             productNameTextBox.PlaceholderText = "";
             productNameTextBox.SelectedText = "";
-            productNameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            productNameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges8;
             productNameTextBox.Size = new Size(182, 38);
             productNameTextBox.TabIndex = 6;
             // 
@@ -207,28 +207,28 @@
             // 
             // productDataGridView
             // 
-            dataGridViewCellStyle4.BackColor = Color.White;
-            productDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            productDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             productDataGridView.BorderStyle = BorderStyle.FixedSingle;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            productDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            productDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             productDataGridView.ColumnHeadersHeight = 50;
             productDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             productDataGridView.Columns.AddRange(new DataGridViewColumn[] { productName, productWeight, productOrigin, purchasePriceProduct, sellingPriceProduct, expirationDateProduct });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            productDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            productDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             productDataGridView.GridColor = Color.FromArgb(231, 229, 255);
             productDataGridView.Location = new Point(10, 8);
             productDataGridView.Name = "productDataGridView";
@@ -307,7 +307,7 @@
             panel1.Controls.Add(productSearchPanel);
             panel1.Location = new Point(2, 9);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1150, 586);
+            panel1.Size = new Size(1150, 766);
             panel1.TabIndex = 0;
             // 
             // ProductManagementForm
