@@ -17,10 +17,12 @@ namespace rice_store
             // Register Repositories
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             // Register Services
             services.AddScoped<AuthenticationService>();
             services.AddScoped<ProductService>();
+            services.AddScoped<CategoryService>();
 
             return services;
         }

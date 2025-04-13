@@ -39,6 +39,12 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             productSearchPanel = new Panel();
             searchButton = new Guna.UI2.WinForms.Guna2Button();
             productIdTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -50,6 +56,7 @@
             label1 = new Label();
             productDataGridPanel = new Panel();
             productDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
+            Id = new DataGridViewTextBoxColumn();
             productName = new DataGridViewTextBoxColumn();
             productWeight = new DataGridViewTextBoxColumn();
             productOrigin = new DataGridViewTextBoxColumn();
@@ -57,15 +64,20 @@
             sellingPriceProduct = new DataGridViewTextBoxColumn();
             expirationDateProduct = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
+            actionButtonsPanel = new Panel();
+            editProductButton = new Guna.UI2.WinForms.Guna2Button();
+            deleteProductButton = new Guna.UI2.WinForms.Guna2Button();
+            addProductButton = new Guna.UI2.WinForms.Guna2Button();
             productSearchPanel.SuspendLayout();
             productDataGridPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)productDataGridView).BeginInit();
             panel1.SuspendLayout();
+            actionButtonsPanel.SuspendLayout();
             SuspendLayout();
             // 
             // productSearchPanel
             // 
-            productSearchPanel.BorderStyle = BorderStyle.Fixed3D;
+            productSearchPanel.Anchor = AnchorStyles.None;
             productSearchPanel.Controls.Add(searchButton);
             productSearchPanel.Controls.Add(productIdTextBox);
             productSearchPanel.Controls.Add(productCategoryComboBox);
@@ -74,10 +86,9 @@
             productSearchPanel.Controls.Add(label3);
             productSearchPanel.Controls.Add(label2);
             productSearchPanel.Controls.Add(label1);
-            productSearchPanel.Dock = DockStyle.Right;
-            productSearchPanel.Location = new Point(822, 0);
+            productSearchPanel.Location = new Point(822, 20);
             productSearchPanel.Name = "productSearchPanel";
-            productSearchPanel.Size = new Size(328, 766);
+            productSearchPanel.Size = new Size(328, 746);
             productSearchPanel.TabIndex = 0;
             productSearchPanel.Tag = "";
             // 
@@ -91,10 +102,10 @@
             searchButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             searchButton.Font = new Font("Segoe UI", 9F);
             searchButton.ForeColor = Color.White;
-            searchButton.Location = new Point(14, 467);
+            searchButton.Location = new Point(14, 538);
             searchButton.Name = "searchButton";
             searchButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            searchButton.Size = new Size(277, 74);
+            searchButton.Size = new Size(273, 74);
             searchButton.TabIndex = 10;
             searchButton.Text = "Tìm Kiếm";
             searchButton.Click += searchButton_Click;
@@ -199,10 +210,11 @@
             // 
             // productDataGridPanel
             // 
+            productDataGridPanel.Anchor = AnchorStyles.None;
             productDataGridPanel.Controls.Add(productDataGridView);
             productDataGridPanel.Location = new Point(0, 0);
             productDataGridPanel.Name = "productDataGridPanel";
-            productDataGridPanel.Size = new Size(816, 512);
+            productDataGridPanel.Size = new Size(816, 614);
             productDataGridPanel.TabIndex = 1;
             // 
             // productDataGridView
@@ -220,7 +232,7 @@
             productDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             productDataGridView.ColumnHeadersHeight = 50;
             productDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            productDataGridView.Columns.AddRange(new DataGridViewColumn[] { productName, productWeight, productOrigin, purchasePriceProduct, sellingPriceProduct, expirationDateProduct });
+            productDataGridView.Columns.AddRange(new DataGridViewColumn[] { Id, productName, productWeight, productOrigin, purchasePriceProduct, sellingPriceProduct, expirationDateProduct });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -230,11 +242,11 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             productDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             productDataGridView.GridColor = Color.FromArgb(231, 229, 255);
-            productDataGridView.Location = new Point(10, 8);
+            productDataGridView.Location = new Point(10, 20);
             productDataGridView.Name = "productDataGridView";
             productDataGridView.RowHeadersVisible = false;
             productDataGridView.RowHeadersWidth = 51;
-            productDataGridView.Size = new Size(799, 499);
+            productDataGridView.Size = new Size(799, 587);
             productDataGridView.TabIndex = 0;
             productDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             productDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -257,6 +269,13 @@
             productDataGridView.ThemeStyle.RowsStyle.Height = 29;
             productDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             productDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            // 
+            // Id
+            // 
+            Id.HeaderText = "Mã SP";
+            Id.MinimumWidth = 6;
+            Id.Name = "Id";
+            Id.Visible = false;
             // 
             // productName
             // 
@@ -302,7 +321,9 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = SystemColors.ActiveCaption;
+            panel1.Controls.Add(actionButtonsPanel);
             panel1.Controls.Add(productDataGridPanel);
             panel1.Controls.Add(productSearchPanel);
             panel1.Location = new Point(2, 9);
@@ -310,12 +331,74 @@
             panel1.Size = new Size(1150, 766);
             panel1.TabIndex = 0;
             // 
+            // actionButtonsPanel
+            // 
+            actionButtonsPanel.Anchor = AnchorStyles.None;
+            actionButtonsPanel.Controls.Add(editProductButton);
+            actionButtonsPanel.Controls.Add(deleteProductButton);
+            actionButtonsPanel.Controls.Add(addProductButton);
+            actionButtonsPanel.Location = new Point(13, 619);
+            actionButtonsPanel.Name = "actionButtonsPanel";
+            actionButtonsPanel.Size = new Size(807, 136);
+            actionButtonsPanel.TabIndex = 5;
+            // 
+            // editProductButton
+            // 
+            editProductButton.CustomizableEdges = customizableEdges9;
+            editProductButton.DisabledState.BorderColor = Color.DarkGray;
+            editProductButton.DisabledState.CustomBorderColor = Color.DarkGray;
+            editProductButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            editProductButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            editProductButton.Font = new Font("Segoe UI", 9F);
+            editProductButton.ForeColor = Color.White;
+            editProductButton.Location = new Point(303, 13);
+            editProductButton.Name = "editProductButton";
+            editProductButton.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            editProductButton.Size = new Size(158, 73);
+            editProductButton.TabIndex = 4;
+            editProductButton.Text = "Chỉnh sửa sản phẩm";
+            editProductButton.Click += editProductButton_Click;
+            // 
+            // deleteProductButton
+            // 
+            deleteProductButton.CustomizableEdges = customizableEdges11;
+            deleteProductButton.DisabledState.BorderColor = Color.DarkGray;
+            deleteProductButton.DisabledState.CustomBorderColor = Color.DarkGray;
+            deleteProductButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            deleteProductButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            deleteProductButton.Font = new Font("Segoe UI", 9F);
+            deleteProductButton.ForeColor = Color.White;
+            deleteProductButton.Location = new Point(521, 13);
+            deleteProductButton.Name = "deleteProductButton";
+            deleteProductButton.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            deleteProductButton.Size = new Size(162, 71);
+            deleteProductButton.TabIndex = 3;
+            deleteProductButton.Text = "Xóa sản phẩm";
+            deleteProductButton.Click += deleteProductButton_Click;
+            // 
+            // addProductButton
+            // 
+            addProductButton.CustomizableEdges = customizableEdges13;
+            addProductButton.DisabledState.BorderColor = Color.DarkGray;
+            addProductButton.DisabledState.CustomBorderColor = Color.DarkGray;
+            addProductButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            addProductButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            addProductButton.Font = new Font("Segoe UI", 9F);
+            addProductButton.ForeColor = Color.White;
+            addProductButton.Location = new Point(59, 13);
+            addProductButton.Name = "addProductButton";
+            addProductButton.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            addProductButton.Size = new Size(165, 71);
+            addProductButton.TabIndex = 2;
+            addProductButton.Text = "Thêm sản phẩm";
+            addProductButton.Click += addProductButton_Click;
+            // 
             // ProductManagementForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1147, 596);
+            ClientSize = new Size(1147, 766);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "ProductManagementForm";
@@ -326,6 +409,7 @@
             productDataGridPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)productDataGridView).EndInit();
             panel1.ResumeLayout(false);
+            actionButtonsPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -349,5 +433,10 @@
         private DataGridViewTextBoxColumn sellingPriceProduct;
         private DataGridViewTextBoxColumn expirationDateProduct;
         private Panel panel1;
+        private Guna.UI2.WinForms.Guna2Button editProductButton;
+        private Guna.UI2.WinForms.Guna2Button deleteProductButton;
+        private Guna.UI2.WinForms.Guna2Button addProductButton;
+        private DataGridViewTextBoxColumn Id;
+        private Panel actionButtonsPanel;
     }
 }

@@ -18,13 +18,17 @@ namespace rice_store.forms
     public partial class ProductManagementForm : Form
     {
         private readonly IProductService productService;
+        private readonly ICategoryService categoryService;
+        private ProductInformationForm productInformationFrom;
         public ProductManagementForm()
         {
             InitializeComponent();
             productService = Program.ServiceProvider.GetRequiredService<ProductService>();
+            categoryService = Program.ServiceProvider.GetRequiredService<CategoryService>();
+            productInformationFrom = new ProductInformationForm(null, this);
         }
 
-        private async void ProductManagementForm_Load(object sender, EventArgs e)
+        public async void ProductManagementForm_Load(object sender, EventArgs e)
         {
             // Set the font for the DataGridView
             productDataGridView.Font = new Font("Segoe UI", 10, FontStyle.Regular);
@@ -36,10 +40,25 @@ namespace rice_store.forms
             // Initialize the filter
             ProductFilter filter = new ProductFilter
             {
-                ProductId = productIdTextBox.Text,   // Mã SP field
-                ProductName = productNameTextBox.Text, // Tên SP field
-                CategoryName = null, // productCategoryComboBox
+                ProductId = productIdTextBox.Text,
+                ProductName = productNameTextBox.Text,
+                CategoryId = (int?)productCategoryComboBox.SelectedValue
             };
+
+            // Load categories
+            IEnumerable<Category> categories = await categoryService.GetAllCategoriesAsync();
+
+            // Bind to ComboBox
+            productCategoryComboBox.DisplayMember = "Name";
+            productCategoryComboBox.ValueMember = "Id";
+            productCategoryComboBox.DataSource = categories.ToList();
+            productCategoryComboBox.SelectedIndex = -1; // Set to no selection
+
+            // Ensure the selected value is maintained after reloading
+            if (filter.CategoryId.HasValue)
+            {
+                productCategoryComboBox.SelectedValue = filter.CategoryId.Value;
+            }
 
             // Load products data based on the filter
             IEnumerable<Product> products = await productService.GetAllProductsAsync(filter);
@@ -49,6 +68,7 @@ namespace rice_store.forms
             foreach (var product in products)
             {
                 productDataGridView.Rows.Add(
+                    product.Id,
                     product.Name,
                     product.Weight,
                     product.Origin,
@@ -62,6 +82,74 @@ namespace rice_store.forms
         private void searchButton_Click(object sender, EventArgs e)
         {
             ProductManagementForm_Load(sender, e); // Call the form load method to apply the filter
+        }
+
+        private void editProductButton_Click(object sender, EventArgs e)
+        {
+            // Get the selected row index
+            int selectedRowIndex = productDataGridView.CurrentCell.RowIndex;
+
+            // Check if a row is selected
+            if (selectedRowIndex >= 0)
+            {
+                // Get the product ID from the selected row (assuming it's in the first column)
+                int productId = (int)productDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+
+                // Open the ProductInformationForm with the selected product ID
+                productInformationFrom = new ProductInformationForm(productId, this);
+                productInformationFrom.MdiParent = this.MdiParent;
+                productInformationFrom.Dock = DockStyle.Fill;
+                productInformationFrom.Show(); ;
+            }
+            else
+            {
+                MessageBox.Show("Hãy chọn một sản phẩm để chỉnh sửa.");
+            }
+        }
+
+        private void addProductButton_Click(object sender, EventArgs e)
+        {
+            // Open the ProductInformationForm for adding a new product
+            productInformationFrom = new ProductInformationForm(null, this);
+            productInformationFrom.MdiParent = this.MdiParent;
+            productInformationFrom.Dock = DockStyle.Fill;
+            productInformationFrom.Show();
+        }
+
+        private void deleteProductButton_Click(object sender, EventArgs e)
+        {
+            // Get the selected row index
+            int selectedRowIndex = productDataGridView.CurrentCell.RowIndex;
+
+            // Check if a row is selected
+            if (selectedRowIndex >= 0)
+            {
+                // Get the product ID from the selected row (assuming it's in the first column)
+                int productId = (int)productDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+
+                // Confirm deletion
+                var result = MessageBox.Show("Bạn có chắc là muốn xóa sản phẩm này không?", "Xác nhận xóa", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        // Call the DeleteProductAsync method
+                        productService.DeleteProductAsync(productId);
+                        MessageBox.Show("Xóa sản phẩm thành công.");
+
+                        // Reload the products data
+                        ProductManagementForm_Load(sender, e); // Reload the products list
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error: {ex.Message}");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Hãy chọn một sản phẩm để xóa.");
+            }
         }
     }
 }
