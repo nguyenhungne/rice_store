@@ -18,7 +18,7 @@ namespace rice_store.forms
         PaymentManagementForm? paymentManagementForm;
         ShortTermRentalManagementForm? shortTermRentalManagementForm;
         SendNotificationForm? sendNotificationForm;
-        UtilityBillManagementForm? utilityBillManagementForm;
+        CustomerManagementForm? utilityBillManagementForm;
         SystemSettingForm? systemSettingForm;
         public MainForm()
         {
@@ -171,7 +171,7 @@ namespace rice_store.forms
         {
             if (utilityBillManagementForm == null)
             {
-                utilityBillManagementForm = new UtilityBillManagementForm();
+                utilityBillManagementForm = new CustomerManagementForm();
                 utilityBillManagementForm.FormClosed += onUtilityBillManagementFormClosed;
                 utilityBillManagementForm.MdiParent = this;
                 utilityBillManagementForm.Dock = DockStyle.Fill;

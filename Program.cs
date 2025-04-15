@@ -31,7 +31,7 @@ namespace rice_store
                 .AddScoped<ContractManagementForm>()
                 .AddScoped<PaymentManagementForm>()
                 .AddScoped<ShortTermRentalManagementForm>()
-                .AddScoped<UtilityBillManagementForm>()
+                .AddScoped<CustomerManagementForm>()
                 .AddScoped<SendNotificationForm>()
                 .AddScoped<SystemSettingForm>()
                 .AddScoped<MainForm>()
