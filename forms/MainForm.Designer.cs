@@ -207,7 +207,6 @@
             shortTermRentalManagementButton.Text = "               Quản Lí Thuê Ngắn Hạn";
             shortTermRentalManagementButton.TextAlign = ContentAlignment.MiddleLeft;
             shortTermRentalManagementButton.UseVisualStyleBackColor = false;
-            shortTermRentalManagementButton.Click += shortTermRentalManagementButton_Click;
             // 
             // utilityBillManagementPanel
             // 
@@ -257,7 +256,7 @@
             sendNotificationButton.Text = "               Gửi Thông Báo";
             sendNotificationButton.TextAlign = ContentAlignment.MiddleLeft;
             sendNotificationButton.UseVisualStyleBackColor = false;
-            sendNotificationButton.Click += sendNotificationButton_Click;
+            sendNotificationButton.Click += sendNotificationButton_Click_1;
             // 
             // systemSettingPanel
             // 

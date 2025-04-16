@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace rice_store.forms
 {
-    public partial class ShortTermRentalManagementForm: Form
+    public partial class InventoryManagementForm1: Form
     {
-        public ShortTermRentalManagementForm()
+        public InventoryManagementForm1()
         {
             InitializeComponent();
         }
