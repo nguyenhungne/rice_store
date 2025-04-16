@@ -17,6 +17,9 @@ namespace rice_store
         [STAThread]
         static void Main()
         {
+            
+            Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
+
             var config = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
@@ -32,8 +35,10 @@ namespace rice_store
                 .AddScoped<PaymentManagementForm>()
                 .AddScoped<ShortTermRentalManagementForm>()
                 .AddScoped<CustomerManagementForm>()
+                .AddScoped<UtilityBillManagementForm>()
                 .AddScoped<SendNotificationForm>()
                 .AddScoped<SystemSettingForm>()
+                .AddScoped<InventoryManagementForm>()
                 .AddScoped<MainForm>()
                 .AddScoped<LoginForm>()
                 .BuildServiceProvider();
