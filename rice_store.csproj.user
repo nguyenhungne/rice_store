@@ -4,6 +4,15 @@
     <Compile Update="forms\ContractManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="forms\HistoryImportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\ImportProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\InventoryManagementForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="forms\ProductInformationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -22,7 +31,7 @@
     <Compile Update="forms\SendNotificationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="forms\ShortTermRentalManagementForm.cs">
+    <Compile Update="forms\InventoryManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="forms\SystemSettingForm.cs">
