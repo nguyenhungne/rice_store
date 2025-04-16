@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,10 +16,11 @@ namespace rice_store.forms
         ProductManagementForm? dashboardForm;
         ContractManagementForm? contractManagementForm;
         PaymentManagementForm? paymentManagementForm;
-        ShortTermRentalManagementForm? shortTermRentalManagementForm;
+        //ShortTermRentalManagementForm? shortTermRentalManagementForm;
         SendNotificationForm? sendNotificationForm;
         CustomerManagementForm? utilityBillManagementForm;
         SystemSettingForm? systemSettingForm;
+        InventoryManagementForm? inventoryManagementForm;
         public MainForm()
         {
             InitializeComponent();
@@ -146,40 +147,40 @@ namespace rice_store.forms
             paymentManagementForm = null!;
         }
 
-        private void shortTermRentalManagementButton_Click(object sender, EventArgs e)
-        {
-            if (shortTermRentalManagementForm == null)
-            {
-                shortTermRentalManagementForm = new ShortTermRentalManagementForm();
-                shortTermRentalManagementForm.FormClosed += onShortTermRentalManagementFormClosed;
-                shortTermRentalManagementForm.MdiParent = this;
-                shortTermRentalManagementForm.Dock = DockStyle.Fill;
-                shortTermRentalManagementForm.Show();
-            }
-            else
-            {
-                shortTermRentalManagementForm.Activate();
-            }
-        }
+        //private void shortTermRentalManagementButton_Click(object sender, EventArgs e)
+        //{
+        //    if (shortTermRentalManagementForm == null)
+        //    {
+        //        shortTermRentalManagementForm = new ShortTermRentalManagementForm();
+        //        shortTermRentalManagementForm.FormClosed += onShortTermRentalManagementFormClosed;
+        //        shortTermRentalManagementForm.MdiParent = this;
+        //        shortTermRentalManagementForm.Dock = DockStyle.Fill;
+        //        shortTermRentalManagementForm.Show();
+        //    }
+        //    else
+        //    {
+        //        shortTermRentalManagementForm.Activate();
+        //    }
+        //}
 
-        private void onShortTermRentalManagementFormClosed(object? sender, FormClosedEventArgs e)
-        {
-            shortTermRentalManagementForm = null!;
-        }
+        //private void onShortTermRentalManagementFormClosed(object? sender, FormClosedEventArgs e)
+        //{
+        //    shortTermRentalManagementForm = null!;
+        //}
 
         private void utilityBillManagementButton_Click(object sender, EventArgs e)
         {
-            if (utilityBillManagementForm == null)
+            if (inventoryManagementForm == null)
             {
-                utilityBillManagementForm = new CustomerManagementForm();
-                utilityBillManagementForm.FormClosed += onUtilityBillManagementFormClosed;
-                utilityBillManagementForm.MdiParent = this;
-                utilityBillManagementForm.Dock = DockStyle.Fill;
-                utilityBillManagementForm.Show();
+                inventoryManagementForm = new InventoryManagementForm();
+                inventoryManagementForm.FormClosed += onUtilityBillManagementFormClosed;
+                inventoryManagementForm.MdiParent = this;
+                inventoryManagementForm.Dock = DockStyle.Fill;
+                inventoryManagementForm.Show();
             }
             else
             {
-                utilityBillManagementForm.Activate();
+                inventoryManagementForm.Activate();
             }
         }
 
@@ -231,6 +232,11 @@ namespace rice_store.forms
         }
 
         private void nightControlBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sendNotificationButton_Click_1(object sender, EventArgs e)
         {
 
         }
