@@ -13,20 +13,14 @@ public class InventoryRepository : IInventoryRepository
     {
         var query = _context.Inventory.AsQueryable();
 
-        // Apply filter for Product Name if provided
-        if (!string.IsNullOrEmpty(filter.productName))
+        // Apply filter for Inventory Name if provided
+        if (!string.IsNullOrEmpty(filter.inventoryName))
         {
-            query = query.Where(i => i.Product.Name.Contains(filter.productName));
+            // Using EF.Functions.Like to perform case-insensitive search
+            query = query.Where(i => EF.Functions.Like(i.name, $"%{filter.inventoryName}%"));
         }
 
-        // Apply filter for Quantity if provided
-        if (filter.stockQuantity.HasValue)
-        {
-            query = query.Where(i => i.Quantity == filter.stockQuantity.Value);
-        }
-
-        // Include the related Category data
-        return await query.Include(i => i.Product).ToListAsync();
+        return await query.ToListAsync();
     }
     public async Task<Inventory> GetInventoryByIdAsync(int id)
     {

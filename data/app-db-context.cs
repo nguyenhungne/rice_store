@@ -15,6 +15,7 @@ namespace rice_store.data
         public DbSet<Customer> Customer { get; set; }
         public DbSet<FinancialTransaction> FinancialTransaction { get; set; }
         public DbSet<Inventory> Inventory { get; set; }
+        public DbSet<Warehouse> Warehouse { get; set; }
         public DbSet<Product> Product { get; set; }
         public DbSet<PurchaseOrder> PurchaseOrder { get; set; }
         public DbSet<PurchaseOrderDetail> PurchaseOrderDetail { get; set; }

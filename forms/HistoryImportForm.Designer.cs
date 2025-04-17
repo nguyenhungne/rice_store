@@ -38,10 +38,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoryImportForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -56,18 +52,17 @@
             guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
             panel2 = new Panel();
             backToInventoryButton = new Guna.UI2.WinForms.Guna2ImageButton();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            label1 = new Label();
-            guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            titleLabel = new Label();
+            purchaseOrderDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             purchaseID = new DataGridViewTextBoxColumn();
             suplier = new DataGridViewTextBoxColumn();
             date = new DataGridViewTextBoxColumn();
-            detail = new DataGridViewButtonColumn();
+            quantity = new DataGridViewTextBoxColumn();
+            price = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)purchaseOrderDataGridView).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -75,7 +70,7 @@
             panel1.Anchor = AnchorStyles.None;
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
-            panel1.Controls.Add(guna2DataGridView1);
+            panel1.Controls.Add(purchaseOrderDataGridView);
             panel1.Location = new Point(2, 2);
             panel1.Name = "panel1";
             panel1.Size = new Size(1150, 766);
@@ -199,9 +194,7 @@
             // panel2
             // 
             panel2.Controls.Add(backToInventoryButton);
-            panel2.Controls.Add(guna2Button1);
-            panel2.Controls.Add(guna2TextBox1);
-            panel2.Controls.Add(label1);
+            panel2.Controls.Add(titleLabel);
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
             panel2.Size = new Size(1144, 97);
@@ -223,63 +216,23 @@
             backToInventoryButton.TabIndex = 5;
             backToInventoryButton.Click += backToInventoryButton_Click;
             // 
-            // guna2Button1
+            // titleLabel
             // 
-            guna2Button1.BorderRadius = 17;
-            guna2Button1.CustomizableEdges = customizableEdges10;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = Color.FromArgb(255, 192, 128);
-            guna2Button1.Font = new Font("Segoe UI", 9F);
-            guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(1041, 49);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges11;
-            guna2Button1.Size = new Size(100, 35);
-            guna2Button1.TabIndex = 4;
-            guna2Button1.Text = "Tìm kiếm";
+            titleLabel.AutoSize = true;
+            titleLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            titleLabel.Location = new Point(97, 18);
+            titleLabel.Name = "titleLabel";
+            titleLabel.Size = new Size(301, 41);
+            titleLabel.TabIndex = 1;
+            titleLabel.Text = "LỊCH SỬ NHẬP KHO";
+            titleLabel.Click += label1_Click;
             // 
-            // guna2TextBox1
-            // 
-            guna2TextBox1.BorderRadius = 17;
-            guna2TextBox1.CustomizableEdges = customizableEdges12;
-            guna2TextBox1.DefaultText = "";
-            guna2TextBox1.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            guna2TextBox1.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            guna2TextBox1.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            guna2TextBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Font = new Font("Segoe UI", 9F);
-            guna2TextBox1.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2TextBox1.Location = new Point(739, 49);
-            guna2TextBox1.Margin = new Padding(3, 4, 3, 4);
-            guna2TextBox1.Name = "guna2TextBox1";
-            guna2TextBox1.PlaceholderText = "";
-            guna2TextBox1.SelectedText = "";
-            guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges13;
-            guna2TextBox1.Size = new Size(286, 35);
-            guna2TextBox1.TabIndex = 0;
-            guna2TextBox1.TextChanged += guna2TextBox1_TextChanged;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(97, 18);
-            label1.Name = "label1";
-            label1.Size = new Size(301, 41);
-            label1.TabIndex = 1;
-            label1.Text = "LỊCH SỬ NHẬP KHO";
-            label1.Click += label1_Click;
-            // 
-            // guna2DataGridView1
+            // purchaseOrderDataGridView
             // 
             dataGridViewCellStyle1.BackColor = Color.White;
-            guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            guna2DataGridView1.BorderStyle = BorderStyle.Fixed3D;
-            guna2DataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            purchaseOrderDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            purchaseOrderDataGridView.BorderStyle = BorderStyle.Fixed3D;
+            purchaseOrderDataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 192, 128);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
@@ -287,10 +240,10 @@
             dataGridViewCellStyle2.SelectionBackColor = Color.Peru;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            guna2DataGridView1.ColumnHeadersHeight = 24;
-            guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { purchaseID, suplier, date, detail });
+            purchaseOrderDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            purchaseOrderDataGridView.ColumnHeadersHeight = 24;
+            purchaseOrderDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            purchaseOrderDataGridView.Columns.AddRange(new DataGridViewColumn[] { purchaseID, suplier, date, quantity, price });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -298,36 +251,36 @@
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(0, 254);
-            guna2DataGridView1.Name = "guna2DataGridView1";
-            guna2DataGridView1.RowHeadersVisible = false;
-            guna2DataGridView1.RowHeadersWidth = 51;
-            guna2DataGridView1.Size = new Size(1147, 512);
-            guna2DataGridView1.TabIndex = 0;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.Single;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 24;
-            guna2DataGridView1.ThemeStyle.ReadOnly = false;
-            guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            guna2DataGridView1.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
-            guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            guna2DataGridView1.ThemeStyle.RowsStyle.Height = 29;
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            guna2DataGridView1.CellContentClick += guna2DataGridView1_CellContentClick;
+            purchaseOrderDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            purchaseOrderDataGridView.GridColor = Color.FromArgb(231, 229, 255);
+            purchaseOrderDataGridView.Location = new Point(0, 254);
+            purchaseOrderDataGridView.Name = "purchaseOrderDataGridView";
+            purchaseOrderDataGridView.RowHeadersVisible = false;
+            purchaseOrderDataGridView.RowHeadersWidth = 51;
+            purchaseOrderDataGridView.Size = new Size(1147, 512);
+            purchaseOrderDataGridView.TabIndex = 0;
+            purchaseOrderDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            purchaseOrderDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+            purchaseOrderDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            purchaseOrderDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            purchaseOrderDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            purchaseOrderDataGridView.ThemeStyle.BackColor = Color.White;
+            purchaseOrderDataGridView.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            purchaseOrderDataGridView.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            purchaseOrderDataGridView.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.Single;
+            purchaseOrderDataGridView.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            purchaseOrderDataGridView.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            purchaseOrderDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            purchaseOrderDataGridView.ThemeStyle.HeaderStyle.Height = 24;
+            purchaseOrderDataGridView.ThemeStyle.ReadOnly = false;
+            purchaseOrderDataGridView.ThemeStyle.RowsStyle.BackColor = Color.White;
+            purchaseOrderDataGridView.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            purchaseOrderDataGridView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            purchaseOrderDataGridView.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            purchaseOrderDataGridView.ThemeStyle.RowsStyle.Height = 29;
+            purchaseOrderDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            purchaseOrderDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            purchaseOrderDataGridView.CellContentClick += guna2DataGridView1_CellContentClick;
             // 
             // purchaseID
             // 
@@ -347,11 +300,19 @@
             date.MinimumWidth = 6;
             date.Name = "date";
             // 
-            // detail
+            // quantity
             // 
-            detail.HeaderText = "Chi tiết ";
-            detail.MinimumWidth = 6;
-            detail.Name = "detail";
+            quantity.HeaderText = "Số lượng";
+            quantity.MinimumWidth = 6;
+            quantity.Name = "quantity";
+            // 
+            // price
+            // 
+            price.HeaderText = "Giá nhập";
+            price.MinimumWidth = 6;
+            price.Name = "price";
+            price.Resizable = DataGridViewTriState.True;
+            price.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // HistoryImportForm
             // 
@@ -363,28 +324,23 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "HistoryImportForm";
             Text = "HistoryImportForm";
+            Load += HistoryImportForm_Load;
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)purchaseOrderDataGridView).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private Panel panel1;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private Guna.UI2.WinForms.Guna2DataGridView purchaseOrderDataGridView;
         private Panel panel2;
-        private Label label1;
+        private Label titleLabel;
         private Panel panel3;
-        private DataGridViewTextBoxColumn purchaseID;
-        private DataGridViewTextBoxColumn suplier;
-        private DataGridViewTextBoxColumn date;
-        private DataGridViewButtonColumn detail;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox2;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Label label4;
@@ -393,5 +349,10 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox4;
         private Guna.UI2.WinForms.Guna2ImageButton backToInventoryButton;
+        private DataGridViewTextBoxColumn purchaseID;
+        private DataGridViewTextBoxColumn suplier;
+        private DataGridViewTextBoxColumn date;
+        private DataGridViewTextBoxColumn quantity;
+        private DataGridViewTextBoxColumn price;
     }
 }

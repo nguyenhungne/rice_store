@@ -17,7 +17,7 @@ namespace rice_store
         [STAThread]
         static void Main()
         {
-            
+
             Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
 
             var config = new ConfigurationBuilder()
@@ -33,11 +33,10 @@ namespace rice_store
                 .AddScoped<ProductInformationForm>()
                 .AddScoped<ContractManagementForm>()
                 .AddScoped<PaymentManagementForm>()
-                .AddScoped<ShortTermRentalManagementForm>()
                 .AddScoped<CustomerManagementForm>()
-                .AddScoped<UtilityBillManagementForm>()
                 .AddScoped<SendNotificationForm>()
                 .AddScoped<SystemSettingForm>()
+                .AddScoped<InventoryListForm>()
                 .AddScoped<InventoryManagementForm>()
                 .AddScoped<MainForm>()
                 .AddScoped<LoginForm>()

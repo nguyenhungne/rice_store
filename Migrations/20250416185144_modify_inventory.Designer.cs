@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using rice_store.data;
 
@@ -11,9 +12,11 @@ using rice_store.data;
 namespace rice_store.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250416185144_modify_inventory")]
+    partial class modify_inventory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -132,9 +135,8 @@ namespace rice_store.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
+                    b.Property<int>("name")
+                        .HasColumnType("int")
                         .HasColumnName("name");
 
                     b.HasKey("Id");
@@ -356,6 +358,10 @@ namespace rice_store.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int")
+                        .HasColumnName("product_id");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("int")
                         .HasColumnName("quantity");
@@ -368,15 +374,11 @@ namespace rice_store.Migrations
                         .HasColumnType("decimal(18,2)")
                         .HasColumnName("unit_price");
 
-                    b.Property<int>("WarehouseId")
-                        .HasColumnType("int")
-                        .HasColumnName("warehouse_id");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("SalesOrderId");
+                    b.HasIndex("ProductId");
 
-                    b.HasIndex("WarehouseId");
+                    b.HasIndex("SalesOrderId");
 
                     b.ToTable("sales_order_details");
                 });
@@ -495,10 +497,6 @@ namespace rice_store.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("InventoryId");
-
-                    b.HasIndex("ProductId");
-
                     b.ToTable("warehouses");
                 });
 
@@ -550,7 +548,7 @@ namespace rice_store.Migrations
                         .IsRequired();
 
                     b.HasOne("rice_store.models.Warehouse", "Warehouse")
-                        .WithMany("PurchaseOrderDetails")
+                        .WithMany()
                         .HasForeignKey("WarehouseId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -584,45 +582,21 @@ namespace rice_store.Migrations
 
             modelBuilder.Entity("rice_store.models.SalesOrderDetail", b =>
                 {
-                    b.HasOne("rice_store.models.SalesOrder", "SalesOrder")
-                        .WithMany()
-                        .HasForeignKey("SalesOrderId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("rice_store.models.Warehouse", "Warehouse")
-                        .WithMany()
-                        .HasForeignKey("WarehouseId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("SalesOrder");
-
-                    b.Navigation("Warehouse");
-                });
-
-            modelBuilder.Entity("rice_store.models.Warehouse", b =>
-                {
-                    b.HasOne("rice_store.models.Inventory", "Inventory")
-                        .WithMany()
-                        .HasForeignKey("InventoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("rice_store.models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Inventory");
+                    b.HasOne("rice_store.models.SalesOrder", "SalesOrder")
+                        .WithMany()
+                        .HasForeignKey("SalesOrderId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("Product");
-                });
 
-            modelBuilder.Entity("rice_store.models.Warehouse", b =>
-                {
-                    b.Navigation("PurchaseOrderDetails");
+                    b.Navigation("SalesOrder");
                 });
 #pragma warning restore 612, 618
         }

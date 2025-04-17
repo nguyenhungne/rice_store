@@ -14,9 +14,9 @@ namespace rice_store.models
         [Column("sales_order_id")]
         public int SalesOrderId { get; set; }
 
-        [ForeignKey("Product")]
-        [Column("product_id")]
-        public int ProductId { get; set; }
+        [ForeignKey("Warehouse")]
+        [Column("warehouse_id")]
+        public int WarehouseId { get; set; }
 
         [Column("quantity")]
         public int Quantity { get; set; }
@@ -25,6 +25,6 @@ namespace rice_store.models
         public decimal UnitPrice { get; set; }
 
         public SalesOrder SalesOrder { get; set; }
-        public Product Product { get; set; }
+        public Warehouse Warehouse { get; set; }
     }
 }

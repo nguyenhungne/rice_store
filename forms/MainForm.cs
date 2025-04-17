@@ -16,11 +16,10 @@ namespace rice_store.forms
         ProductManagementForm? dashboardForm;
         ContractManagementForm? contractManagementForm;
         PaymentManagementForm? paymentManagementForm;
-        //ShortTermRentalManagementForm? shortTermRentalManagementForm;
         SendNotificationForm? sendNotificationForm;
-        CustomerManagementForm? utilityBillManagementForm;
+        CustomerManagementForm? customerManagementForm;
         SystemSettingForm? systemSettingForm;
-        InventoryManagementForm? inventoryManagementForm;
+        InventoryListForm? inventoryListForm;
         public MainForm()
         {
             InitializeComponent();
@@ -128,65 +127,44 @@ namespace rice_store.forms
 
         private void paymentManagementButton_Click(object sender, EventArgs e)
         {
-            if (paymentManagementForm == null)
+            if (customerManagementForm == null)
             {
-                paymentManagementForm = new PaymentManagementForm();
-                paymentManagementForm.FormClosed += onPaymentManagementFormClosed;
-                paymentManagementForm.MdiParent = this;
-                paymentManagementForm.Dock = DockStyle.Fill;
-                paymentManagementForm.Show();
+                customerManagementForm = new CustomerManagementForm();
+                customerManagementForm.FormClosed += onPaymentManagementFormClosed;
+                customerManagementForm.MdiParent = this;
+                customerManagementForm.Dock = DockStyle.Fill;
+                customerManagementForm.Show();
             }
             else
             {
-                paymentManagementForm.Activate();
+                customerManagementForm.Activate();
             }
         }
 
         private void onPaymentManagementFormClosed(object? sender, FormClosedEventArgs e)
         {
-            paymentManagementForm = null!;
+            customerManagementForm = null!;
         }
-
-        //private void shortTermRentalManagementButton_Click(object sender, EventArgs e)
-        //{
-        //    if (shortTermRentalManagementForm == null)
-        //    {
-        //        shortTermRentalManagementForm = new ShortTermRentalManagementForm();
-        //        shortTermRentalManagementForm.FormClosed += onShortTermRentalManagementFormClosed;
-        //        shortTermRentalManagementForm.MdiParent = this;
-        //        shortTermRentalManagementForm.Dock = DockStyle.Fill;
-        //        shortTermRentalManagementForm.Show();
-        //    }
-        //    else
-        //    {
-        //        shortTermRentalManagementForm.Activate();
-        //    }
-        //}
-
-        //private void onShortTermRentalManagementFormClosed(object? sender, FormClosedEventArgs e)
-        //{
-        //    shortTermRentalManagementForm = null!;
-        //}
 
         private void utilityBillManagementButton_Click(object sender, EventArgs e)
         {
-            if (inventoryManagementForm == null)
+            if (inventoryListForm == null)
             {
-                inventoryManagementForm = new InventoryManagementForm();
-                inventoryManagementForm.FormClosed += onUtilityBillManagementFormClosed;
-                inventoryManagementForm.MdiParent = this;
-                inventoryManagementForm.Dock = DockStyle.Fill;
-                inventoryManagementForm.Show();
+                inventoryListForm = new InventoryListForm();
+                inventoryListForm.FormClosed += onUtilityBillManagementFormClosed;
+                inventoryListForm.MdiParent = this;
+                inventoryListForm.Dock = DockStyle.Fill;
+                inventoryListForm.Show();
             }
             else
             {
-                inventoryManagementForm.Activate();
+                inventoryListForm.Activate();
             }
         }
 
         private void onUtilityBillManagementFormClosed(object? sender, FormClosedEventArgs e)
         {
-            utilityBillManagementForm = null!;
+            inventoryListForm = null!;
         }
 
         private void sendNotificationButton_Click(object sender, EventArgs e)

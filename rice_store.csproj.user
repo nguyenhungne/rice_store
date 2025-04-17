@@ -13,6 +13,9 @@
     <Compile Update="forms\ImportProductForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="forms\InventoryListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="forms\InventoryManagementForm1.cs">
       <SubType>Form</SubType>
     </Compile>
