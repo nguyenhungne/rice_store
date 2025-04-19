@@ -8,5 +8,6 @@ public interface IWarehouseRepository
     Task<Warehouse> GetWarehouseByIdAsync(int id);
     Task<Warehouse> AddWarehouseAsync(Warehouse warehouse);
     Task<Warehouse> UpdateWarehouseAsync(Warehouse warehouse);
+    Task<Warehouse?> GetWarehouseByProductAndInventoryIdAsync(int productId, int inventoryId);
     Task DeleteWarehouseAsync(int id);
 }

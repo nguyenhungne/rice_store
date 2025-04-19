@@ -47,7 +47,7 @@ namespace rice_store.forms
 
             inventoryService = Program.ServiceProvider.GetRequiredService<InventoryService>();
             warehouseService = Program.ServiceProvider.GetRequiredService<WarehouseService>();
-            importProductForm = new ImportProductForm(this);
+            importProductForm = new ImportProductForm(this, 0, "");
             historyImportForm = new HistoryImportForm(this, 0, "");
         }
 
@@ -55,8 +55,8 @@ namespace rice_store.forms
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -65,10 +65,10 @@ namespace rice_store.forms
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -77,8 +77,6 @@ namespace rice_store.forms
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
             panel1 = new Panel();
@@ -87,6 +85,12 @@ namespace rice_store.forms
             guna2GradientPanel4 = new Guna.UI2.WinForms.Guna2GradientPanel();
             label3 = new Label();
             InventoryDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
+            warehouseId = new DataGridViewTextBoxColumn();
+            productName = new DataGridViewTextBoxColumn();
+            stockQuantity = new DataGridViewTextBoxColumn();
+            minQuantity = new DataGridViewTextBoxColumn();
+            status = new DataGridViewTextBoxColumn();
+            detail = new DataGridViewButtonColumn();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -95,15 +99,8 @@ namespace rice_store.forms
             label4 = new Label();
             filterButton = new Guna.UI2.WinForms.Guna2GradientButton();
             importButton = new Guna.UI2.WinForms.Guna2GradientButton();
-            historyImportButton = new Guna.UI2.WinForms.Guna2GradientButton();
             statusCombobox = new Guna.UI2.WinForms.Guna2ComboBox();
             guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            warehouseId = new DataGridViewTextBoxColumn();
-            productName = new DataGridViewTextBoxColumn();
-            stockQuantity = new DataGridViewTextBoxColumn();
-            minQuantity = new DataGridViewTextBoxColumn();
-            status = new DataGridViewTextBoxColumn();
-            detail = new DataGridViewButtonColumn();
             guna2GradientPanel2.SuspendLayout();
             panel1.SuspendLayout();
             ((ISupportInitialize)guna2PictureBox1).BeginInit();
@@ -131,10 +128,10 @@ namespace rice_store.forms
             guna2GradientPanel2.Controls.Add(panel1);
             guna2GradientPanel2.Controls.Add(guna2GradientPanel4);
             guna2GradientPanel2.Controls.Add(guna2GradientPanel3);
-            guna2GradientPanel2.CustomizableEdges = customizableEdges21;
+            guna2GradientPanel2.CustomizableEdges = customizableEdges19;
             guna2GradientPanel2.Location = new Point(0, 0);
             guna2GradientPanel2.Name = "guna2GradientPanel2";
-            guna2GradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            guna2GradientPanel2.ShadowDecoration.CustomizableEdges = customizableEdges20;
             guna2GradientPanel2.Size = new Size(1150, 766);
             guna2GradientPanel2.TabIndex = 1;
             guna2GradientPanel2.Paint += guna2GradientPanel2_Paint;
@@ -257,6 +254,43 @@ namespace rice_store.forms
             InventoryDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             InventoryDataGridView.CellContentClick += guna2DataGridView1_CellContentClick;
             //
+            // warehouseId
+            //
+            warehouseId.HeaderText = "Mã kho";
+            warehouseId.MinimumWidth = 6;
+            warehouseId.Name = "warehouseId";
+            warehouseId.Visible = false;
+            //
+            // productName
+            //
+            productName.HeaderText = "Tên sản phẩm";
+            productName.MinimumWidth = 6;
+            productName.Name = "productName";
+            //
+            // stockQuantity
+            //
+            stockQuantity.HeaderText = "Số lượng";
+            stockQuantity.MinimumWidth = 6;
+            stockQuantity.Name = "stockQuantity";
+            //
+            // minQuantity
+            //
+            minQuantity.HeaderText = "Tồn kho tối thiểu";
+            minQuantity.MinimumWidth = 6;
+            minQuantity.Name = "minQuantity";
+            //
+            // status
+            //
+            status.HeaderText = "Trạng thái";
+            status.MinimumWidth = 6;
+            status.Name = "status";
+            //
+            // detail
+            //
+            detail.HeaderText = "Chi tiết";
+            detail.MinimumWidth = 6;
+            detail.Name = "detail";
+            //
             // guna2HtmlLabel2
             //
             guna2HtmlLabel2.BackColor = Color.Transparent;
@@ -269,10 +303,10 @@ namespace rice_store.forms
             // guna2GradientPanel3
             //
             guna2GradientPanel3.Controls.Add(guna2Panel1);
-            guna2GradientPanel3.CustomizableEdges = customizableEdges19;
+            guna2GradientPanel3.CustomizableEdges = customizableEdges17;
             guna2GradientPanel3.Location = new Point(3, 151);
             guna2GradientPanel3.Name = "guna2GradientPanel3";
-            guna2GradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            guna2GradientPanel3.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2GradientPanel3.Size = new Size(352, 610);
             guna2GradientPanel3.TabIndex = 6;
             //
@@ -283,13 +317,12 @@ namespace rice_store.forms
             guna2Panel1.Controls.Add(label4);
             guna2Panel1.Controls.Add(filterButton);
             guna2Panel1.Controls.Add(importButton);
-            guna2Panel1.Controls.Add(historyImportButton);
             guna2Panel1.Controls.Add(statusCombobox);
             guna2Panel1.Controls.Add(guna2HtmlLabel6);
-            guna2Panel1.CustomizableEdges = customizableEdges17;
+            guna2Panel1.CustomizableEdges = customizableEdges15;
             guna2Panel1.Location = new Point(3, 45);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges16;
             guna2Panel1.Size = new Size(349, 567);
             guna2Panel1.TabIndex = 5;
             //
@@ -370,41 +403,19 @@ namespace rice_store.forms
             importButton.FillColor2 = Color.SandyBrown;
             importButton.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
             importButton.ForeColor = Color.White;
-            importButton.Location = new Point(0, 467);
+            importButton.Location = new Point(6, 269);
             importButton.Name = "importButton";
             importButton.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            importButton.Size = new Size(151, 44);
+            importButton.Size = new Size(332, 44);
             importButton.TabIndex = 13;
             importButton.Text = "Nhập hàng";
             importButton.Click += importButton_Click;
-            //
-            // historyImportButton
-            //
-            historyImportButton.BorderRadius = 15;
-            historyImportButton.Cursor = Cursors.Hand;
-            historyImportButton.CustomizableEdges = customizableEdges13;
-            historyImportButton.DisabledState.BorderColor = Color.DarkGray;
-            historyImportButton.DisabledState.CustomBorderColor = Color.DarkGray;
-            historyImportButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            historyImportButton.DisabledState.FillColor2 = Color.FromArgb(169, 169, 169);
-            historyImportButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            historyImportButton.FillColor = Color.SandyBrown;
-            historyImportButton.FillColor2 = Color.SandyBrown;
-            historyImportButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            historyImportButton.ForeColor = Color.White;
-            historyImportButton.Location = new Point(187, 467);
-            historyImportButton.Name = "historyImportButton";
-            historyImportButton.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            historyImportButton.Size = new Size(151, 44);
-            historyImportButton.TabIndex = 10;
-            historyImportButton.Text = "Lịch sử nhập hàng";
-            historyImportButton.Click += historyImportButton_Click;
             //
             // statusCombobox
             //
             statusCombobox.BackColor = Color.Transparent;
             statusCombobox.BorderRadius = 17;
-            statusCombobox.CustomizableEdges = customizableEdges15;
+            statusCombobox.CustomizableEdges = customizableEdges13;
             statusCombobox.DrawMode = DrawMode.OwnerDrawFixed;
             statusCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
             statusCombobox.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -414,7 +425,7 @@ namespace rice_store.forms
             statusCombobox.ItemHeight = 30;
             statusCombobox.Location = new Point(6, 152);
             statusCombobox.Name = "statusCombobox";
-            statusCombobox.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            statusCombobox.ShadowDecoration.CustomizableEdges = customizableEdges14;
             statusCombobox.Size = new Size(340, 36);
             statusCombobox.TabIndex = 4;
             //
@@ -427,43 +438,6 @@ namespace rice_store.forms
             guna2HtmlLabel6.Size = new Size(3, 2);
             guna2HtmlLabel6.TabIndex = 2;
             guna2HtmlLabel6.Text = null;
-            //
-            // warehouseId
-            //
-            warehouseId.HeaderText = "Mã kho";
-            warehouseId.MinimumWidth = 6;
-            warehouseId.Name = "warehouseId";
-            warehouseId.Visible = false;
-            //
-            // productName
-            //
-            productName.HeaderText = "Tên sản phẩm";
-            productName.MinimumWidth = 6;
-            productName.Name = "productName";
-            //
-            // stockQuantity
-            //
-            stockQuantity.HeaderText = "Số lượng";
-            stockQuantity.MinimumWidth = 6;
-            stockQuantity.Name = "stockQuantity";
-            //
-            // minQuantity
-            //
-            minQuantity.HeaderText = "Tồn kho tối thiểu";
-            minQuantity.MinimumWidth = 6;
-            minQuantity.Name = "minQuantity";
-            //
-            // status
-            //
-            status.HeaderText = "Trạng thái";
-            status.MinimumWidth = 6;
-            status.Name = "status";
-            //
-            // detail
-            //
-            detail.HeaderText = "Chi tiết";
-            detail.MinimumWidth = 6;
-            detail.Name = "detail";
             //
             // InventoryManagementForm
             //
@@ -489,10 +463,6 @@ namespace rice_store.forms
             guna2Panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
-
-
-
-
         }
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
@@ -504,7 +474,6 @@ namespace rice_store.forms
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2ComboBox statusCombobox;
-        private Guna.UI2.WinForms.Guna2GradientButton historyImportButton;
         private Guna.UI2.WinForms.Guna2GradientButton filterButton;
         private Guna.UI2.WinForms.Guna2GradientButton importButton;
         private Panel panel1;
@@ -536,7 +505,7 @@ namespace rice_store.forms
                 historyImportForm.MdiParent = this.MdiParent;
                 historyImportForm.Dock = DockStyle.Fill;
                 historyImportForm.Show();
-                this.Hide();
+                this.Close();
             }
         }
 
@@ -545,20 +514,30 @@ namespace rice_store.forms
 
         }
 
-        private void historyImportButton_Click(object sender, EventArgs e)
-        {
-            // historyImportForm = new HistoryImportForm(this);
-            // historyImportForm.MdiParent = this.MdiParent;
-            // historyImportForm.Dock = DockStyle.Fill;
-            // historyImportForm.Show();
-        }
-
         private void importButton_Click(object sender, EventArgs e)
         {
-            importProductForm = new ImportProductForm(this);
-            importProductForm.MdiParent = this.MdiParent;
-            importProductForm.Dock = DockStyle.Fill;
-            importProductForm.Show();
+            if (InventoryDataGridView.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = InventoryDataGridView.SelectedRows[0];
+                string? warehouseId = selectedRow.Cells["warehouseId"].Value.ToString();
+                if (warehouseId == null)
+                {
+                    MessageBox.Show("Please select a valid inventory item.");
+                    return;
+                }
+
+                int warehouseIdInt = int.Parse(warehouseId);
+
+                ImportProductForm importProductForm = new ImportProductForm(this, warehouseIdInt, inventoryName);
+                importProductForm.MdiParent = this.MdiParent;
+                importProductForm.Dock = DockStyle.Fill;
+                importProductForm.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to import data.");
+            }
         }
 
         private async void InventoryManagementForm_Load(object sender, EventArgs e)
@@ -576,7 +555,7 @@ namespace rice_store.forms
             InventoryDataGridView.Rows.Clear();
             foreach (WarehouseDTO warehouse in warehouses)
             {
-            int quality = warehouse.totalInboundQuantity - warehouse.totalSalesQuantity;
+                int quality = warehouse.totalInboundQuantity - warehouse.totalSalesQuantity;
                 InventoryDataGridView.Rows.Add(warehouse.Id, warehouse.Product.Name, quality, warehouse.MinThreshold, WarehouseStatusUtil.GetWarehouseStatus(quality, warehouse.MinThreshold), "Chi tiết");
             }
         }

@@ -18,9 +18,6 @@ namespace rice_store.models
         [Column("order_date")]
         public DateTime OrderDate { get; set; }
 
-        [Column("total_amount")]
-        public decimal TotalAmount { get; set; }
-
         [Column("status")]
         public string Status { get; set; }
 

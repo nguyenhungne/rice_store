@@ -6,7 +6,7 @@ public interface IPurchaseOrderDetailRepository
 {
     Task<IEnumerable<PurchaseOrderDetail>> GetAllPurchaseOrderDetailsAsync();
     Task<PurchaseOrderDetail> GetPurchaseOrderDetailByIdAsync(int id);
-    Task<IEnumerable<PurchaseOrderDetail>> GetPurchaseOrderDetailByWarehouseIdAsync(int warehouseId);
+    Task<IEnumerable<PurchaseOrderDetail>> GetPurchaseOrderDetailByWarehouseIdAsync(int warehouseId, PurchaseOrderDetailFilter? filter = null);
     Task<PurchaseOrderDetail> AddPurchaseOrderDetailAsync(PurchaseOrderDetail detail);
     Task<PurchaseOrderDetail> UpdatePurchaseOrderDetailAsync(PurchaseOrderDetail detail);
     Task DeletePurchaseOrderDetailAsync(int id);

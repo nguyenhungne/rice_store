@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace rice_store.utils
 {
-    class MoneyFormatter
+    public static class MoneyFormatter
     {
         public static string FormatToVND(decimal amount)
         {

@@ -49,46 +49,47 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImportProductForm));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             panel5 = new Panel();
-            guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-            purchaseID = new DataGridViewTextBoxColumn();
-            categoryRice = new DataGridViewTextBoxColumn();
+            previewAddingProductsDataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
             riceName = new DataGridViewTextBoxColumn();
+            categoryRice = new DataGridViewTextBoxColumn();
+            supplierName = new DataGridViewTextBoxColumn();
             quantity = new DataGridViewTextBoxColumn();
             unitPrice = new DataGridViewTextBoxColumn();
-            amountOfEachProduct = new DataGridViewTextBoxColumn();
+            amount = new DataGridViewTextBoxColumn();
+            expirationDate = new DataGridViewTextBoxColumn();
             panel4 = new Panel();
-            guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            guna2NumericUpDown2 = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            saveButton = new Guna.UI2.WinForms.Guna2Button();
+            deleteProductButton = new Guna.UI2.WinForms.Guna2Button();
+            addProductButton = new Guna.UI2.WinForms.Guna2Button();
+            unitPriceInput = new Guna.UI2.WinForms.Guna2NumericUpDown();
             label8 = new Label();
-            guna2NumericUpDown1 = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            quantityInput = new Guna.UI2.WinForms.Guna2NumericUpDown();
             label4 = new Label();
-            label5 = new Label();
-            guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
-            label7 = new Label();
-            guna2ComboBox4 = new Guna.UI2.WinForms.Guna2ComboBox();
-            guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             label6 = new Label();
             label2 = new Label();
-            guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            supplierComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             panel3 = new Panel();
+            expirationDateTitle = new Label();
+            expirationDatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
+            minThresholdInput = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            minThresholdTitle = new Label();
+            label7 = new Label();
+            productComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             panel2 = new Panel();
             backToInventoryButton = new Guna.UI2.WinForms.Guna2ImageButton();
-            label1 = new Label();
+            titleLabel = new Label();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)previewAddingProductsDataGrid).BeginInit();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2NumericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)guna2NumericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)unitPriceInput).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)quantityInput).BeginInit();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)minThresholdInput).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -97,18 +98,13 @@
             panel1.Anchor = AnchorStyles.None;
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
-            panel1.Controls.Add(guna2NumericUpDown2);
+            panel1.Controls.Add(unitPriceInput);
             panel1.Controls.Add(label8);
-            panel1.Controls.Add(guna2NumericUpDown1);
+            panel1.Controls.Add(quantityInput);
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(guna2ComboBox2);
-            panel1.Controls.Add(label7);
-            panel1.Controls.Add(guna2ComboBox4);
-            panel1.Controls.Add(guna2Button1);
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(guna2ComboBox1);
+            panel1.Controls.Add(supplierComboBox);
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -119,16 +115,16 @@
             // 
             // panel5
             // 
-            panel5.Controls.Add(guna2DataGridView1);
+            panel5.Controls.Add(previewAddingProductsDataGrid);
             panel5.Location = new Point(3, 412);
             panel5.Name = "panel5";
             panel5.Size = new Size(1144, 354);
             panel5.TabIndex = 23;
             // 
-            // guna2DataGridView1
+            // previewAddingProductsDataGrid
             // 
             dataGridViewCellStyle1.BackColor = Color.White;
-            guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            previewAddingProductsDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 192, 128);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -136,10 +132,10 @@
             dataGridViewCellStyle2.SelectionBackColor = Color.Chocolate;
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            guna2DataGridView1.ColumnHeadersHeight = 30;
-            guna2DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.Columns.AddRange(new DataGridViewColumn[] { purchaseID, categoryRice, riceName, quantity, unitPrice, amountOfEachProduct });
+            previewAddingProductsDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            previewAddingProductsDataGrid.ColumnHeadersHeight = 30;
+            previewAddingProductsDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            previewAddingProductsDataGrid.Columns.AddRange(new DataGridViewColumn[] { riceName, categoryRice, supplierName, quantity, unitPrice, amount, expirationDate });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -147,41 +143,41 @@
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            guna2DataGridView1.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.Location = new Point(-3, 3);
-            guna2DataGridView1.Name = "guna2DataGridView1";
-            guna2DataGridView1.RowHeadersVisible = false;
-            guna2DataGridView1.RowHeadersWidth = 51;
-            guna2DataGridView1.Size = new Size(1150, 351);
-            guna2DataGridView1.TabIndex = 0;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
-            guna2DataGridView1.ThemeStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = Color.White;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 30;
-            guna2DataGridView1.ThemeStyle.ReadOnly = false;
-            guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = Color.White;
-            guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            guna2DataGridView1.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
-            guna2DataGridView1.ThemeStyle.RowsStyle.Height = 29;
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            previewAddingProductsDataGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            previewAddingProductsDataGrid.GridColor = Color.FromArgb(231, 229, 255);
+            previewAddingProductsDataGrid.Location = new Point(-3, 3);
+            previewAddingProductsDataGrid.Name = "previewAddingProductsDataGrid";
+            previewAddingProductsDataGrid.RowHeadersVisible = false;
+            previewAddingProductsDataGrid.RowHeadersWidth = 51;
+            previewAddingProductsDataGrid.Size = new Size(1150, 351);
+            previewAddingProductsDataGrid.TabIndex = 0;
+            previewAddingProductsDataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            previewAddingProductsDataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
+            previewAddingProductsDataGrid.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            previewAddingProductsDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            previewAddingProductsDataGrid.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            previewAddingProductsDataGrid.ThemeStyle.BackColor = Color.White;
+            previewAddingProductsDataGrid.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            previewAddingProductsDataGrid.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            previewAddingProductsDataGrid.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            previewAddingProductsDataGrid.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            previewAddingProductsDataGrid.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            previewAddingProductsDataGrid.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            previewAddingProductsDataGrid.ThemeStyle.HeaderStyle.Height = 30;
+            previewAddingProductsDataGrid.ThemeStyle.ReadOnly = false;
+            previewAddingProductsDataGrid.ThemeStyle.RowsStyle.BackColor = Color.White;
+            previewAddingProductsDataGrid.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            previewAddingProductsDataGrid.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            previewAddingProductsDataGrid.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            previewAddingProductsDataGrid.ThemeStyle.RowsStyle.Height = 29;
+            previewAddingProductsDataGrid.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            previewAddingProductsDataGrid.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
-            // purchaseID
+            // riceName
             // 
-            purchaseID.HeaderText = "Mã lô hàng";
-            purchaseID.MinimumWidth = 6;
-            purchaseID.Name = "purchaseID";
+            riceName.HeaderText = "Tên gạo";
+            riceName.MinimumWidth = 6;
+            riceName.Name = "riceName";
             // 
             // categoryRice
             // 
@@ -189,11 +185,11 @@
             categoryRice.MinimumWidth = 6;
             categoryRice.Name = "categoryRice";
             // 
-            // riceName
+            // supplierName
             // 
-            riceName.HeaderText = "Tên gạo";
-            riceName.MinimumWidth = 6;
-            riceName.Name = "riceName";
+            supplierName.HeaderText = "Nhà Cung Cấp";
+            supplierName.MinimumWidth = 6;
+            supplierName.Name = "supplierName";
             // 
             // quantity
             // 
@@ -207,112 +203,102 @@
             unitPrice.MinimumWidth = 6;
             unitPrice.Name = "unitPrice";
             // 
-            // amountOfEachProduct
+            // amount
             // 
-            amountOfEachProduct.HeaderText = "Thành tiền";
-            amountOfEachProduct.MinimumWidth = 6;
-            amountOfEachProduct.Name = "amountOfEachProduct";
+            amount.HeaderText = "Thành tiền";
+            amount.MinimumWidth = 6;
+            amount.Name = "amount";
+            // 
+            // expirationDate
+            // 
+            expirationDate.HeaderText = "Ngày hết hạn";
+            expirationDate.MinimumWidth = 6;
+            expirationDate.Name = "expirationDate";
             // 
             // panel4
             // 
-            panel4.Controls.Add(guna2Button5);
-            panel4.Controls.Add(guna2Button4);
-            panel4.Controls.Add(guna2Button3);
-            panel4.Controls.Add(guna2Button2);
+            panel4.Controls.Add(saveButton);
+            panel4.Controls.Add(deleteProductButton);
+            panel4.Controls.Add(addProductButton);
             panel4.Location = new Point(821, 115);
             panel4.Name = "panel4";
             panel4.Size = new Size(326, 294);
             panel4.TabIndex = 22;
             // 
-            // guna2Button5
+            // saveButton
             // 
-            guna2Button5.BorderRadius = 20;
-            guna2Button5.Cursor = Cursors.Hand;
-            guna2Button5.CustomizableEdges = customizableEdges1;
-            guna2Button5.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button5.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button5.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button5.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button5.FillColor = Color.FromArgb(255, 128, 0);
-            guna2Button5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2Button5.ForeColor = Color.White;
-            guna2Button5.Location = new Point(59, 216);
-            guna2Button5.Name = "guna2Button5";
-            guna2Button5.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            guna2Button5.Size = new Size(208, 41);
-            guna2Button5.TabIndex = 3;
-            guna2Button5.Text = "Lưu đơn nhập hàng";
+            saveButton.BorderRadius = 20;
+            saveButton.Cursor = Cursors.Hand;
+            saveButton.CustomizableEdges = customizableEdges1;
+            saveButton.DisabledState.BorderColor = Color.DarkGray;
+            saveButton.DisabledState.CustomBorderColor = Color.DarkGray;
+            saveButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            saveButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            saveButton.FillColor = Color.FromArgb(255, 128, 0);
+            saveButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            saveButton.ForeColor = Color.White;
+            saveButton.Location = new Point(59, 216);
+            saveButton.Name = "saveButton";
+            saveButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            saveButton.Size = new Size(208, 41);
+            saveButton.TabIndex = 3;
+            saveButton.Text = "Lưu đơn nhập hàng";
+            saveButton.Click += saveButton_Click;
             // 
-            // guna2Button4
+            // deleteProductButton
             // 
-            guna2Button4.BorderRadius = 20;
-            guna2Button4.Cursor = Cursors.Hand;
-            guna2Button4.CustomizableEdges = customizableEdges3;
-            guna2Button4.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button4.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button4.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button4.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button4.FillColor = Color.FromArgb(255, 192, 128);
-            guna2Button4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2Button4.ForeColor = Color.White;
-            guna2Button4.Location = new Point(59, 74);
-            guna2Button4.Name = "guna2Button4";
-            guna2Button4.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            guna2Button4.Size = new Size(208, 41);
-            guna2Button4.TabIndex = 2;
-            guna2Button4.Text = "Xóa";
+            deleteProductButton.BorderRadius = 20;
+            deleteProductButton.Cursor = Cursors.Hand;
+            deleteProductButton.CustomizableEdges = customizableEdges3;
+            deleteProductButton.DisabledState.BorderColor = Color.DarkGray;
+            deleteProductButton.DisabledState.CustomBorderColor = Color.DarkGray;
+            deleteProductButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            deleteProductButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            deleteProductButton.FillColor = Color.FromArgb(255, 192, 128);
+            deleteProductButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            deleteProductButton.ForeColor = Color.White;
+            deleteProductButton.Location = new Point(59, 74);
+            deleteProductButton.Name = "deleteProductButton";
+            deleteProductButton.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            deleteProductButton.Size = new Size(208, 41);
+            deleteProductButton.TabIndex = 2;
+            deleteProductButton.Text = "Xóa";
+            deleteProductButton.Click += deleteProductButton_Click;
             // 
-            // guna2Button3
+            // addProductButton
             // 
-            guna2Button3.BorderRadius = 20;
-            guna2Button3.Cursor = Cursors.Hand;
-            guna2Button3.CustomizableEdges = customizableEdges5;
-            guna2Button3.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button3.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button3.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button3.FillColor = Color.FromArgb(255, 192, 128);
-            guna2Button3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2Button3.ForeColor = Color.White;
-            guna2Button3.Location = new Point(59, 143);
-            guna2Button3.Name = "guna2Button3";
-            guna2Button3.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2Button3.Size = new Size(208, 41);
-            guna2Button3.TabIndex = 1;
-            guna2Button3.Text = "Chỉnh sửa";
+            addProductButton.BorderRadius = 20;
+            addProductButton.Cursor = Cursors.Hand;
+            addProductButton.CustomizableEdges = customizableEdges5;
+            addProductButton.DisabledState.BorderColor = Color.DarkGray;
+            addProductButton.DisabledState.CustomBorderColor = Color.DarkGray;
+            addProductButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            addProductButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            addProductButton.FillColor = Color.FromArgb(255, 192, 128);
+            addProductButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            addProductButton.ForeColor = Color.White;
+            addProductButton.Location = new Point(59, 11);
+            addProductButton.Name = "addProductButton";
+            addProductButton.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            addProductButton.Size = new Size(208, 41);
+            addProductButton.TabIndex = 0;
+            addProductButton.Text = "Thêm";
+            addProductButton.Click += addProductButton_Click;
             // 
-            // guna2Button2
+            // unitPriceInput
             // 
-            guna2Button2.BorderRadius = 20;
-            guna2Button2.Cursor = Cursors.Hand;
-            guna2Button2.CustomizableEdges = customizableEdges7;
-            guna2Button2.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button2.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button2.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button2.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button2.FillColor = Color.FromArgb(255, 192, 128);
-            guna2Button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            guna2Button2.ForeColor = Color.White;
-            guna2Button2.Location = new Point(59, 11);
-            guna2Button2.Name = "guna2Button2";
-            guna2Button2.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Button2.Size = new Size(208, 41);
-            guna2Button2.TabIndex = 0;
-            guna2Button2.Text = "Thêm";
-            // 
-            // guna2NumericUpDown2
-            // 
-            guna2NumericUpDown2.BackColor = Color.Transparent;
-            guna2NumericUpDown2.BorderRadius = 17;
-            guna2NumericUpDown2.CustomizableEdges = customizableEdges9;
-            guna2NumericUpDown2.Font = new Font("Segoe UI", 9F);
-            guna2NumericUpDown2.Location = new Point(605, 336);
-            guna2NumericUpDown2.Margin = new Padding(3, 4, 3, 4);
-            guna2NumericUpDown2.Name = "guna2NumericUpDown2";
-            guna2NumericUpDown2.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            guna2NumericUpDown2.Size = new Size(175, 36);
-            guna2NumericUpDown2.TabIndex = 20;
-            guna2NumericUpDown2.UpDownButtonFillColor = Color.FromArgb(255, 192, 128);
+            unitPriceInput.BackColor = Color.Transparent;
+            unitPriceInput.BorderRadius = 17;
+            unitPriceInput.CustomizableEdges = customizableEdges7;
+            unitPriceInput.Font = new Font("Segoe UI", 9F);
+            unitPriceInput.Location = new Point(605, 336);
+            unitPriceInput.Margin = new Padding(3, 4, 3, 4);
+            unitPriceInput.Maximum = new decimal(new int[] { -1593835520, 466537709, 54210, 0 });
+            unitPriceInput.Name = "unitPriceInput";
+            unitPriceInput.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            unitPriceInput.Size = new Size(175, 36);
+            unitPriceInput.TabIndex = 20;
+            unitPriceInput.UpDownButtonFillColor = Color.FromArgb(255, 192, 128);
             // 
             // label8
             // 
@@ -324,19 +310,20 @@
             label8.TabIndex = 19;
             label8.Text = "Giá mua:";
             // 
-            // guna2NumericUpDown1
+            // quantityInput
             // 
-            guna2NumericUpDown1.BackColor = Color.Transparent;
-            guna2NumericUpDown1.BorderRadius = 17;
-            guna2NumericUpDown1.CustomizableEdges = customizableEdges11;
-            guna2NumericUpDown1.Font = new Font("Segoe UI", 9F);
-            guna2NumericUpDown1.Location = new Point(202, 341);
-            guna2NumericUpDown1.Margin = new Padding(3, 4, 3, 4);
-            guna2NumericUpDown1.Name = "guna2NumericUpDown1";
-            guna2NumericUpDown1.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            guna2NumericUpDown1.Size = new Size(175, 36);
-            guna2NumericUpDown1.TabIndex = 18;
-            guna2NumericUpDown1.UpDownButtonFillColor = Color.FromArgb(255, 192, 128);
+            quantityInput.BackColor = Color.Transparent;
+            quantityInput.BorderRadius = 17;
+            quantityInput.CustomizableEdges = customizableEdges9;
+            quantityInput.Font = new Font("Segoe UI", 9F);
+            quantityInput.Location = new Point(202, 341);
+            quantityInput.Margin = new Padding(3, 4, 3, 4);
+            quantityInput.Maximum = new decimal(new int[] { -1593835520, 466537709, 54210, 0 });
+            quantityInput.Name = "quantityInput";
+            quantityInput.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            quantityInput.Size = new Size(175, 36);
+            quantityInput.TabIndex = 18;
+            quantityInput.UpDownButtonFillColor = Color.FromArgb(255, 192, 128);
             // 
             // label4
             // 
@@ -347,81 +334,6 @@
             label4.Size = new Size(111, 31);
             label4.TabIndex = 7;
             label4.Text = "Số lượng:";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(14, 258);
-            label5.Name = "label5";
-            label5.Size = new Size(106, 31);
-            label5.TabIndex = 8;
-            label5.Text = "Loại gạo:";
-            // 
-            // guna2ComboBox2
-            // 
-            guna2ComboBox2.BackColor = Color.Transparent;
-            guna2ComboBox2.BorderRadius = 17;
-            guna2ComboBox2.CustomizableEdges = customizableEdges13;
-            guna2ComboBox2.DrawMode = DrawMode.OwnerDrawFixed;
-            guna2ComboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            guna2ComboBox2.FocusedColor = Color.FromArgb(94, 148, 255);
-            guna2ComboBox2.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2ComboBox2.Font = new Font("Segoe UI", 10F);
-            guna2ComboBox2.ForeColor = Color.FromArgb(68, 88, 112);
-            guna2ComboBox2.ItemHeight = 30;
-            guna2ComboBox2.Location = new Point(202, 258);
-            guna2ComboBox2.Name = "guna2ComboBox2";
-            guna2ComboBox2.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            guna2ComboBox2.Size = new Size(175, 36);
-            guna2ComboBox2.TabIndex = 14;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(446, 258);
-            label7.Name = "label7";
-            label7.Size = new Size(99, 31);
-            label7.TabIndex = 16;
-            label7.Text = "Tên gạo:";
-            // 
-            // guna2ComboBox4
-            // 
-            guna2ComboBox4.BackColor = Color.Transparent;
-            guna2ComboBox4.BorderRadius = 17;
-            guna2ComboBox4.CustomizableEdges = customizableEdges15;
-            guna2ComboBox4.DrawMode = DrawMode.OwnerDrawFixed;
-            guna2ComboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
-            guna2ComboBox4.FocusedColor = Color.FromArgb(94, 148, 255);
-            guna2ComboBox4.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2ComboBox4.Font = new Font("Segoe UI", 10F);
-            guna2ComboBox4.ForeColor = Color.FromArgb(68, 88, 112);
-            guna2ComboBox4.ItemHeight = 30;
-            guna2ComboBox4.Location = new Point(605, 258);
-            guna2ComboBox4.Name = "guna2ComboBox4";
-            guna2ComboBox4.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            guna2ComboBox4.Size = new Size(175, 36);
-            guna2ComboBox4.TabIndex = 17;
-            // 
-            // guna2Button1
-            // 
-            guna2Button1.BorderRadius = 17;
-            guna2Button1.Cursor = Cursors.Hand;
-            guna2Button1.CustomizableEdges = customizableEdges17;
-            guna2Button1.DisabledState.BorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
-            guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = Color.FromArgb(255, 192, 128);
-            guna2Button1.Font = new Font("Segoe UI", 9F);
-            guna2Button1.ForeColor = Color.White;
-            guna2Button1.Location = new Point(605, 131);
-            guna2Button1.Name = "guna2Button1";
-            guna2Button1.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            guna2Button1.Size = new Size(175, 36);
-            guna2Button1.TabIndex = 12;
-            guna2Button1.Text = "Tiếp tục";
             // 
             // label6
             // 
@@ -443,35 +355,120 @@
             label2.TabIndex = 4;
             label2.Text = "Nhà cung cấp:";
             // 
-            // guna2ComboBox1
+            // supplierComboBox
             // 
-            guna2ComboBox1.BackColor = Color.Transparent;
-            guna2ComboBox1.BorderRadius = 17;
-            guna2ComboBox1.CustomizableEdges = customizableEdges19;
-            guna2ComboBox1.DrawMode = DrawMode.OwnerDrawFixed;
-            guna2ComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            guna2ComboBox1.FocusedColor = Color.FromArgb(94, 148, 255);
-            guna2ComboBox1.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            guna2ComboBox1.Font = new Font("Segoe UI", 10F);
-            guna2ComboBox1.ForeColor = Color.FromArgb(68, 88, 112);
-            guna2ComboBox1.ItemHeight = 30;
-            guna2ComboBox1.Location = new Point(202, 131);
-            guna2ComboBox1.Name = "guna2ComboBox1";
-            guna2ComboBox1.ShadowDecoration.CustomizableEdges = customizableEdges20;
-            guna2ComboBox1.Size = new Size(382, 36);
-            guna2ComboBox1.TabIndex = 6;
+            supplierComboBox.BackColor = Color.Transparent;
+            supplierComboBox.BorderRadius = 17;
+            supplierComboBox.CustomizableEdges = customizableEdges11;
+            supplierComboBox.DrawMode = DrawMode.OwnerDrawFixed;
+            supplierComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            supplierComboBox.FocusedColor = Color.FromArgb(94, 148, 255);
+            supplierComboBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            supplierComboBox.Font = new Font("Segoe UI", 10F);
+            supplierComboBox.ForeColor = Color.FromArgb(68, 88, 112);
+            supplierComboBox.ItemHeight = 30;
+            supplierComboBox.Location = new Point(202, 131);
+            supplierComboBox.Name = "supplierComboBox";
+            supplierComboBox.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            supplierComboBox.Size = new Size(382, 36);
+            supplierComboBox.TabIndex = 6;
             // 
             // panel3
             // 
+            panel3.Controls.Add(expirationDateTitle);
+            panel3.Controls.Add(expirationDatePicker);
+            panel3.Controls.Add(minThresholdInput);
+            panel3.Controls.Add(minThresholdTitle);
+            panel3.Controls.Add(label7);
+            panel3.Controls.Add(productComboBox);
             panel3.Location = new Point(3, 115);
             panel3.Name = "panel3";
             panel3.Size = new Size(794, 276);
             panel3.TabIndex = 21;
             // 
+            // expirationDateTitle
+            // 
+            expirationDateTitle.AutoSize = true;
+            expirationDateTitle.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            expirationDateTitle.Location = new Point(355, 79);
+            expirationDateTitle.Name = "expirationDateTitle";
+            expirationDateTitle.Size = new Size(156, 31);
+            expirationDateTitle.TabIndex = 26;
+            expirationDateTitle.Text = "Ngày hết hạn:";
+            // 
+            // expirationDatePicker
+            // 
+            expirationDatePicker.BorderRadius = 17;
+            expirationDatePicker.Checked = true;
+            expirationDatePicker.CustomizableEdges = customizableEdges13;
+            expirationDatePicker.Font = new Font("Segoe UI", 9F);
+            expirationDatePicker.Format = DateTimePickerFormat.Long;
+            expirationDatePicker.Location = new Point(517, 79);
+            expirationDatePicker.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            expirationDatePicker.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            expirationDatePicker.Name = "expirationDatePicker";
+            expirationDatePicker.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            expirationDatePicker.Size = new Size(260, 36);
+            expirationDatePicker.TabIndex = 25;
+            expirationDatePicker.Value = new DateTime(2025, 4, 15, 11, 29, 10, 38);
+            // 
+            // minThresholdInput
+            // 
+            minThresholdInput.BackColor = Color.Transparent;
+            minThresholdInput.BorderRadius = 17;
+            minThresholdInput.CustomizableEdges = customizableEdges15;
+            minThresholdInput.Font = new Font("Segoe UI", 9F);
+            minThresholdInput.Location = new Point(602, 158);
+            minThresholdInput.Margin = new Padding(3, 4, 3, 4);
+            minThresholdInput.Maximum = new decimal(new int[] { -1593835520, 466537709, 54210, 0 });
+            minThresholdInput.Name = "minThresholdInput";
+            minThresholdInput.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            minThresholdInput.Size = new Size(175, 36);
+            minThresholdInput.TabIndex = 24;
+            minThresholdInput.UpDownButtonFillColor = Color.FromArgb(255, 192, 128);
+            // 
+            // minThresholdTitle
+            // 
+            minThresholdTitle.AutoSize = true;
+            minThresholdTitle.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            minThresholdTitle.Location = new Point(443, 158);
+            minThresholdTitle.Name = "minThresholdTitle";
+            minThresholdTitle.Size = new Size(133, 31);
+            minThresholdTitle.TabIndex = 24;
+            minThresholdTitle.Text = "SL tối thiểu:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(11, 153);
+            label7.Name = "label7";
+            label7.Size = new Size(99, 31);
+            label7.TabIndex = 16;
+            label7.Text = "Tên gạo:";
+            // 
+            // productComboBox
+            // 
+            productComboBox.BackColor = Color.Transparent;
+            productComboBox.BorderRadius = 17;
+            productComboBox.CustomizableEdges = customizableEdges17;
+            productComboBox.DrawMode = DrawMode.OwnerDrawFixed;
+            productComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            productComboBox.FocusedColor = Color.FromArgb(94, 148, 255);
+            productComboBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            productComboBox.Font = new Font("Segoe UI", 10F);
+            productComboBox.ForeColor = Color.FromArgb(68, 88, 112);
+            productComboBox.ItemHeight = 30;
+            productComboBox.Location = new Point(199, 153);
+            productComboBox.Name = "productComboBox";
+            productComboBox.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            productComboBox.Size = new Size(175, 36);
+            productComboBox.TabIndex = 17;
+            // 
             // panel2
             // 
             panel2.Controls.Add(backToInventoryButton);
-            panel2.Controls.Add(label1);
+            panel2.Controls.Add(titleLabel);
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
             panel2.Size = new Size(1144, 97);
@@ -488,20 +485,20 @@
             backToInventoryButton.Location = new Point(8, 18);
             backToInventoryButton.Name = "backToInventoryButton";
             backToInventoryButton.PressedState.ImageSize = new Size(64, 64);
-            backToInventoryButton.ShadowDecoration.CustomizableEdges = customizableEdges21;
+            backToInventoryButton.ShadowDecoration.CustomizableEdges = customizableEdges19;
             backToInventoryButton.Size = new Size(80, 68);
             backToInventoryButton.TabIndex = 5;
             backToInventoryButton.Click += backToInventoryButton_Click;
             // 
-            // label1
+            // titleLabel
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(94, 31);
-            label1.Name = "label1";
-            label1.Size = new Size(201, 41);
-            label1.TabIndex = 1;
-            label1.Text = "NHẬP HÀNG";
+            titleLabel.AutoSize = true;
+            titleLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            titleLabel.Location = new Point(94, 31);
+            titleLabel.Name = "titleLabel";
+            titleLabel.Size = new Size(379, 41);
+            titleLabel.TabIndex = 1;
+            titleLabel.Text = "NHẬP HÀNG CHO KHO ...";
             // 
             // ImportProductForm
             // 
@@ -513,13 +510,17 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "ImportProductForm";
             Text = "ImportProductForm";
+            Load += ImportProductForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)guna2DataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)previewAddingProductsDataGrid).EndInit();
             panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)guna2NumericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)guna2NumericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)unitPriceInput).EndInit();
+            ((System.ComponentModel.ISupportInitialize)quantityInput).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)minThresholdInput).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -530,32 +531,36 @@
         private Panel panel1;
         private Panel panel2;
         private Guna.UI2.WinForms.Guna2ImageButton backToInventoryButton;
-        private Label label1;
-        private Label label5;
+        private Label titleLabel;
         private Label label4;
         private Label label2;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox2;
         private Label label6;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2NumericUpDown guna2NumericUpDown2;
+        private Guna.UI2.WinForms.Guna2ComboBox supplierComboBox;
+        private Guna.UI2.WinForms.Guna2NumericUpDown unitPriceInput;
         private Label label8;
-        private Guna.UI2.WinForms.Guna2NumericUpDown guna2NumericUpDown1;
-        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox4;
+        private Guna.UI2.WinForms.Guna2NumericUpDown quantityInput;
+        private Guna.UI2.WinForms.Guna2ComboBox productComboBox;
         private Label label7;
         private Panel panel5;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private Guna.UI2.WinForms.Guna2DataGridView previewAddingProductsDataGrid;
         private Panel panel4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button addProductButton;
         private Panel panel3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private DataGridViewTextBoxColumn purchaseID;
-        private DataGridViewTextBoxColumn categoryRice;
+        private Guna.UI2.WinForms.Guna2Button saveButton;
+        private Guna.UI2.WinForms.Guna2Button deleteProductButton;
+        private Guna.UI2.WinForms.Guna2NumericUpDown guna2NumericUpDown1;
+        private Label minThreshold;
+        private Guna.UI2.WinForms.Guna2DateTimePicker startDateTimePicker;
+        private Label expirationDateTitle;
+        private Label minThresholdTitle;
+        private Guna.UI2.WinForms.Guna2NumericUpDown minThresholdInput;
+        private Guna.UI2.WinForms.Guna2DateTimePicker expirationDatePicker;
         private DataGridViewTextBoxColumn riceName;
+        private DataGridViewTextBoxColumn categoryRice;
+        private DataGridViewTextBoxColumn supplierName;
         private DataGridViewTextBoxColumn quantity;
         private DataGridViewTextBoxColumn unitPrice;
-        private DataGridViewTextBoxColumn amountOfEachProduct;
+        private DataGridViewTextBoxColumn amount;
+        private DataGridViewTextBoxColumn expirationDate;
     }
 }

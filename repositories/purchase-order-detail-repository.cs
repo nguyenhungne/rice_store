@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 public class PurchaseOrderDetailRepository : IPurchaseOrderDetailRepository
 {
@@ -31,14 +32,27 @@ public class PurchaseOrderDetailRepository : IPurchaseOrderDetailRepository
             ?? throw new InvalidOperationException($"PurchaseOrderDetail with ID {id} not found.");
     }
 
-    public async Task<IEnumerable<PurchaseOrderDetail>> GetPurchaseOrderDetailByWarehouseIdAsync(int warehouseId)
+    public async Task<IEnumerable<PurchaseOrderDetail>> GetPurchaseOrderDetailByWarehouseIdAsync(int warehouseId, PurchaseOrderDetailFilter? filter = null)
     {
-        return await _context.PurchaseOrderDetail
+        IQueryable<PurchaseOrderDetail> query = _context.PurchaseOrderDetail
             .Include(p => p.PurchaseOrder)
             .ThenInclude(po => po.Supplier)
             .Include(p => p.Warehouse)
-            .Where(p => p.WarehouseId == warehouseId)
-            .ToListAsync();
+            .Where(p => p.WarehouseId == warehouseId);
+
+        // Apply filter for PurchaseOrderId if provided
+        if (filter?.purchaseOrderId.HasValue == true)
+        {
+            query = query.Where(p => p.PurchaseOrderId == filter.purchaseOrderId.Value);
+        }
+
+        // Apply filter for SupplierId if provided
+        if (filter?.supplierId.HasValue == true)
+        {
+            query = query.Where(p => p.PurchaseOrder.SupplierId == filter.supplierId.Value);
+        }
+
+        return await query.ToListAsync();
     }
 
     public async Task<PurchaseOrderDetail> AddPurchaseOrderDetailAsync(PurchaseOrderDetail detail)

@@ -22,7 +22,9 @@ namespace rice_store
             services.AddScoped<IInventoryRepository, InventoryRepository>();
             services.AddScoped<IWarehouseRepository, WarehouseRepository>();
             services.AddScoped<IPurchaseOrderDetailRepository, PurchaseOrderDetailRepository>();
+            services.AddScoped<IPurchaseOrderRepository, PurchaseOrderRepository>();
             services.AddScoped<ISalesOrderDetailRepository, SalesOrderDetailRepository>();
+            services.AddScoped<ISupplierRepository, SupplierRepository>();
 
             // Register Services
             services.AddScoped<AuthenticationService>();
@@ -32,6 +34,8 @@ namespace rice_store
             services.AddScoped<InventoryService>();
             services.AddScoped<WarehouseService>();
             services.AddScoped<PurchaseOrderDetailService>();
+            services.AddScoped<SalesOrderDetailService>();
+            services.AddScoped<SupplierService>();
 
             return services;
         }

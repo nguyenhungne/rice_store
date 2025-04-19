@@ -45,6 +45,17 @@ public class WarehouseRepository : IWarehouseRepository
             .ToListAsync();
     }
 
+    public async Task<Warehouse?> GetWarehouseByProductAndInventoryIdAsync(int productId, int inventoryId)
+    {
+        var warehouse = await _context.Warehouse
+                                      .Include(w => w.Product)
+                                      .Include(w => w.Inventory)
+                                      .Include(w => w.PurchaseOrderDetails)
+                                      .FirstOrDefaultAsync(w => w.ProductId == productId && w.InventoryId == inventoryId);
+
+        return warehouse;
+    }
+
     public async Task<Warehouse> GetWarehouseByIdAsync(int id)
     {
         var warehouse = await _context.Warehouse

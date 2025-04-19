@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace rice_store.utils
 {
-    class DatetimeUtil
+    public static class DatetimeUtil
     {
         public static int GetMonthNumber(string monthName)
         {
