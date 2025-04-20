@@ -13,13 +13,10 @@ namespace rice_store.models
 
         [ForeignKey("Customer")]
         [Column("customer_id")]
-        public int CustomerId { get; set; }
+        public int? CustomerId { get; set; }
 
         [Column("order_date")]
         public DateTime OrderDate { get; set; }
-
-        [Column("total_amount")]
-        public decimal TotalAmount { get; set; }
 
         [Column("payment_method")]
         public string PaymentMethod { get; set; }
@@ -27,6 +24,6 @@ namespace rice_store.models
         [Column("status")]
         public string Status { get; set; }
 
-        public Customer Customer { get; set; }
+        public Customer? Customer { get; set; }
     }
 }

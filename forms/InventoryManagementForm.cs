@@ -494,7 +494,7 @@ namespace rice_store.forms
                 string? warehouseId = row.Cells["warehouseId"].Value.ToString();
                 string? productName = row.Cells["productName"].Value.ToString();
 
-                if (productName == null)
+                if (productName == null || warehouseId == null)
                 {
                     MessageBox.Show("Please select a valid inventory item.");
                     return;
