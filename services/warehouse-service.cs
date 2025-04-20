@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 public interface IWarehouseService
 {
     Task<IEnumerable<WarehouseDTO>> GetAllWarehousesAsync(int inventoryId, WarehouseFilter filter = null);
+    Task<IEnumerable<WarehouseDTO>> GetAllWarehouseWithoutFilterAsync();
     Task<Warehouse> GetWarehouseByIdAsync(int id);
     Task<Warehouse> AddWarehouseAsync(Warehouse warehouse);
     Task<Warehouse> UpdateWarehouseAsync(Warehouse warehouse);
@@ -45,35 +46,71 @@ public class WarehouseService : IWarehouseService
 
             string warehouseStatus = WarehouseStatusUtil.GetWarehouseStatus(quantity, warehouse.MinThreshold);
 
-        if (status != null && warehouseStatus == status)
-        {
-            warehouseDTOs.Add(new WarehouseDTO
+            if (status != null && warehouseStatus == status)
             {
-                Id = warehouse.Id,
-                BatchNumber = warehouse.BatchNumber,
-                MinThreshold = warehouse.MinThreshold,
-                ExpirationDate = warehouse.ExpirationDate,
-                totalInboundQuantity = totalInboundQuantity,
-                totalSalesQuantity = totalSalesQuantity,
-                Product = warehouse.Product,
-                Inventory = warehouse.Inventory,
-            });
-        }
-        else if (status == null) // Nếu không có filter, lấy tất cả các warehouse
-        {
-            warehouseDTOs.Add(new WarehouseDTO
-            {
-                Id = warehouse.Id,
-                BatchNumber = warehouse.BatchNumber,
-                MinThreshold = warehouse.MinThreshold,
-                ExpirationDate = warehouse.ExpirationDate,
-                totalInboundQuantity = totalInboundQuantity,
-                totalSalesQuantity = totalSalesQuantity,
-                Product = warehouse.Product,
-                Inventory = warehouse.Inventory,
-            });
-        }
+                warehouseDTOs.Add(new WarehouseDTO
+                {
+                    Id = warehouse.Id,
+                    BatchNumber = warehouse.BatchNumber,
+                    MinThreshold = warehouse.MinThreshold,
+                    ExpirationDate = warehouse.ExpirationDate,
+                    totalInboundQuantity = totalInboundQuantity,
+                    totalSalesQuantity = totalSalesQuantity,
+                    Product = warehouse.Product,
+                    Inventory = warehouse.Inventory,
+                });
             }
+            else if (status == null)
+            {
+                warehouseDTOs.Add(new WarehouseDTO
+                {
+                    Id = warehouse.Id,
+                    BatchNumber = warehouse.BatchNumber,
+                    MinThreshold = warehouse.MinThreshold,
+                    ExpirationDate = warehouse.ExpirationDate,
+                    totalInboundQuantity = totalInboundQuantity,
+                    totalSalesQuantity = totalSalesQuantity,
+                    Product = warehouse.Product,
+                    Inventory = warehouse.Inventory,
+                });
+            }
+        }
+
+        return warehouseDTOs;
+    }
+
+    public async Task<IEnumerable<WarehouseDTO>> GetAllWarehouseWithoutFilterAsync()
+    {
+        IEnumerable<Warehouse> warehouses = await _warehouseRepository.GetAllWarehousesWithoutFilterAsync();
+
+        List<WarehouseDTO> warehouseDTOs = new List<WarehouseDTO>();
+
+        foreach (Warehouse warehouse in warehouses)
+        {
+            IEnumerable<PurchaseOrderDetail> purchaseOrderDetails = await _purchaseOrderDetailRepository.GetPurchaseOrderDetailByWarehouseIdAsync(warehouse.Id);
+            IEnumerable<SalesOrderDetail> salesOrderDetails = await _salesOrderDetailRepository.GetSalesOrderDetailsByWarehouseIdAsync(warehouse.Id);
+
+            int totalInboundQuantity = purchaseOrderDetails.Sum(p => p.Quantity);
+            int totalSalesQuantity = salesOrderDetails.Sum(s => s.Quantity);
+            int quantity = totalInboundQuantity - totalSalesQuantity;
+
+            string warehouseStatus = WarehouseStatusUtil.GetWarehouseStatus(quantity, warehouse.MinThreshold);
+
+            if (warehouseStatus == "Còn hàng")
+            {
+                warehouseDTOs.Add(new WarehouseDTO
+                {
+                    Id = warehouse.Id,
+                    BatchNumber = warehouse.BatchNumber,
+                    MinThreshold = warehouse.MinThreshold,
+                    ExpirationDate = warehouse.ExpirationDate,
+                    totalInboundQuantity = totalInboundQuantity,
+                    totalSalesQuantity = totalSalesQuantity,
+                    Product = warehouse.Product,
+                    Inventory = warehouse.Inventory,
+                });
+            }
+        }
 
         return warehouseDTOs;
     }

@@ -19,7 +19,10 @@ public class PurchaseOrderDetailRepository : IPurchaseOrderDetailRepository
     {
         return await _context.PurchaseOrderDetail
             .Include(p => p.PurchaseOrder)
+            .ThenInclude(po => po.Supplier)
             .Include(p => p.Warehouse)
+            .ThenInclude(w => w.Product)
+            .ThenInclude(p => p.Category)
             .ToListAsync();
     }
 

@@ -6,6 +6,7 @@ public interface ISalesOrderDetailService
     Task<SalesOrderDetail> GetSalesOrderDetailByIdAsync(int id);
     Task<IEnumerable<SalesOrderDetail>> GetSalesOrderDetailsByWarehouseIdAsync(int warehouseId);
     Task<SalesOrderDetail> AddSalesOrderDetailAsync(SalesOrderDetail salesOrderDetail);
+    Task<List<SalesOrderDetail>> AddInvoicesAsync(List<AddingSalesOrderDetailData> addingSalesOrdersDetailData);
     Task<SalesOrderDetail> UpdateSalesOrderDetailAsync(SalesOrderDetail salesOrderDetail);
     Task DeleteSalesOrderDetailAsync(int id);
 }
@@ -13,10 +14,12 @@ public interface ISalesOrderDetailService
 public class SalesOrderDetailService : ISalesOrderDetailService
 {
     private readonly ISalesOrderDetailRepository _salesOrderDetailRepository;
+    private readonly ISalesOrderRepository _salesOrderRepository;
 
-    public SalesOrderDetailService(ISalesOrderDetailRepository salesOrderDetailRepository)
+    public SalesOrderDetailService(ISalesOrderDetailRepository salesOrderDetailRepository, ISalesOrderRepository salesOrderRepository)
     {
         _salesOrderDetailRepository = salesOrderDetailRepository;
+        _salesOrderRepository = salesOrderRepository;
     }
 
     public async Task<IEnumerable<SalesOrderDetail>> GetAllSalesOrderDetailsAsync()
@@ -38,6 +41,37 @@ public class SalesOrderDetailService : ISalesOrderDetailService
     public async Task<SalesOrderDetail> AddSalesOrderDetailAsync(SalesOrderDetail salesOrderDetail)
     {
         return await _salesOrderDetailRepository.AddSalesOrderDetailAsync(salesOrderDetail);
+    }
+
+    public async Task<List<SalesOrderDetail>> AddInvoicesAsync(List<AddingSalesOrderDetailData> addingSalesOrdersDetailData)
+    {
+        List<SalesOrderDetail> salesOrderDetails = new List<SalesOrderDetail>();
+        foreach (AddingSalesOrderDetailData detailData in addingSalesOrdersDetailData)
+        {
+
+            AddingSalesOrder addingSalesOrder = detailData.salesOrder;
+            AddingSalesOrderDetail addingSalesOrderDetail = detailData.salesOrderDetail;
+
+            SalesOrder createdSalesOrder = await _salesOrderRepository.AddSalesOrderAsync(new SalesOrder
+            {
+                OrderDate = addingSalesOrder.orderDate,
+                PaymentMethod = addingSalesOrder.paymentMethod,
+                Status = "Completed",
+                CustomerId = addingSalesOrder.customerId
+            });
+
+            SalesOrderDetail salesOrderDetail = await _salesOrderDetailRepository.AddSalesOrderDetailAsync(new SalesOrderDetail
+            {
+                Quantity = addingSalesOrderDetail.quantity,
+                UnitPrice = addingSalesOrderDetail.unitPrice,
+                SalesOrderId = createdSalesOrder.Id,
+                WarehouseId = addingSalesOrderDetail.warehouseId
+            });
+
+           salesOrderDetails.Add(salesOrderDetail);
+        }
+
+        return salesOrderDetails;
     }
 
     public async Task<SalesOrderDetail> UpdateSalesOrderDetailAsync(SalesOrderDetail salesOrderDetail)

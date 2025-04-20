@@ -45,6 +45,15 @@ public class WarehouseRepository : IWarehouseRepository
             .ToListAsync();
     }
 
+    public async Task<IEnumerable<Warehouse>> GetAllWarehousesWithoutFilterAsync()
+    {
+        return await _context.Warehouse
+            .Include(w => w.Product)
+            .Include(w => w.Inventory)
+            .Include(w => w.PurchaseOrderDetails)
+            .ToListAsync();
+    }
+
     public async Task<Warehouse?> GetWarehouseByProductAndInventoryIdAsync(int productId, int inventoryId)
     {
         var warehouse = await _context.Warehouse

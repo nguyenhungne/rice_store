@@ -14,7 +14,7 @@ namespace rice_store.forms
     {
 
         ProductManagementForm? dashboardForm;
-        ContractManagementForm? contractManagementForm;
+        SaleOrderManagementForm? contractManagementForm;
         PaymentManagementForm? paymentManagementForm;
         SendNotificationForm? sendNotificationForm;
         CustomerManagementForm? customerManagementForm;
@@ -106,18 +106,12 @@ namespace rice_store.forms
 
         private void contractManagementButton_Click(object sender, EventArgs e)
         {
-            if (contractManagementForm == null)
-            {
-                contractManagementForm = new ContractManagementForm();
-                contractManagementForm.FormClosed += onContractManagementFormClosed;
-                contractManagementForm.MdiParent = this;
-                contractManagementForm.Dock = DockStyle.Fill;
-                contractManagementForm.Show();
-            }
-            else
-            {
-                contractManagementForm.Activate();
-            }
+            sendNotificationForm = null;
+            sendNotificationForm = new SendNotificationForm();
+            sendNotificationForm.FormClosed += onContractManagementFormClosed;
+            sendNotificationForm.MdiParent = this;
+            sendNotificationForm.Dock = DockStyle.Fill;
+            sendNotificationForm.Show();
         }
 
         private void onContractManagementFormClosed(object? sender, FormClosedEventArgs e)
@@ -209,14 +203,13 @@ namespace rice_store.forms
             systemSettingForm = null!;
         }
 
-        private void nightControlBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void sendNotificationButton_Click_1(object sender, EventArgs e)
         {
-
+            paymentManagementForm = new PaymentManagementForm();
+            paymentManagementForm.FormClosed += onPaymentManagementFormClosed;
+            paymentManagementForm.MdiParent = this;
+            paymentManagementForm.Dock = DockStyle.Fill;
+            paymentManagementForm.Show();
         }
     }
 }

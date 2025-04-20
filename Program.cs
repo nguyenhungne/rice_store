@@ -31,7 +31,7 @@ namespace rice_store
                 .AddApplicationServices(connectionString)
                 .AddScoped<ProductManagementForm>()
                 .AddScoped<ProductInformationForm>()
-                .AddScoped<ContractManagementForm>()
+                .AddScoped<SaleOrderManagementForm>()
                 .AddScoped<PaymentManagementForm>()
                 .AddScoped<CustomerManagementForm>()
                 .AddScoped<SendNotificationForm>()

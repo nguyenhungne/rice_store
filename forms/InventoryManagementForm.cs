@@ -516,28 +516,13 @@ namespace rice_store.forms
 
         private void importButton_Click(object sender, EventArgs e)
         {
-            if (InventoryDataGridView.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = InventoryDataGridView.SelectedRows[0];
-                string? warehouseId = selectedRow.Cells["warehouseId"].Value.ToString();
-                if (warehouseId == null)
-                {
-                    MessageBox.Show("Please select a valid inventory item.");
-                    return;
-                }
 
-                int warehouseIdInt = int.Parse(warehouseId);
-
-                ImportProductForm importProductForm = new ImportProductForm(this, warehouseIdInt, inventoryName);
-                importProductForm.MdiParent = this.MdiParent;
-                importProductForm.Dock = DockStyle.Fill;
-                importProductForm.Show();
-                this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Please select a row to import data.");
-            }
+            int inventoryIdInt = int.Parse(this.inventoryId);
+            ImportProductForm importProductForm = new ImportProductForm(this, inventoryIdInt, inventoryName);
+            importProductForm.MdiParent = this.MdiParent;
+            importProductForm.Dock = DockStyle.Fill;
+            importProductForm.Show();
+            this.Close();
         }
 
         private async void InventoryManagementForm_Load(object sender, EventArgs e)

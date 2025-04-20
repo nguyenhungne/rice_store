@@ -17,7 +17,7 @@ namespace rice_store.forms
     public partial class ImportProductForm : Form
     {
         private readonly InventoryManagementForm inventoryManagementForm;
-        private readonly int warehouseId;
+        private readonly int inventoryId;
         private readonly string inventoryName;
         private readonly SupplierService supplierService;
         private readonly ProductService productService;
@@ -25,11 +25,11 @@ namespace rice_store.forms
         private IEnumerable<Supplier> _allSuppliers;
         private IEnumerable<Product> _allProducts;
         private List<AddingProductsData> localAddingProductsData;
-        public ImportProductForm(InventoryManagementForm inventoryManagementForm, int WarehouseId, string inventoryName)
+        public ImportProductForm(InventoryManagementForm inventoryManagementForm, int inventoryId, string inventoryName)
         {
             InitializeComponent();
             this.inventoryManagementForm = inventoryManagementForm;
-            this.warehouseId = WarehouseId;
+            this.inventoryId = inventoryId;
             this.inventoryName = inventoryName;
             this.supplierService = Program.ServiceProvider.GetRequiredService<SupplierService>();
             this.productService = Program.ServiceProvider.GetRequiredService<ProductService>();
@@ -112,7 +112,7 @@ namespace rice_store.forms
                     warehouse = new AddingWarehouseData
                     {
                         productId = selectedProduct.Id,
-                        inventoryId = warehouseId,
+                        inventoryId = this.inventoryId,
                         minThreshold = int.Parse(minThresholdInput.Text),
                         expirationDate = expirationDatePicker.Value,
                         productName = selectedProduct.Name,

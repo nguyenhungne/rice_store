@@ -88,6 +88,7 @@ public class PurchaseOrderDetailService : IPurchaseOrderDetailService
             WarehouseId = newWarehouse.Id,
             Quantity = addingPurchaseOrderDetailData.quantity,
             UnitPrice = addingPurchaseOrderDetailData.unitPrice,
+            ExpirationDate = addingWarehouseData.expirationDate,
         };
         PurchaseOrderDetail newPurchaseOrderDetail = await _repository.AddPurchaseOrderDetailAsync(purchaseOrderDetail);
         purchaseOrderDetails.Add(newPurchaseOrderDetail);

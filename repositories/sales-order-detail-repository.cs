@@ -17,7 +17,13 @@ public class SalesOrderDetailRepository : ISalesOrderDetailRepository
 
     public async Task<IEnumerable<SalesOrderDetail>> GetAllSalesOrderDetailsAsync()
     {
-        return await _context.SalesOrderDetail.ToListAsync();
+        return await _context.SalesOrderDetail
+            .Include(s => s.SalesOrder)
+            .ThenInclude(so => so.Customer)
+            .Include(s => s.Warehouse)
+            .ThenInclude(w => w.Product)
+            .ThenInclude(p => p.Category)
+            .ToListAsync();
     }
 
     public async Task<SalesOrderDetail> GetSalesOrderDetailByIdAsync(int id)

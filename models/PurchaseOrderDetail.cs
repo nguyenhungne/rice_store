@@ -24,6 +24,9 @@ namespace rice_store.models
         [Column("unit_price")]
         public decimal UnitPrice { get; set; }
 
+        [Column("expiration_date")]
+        public DateTime ExpirationDate { get; set; }
+
         public PurchaseOrder PurchaseOrder { get; set; }
         public Warehouse Warehouse { get; set; }
     }
