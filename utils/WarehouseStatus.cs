@@ -4,7 +4,7 @@ namespace rice_store.utils
 {
     public class WarehouseStatusUtil
     {
-        public static string GetWarehouseStatus(int quantity, int minThreshold)
+        public static string GetWarehouseStatus(decimal quantity, int minThreshold)
         {
             if (quantity > minThreshold)
             {

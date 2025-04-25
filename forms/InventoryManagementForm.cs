@@ -540,7 +540,7 @@ namespace rice_store.forms
             InventoryDataGridView.Rows.Clear();
             foreach (WarehouseDTO warehouse in warehouses)
             {
-                int quality = warehouse.totalInboundQuantity - warehouse.totalSalesQuantity;
+                decimal quality = warehouse.totalInboundQuantity - warehouse.totalSalesQuantity;
                 InventoryDataGridView.Rows.Add(warehouse.Id, warehouse.Product.Name, quality, warehouse.MinThreshold, WarehouseStatusUtil.GetWarehouseStatus(quality, warehouse.MinThreshold), "Chi tiết");
             }
         }

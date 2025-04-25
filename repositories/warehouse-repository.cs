@@ -116,4 +116,11 @@ public class WarehouseRepository : IWarehouseRepository
         _context.Warehouse.Remove(warehouse);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<IEnumerable<Warehouse>> GetWarehousesByInventoryIdAsync(int inventoryId)
+    {
+        return await _context.Warehouse
+                             .Where(w => w.InventoryId == inventoryId)
+                             .ToListAsync();
+    }
 }

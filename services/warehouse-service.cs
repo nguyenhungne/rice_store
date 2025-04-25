@@ -40,9 +40,9 @@ public class WarehouseService : IWarehouseService
 
             String? status = filter?.status;
 
-            int totalInboundQuantity = purchaseOrderDetails.Sum(p => p.Quantity);
-            int totalSalesQuantity = salesOrderDetails.Sum(s => s.Quantity);
-            int quantity = totalInboundQuantity - totalSalesQuantity;
+            decimal totalInboundQuantity = purchaseOrderDetails.Sum(p => p.Quantity);
+            decimal totalSalesQuantity = salesOrderDetails.Sum(s => s.Quantity);
+            decimal quantity = totalInboundQuantity - totalSalesQuantity;
 
             string warehouseStatus = WarehouseStatusUtil.GetWarehouseStatus(quantity, warehouse.MinThreshold);
 
@@ -90,9 +90,9 @@ public class WarehouseService : IWarehouseService
             IEnumerable<PurchaseOrderDetail> purchaseOrderDetails = await _purchaseOrderDetailRepository.GetPurchaseOrderDetailByWarehouseIdAsync(warehouse.Id);
             IEnumerable<SalesOrderDetail> salesOrderDetails = await _salesOrderDetailRepository.GetSalesOrderDetailsByWarehouseIdAsync(warehouse.Id);
 
-            int totalInboundQuantity = purchaseOrderDetails.Sum(p => p.Quantity);
-            int totalSalesQuantity = salesOrderDetails.Sum(s => s.Quantity);
-            int quantity = totalInboundQuantity - totalSalesQuantity;
+            decimal totalInboundQuantity = purchaseOrderDetails.Sum(p => p.Quantity);
+            decimal totalSalesQuantity = salesOrderDetails.Sum(s => s.Quantity);
+            decimal quantity = totalInboundQuantity - totalSalesQuantity;
 
             string warehouseStatus = WarehouseStatusUtil.GetWarehouseStatus(quantity, warehouse.MinThreshold);
 

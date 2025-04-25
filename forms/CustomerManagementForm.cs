@@ -51,7 +51,7 @@ namespace rice_store.forms
             customerDataGridView.Rows.Clear();
             foreach (Customer customer in customers)
             {
-                customerDataGridView.Rows.Add(customer.Id, customer.Name, customer.Phone, customer.Email, customer.Address, customer.LoyaltyPoints);
+                customerDataGridView.Rows.Add(customer.Id, customer.Name, customer.Phone, customer.Email, customer.Address);
             }
         }
 

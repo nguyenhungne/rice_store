@@ -44,16 +44,22 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleOrderManagementForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleOrderManagementForm));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel4 = new Panel();
+            resetButton = new Guna.UI2.WinForms.Guna2Button();
             saveButton = new Guna.UI2.WinForms.Guna2Button();
             deleteProductButton = new Guna.UI2.WinForms.Guna2Button();
             addProductButton = new Guna.UI2.WinForms.Guna2Button();
-            unitPriceInput = new Guna.UI2.WinForms.Guna2NumericUpDown();
             label8 = new Label();
             quantityInput = new Guna.UI2.WinForms.Guna2NumericUpDown();
             label4 = new Label();
@@ -61,7 +67,11 @@
             customerLabel = new Label();
             customerComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             panel3 = new Panel();
-            paymentComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            paymentCombobox = new Guna.UI2.WinForms.Guna2ComboBox();
+            stockTextbox = new Guna.UI2.WinForms.Guna2TextBox();
+            continueButton = new Guna.UI2.WinForms.Guna2Button();
+            inventoryCombobox = new Guna.UI2.WinForms.Guna2ComboBox();
+            label1 = new Label();
             minThresholdTitle = new Label();
             label7 = new Label();
             productComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -81,7 +91,6 @@
             amount = new DataGridViewTextBoxColumn();
             dataPanel = new Panel();
             panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)unitPriceInput).BeginInit();
             ((System.ComponentModel.ISupportInitialize)quantityInput).BeginInit();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -94,6 +103,7 @@
             // panel4
             // 
             panel4.Anchor = AnchorStyles.None;
+            panel4.Controls.Add(resetButton);
             panel4.Controls.Add(saveButton);
             panel4.Controls.Add(deleteProductButton);
             panel4.Controls.Add(addProductButton);
@@ -102,12 +112,33 @@
             panel4.Size = new Size(326, 276);
             panel4.TabIndex = 33;
             // 
+            // resetButton
+            // 
+            resetButton.Anchor = AnchorStyles.None;
+            resetButton.BorderRadius = 20;
+            resetButton.Cursor = Cursors.Hand;
+            resetButton.CustomizableEdges = customizableEdges1;
+            resetButton.DisabledState.BorderColor = Color.DarkGray;
+            resetButton.DisabledState.CustomBorderColor = Color.DarkGray;
+            resetButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            resetButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            resetButton.FillColor = Color.FromArgb(255, 192, 128);
+            resetButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            resetButton.ForeColor = Color.White;
+            resetButton.Location = new Point(59, 148);
+            resetButton.Name = "resetButton";
+            resetButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            resetButton.Size = new Size(208, 41);
+            resetButton.TabIndex = 4;
+            resetButton.Text = "Hủy thao tác";
+            resetButton.Click += resetButton_Click;
+            // 
             // saveButton
             // 
             saveButton.Anchor = AnchorStyles.None;
             saveButton.BorderRadius = 20;
             saveButton.Cursor = Cursors.Hand;
-            saveButton.CustomizableEdges = customizableEdges1;
+            saveButton.CustomizableEdges = customizableEdges3;
             saveButton.DisabledState.BorderColor = Color.DarkGray;
             saveButton.DisabledState.CustomBorderColor = Color.DarkGray;
             saveButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -117,7 +148,7 @@
             saveButton.ForeColor = Color.White;
             saveButton.Location = new Point(59, 216);
             saveButton.Name = "saveButton";
-            saveButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            saveButton.ShadowDecoration.CustomizableEdges = customizableEdges4;
             saveButton.Size = new Size(208, 41);
             saveButton.TabIndex = 3;
             saveButton.Text = "Lưu hóa đơn";
@@ -128,7 +159,7 @@
             deleteProductButton.Anchor = AnchorStyles.None;
             deleteProductButton.BorderRadius = 20;
             deleteProductButton.Cursor = Cursors.Hand;
-            deleteProductButton.CustomizableEdges = customizableEdges3;
+            deleteProductButton.CustomizableEdges = customizableEdges5;
             deleteProductButton.DisabledState.BorderColor = Color.DarkGray;
             deleteProductButton.DisabledState.CustomBorderColor = Color.DarkGray;
             deleteProductButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -136,9 +167,9 @@
             deleteProductButton.FillColor = Color.FromArgb(255, 192, 128);
             deleteProductButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             deleteProductButton.ForeColor = Color.White;
-            deleteProductButton.Location = new Point(59, 74);
+            deleteProductButton.Location = new Point(59, 80);
             deleteProductButton.Name = "deleteProductButton";
-            deleteProductButton.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            deleteProductButton.ShadowDecoration.CustomizableEdges = customizableEdges6;
             deleteProductButton.Size = new Size(208, 41);
             deleteProductButton.TabIndex = 2;
             deleteProductButton.Text = "Xóa";
@@ -149,7 +180,7 @@
             addProductButton.Anchor = AnchorStyles.None;
             addProductButton.BorderRadius = 20;
             addProductButton.Cursor = Cursors.Hand;
-            addProductButton.CustomizableEdges = customizableEdges5;
+            addProductButton.CustomizableEdges = customizableEdges7;
             addProductButton.DisabledState.BorderColor = Color.DarkGray;
             addProductButton.DisabledState.CustomBorderColor = Color.DarkGray;
             addProductButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -159,27 +190,11 @@
             addProductButton.ForeColor = Color.White;
             addProductButton.Location = new Point(59, 11);
             addProductButton.Name = "addProductButton";
-            addProductButton.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            addProductButton.ShadowDecoration.CustomizableEdges = customizableEdges8;
             addProductButton.Size = new Size(208, 41);
             addProductButton.TabIndex = 0;
             addProductButton.Text = "Thêm";
             addProductButton.Click += addProductButton_Click;
-            // 
-            // unitPriceInput
-            // 
-            unitPriceInput.Anchor = AnchorStyles.None;
-            unitPriceInput.BackColor = Color.Transparent;
-            unitPriceInput.BorderRadius = 17;
-            unitPriceInput.CustomizableEdges = customizableEdges7;
-            unitPriceInput.Font = new Font("Segoe UI", 9F);
-            unitPriceInput.Location = new Point(594, 311);
-            unitPriceInput.Margin = new Padding(3, 4, 3, 4);
-            unitPriceInput.Maximum = new decimal(new int[] { -1593835520, 466537709, 54210, 0 });
-            unitPriceInput.Name = "unitPriceInput";
-            unitPriceInput.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            unitPriceInput.Size = new Size(175, 36);
-            unitPriceInput.TabIndex = 31;
-            unitPriceInput.UpDownButtonFillColor = Color.FromArgb(255, 192, 128);
             // 
             // label8
             // 
@@ -188,9 +203,9 @@
             label8.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label8.Location = new Point(403, 226);
             label8.Name = "label8";
-            label8.Size = new Size(104, 31);
+            label8.Size = new Size(194, 31);
             label8.TabIndex = 30;
-            label8.Text = "Giá mua:";
+            label8.Text = "Số lượng tồn kho:";
             // 
             // quantityInput
             // 
@@ -199,12 +214,12 @@
             quantityInput.BorderRadius = 17;
             quantityInput.CustomizableEdges = customizableEdges9;
             quantityInput.Font = new Font("Segoe UI", 9F);
-            quantityInput.Location = new Point(191, 316);
+            quantityInput.Location = new Point(185, 316);
             quantityInput.Margin = new Padding(3, 4, 3, 4);
             quantityInput.Maximum = new decimal(new int[] { -1593835520, 466537709, 54210, 0 });
             quantityInput.Name = "quantityInput";
             quantityInput.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            quantityInput.Size = new Size(175, 36);
+            quantityInput.Size = new Size(181, 36);
             quantityInput.TabIndex = 29;
             quantityInput.UpDownButtonFillColor = Color.FromArgb(255, 192, 128);
             // 
@@ -213,7 +228,7 @@
             label4.Anchor = AnchorStyles.None;
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(3, 316);
+            label4.Location = new Point(15, 226);
             label4.Name = "label4";
             label4.Size = new Size(111, 31);
             label4.TabIndex = 27;
@@ -224,7 +239,7 @@
             label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(3, 164);
+            label6.Location = new Point(9, 102);
             label6.Name = "label6";
             label6.Size = new Size(314, 38);
             label6.TabIndex = 28;
@@ -235,7 +250,7 @@
             customerLabel.Anchor = AnchorStyles.None;
             customerLabel.AutoSize = true;
             customerLabel.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            customerLabel.Location = new Point(3, 101);
+            customerLabel.Location = new Point(9, 11);
             customerLabel.Name = "customerLabel";
             customerLabel.Size = new Size(139, 31);
             customerLabel.TabIndex = 25;
@@ -254,18 +269,25 @@
             customerComboBox.Font = new Font("Segoe UI", 10F);
             customerComboBox.ForeColor = Color.FromArgb(68, 88, 112);
             customerComboBox.ItemHeight = 30;
-            customerComboBox.Location = new Point(165, 11);
+            customerComboBox.Location = new Point(193, 11);
             customerComboBox.Name = "customerComboBox";
             customerComboBox.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            customerComboBox.Size = new Size(382, 36);
+            customerComboBox.Size = new Size(394, 36);
             customerComboBox.TabIndex = 26;
             // 
             // panel3
             // 
             panel3.Anchor = AnchorStyles.None;
-            panel3.Controls.Add(paymentComboBox);
+            panel3.Controls.Add(paymentCombobox);
+            panel3.Controls.Add(stockTextbox);
+            panel3.Controls.Add(continueButton);
+            panel3.Controls.Add(inventoryCombobox);
+            panel3.Controls.Add(label1);
+            panel3.Controls.Add(label4);
             panel3.Controls.Add(minThresholdTitle);
             panel3.Controls.Add(label7);
+            panel3.Controls.Add(customerLabel);
+            panel3.Controls.Add(label6);
             panel3.Controls.Add(label8);
             panel3.Controls.Add(productComboBox);
             panel3.Controls.Add(customerComboBox);
@@ -274,42 +296,115 @@
             panel3.Size = new Size(794, 276);
             panel3.TabIndex = 32;
             // 
-            // paymentComboBox
+            // paymentCombobox
             // 
-            paymentComboBox.Anchor = AnchorStyles.None;
-            paymentComboBox.BackColor = Color.Transparent;
-            paymentComboBox.BorderRadius = 17;
-            paymentComboBox.CustomizableEdges = customizableEdges13;
-            paymentComboBox.DrawMode = DrawMode.OwnerDrawFixed;
-            paymentComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            paymentComboBox.FocusedColor = Color.FromArgb(94, 148, 255);
-            paymentComboBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            paymentComboBox.Font = new Font("Segoe UI", 10F);
-            paymentComboBox.ForeColor = Color.FromArgb(68, 88, 112);
-            paymentComboBox.ItemHeight = 30;
-            paymentComboBox.Location = new Point(602, 158);
-            paymentComboBox.Name = "paymentComboBox";
-            paymentComboBox.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            paymentComboBox.Size = new Size(175, 36);
-            paymentComboBox.TabIndex = 27;
+            paymentCombobox.Anchor = AnchorStyles.None;
+            paymentCombobox.BackColor = Color.Transparent;
+            paymentCombobox.BorderRadius = 17;
+            paymentCombobox.CustomizableEdges = customizableEdges13;
+            paymentCombobox.DrawMode = DrawMode.OwnerDrawFixed;
+            paymentCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            paymentCombobox.FocusedColor = Color.FromArgb(94, 148, 255);
+            paymentCombobox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            paymentCombobox.Font = new Font("Segoe UI", 10F);
+            paymentCombobox.ForeColor = Color.FromArgb(68, 88, 112);
+            paymentCombobox.ItemHeight = 30;
+            paymentCombobox.Location = new Point(602, 63);
+            paymentCombobox.Name = "paymentCombobox";
+            paymentCombobox.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            paymentCombobox.Size = new Size(181, 36);
+            paymentCombobox.TabIndex = 34;
+            // 
+            // stockTextbox
+            // 
+            stockTextbox.BorderRadius = 17;
+            stockTextbox.CustomizableEdges = customizableEdges15;
+            stockTextbox.DefaultText = "";
+            stockTextbox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
+            stockTextbox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
+            stockTextbox.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
+            stockTextbox.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
+            stockTextbox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            stockTextbox.Font = new Font("Segoe UI", 9F);
+            stockTextbox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
+            stockTextbox.Location = new Point(602, 226);
+            stockTextbox.Margin = new Padding(3, 4, 3, 4);
+            stockTextbox.Name = "stockTextbox";
+            stockTextbox.PlaceholderText = "";
+            stockTextbox.ReadOnly = true;
+            stockTextbox.SelectedText = "";
+            stockTextbox.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            stockTextbox.Size = new Size(175, 36);
+            stockTextbox.TabIndex = 33;
+            // 
+            // continueButton
+            // 
+            continueButton.Anchor = AnchorStyles.None;
+            continueButton.BorderRadius = 20;
+            continueButton.Cursor = Cursors.Hand;
+            continueButton.CustomizableEdges = customizableEdges17;
+            continueButton.DisabledState.BorderColor = Color.DarkGray;
+            continueButton.DisabledState.CustomBorderColor = Color.DarkGray;
+            continueButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            continueButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            continueButton.FillColor = Color.FromArgb(255, 192, 128);
+            continueButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            continueButton.ForeColor = Color.White;
+            continueButton.Location = new Point(602, 11);
+            continueButton.Name = "continueButton";
+            continueButton.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            continueButton.Size = new Size(181, 36);
+            continueButton.TabIndex = 4;
+            continueButton.Text = "Tiếp tục";
+            continueButton.Click += continueButton_Click;
+            // 
+            // inventoryCombobox
+            // 
+            inventoryCombobox.Anchor = AnchorStyles.None;
+            inventoryCombobox.BackColor = Color.Transparent;
+            inventoryCombobox.BorderRadius = 17;
+            inventoryCombobox.CustomizableEdges = customizableEdges19;
+            inventoryCombobox.DrawMode = DrawMode.OwnerDrawFixed;
+            inventoryCombobox.DropDownStyle = ComboBoxStyle.DropDownList;
+            inventoryCombobox.FocusedColor = Color.FromArgb(94, 148, 255);
+            inventoryCombobox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
+            inventoryCombobox.Font = new Font("Segoe UI", 10F);
+            inventoryCombobox.ForeColor = Color.FromArgb(68, 88, 112);
+            inventoryCombobox.ItemHeight = 30;
+            inventoryCombobox.Location = new Point(193, 63);
+            inventoryCombobox.Name = "inventoryCombobox";
+            inventoryCombobox.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            inventoryCombobox.Size = new Size(254, 36);
+            inventoryCombobox.TabIndex = 32;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.None;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(9, 63);
+            label1.Name = "label1";
+            label1.Size = new Size(178, 31);
+            label1.TabIndex = 31;
+            label1.Text = "Chọn chi nhánh:";
             // 
             // minThresholdTitle
             // 
             minThresholdTitle.Anchor = AnchorStyles.None;
             minThresholdTitle.AutoSize = true;
             minThresholdTitle.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            minThresholdTitle.Location = new Point(403, 158);
+            minThresholdTitle.Location = new Point(453, 63);
             minThresholdTitle.Name = "minThresholdTitle";
-            minThresholdTitle.Size = new Size(193, 31);
+            minThresholdTitle.Size = new Size(134, 31);
             minThresholdTitle.TabIndex = 24;
-            minThresholdTitle.Text = "Thanh toán bằng:";
+            minThresholdTitle.Text = "Thanh toán:";
             // 
             // label7
             // 
             label7.Anchor = AnchorStyles.None;
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(11, 153);
+            label7.Location = new Point(15, 153);
             label7.Name = "label7";
             label7.Size = new Size(99, 31);
             label7.TabIndex = 16;
@@ -320,7 +415,7 @@
             productComboBox.Anchor = AnchorStyles.None;
             productComboBox.BackColor = Color.Transparent;
             productComboBox.BorderRadius = 17;
-            productComboBox.CustomizableEdges = customizableEdges15;
+            productComboBox.CustomizableEdges = customizableEdges21;
             productComboBox.DrawMode = DrawMode.OwnerDrawFixed;
             productComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             productComboBox.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -328,11 +423,12 @@
             productComboBox.Font = new Font("Segoe UI", 10F);
             productComboBox.ForeColor = Color.FromArgb(68, 88, 112);
             productComboBox.ItemHeight = 30;
-            productComboBox.Location = new Point(199, 153);
+            productComboBox.Location = new Point(193, 153);
             productComboBox.Name = "productComboBox";
-            productComboBox.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            productComboBox.Size = new Size(175, 36);
+            productComboBox.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            productComboBox.Size = new Size(584, 36);
             productComboBox.TabIndex = 17;
+            productComboBox.SelectedIndexChanged += productComboBox_SelectedIndexChanged;
             // 
             // panel2
             // 
@@ -399,7 +495,7 @@
             backToInventoryButton.Location = new Point(8, 18);
             backToInventoryButton.Name = "backToInventoryButton";
             backToInventoryButton.PressedState.ImageSize = new Size(64, 64);
-            backToInventoryButton.ShadowDecoration.CustomizableEdges = customizableEdges17;
+            backToInventoryButton.ShadowDecoration.CustomizableEdges = customizableEdges23;
             backToInventoryButton.Size = new Size(80, 68);
             backToInventoryButton.TabIndex = 5;
             // 
@@ -427,11 +523,12 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             previewAddingSalesOrderDataGrid.DefaultCellStyle = dataGridViewCellStyle3;
             previewAddingSalesOrderDataGrid.GridColor = Color.FromArgb(231, 229, 255);
-            previewAddingSalesOrderDataGrid.Location = new Point(15, 3);
+            previewAddingSalesOrderDataGrid.Location = new Point(3, 3);
+            previewAddingSalesOrderDataGrid.MultiSelect = false;
             previewAddingSalesOrderDataGrid.Name = "previewAddingSalesOrderDataGrid";
             previewAddingSalesOrderDataGrid.RowHeadersVisible = false;
             previewAddingSalesOrderDataGrid.RowHeadersWidth = 51;
-            previewAddingSalesOrderDataGrid.Size = new Size(1123, 337);
+            previewAddingSalesOrderDataGrid.Size = new Size(1135, 337);
             previewAddingSalesOrderDataGrid.TabIndex = 0;
             previewAddingSalesOrderDataGrid.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             previewAddingSalesOrderDataGrid.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -504,14 +601,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.PapayaWhip;
             ClientSize = new Size(1129, 719);
             Controls.Add(dataPanel);
             Controls.Add(panel4);
-            Controls.Add(unitPriceInput);
             Controls.Add(quantityInput);
-            Controls.Add(label4);
-            Controls.Add(label6);
-            Controls.Add(customerLabel);
             Controls.Add(panel3);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
@@ -519,7 +613,6 @@
             Text = "SaleOrderManagementForm";
             Load += ContractManagementForm_Load;
             panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)unitPriceInput).EndInit();
             ((System.ComponentModel.ISupportInitialize)quantityInput).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -530,7 +623,6 @@
             ((System.ComponentModel.ISupportInitialize)previewAddingSalesOrderDataGrid).EndInit();
             dataPanel.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -539,7 +631,6 @@
         private Guna.UI2.WinForms.Guna2Button saveButton;
         private Guna.UI2.WinForms.Guna2Button deleteProductButton;
         private Guna.UI2.WinForms.Guna2Button addProductButton;
-        private Guna.UI2.WinForms.Guna2NumericUpDown unitPriceInput;
         private Label label8;
         private Guna.UI2.WinForms.Guna2NumericUpDown quantityInput;
         private Label label4;
@@ -559,7 +650,6 @@
         private Label customerLabel;
         private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
         private Guna.UI2.WinForms.Guna2ComboBox customerComboBox;
-        private Guna.UI2.WinForms.Guna2ComboBox paymentComboBox;
         private Panel panel1;
         private Panel mainPanel;
         private Guna.UI2.WinForms.Guna2DataGridView previewAddingSalesOrderDataGrid;
@@ -572,5 +662,11 @@
         private Panel dataPanel;
         private Panel panel5;
         private Panel panel6;
+        private Guna.UI2.WinForms.Guna2ComboBox inventoryCombobox;
+        private Label label1;
+        private Guna.UI2.WinForms.Guna2Button continueButton;
+        private Guna.UI2.WinForms.Guna2TextBox stockTextbox;
+        private Guna.UI2.WinForms.Guna2ComboBox paymentCombobox;
+        private Guna.UI2.WinForms.Guna2Button resetButton;
     }
 }

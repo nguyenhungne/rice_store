@@ -22,7 +22,8 @@ namespace rice_store.models
         [Column("address")]
         public string Address { get; set; }
 
-        [Column("loyalty_points")]
-        public int LoyaltyPoints { get; set; }
+        [Column("rank")]
+        public string Rank { get; set; } = "Th??ng";  
+
     }
 }

@@ -93,4 +93,29 @@ public class PurchaseOrderDetailRepository : IPurchaseOrderDetailRepository
         _context.PurchaseOrderDetail.Remove(detail);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<IEnumerable<PurchaseOrderDetail>> GetPurchaseOrderDetailsOfEachInventoryAsync(IEnumerable<int> warehouseIds)
+    {
+        return await _context.PurchaseOrderDetail
+       .Where(p => warehouseIds.Contains(p.WarehouseId))
+       .Include(p => p.PurchaseOrder)
+           .ThenInclude(po => po.Supplier)
+       .Include(p => p.Warehouse)
+           .ThenInclude(w => w.Product)
+               .ThenInclude(p => p.Category)
+       .ToListAsync();
+    }
+
+    public async Task UpdateQuantityPurchaseOrderDetailAsync(int purchaseDetailId, decimal quantity)
+    {
+        var detail = await _context.PurchaseOrderDetail.FindAsync(purchaseDetailId);
+        if (detail == null)
+        {
+            throw new InvalidOperationException($"PurchaseOrderDetail with ID {purchaseDetailId} not found.");
+        }
+        detail.Quantity -= quantity;
+        await _context.SaveChangesAsync();
+    }
+
+
 }

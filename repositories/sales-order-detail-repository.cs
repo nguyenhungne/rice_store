@@ -68,4 +68,11 @@ public class SalesOrderDetailRepository : ISalesOrderDetailRepository
         _context.SalesOrderDetail.Remove(salesOrderDetail);
         await _context.SaveChangesAsync();
     }
+
+    public async Task<IEnumerable<SalesOrderDetail>> GetAllSalesOrderDetailByOrderID(int OrderId)
+    {
+        return await _context.SalesOrderDetail
+            .Where(s => s.SalesOrderId == OrderId)
+            .ToListAsync();
+    }
 }

@@ -64,7 +64,7 @@ namespace rice_store.forms
 
         private void importButton_Click(object sender, EventArgs e)
         {
-            SaleOrderManagementForm saleOrderManagementForm = new SaleOrderManagementForm();
+            SaleOrderManagementForm saleOrderManagementForm = new SaleOrderManagementForm(this);
             saleOrderManagementForm.MdiParent = this.MdiParent;
             saleOrderManagementForm.Dock = DockStyle.Fill;
             saleOrderManagementForm.Show();

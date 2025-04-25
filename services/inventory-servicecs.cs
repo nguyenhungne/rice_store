@@ -1,4 +1,6 @@
-﻿using rice_store.models;
+﻿using System.Threading.Tasks;
+
+using rice_store.models;
 
 public interface IInventoryService
 {
@@ -20,6 +22,11 @@ public class InventoryService : IInventoryService
     {
         return await _inventoryRepository.GetAllInventoriesAsync(filter);
     }
+
+    public async Task<IEnumerable<Inventory>> GetAllInventoriesAsync()
+    {
+        return await _inventoryRepository.GetAllInventoriesAsync();
+    }
     public async Task<Inventory> GetInventoryByIdAsync(int id)
     {
         return await _inventoryRepository.GetInventoryByIdAsync(id);
@@ -28,4 +35,5 @@ public class InventoryService : IInventoryService
     {
         return await _inventoryRepository.AddInventoryAsync(inventory);
     }
+
 }

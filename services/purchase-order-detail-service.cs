@@ -6,6 +6,7 @@ using rice_store.utils;
 public interface IPurchaseOrderDetailService
 {
     Task<IEnumerable<PurchaseOrderDetail>> GetAllPurchaseOrderDetailsAsync();
+    Task<IEnumerable<PurchaseOrderDetail>> GetAllPurchaseOrderDetailsAsync(int inventoryID);
     Task<PurchaseOrderDetail> GetPurchaseOrderDetailByIdAsync(int id);
     Task<IEnumerable<PurchaseOrderDetail>> GetPurchaseOrderDetailByWarehouseIdAsync(int warehouseId, PurchaseOrderDetailFilter? filter = null);
     Task<List<PurchaseOrderDetail>> orderPurchaseOrderAsync(List<AddingProductsData> addingProducts);
@@ -26,6 +27,7 @@ public class PurchaseOrderDetailService : IPurchaseOrderDetailService
         _repository = repository;
         _warehouseRepository = warehouseRepository;
     }
+
 
     public async Task<IEnumerable<PurchaseOrderDetail>> GetAllPurchaseOrderDetailsAsync()
     {
@@ -110,5 +112,12 @@ public class PurchaseOrderDetailService : IPurchaseOrderDetailService
     public async Task DeletePurchaseOrderDetailAsync(int id)
     {
         await _repository.DeletePurchaseOrderDetailAsync(id);
+    }
+
+    public async Task<IEnumerable<PurchaseOrderDetail>> GetAllPurchaseOrderDetailsAsync(int inventoryID)
+    {
+        IEnumerable<Warehouse> warehouses = await _warehouseRepository.GetWarehousesByInventoryIdAsync(inventoryID);
+        IEnumerable<int> warehouseIds = warehouses.Select(w => w.Id); // Extract the Ids from the warehouses
+        return await _repository.GetPurchaseOrderDetailsOfEachInventoryAsync(warehouseIds);
     }
 }

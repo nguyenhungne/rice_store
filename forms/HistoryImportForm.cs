@@ -24,7 +24,6 @@ namespace rice_store.forms
         private readonly SupplierService supplierService;
         private IEnumerable<PurchaseOrderDetail> _allPurchaseOrderDetails;
         public HistoryImportForm(InventoryManagementForm inventoryManagementForm, int warehouseId, string productName)
-
         {
             InitializeComponent();
             purchaseOrderDetailService = Program.ServiceProvider.GetRequiredService<PurchaseOrderDetailService>();

@@ -22,6 +22,13 @@ public class InventoryRepository : IInventoryRepository
 
         return await query.ToListAsync();
     }
+
+    public async Task<IEnumerable<Inventory>> GetAllInventoriesAsync()
+    {
+
+        return await _context.Inventory.ToListAsync();
+    }
+
     public async Task<Inventory> GetInventoryByIdAsync(int id)
     {
         return await _context.Inventory.FindAsync(id);

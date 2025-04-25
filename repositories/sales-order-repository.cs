@@ -61,4 +61,21 @@ public class SalesOrderRepository : ISalesOrderRepository
         _context.SalesOrder.Remove(order);
         await _context.SaveChangesAsync();
     }
+
+    public async Task updateTotalAmountSaleOrderAsync(decimal totalAmount, int saleOrderId)
+    {
+        // Tìm ??n hàng theo ID
+        var saleOrder = await _context.SalesOrder.FindAsync(saleOrderId);
+
+        if (saleOrder == null)
+        {
+            throw new Exception($"Không tìm th?y ??n hàng v?i ID = {saleOrderId}");
+        }
+
+        // C?p nh?t giá tr? TotalAmount
+        saleOrder.Total_amount = totalAmount;
+
+        // L?u thay ??i vào database
+        await _context.SaveChangesAsync();
+    }
 }

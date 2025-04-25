@@ -11,12 +11,13 @@ public class AddingSalesOrder
 public class AddingSalesOrderDetail
 {
     public int warehouseId { get; set; }
-    public int quantity { get; set; }
+    public decimal quantity { get; set; }
     public decimal unitPrice { get; set; }
+    public int purchaseOrderDetailsId { get; set; }
 }
 
 public class AddingSalesOrderDetailData
 {
     public required AddingSalesOrder salesOrder { get; set; }
-    public required AddingSalesOrderDetail salesOrderDetail { get; set;}
+    public required List<AddingSalesOrderDetail> salesOrderDetail { get; set;}
 }

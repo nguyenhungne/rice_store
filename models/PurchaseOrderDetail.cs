@@ -19,7 +19,7 @@ namespace rice_store.models
         public int WarehouseId { get; set; }
 
         [Column("quantity")]
-        public int Quantity { get; set; }
+        public decimal Quantity { get; set; }
 
         [Column("unit_price")]
         public decimal UnitPrice { get; set; }

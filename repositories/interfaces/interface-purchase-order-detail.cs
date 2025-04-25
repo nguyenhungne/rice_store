@@ -10,4 +10,6 @@ public interface IPurchaseOrderDetailRepository
     Task<PurchaseOrderDetail> AddPurchaseOrderDetailAsync(PurchaseOrderDetail detail);
     Task<PurchaseOrderDetail> UpdatePurchaseOrderDetailAsync(PurchaseOrderDetail detail);
     Task DeletePurchaseOrderDetailAsync(int id);
+    Task UpdateQuantityPurchaseOrderDetailAsync(int PurchaseDetailId, decimal quantity);
+    Task<IEnumerable<PurchaseOrderDetail>> GetPurchaseOrderDetailsOfEachInventoryAsync(IEnumerable<int> warehouseIds);
 }

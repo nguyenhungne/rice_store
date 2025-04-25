@@ -21,6 +21,9 @@ namespace rice_store.models
         [Column("payment_method")]
         public string PaymentMethod { get; set; }
 
+        [Column("total_amount")]
+        public decimal Total_amount { get; set; }
+
         [Column("status")]
         public string Status { get; set; }
 

@@ -6,8 +6,8 @@ public class WarehouseDTO
     public string BatchNumber { get; set; }
     public int MinThreshold { get; set; }
     public DateTime ExpirationDate { get; set; }
-    public int totalInboundQuantity { get; set; }
-    public int totalSalesQuantity { get; set; }
+    public decimal totalInboundQuantity { get; set; }
+    public decimal totalSalesQuantity { get; set; }
 
     public Product Product { get; set; }
     public Inventory Inventory { get; set; }

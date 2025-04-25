@@ -41,8 +41,7 @@ public class CustomerRepository : ICustomerRepository
     public async Task<Customer> GetCustomerByIdAsync(int id)
     {
         return await _context.Customer
-            .FirstOrDefaultAsync(c => c.Id == id)
-            ?? throw new InvalidOperationException($"Customer with ID {id} not found.");
+            .FirstOrDefaultAsync(c => c.Id == id);
     }
 
     public async Task<Customer> AddCustomerAsync(Customer customer)
@@ -69,7 +68,7 @@ public class CustomerRepository : ICustomerRepository
         existingCustomer.Phone = customer.Phone;
         existingCustomer.Email = customer.Email;
         existingCustomer.Address = customer.Address;
-        existingCustomer.LoyaltyPoints = customer.LoyaltyPoints;
+        existingCustomer.Rank = customer.Rank;
 
         await _context.SaveChangesAsync();
         return existingCustomer;

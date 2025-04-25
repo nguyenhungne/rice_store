@@ -11,4 +11,5 @@ public interface IWarehouseRepository
     Task<Warehouse> UpdateWarehouseAsync(Warehouse warehouse);
     Task<Warehouse?> GetWarehouseByProductAndInventoryIdAsync(int productId, int inventoryId);
     Task DeleteWarehouseAsync(int id);
+    Task<IEnumerable<Warehouse>> GetWarehousesByInventoryIdAsync(int inventoryId);
 }

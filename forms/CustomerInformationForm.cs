@@ -56,7 +56,7 @@ namespace rice_store.forms
             string phone = phoneTextBox.Text;
             string email = emailTextBox.Text;
             string address = addressTextBox.Text;
-            int loyaltyPoints = loyalPointTextBox.Text == "" ? 0 : int.Parse(loyalPointTextBox.Text);
+            
 
             if (_customerId == null)
             {
@@ -67,7 +67,6 @@ namespace rice_store.forms
                     Phone = phone,
                     Email = email,
                     Address = address,
-                    LoyaltyPoints = loyaltyPoints
                 };
                 await customerService.AddCustomerAsync(newCustomer);
             }
@@ -81,7 +80,7 @@ namespace rice_store.forms
                     Phone = phone,
                     Email = email,
                     Address = address,
-                    LoyaltyPoints = loyaltyPoints
+                    //LoyaltyPoints = loyaltyPoints
                 };
                 await customerService.UpdateCustomerAsync(updatedCustomer);
             }
