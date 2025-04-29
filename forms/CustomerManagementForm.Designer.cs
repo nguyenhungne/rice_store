@@ -45,6 +45,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel3 = new Panel();
             editButton = new Guna.UI2.WinForms.Guna2Button();
             deleteButton = new Guna.UI2.WinForms.Guna2Button();
@@ -65,6 +67,7 @@
             searchEmailTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             searchEmailLabel = new Label();
             panel2 = new Panel();
+            updateRankCustomerButton = new Guna.UI2.WinForms.Guna2TileButton();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customerDataGridView).BeginInit();
@@ -335,6 +338,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(updateRankCustomerButton);
             panel2.Controls.Add(searchEmailTextBox);
             panel2.Controls.Add(searchEmailLabel);
             panel2.Controls.Add(searchPhoneNumberTextBox);
@@ -346,6 +350,23 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(278, 766);
             panel2.TabIndex = 1;
+            // 
+            // updateRankCustomerButton
+            // 
+            updateRankCustomerButton.CustomizableEdges = customizableEdges15;
+            updateRankCustomerButton.DisabledState.BorderColor = Color.DarkGray;
+            updateRankCustomerButton.DisabledState.CustomBorderColor = Color.DarkGray;
+            updateRankCustomerButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            updateRankCustomerButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            updateRankCustomerButton.Font = new Font("Segoe UI", 9F);
+            updateRankCustomerButton.ForeColor = Color.White;
+            updateRankCustomerButton.Location = new Point(48, 362);
+            updateRankCustomerButton.Name = "updateRankCustomerButton";
+            updateRankCustomerButton.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            updateRankCustomerButton.Size = new Size(183, 173);
+            updateRankCustomerButton.TabIndex = 7;
+            updateRankCustomerButton.Text = "Cập nhật thứ hạng thành viên";
+            updateRankCustomerButton.Click += updateRankCustomerButton_Click;
             // 
             // CustomerManagementForm
             // 
@@ -389,5 +410,6 @@
         private DataGridViewTextBoxColumn customerEmail;
         private DataGridViewTextBoxColumn customerAddress;
         private DataGridViewTextBoxColumn customerLoyaltyPoints;
+        private Guna.UI2.WinForms.Guna2TileButton updateRankCustomerButton;
     }
 }

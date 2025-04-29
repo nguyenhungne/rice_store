@@ -12,4 +12,7 @@ public interface ISalesOrderRepository
 
     Task updateTotalAmountSaleOrderAsync(decimal totalAmount, int saleOrderId);
     Task DeleteSalesOrderAsync(int id);
+    Task<decimal> GetTotalAmountByCustomerIdAsync(int customerId);
+
+
 }

@@ -67,6 +67,7 @@ namespace rice_store.forms
                     Phone = phone,
                     Email = email,
                     Address = address,
+                    Rank = "Thường" // Default rank for new customers
                 };
                 await customerService.AddCustomerAsync(newCustomer);
             }
@@ -80,7 +81,6 @@ namespace rice_store.forms
                     Phone = phone,
                     Email = email,
                     Address = address,
-                    //LoyaltyPoints = loyaltyPoints
                 };
                 await customerService.UpdateCustomerAsync(updatedCustomer);
             }

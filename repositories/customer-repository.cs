@@ -79,7 +79,19 @@ public class CustomerRepository : ICustomerRepository
         var customer = await _context.Customer.FindAsync(id)
             ?? throw new InvalidOperationException($"Customer with ID {id} not found.");
 
-        _context.Customer.Remove(customer);
+        customer.IsDeleted = true;
         await _context.SaveChangesAsync();
     }
+
+    public async Task<IEnumerable<Customer>> GetAllCustomersAsync()
+    {
+        return await _context.Customer.ToListAsync();
+    }
+
+    public async Task SaveChangesAsync()
+    {
+        await _context.SaveChangesAsync();
+    }
+
+
 }

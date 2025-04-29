@@ -30,12 +30,35 @@ namespace rice_store.utils
            }else if (rank.Equals("Vàng"))
            {
                 return total - (total * 0.1m);
-           }else if(rank.Equals("Kim Cương"))
+           }else if(rank.Equals("Kim cương"))
            {
                 return total - (total * 0.15m);
            }
 
             return total;
         }
+
+        public static decimal GetOriginalTotal(decimal discountedTotal, string rank)
+        {
+            if (rank.Equals("Đồng"))
+            {
+                return discountedTotal / (1 - 0.03m);
+            }
+            else if (rank.Equals("Bạc"))
+            {
+                return discountedTotal / (1 - 0.05m);
+            }
+            else if (rank.Equals("Vàng"))
+            {
+                return discountedTotal / (1 - 0.10m);
+            }
+            else if (rank.Equals("Kim cương"))
+            {
+                return discountedTotal / (1 - 0.15m);
+            }
+
+            return discountedTotal; 
+        }
+
     }
 }

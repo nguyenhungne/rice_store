@@ -16,7 +16,7 @@ namespace rice_store.forms
 {
     public partial class CustomerManagementForm : Form
     {
-        private readonly ICustomerService customerService;
+        private readonly CustomerService customerService;
         public CustomerManagementForm()
         {
             InitializeComponent();
@@ -112,6 +112,18 @@ namespace rice_store.forms
             {
                 MessageBox.Show("Please select a customer to edit.");
             }
+        }
+
+
+        private async void updateRankCustomerButton_Click(object sender, EventArgs e)
+        {
+            int numberUpgrated = await customerService.UpdateAllCustomerRanksAsync();
+            if(numberUpgrated <= 0)
+            {
+                MessageBox.Show("Không có khách hàng nào đủ điều kiện để thăng hạng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            MessageBox.Show($"Cập nhật thành công: {numberUpgrated} khách hàng được thăng hạng.\nĐã gửi thông báo CSKH.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

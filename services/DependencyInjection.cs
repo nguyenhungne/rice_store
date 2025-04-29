@@ -4,6 +4,7 @@ using rice_store.repositories.interfaces;
 using rice_store.services;
 using rice_store.data;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
 
 namespace rice_store
 {
@@ -31,13 +32,20 @@ namespace rice_store
             services.AddScoped<AuthenticationService>();
             services.AddScoped<ProductService>();
             services.AddScoped<CategoryService>();
-            services.AddScoped<CustomerService>();
             services.AddScoped<InventoryService>();
             services.AddScoped<WarehouseService>();
             services.AddScoped<PurchaseOrderDetailService>();
             services.AddScoped<SalesOrderDetailService>();
             services.AddScoped<SupplierService>();
-            services.AddScoped<ISalesOrderService, SalesOrderService>();
+            services.AddScoped<SalesOrderService>();
+            services.AddScoped<SmtpClient>();
+            services.AddScoped<IEmailSender,EmailSender>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<CustomerService>();
+
+
+
+
 
             return services;
         }

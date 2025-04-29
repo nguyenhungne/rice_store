@@ -28,18 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             titleLabel = new Label();
             nameLabel = new Label();
             nameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -50,8 +48,6 @@
             emailTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             emailLabel = new Label();
             actionButton = new Guna.UI2.WinForms.Guna2Button();
-            loyalPointTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            loyalPoint = new Label();
             SuspendLayout();
             // 
             // titleLabel
@@ -76,7 +72,7 @@
             // 
             // nameTextBox
             // 
-            nameTextBox.CustomizableEdges = customizableEdges13;
+            nameTextBox.CustomizableEdges = customizableEdges1;
             nameTextBox.DefaultText = "";
             nameTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             nameTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -90,13 +86,13 @@
             nameTextBox.Name = "nameTextBox";
             nameTextBox.PlaceholderText = "";
             nameTextBox.SelectedText = "";
-            nameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            nameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges2;
             nameTextBox.Size = new Size(259, 39);
             nameTextBox.TabIndex = 2;
             // 
             // addressTextBox
             // 
-            addressTextBox.CustomizableEdges = customizableEdges15;
+            addressTextBox.CustomizableEdges = customizableEdges3;
             addressTextBox.DefaultText = "";
             addressTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             addressTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -110,7 +106,7 @@
             addressTextBox.Name = "addressTextBox";
             addressTextBox.PlaceholderText = "";
             addressTextBox.SelectedText = "";
-            addressTextBox.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            addressTextBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
             addressTextBox.Size = new Size(259, 39);
             addressTextBox.TabIndex = 4;
             // 
@@ -126,7 +122,7 @@
             // 
             // phoneTextBox
             // 
-            phoneTextBox.CustomizableEdges = customizableEdges17;
+            phoneTextBox.CustomizableEdges = customizableEdges5;
             phoneTextBox.DefaultText = "";
             phoneTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             phoneTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -140,7 +136,7 @@
             phoneTextBox.Name = "phoneTextBox";
             phoneTextBox.PlaceholderText = "";
             phoneTextBox.SelectedText = "";
-            phoneTextBox.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            phoneTextBox.ShadowDecoration.CustomizableEdges = customizableEdges6;
             phoneTextBox.Size = new Size(259, 39);
             phoneTextBox.TabIndex = 6;
             // 
@@ -156,7 +152,7 @@
             // 
             // emailTextBox
             // 
-            emailTextBox.CustomizableEdges = customizableEdges19;
+            emailTextBox.CustomizableEdges = customizableEdges7;
             emailTextBox.DefaultText = "";
             emailTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             emailTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -170,7 +166,7 @@
             emailTextBox.Name = "emailTextBox";
             emailTextBox.PlaceholderText = "";
             emailTextBox.SelectedText = "";
-            emailTextBox.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            emailTextBox.ShadowDecoration.CustomizableEdges = customizableEdges8;
             emailTextBox.Size = new Size(259, 39);
             emailTextBox.TabIndex = 8;
             // 
@@ -186,7 +182,7 @@
             // 
             // actionButton
             // 
-            actionButton.CustomizableEdges = customizableEdges21;
+            actionButton.CustomizableEdges = customizableEdges9;
             actionButton.DisabledState.BorderColor = Color.DarkGray;
             actionButton.DisabledState.CustomBorderColor = Color.DarkGray;
             actionButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -195,48 +191,16 @@
             actionButton.ForeColor = Color.White;
             actionButton.Location = new Point(38, 413);
             actionButton.Name = "actionButton";
-            actionButton.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            actionButton.ShadowDecoration.CustomizableEdges = customizableEdges10;
             actionButton.Size = new Size(299, 62);
             actionButton.TabIndex = 9;
             actionButton.Click += actionButton_Click;
-            // 
-            // loyalPointTextBox
-            // 
-            loyalPointTextBox.CustomizableEdges = customizableEdges23;
-            loyalPointTextBox.DefaultText = "";
-            loyalPointTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            loyalPointTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            loyalPointTextBox.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            loyalPointTextBox.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            loyalPointTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            loyalPointTextBox.Font = new Font("Segoe UI", 9F);
-            loyalPointTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            loyalPointTextBox.Location = new Point(90, 344);
-            loyalPointTextBox.Margin = new Padding(3, 4, 3, 4);
-            loyalPointTextBox.Name = "loyalPointTextBox";
-            loyalPointTextBox.PlaceholderText = "";
-            loyalPointTextBox.SelectedText = "";
-            loyalPointTextBox.ShadowDecoration.CustomizableEdges = customizableEdges24;
-            loyalPointTextBox.Size = new Size(259, 39);
-            loyalPointTextBox.TabIndex = 11;
-            // 
-            // loyalPoint
-            // 
-            loyalPoint.AutoSize = true;
-            loyalPoint.Font = new Font("Segoe UI", 12F);
-            loyalPoint.Location = new Point(13, 344);
-            loyalPoint.Name = "loyalPoint";
-            loyalPoint.Size = new Size(58, 28);
-            loyalPoint.TabIndex = 10;
-            loyalPoint.Text = "Điểm";
             // 
             // CustomerInformationForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(387, 498);
-            Controls.Add(loyalPointTextBox);
-            Controls.Add(loyalPoint);
             Controls.Add(actionButton);
             Controls.Add(emailTextBox);
             Controls.Add(emailLabel);
@@ -266,7 +230,5 @@
         private Guna.UI2.WinForms.Guna2TextBox emailTextBox;
         private Label emailLabel;
         private Guna.UI2.WinForms.Guna2Button actionButton;
-        private Guna.UI2.WinForms.Guna2TextBox loyalPointTextBox;
-        private Label loyalPoint;
     }
 }

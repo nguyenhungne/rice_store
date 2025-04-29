@@ -78,4 +78,11 @@ public class SalesOrderRepository : ISalesOrderRepository
         // L?u thay ??i vào database
         await _context.SaveChangesAsync();
     }
+
+    public async Task<decimal> GetTotalAmountByCustomerIdAsync(int customerId)
+    {
+        return await _context.SalesOrder
+            .Where(o => o.CustomerId == customerId)
+            .SumAsync(o => o.Total_amount);
+    }
 }

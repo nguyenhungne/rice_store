@@ -23,7 +23,10 @@ namespace rice_store.models
         public string Address { get; set; }
 
         [Column("rank")]
-        public string Rank { get; set; } = "Th??ng";  
+        public string Rank { get; set; } = "Th??ng";
+        [Column("is_deleted")]
+        public bool IsDeleted { get; set; }
+
 
     }
 }

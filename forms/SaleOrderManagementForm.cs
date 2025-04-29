@@ -343,6 +343,7 @@ namespace rice_store.forms
                     this.Close();
                     sendNotificationForm.Show();
                     sendNotificationForm.Activate();
+                    sendNotificationForm.reloadData();
                 }
                 else
                 {

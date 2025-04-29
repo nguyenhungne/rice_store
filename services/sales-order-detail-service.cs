@@ -1,4 +1,4 @@
-using rice_store.models;
+ï»¿using rice_store.models;
 using rice_store.utils;
 
 public interface ISalesOrderDetailService
@@ -114,12 +114,11 @@ public class SalesOrderDetailService : ISalesOrderDetailService
 
         Customer customer = await _customerRepository.GetCustomerByIdAsync(customerId);
 
-        string customerRank = customer != null ? customer.Rank : "Không có";
+        string customerRank = customer != null ? customer.Rank : "KhÃ´ng cÃ³";
 
+        decimal totalAmountNew = CustomerUtils.GetTotalAmountAfterDiscount(totalAmount, customerRank);
 
-        totalAmount = CustomerUtils.GetTotalAmountAfterDiscount(totalAmount, customerRank);
-
-        await _salesOrderRepository.updateTotalAmountSaleOrderAsync(totalAmount, newOrder.Id);
+        await _salesOrderRepository.updateTotalAmountSaleOrderAsync(totalAmountNew, newOrder.Id);
 
 
         return salesOrderDetails;
