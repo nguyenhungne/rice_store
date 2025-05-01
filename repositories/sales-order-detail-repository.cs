@@ -73,6 +73,20 @@ public class SalesOrderDetailRepository : ISalesOrderDetailRepository
     {
         return await _context.SalesOrderDetail
             .Where(s => s.SalesOrderId == OrderId)
+            .Include(s => s.SalesOrder)
+            .Include(i => i.Warehouse.Inventory)
+            .Include(c => c.SalesOrder.Customer)
             .ToListAsync();
     }
+
+    public async Task<IEnumerable<SalesOrderDetail>> GetAllSalesOrderDetailByOrderIDAndWarehouseID(int orderId, int warehouseID)
+    {
+        return await _context.SalesOrderDetail
+            .Where(s => s.SalesOrderId == orderId && s.WarehouseId == warehouseID)
+            .Include(s => s.SalesOrder)
+            .Include(s => s.Warehouse)
+            .Include(p => p.Warehouse.Product)
+            .ToListAsync();
+    }
+
 }

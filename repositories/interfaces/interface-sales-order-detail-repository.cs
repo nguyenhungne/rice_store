@@ -9,4 +9,6 @@ public interface ISalesOrderDetailRepository
     Task<SalesOrderDetail> UpdateSalesOrderDetailAsync(SalesOrderDetail salesOrderDetail);
     Task DeleteSalesOrderDetailAsync(int id);
     Task<IEnumerable<SalesOrderDetail>> GetAllSalesOrderDetailByOrderID(int OrderId);
-}
+    Task<IEnumerable<SalesOrderDetail>> GetAllSalesOrderDetailByOrderIDAndWarehouseID(int orderId, int warehouseID);
+    
+} 

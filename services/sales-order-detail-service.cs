@@ -1,4 +1,5 @@
 ﻿using rice_store.models;
+using rice_store.services.type;
 using rice_store.utils;
 
 public interface ISalesOrderDetailService
@@ -10,6 +11,9 @@ public interface ISalesOrderDetailService
     Task<List<SalesOrderDetail>> AddInvoicesAsync(AddingSalesOrderDetailData addingSalesOrdersDetailData);
     Task<SalesOrderDetail> UpdateSalesOrderDetailAsync(SalesOrderDetail salesOrderDetail);
     Task DeleteSalesOrderDetailAsync(int id);
+    Task<IEnumerable<SalesOrderDetail>> GetAllSalesOrderDetailByOrderID(int OrderId);
+
+    Task<IEnumerable<InvoiceDetailDTO>> GetAllSalesOrderDetailByOrderIDAndWarehouseID(int orderId, IEnumerable<int> warehouseIds);
 }
 
 public class SalesOrderDetailService : ISalesOrderDetailService
@@ -150,4 +154,38 @@ public class SalesOrderDetailService : ISalesOrderDetailService
 
         await _salesOrderDetailRepository.DeleteSalesOrderDetailAsync(id);
     }
+
+    public async Task<IEnumerable<InvoiceDetailDTO>> GetAllSalesOrderDetailByOrderIDAndWarehouseID(int orderId, IEnumerable<int> warehouseIds)
+    {
+        List<InvoiceDetailDTO> invoiceDetails = new List<InvoiceDetailDTO>();
+
+        foreach (int warehouseId in warehouseIds)
+        {
+            IEnumerable<SalesOrderDetail> salesOrderDetails = await _salesOrderDetailRepository.GetAllSalesOrderDetailByOrderIDAndWarehouseID(orderId, warehouseId);
+            decimal totalAmount = 0;
+            decimal totalQuantity = 0;
+            
+            foreach (SalesOrderDetail salesOrderDetail in salesOrderDetails)
+            {
+                totalAmount += salesOrderDetail.Quantity * salesOrderDetail.UnitPrice;
+                totalQuantity += salesOrderDetail.Quantity;
+            }
+            invoiceDetails.Add(new InvoiceDetailDTO
+            {
+                ProductName = salesOrderDetails.First().Warehouse.Product.Name,
+                Quantity = totalQuantity.ToString(),
+                UnitPrice = salesOrderDetails.First().UnitPrice.ToString(),
+                TotalPrice = totalAmount.ToString(),
+            });
+        }
+        return invoiceDetails;
+    }
+
+    public async Task<IEnumerable<SalesOrderDetail>> GetAllSalesOrderDetailByOrderID(int OrderId)
+    {
+        return await _salesOrderDetailRepository.GetAllSalesOrderDetailByOrderID(OrderId);
+    }
+       
+
+
 }
