@@ -18,7 +18,7 @@ namespace rice_store.forms
         PaymentManagementForm? paymentManagementForm;
         SendNotificationForm? sendNotificationForm;
         CustomerManagementForm? customerManagementForm;
-        SystemSettingForm? systemSettingForm;
+        ReportForm? reportForm;
         InventoryListForm? inventoryListForm;
         public MainForm()
         {
@@ -184,23 +184,23 @@ namespace rice_store.forms
 
         private void systemSettingButton_Click(object sender, EventArgs e)
         {
-            if (systemSettingForm == null)
+            if (reportForm == null)
             {
-                systemSettingForm = new SystemSettingForm();
-                systemSettingForm.FormClosed += onSystemSettingFormClosed;
-                systemSettingForm.MdiParent = this;
-                systemSettingForm.Dock = DockStyle.Fill;
-                systemSettingForm.Show();
+                reportForm = new ReportForm();
+                reportForm.FormClosed += onSystemSettingFormClosed;
+                reportForm.MdiParent = this;
+                reportForm.Dock = DockStyle.Fill;
+                reportForm.Show();
             }
             else
             {
-                systemSettingForm.Activate();
+                reportForm.Activate();
             }
         }
 
         private void onSystemSettingFormClosed(object? sender, FormClosedEventArgs e)
         {
-            systemSettingForm = null!;
+            reportForm = null!;
         }
 
         private void sendNotificationButton_Click_1(object sender, EventArgs e)

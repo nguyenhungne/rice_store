@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using rice_store.models;
+using rice_store.services.type;
 
 public interface ISalesOrderRepository
 {
@@ -9,6 +10,7 @@ public interface ISalesOrderRepository
     Task<SalesOrder> GetSalesOrderByIdAsync(int id);
     Task<SalesOrder> AddSalesOrderAsync(SalesOrder salesOrder);
     Task<SalesOrder> UpdateSalesOrderAsync(SalesOrder salesOrder);
+    Task<List<SalesReportDTO>> GetFilteredSalesDataAsync(int startMonth, int endMonth, int year);
 
     Task updateTotalAmountSaleOrderAsync(decimal totalAmount, int saleOrderId);
     Task DeleteSalesOrderAsync(int id);

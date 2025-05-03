@@ -63,7 +63,7 @@ namespace rice_store.data
                 foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
             }
 
-            // global query filter cho soft delete
+            // global query filter for soft delete
             modelBuilder.Entity<Customer>()
                 .HasQueryFilter(c => !c.IsDeleted);
         }

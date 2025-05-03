@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Microsoft.EntityFrameworkCore;
 
 using rice_store.data;
 using rice_store.models;
+using rice_store.services.type;
 
 public class PurchaseOrderRepository : IPurchaseOrderRepository
 {
@@ -52,6 +54,21 @@ public class PurchaseOrderRepository : IPurchaseOrderRepository
 
         await _context.SaveChangesAsync();
         return existingOrder;
+    }
+
+    public async Task<List<PurchaseReportDTO>> GetFilteredPurchaseDataAsync(int startMonth, int endMonth, int year)
+    {
+        var query = from po in _context.PurchaseOrder
+                    join pod in _context.PurchaseOrderDetail on po.Id equals pod.PurchaseOrderId
+                    where po.OrderDate.Month >= startMonth && po.OrderDate.Month <= endMonth && po.OrderDate.Year == year
+                    group new { po, pod } by po.OrderDate.Month into grouped
+                    select new PurchaseReportDTO
+                    {
+                        Month = grouped.Key,
+                        TotalAmount = grouped.Sum(x => x.pod.Quantity * x.pod.UnitPrice)
+                    };
+
+        return await query.ToListAsync();
     }
 
     public async Task DeletePurchaseOrderAsync(int id)

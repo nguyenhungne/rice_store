@@ -34,6 +34,7 @@ namespace rice_store
             services.AddScoped<CategoryService>();
             services.AddScoped<InventoryService>();
             services.AddScoped<WarehouseService>();
+            services.AddScoped<PurchaseOrderService>();
             services.AddScoped<PurchaseOrderDetailService>();
             services.AddScoped<SalesOrderDetailService>();
             services.AddScoped<SupplierService>();
@@ -42,10 +43,6 @@ namespace rice_store
             services.AddScoped<IEmailSender,EmailSender>();
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<CustomerService>();
-
-
-
-
 
             return services;
         }

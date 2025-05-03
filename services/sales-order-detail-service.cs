@@ -1,4 +1,6 @@
-﻿using rice_store.models;
+﻿using System.Diagnostics;
+
+using rice_store.models;
 using rice_store.services.type;
 using rice_store.utils;
 
@@ -28,7 +30,7 @@ public class SalesOrderDetailService : ISalesOrderDetailService
         _salesOrderDetailRepository = salesOrderDetailRepository;
         _salesOrderRepository = salesOrderRepository;
         _customerRepository = customerRepository;
-        _purchaseOrderDetailRepository = purchaseOrderDetailRepository; 
+        _purchaseOrderDetailRepository = purchaseOrderDetailRepository;
     }
 
     public async Task<IEnumerable<SalesOrderDetail>> GetAllSalesOrderDetailsAsync()
@@ -81,7 +83,7 @@ public class SalesOrderDetailService : ISalesOrderDetailService
         //}
 
         AddingSalesOrder addingSalesOrder = addingSalesOrdersDetailData.salesOrder;
-        
+
 
         SalesOrder newOrder = await _salesOrderRepository.AddSalesOrderAsync(new SalesOrder
         {
@@ -107,7 +109,7 @@ public class SalesOrderDetailService : ISalesOrderDetailService
 
         int customerId = addingSalesOrder.customerId ?? -1;
 
-        
+
         //tinh tien------------------------
         decimal totalAmount = 0;
 
@@ -164,7 +166,7 @@ public class SalesOrderDetailService : ISalesOrderDetailService
             IEnumerable<SalesOrderDetail> salesOrderDetails = await _salesOrderDetailRepository.GetAllSalesOrderDetailByOrderIDAndWarehouseID(orderId, warehouseId);
             decimal totalAmount = 0;
             decimal totalQuantity = 0;
-            
+
             foreach (SalesOrderDetail salesOrderDetail in salesOrderDetails)
             {
                 totalAmount += salesOrderDetail.Quantity * salesOrderDetail.UnitPrice;
@@ -185,7 +187,7 @@ public class SalesOrderDetailService : ISalesOrderDetailService
     {
         return await _salesOrderDetailRepository.GetAllSalesOrderDetailByOrderID(OrderId);
     }
-       
+
 
 
 }

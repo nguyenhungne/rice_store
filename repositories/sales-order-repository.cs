@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 using rice_store.data;
 using rice_store.models;
+using rice_store.services.type;
 
 public class SalesOrderRepository : ISalesOrderRepository
 {
@@ -64,18 +65,18 @@ public class SalesOrderRepository : ISalesOrderRepository
 
     public async Task updateTotalAmountSaleOrderAsync(decimal totalAmount, int saleOrderId)
     {
-        // Tìm ??n hàng theo ID
+        // Tï¿½m ??n hï¿½ng theo ID
         var saleOrder = await _context.SalesOrder.FindAsync(saleOrderId);
 
         if (saleOrder == null)
         {
-            throw new Exception($"Không tìm th?y ??n hàng v?i ID = {saleOrderId}");
+            throw new Exception($"Khï¿½ng tï¿½m th?y ??n hï¿½ng v?i ID = {saleOrderId}");
         }
 
-        // C?p nh?t giá tr? TotalAmount
+        // C?p nh?t giï¿½ tr? TotalAmount
         saleOrder.Total_amount = totalAmount;
 
-        // L?u thay ??i vào database
+        // L?u thay ??i vï¿½o database
         await _context.SaveChangesAsync();
     }
 
@@ -84,5 +85,20 @@ public class SalesOrderRepository : ISalesOrderRepository
         return await _context.SalesOrder
             .Where(o => o.CustomerId == customerId)
             .SumAsync(o => o.Total_amount);
+    }
+
+    public async Task<List<SalesReportDTO>> GetFilteredSalesDataAsync(int startMonth, int endMonth, int year)
+    {
+        var query = from so in _context.SalesOrder
+                    join sod in _context.SalesOrderDetail on so.Id equals sod.SalesOrderId
+                    where so.OrderDate.Month >= startMonth && so.OrderDate.Month <= endMonth && so.OrderDate.Year == year
+                    group new { so, sod } by so.OrderDate.Month into grouped
+                    select new SalesReportDTO
+                    {
+                        Month = grouped.Key,
+                        TotalAmount = grouped.Sum(x => x.sod.Quantity * x.sod.UnitPrice)
+                    };
+
+        return await query.ToListAsync();
     }
 }

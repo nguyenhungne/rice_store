@@ -49,7 +49,7 @@
     <Compile Update="forms\InventoryManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="forms\SystemSettingForm.cs">
+    <Compile Update="forms\ReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="forms\CustomerManagementForm.cs">
