@@ -13,10 +13,16 @@ namespace rice_store.services
             _userRepository = userRepository;
         }
 
-        public bool Authenticate(string email, string password)
+        public User? Authenticate(string email, string password)
         {
             User? user = _userRepository.GetUserByEmail(email);
-            return HashingService.VerifyPassword(password, user?.Password);
+
+            if (user != null && HashingService.VerifyPassword(password, user.Password))
+            {
+                return user;
+            }
+
+            return null;
         }
     }
 }

@@ -116,7 +116,7 @@ namespace rice_store.forms
             productInformationFrom.Show();
         }
 
-        private void deleteProductButton_Click(object sender, EventArgs e)
+        private async void deleteProductButton_Click(object sender, EventArgs e)
         {
             // Get the selected row index
             int selectedRowIndex = productDataGridView.CurrentCell.RowIndex;
@@ -134,8 +134,7 @@ namespace rice_store.forms
                     try
                     {
                         // Call the DeleteProductAsync method
-                        productService.DeleteProductAsync(productId);
-                        MessageBox.Show("Xóa sản phẩm thành công.");
+                        await productService.DeleteProductAsync(productId);
 
                         // Reload the products data
                         ProductManagementForm_Load(sender, e); // Reload the products list

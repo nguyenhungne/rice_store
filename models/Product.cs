@@ -36,6 +36,9 @@ namespace rice_store.models
         [Column("expiration_date")]
         public DateTime ExpirationDate { get; set; }
 
+        [Column("is_deleted")]
+        public bool IsDeleted { get; set; } = false;
+
         public Category Category { get; set; }
     }
 }

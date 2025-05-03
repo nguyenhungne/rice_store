@@ -29,12 +29,13 @@ namespace rice_store.forms
             setUpDataGrid();
         }
 
-        private async void UserManagementForm_Load(object sender, EventArgs e)
+        public void UserManagementForm_Load(object sender, EventArgs e)
         {
             setUpDataGrid();
         }
 
-        private async void setUpDataGrid() {
+        private async void setUpDataGrid()
+        {
             userDataGridView.Rows.Clear();
             string? searchName = searchNameTextBox.Text;
             string? searchEmail = searchEmailTextBox.Text;
@@ -83,6 +84,29 @@ namespace rice_store.forms
             else
             {
                 MessageBox.Show("Please select a user to edit.");
+            }
+        }
+
+        private async void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (userDataGridView.CurrentCell != null)
+            {
+                int selectedRowIndex = userDataGridView.CurrentCell.RowIndex;
+
+                if (selectedRowIndex >= 0 && selectedRowIndex < userDataGridView.Rows.Count)
+                {
+                    int userId = (int)userDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+                    await _userService.SortDeleteUserAsync(userId);
+                    setUpDataGrid();
+                }
+                else
+                {
+                    MessageBox.Show("Please select a valid user to delete.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a user to delete.");
             }
         }
     }

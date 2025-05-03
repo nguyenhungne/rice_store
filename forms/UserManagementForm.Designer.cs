@@ -111,6 +111,7 @@
             deleteButton.Size = new Size(265, 53);
             deleteButton.TabIndex = 1;
             deleteButton.Text = "Xóa";
+            deleteButton.Click += deleteButton_Click;
             // 
             // addButton
             // 

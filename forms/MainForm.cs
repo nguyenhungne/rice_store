@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,9 @@ namespace rice_store.forms
 {
     public partial class MainForm : Form
     {
-
+        // User role can be "admin", warehouse_staff, sales_staff, or accountant
+        // Using this variable to determine which form to show
+        private string _userRole;
         ProductManagementForm? dashboardForm;
         SaleOrderManagementForm? contractManagementForm;
         PaymentManagementForm? paymentManagementForm;
@@ -26,6 +29,38 @@ namespace rice_store.forms
             InitializeComponent();
             mdiProp();
         }
+
+        public void SetUserRole(string role)
+        {
+            _userRole = role;
+            // *TODO: Apply user role permissions when modifying the UI
+            // ApplyUserRolePermissions();
+        }
+
+        // private void ApplyUserRolePermissions()
+        // {
+        //     if (_userRole == "admin")
+        //     {
+        //         // Hiển thị hoặc cho phép các tính năng chỉ dành cho admin
+        //         adminPanel.Visible = true;
+        //     }
+        //     else if (_userRole == "warehouse_staff")
+        //     {
+        //         warehousePanel.Visible = true;
+        //     }
+        //     else if (_userRole == "sales_staff")
+        //     {
+        //         salesPanel.Visible = true;
+        //     }
+        //     else if (_userRole == "accountant")
+        //     {
+        //         accountantPanel.Visible = true;
+        //     }
+        //     else
+        //     {
+        //         guestPanel.Visible = true;
+        //     }
+        // }
 
         bool isSidebarExpanded = true;
         private void mdiProp()
@@ -75,7 +110,7 @@ namespace rice_store.forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            Debug.WriteLine(this._userRole);
         }
 
 

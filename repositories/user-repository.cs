@@ -47,6 +47,14 @@ namespace rice_store.repositories
             return await query.ToListAsync();
         }
 
+        public async Task SortDeleteUserAsync(int id)
+        {
+            var user = await _context.User.FindAsync(id) ?? throw new InvalidOperationException($"User with ID {id} not found.");
+            user.IsDeleted = true;
+            _context.User.Update(user);
+            await _context.SaveChangesAsync();
+        }
+
         public async Task<User> GetUserByIdAsync(int id)
         {
             return await _context.User.FirstOrDefaultAsync(u => u.Id == id)
@@ -69,7 +77,7 @@ namespace rice_store.repositories
             }
 
             existingUser.Username = user.Username;
-            existingUser.Password = user.Password;
+            existingUser.Password = user.Password != null ? user.Password : existingUser.Password;
             existingUser.Username = user.Username;
             existingUser.Role = user.Role;
             existingUser.Name = user.Name;

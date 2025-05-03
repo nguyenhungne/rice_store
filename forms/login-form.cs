@@ -1,6 +1,8 @@
 using System;
 using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
+
+using rice_store.models;
 using rice_store.services;
 
 namespace rice_store.forms
@@ -25,15 +27,19 @@ namespace rice_store.forms
             string email = txtEmail.Text;
             string password = txtPassword.Text;
 
-            if (_authService.Authenticate(email, password))
-            {
-                this.Hide();
-                _mainForm.Show();
-            }
-            else
-            {
-                MessageBox.Show("Invalid Email or Password!");
-            }
+            User? authenticatedUser = _authService.Authenticate(email, password);
+
+            if (authenticatedUser != null)
+        {
+            _mainForm.SetUserRole(authenticatedUser.Role);
+
+            this.Hide();
+            _mainForm.Show();
+        }
+        else
+        {
+            MessageBox.Show("Invalid Email or Password!");
+        }
         }
 
         private void MainFormClosed(object? sender, FormClosedEventArgs e)

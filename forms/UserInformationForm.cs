@@ -50,11 +50,11 @@ namespace rice_store.forms
             actionButton.Text = "Cập nhật thông tin tài khoản";
             models.User user = await userService.GetUserByIdAsync(userId.Value);
             titleLabel.Text = $"Thông tin của tài khoản {user.Name}";
+            passwordLabel.Text = "Mật khẩu mới";
             nameTextBox.Text = user.Name;
             userNameTextBox.Text = user.Username;
             phoneTextBox.Text = user.Phone;
             emailTextBox.Text = user.Email;
-            passwordTextBox.Text = user.Password; // Assuming password is not hashed or encrypted
             salaryNumericUpDown.Text = user.Salary.ToString();
 
             if (user.Role == "admin")
@@ -77,6 +77,16 @@ namespace rice_store.forms
 
         private async void actionButton_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(nameTextBox.Text) ||
+                string.IsNullOrWhiteSpace(userNameTextBox.Text) ||
+                string.IsNullOrWhiteSpace(phoneTextBox.Text) ||
+                string.IsNullOrWhiteSpace(emailTextBox.Text) ||
+                string.IsNullOrWhiteSpace(salaryNumericUpDown.Text))  // Kiểm tra Lương
+            {
+                MessageBox.Show("Tên, Username, SĐT, Email và Lương không thể để trống.");
+                return;
+            }
+
             string selectedRole = roleComboBox.SelectedItem.ToString();
 
             string roleValue = selectedRole switch
@@ -110,6 +120,8 @@ namespace rice_store.forms
                 // Update existing user
                 await userService.UpdateUserAsync(user);
             }
+            // Refresh the user management form to show updated data
+            userManagementForm.UserManagementForm_Load(sender, e); // Reload the user management form to refresh the data
 
             this.Close();  // Close the form after saving
         }

@@ -21,5 +21,8 @@ namespace rice_store.models
 
         [Column("email")]
         public string Email { get; set; }
+
+        [Column("is_deleted")]
+        public bool IsDeleted { get; set; } = false;
     }
 }

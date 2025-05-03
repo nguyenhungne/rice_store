@@ -66,6 +66,14 @@ namespace rice_store.data
             // global query filter for soft delete
             modelBuilder.Entity<Customer>()
                 .HasQueryFilter(c => !c.IsDeleted);
+            modelBuilder.Entity<Product>()
+                .HasQueryFilter(p => !p.IsDeleted);
+            modelBuilder.Entity<User>()
+                .HasQueryFilter(u => !u.IsDeleted);
+            modelBuilder.Entity<Supplier>()
+                .HasQueryFilter(s => !s.IsDeleted);
+            modelBuilder.Entity<Category>()
+                .HasQueryFilter(c => !c.IsDeleted);
         }
     }
 }

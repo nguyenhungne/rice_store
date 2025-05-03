@@ -30,5 +30,8 @@ namespace rice_store.models
 
         [Column("salary")]
         public decimal Salary { get; set; }
+
+        [Column("is_deleted")]
+        public bool IsDeleted { get; set; } = false;
     }
 }

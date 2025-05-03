@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 public interface IUserService
 {
     Task<IEnumerable<User>> GetAllUsersAsync(string nameFilter = null, string emailFilter = null);
+    Task SortDeleteUserAsync(int id);
     Task<User> GetUserByIdAsync(int id);
     Task<User> AddUserAsync(User user);
     Task<User> UpdateUserAsync(User user);
@@ -25,6 +26,11 @@ public class UserService : IUserService
     public async Task<IEnumerable<User>> GetAllUsersAsync(string nameFilter = null, string emailFilter = null)
     {
         return await _userRepository.GetAllUsersAsync(nameFilter, emailFilter);
+    }
+
+    public async Task SortDeleteUserAsync(int id)
+    {
+        await _userRepository.SortDeleteUserAsync(id);
     }
 
     public async Task<User> AddUserAsync(User user)
@@ -48,7 +54,7 @@ public class UserService : IUserService
         {
             Id = user.Id,
             Username = user.Username,
-            Password = HashingService.HashPassword(user.Password),
+            Password = !string.IsNullOrEmpty(user.Password) ? HashingService.HashPassword(user.Password) : null,
             Name = user.Name,
             Role = user.Role,
             Phone = user.Phone,
