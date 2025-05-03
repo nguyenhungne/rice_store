@@ -207,6 +207,7 @@
             shortTermRentalManagementButton.Text = "               Quản Lí Thuê Ngắn Hạn";
             shortTermRentalManagementButton.TextAlign = ContentAlignment.MiddleLeft;
             shortTermRentalManagementButton.UseVisualStyleBackColor = false;
+            shortTermRentalManagementButton.Click += shortTermRentalManagementButton_Click;
             // 
             // utilityBillManagementPanel
             // 

@@ -34,6 +34,8 @@ namespace rice_store
                 .AddScoped<SaleOrderManagementForm>()
                 .AddScoped<PaymentManagementForm>()
                 .AddScoped<CustomerManagementForm>()
+                .AddScoped<UserManagementForm>()
+                .AddScoped<UserInformationForm>()
                 .AddScoped<SendNotificationForm>()
                 .AddScoped<ReportForm>()
                 .AddScoped<InventoryListForm>()

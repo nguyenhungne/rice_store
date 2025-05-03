@@ -42,6 +42,7 @@ namespace rice_store
             services.AddScoped<SmtpClient>();
             services.AddScoped<IEmailSender,EmailSender>();
             services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<CustomerService>();
 
             return services;

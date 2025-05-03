@@ -18,6 +18,7 @@ namespace rice_store.forms
         PaymentManagementForm? paymentManagementForm;
         SendNotificationForm? sendNotificationForm;
         CustomerManagementForm? customerManagementForm;
+        UserManagementForm? userManagementForm;
         ReportForm? reportForm;
         InventoryListForm? inventoryListForm;
         public MainForm()
@@ -210,6 +211,27 @@ namespace rice_store.forms
             paymentManagementForm.MdiParent = this;
             paymentManagementForm.Dock = DockStyle.Fill;
             paymentManagementForm.Show();
+        }
+
+        private void shortTermRentalManagementButton_Click(object sender, EventArgs e)
+        {
+            if (userManagementForm == null)
+            {
+                userManagementForm = new UserManagementForm();
+                userManagementForm.FormClosed += onShortTermRentalManagementFormClosed;
+                userManagementForm.MdiParent = this;
+                userManagementForm.Dock = DockStyle.Fill;
+                userManagementForm.Show();
+            }
+            else
+            {
+                userManagementForm.Activate();
+            }
+        }
+
+        private void onShortTermRentalManagementFormClosed(object? sender, FormClosedEventArgs e)
+        {
+            userManagementForm = null!;
         }
     }
 }

@@ -55,5 +55,11 @@
     <Compile Update="forms\CustomerManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="forms\UserInformationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\UserManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

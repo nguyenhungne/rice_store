@@ -18,7 +18,6 @@ namespace rice_store.services
 
         public static bool VerifyPassword(string inputPassword, string? storedHash)
         {
-            Debug.WriteLine(HashPassword(inputPassword));
             return HashPassword(inputPassword) == storedHash;
         }
     }
