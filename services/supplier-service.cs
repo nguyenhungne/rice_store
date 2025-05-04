@@ -2,7 +2,7 @@ using rice_store.models;
 
 public interface ISupplierService
 {
-    Task<IEnumerable<Supplier>> GetAllSuppliersAsync();
+    Task<IEnumerable<Supplier>> GetAllSuppliersAsync(SupplierFilter? filter = null);
     Task<Supplier> GetSupplierByIdAsync(int id);
     Task<Supplier> AddSupplierAsync(Supplier supplier);
     Task<Supplier> UpdateSupplierAsync(Supplier supplier);
@@ -18,9 +18,9 @@ public class SupplierService : ISupplierService
         _supplierRepository = supplierRepository;
     }
 
-    public async Task<IEnumerable<Supplier>> GetAllSuppliersAsync()
+    public async Task<IEnumerable<Supplier>> GetAllSuppliersAsync(SupplierFilter? filter = null)
     {
-        return await _supplierRepository.GetAllSuppliersAsync();
+        return await _supplierRepository.GetAllSuppliersAsync(filter);
     }
 
     public async Task<Supplier> GetSupplierByIdAsync(int id)

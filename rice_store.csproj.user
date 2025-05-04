@@ -40,7 +40,7 @@
     <Compile Update="forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="forms\PaymentManagementForm.cs">
+    <Compile Update="forms\SuplierManagementForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="forms\SendNotificationForm.cs">
@@ -53,6 +53,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="forms\CustomerManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="forms\SupplierInformationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="forms\UserInformationForm.cs">

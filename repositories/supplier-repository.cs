@@ -11,9 +11,34 @@ public class SupplierRepository : ISupplierRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<Supplier>> GetAllSuppliersAsync()
+    public async Task<IEnumerable<Supplier>> GetAllSuppliersAsync(SupplierFilter? filter = null)
     {
-        return await _context.Supplier.ToListAsync();
+        var query = _context.Supplier
+            .Where(s => !s.IsDeleted)
+            .AsQueryable();
+
+        if (filter != null)
+        {
+            if (!string.IsNullOrEmpty(filter.Name))
+            {
+                string name = filter.Name.ToLower();
+                query = query.Where(s => s.Name.ToLower().Contains(name));
+            }
+
+            if (!string.IsNullOrEmpty(filter.Email))
+            {
+                string email = filter.Email.ToLower();
+                query = query.Where(s => s.Email.ToLower().Contains(email));
+            }
+
+            if (!string.IsNullOrEmpty(filter.Phone))
+            {
+                string phone = filter.Phone.ToLower();
+                query = query.Where(s => s.Phone.ToLower().Contains(phone));
+            }
+        }
+
+        return await query.ToListAsync();
     }
 
     public async Task<Supplier> GetSupplierByIdAsync(int id)
@@ -60,7 +85,9 @@ public class SupplierRepository : ISupplierRepository
             throw new InvalidOperationException($"Supplier with ID {id} not found.");
         }
 
-        _context.Supplier.Remove(supplier);
+        supplier.IsDeleted = true;
+
+        _context.Supplier.Update(supplier);
         await _context.SaveChangesAsync();
     }
 }

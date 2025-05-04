@@ -102,6 +102,14 @@ namespace rice_store.forms
                 return;
             }
 
+            if (string.IsNullOrWhiteSpace(productNameTextBox.Text) ||
+                string.IsNullOrWhiteSpace(productOriginTextBox.Text) ||
+                string.IsNullOrWhiteSpace(productQualityTextBox.Text))
+            {
+                MessageBox.Show("Tên sản phẩm, Xuất xứ, Chất lượng không thể để trống.");
+                return;
+            }
+
             if (_productId == null)
             {
                 Product newProduct = new Product

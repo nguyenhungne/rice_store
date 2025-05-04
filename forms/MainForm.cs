@@ -18,7 +18,7 @@ namespace rice_store.forms
         private string _userRole;
         ProductManagementForm? dashboardForm;
         SaleOrderManagementForm? contractManagementForm;
-        PaymentManagementForm? paymentManagementForm;
+        SuplierManagementForm? supplierManagementForm;
         SendNotificationForm? sendNotificationForm;
         CustomerManagementForm? customerManagementForm;
         UserManagementForm? userManagementForm;
@@ -41,7 +41,7 @@ namespace rice_store.forms
         // {
         //     if (_userRole == "admin")
         //     {
-        //         // Hiển thị hoặc cho phép các tính năng chỉ dành cho admin
+        //
         //         adminPanel.Visible = true;
         //     }
         //     else if (_userRole == "warehouse_staff")
@@ -110,7 +110,6 @@ namespace rice_store.forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Debug.WriteLine(this._userRole);
         }
 
 
@@ -241,11 +240,11 @@ namespace rice_store.forms
 
         private void sendNotificationButton_Click_1(object sender, EventArgs e)
         {
-            paymentManagementForm = new PaymentManagementForm();
-            paymentManagementForm.FormClosed += onPaymentManagementFormClosed;
-            paymentManagementForm.MdiParent = this;
-            paymentManagementForm.Dock = DockStyle.Fill;
-            paymentManagementForm.Show();
+            supplierManagementForm = new SuplierManagementForm();
+            supplierManagementForm.FormClosed += onPaymentManagementFormClosed;
+            supplierManagementForm.MdiParent = this;
+            supplierManagementForm.Dock = DockStyle.Fill;
+            supplierManagementForm.Show();
         }
 
         private void shortTermRentalManagementButton_Click(object sender, EventArgs e)

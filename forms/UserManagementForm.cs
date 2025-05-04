@@ -36,12 +36,11 @@ namespace rice_store.forms
 
         private async void setUpDataGrid()
         {
-            userDataGridView.Rows.Clear();
             string? searchName = searchNameTextBox.Text;
             string? searchEmail = searchEmailTextBox.Text;
             // Load all users
             IEnumerable<User> users = await _userService.GetAllUsersAsync(searchName, searchEmail);
-
+            userDataGridView.Rows.Clear();
             foreach (User user in users)
             {
                 userDataGridView.Rows.Add(

@@ -81,7 +81,7 @@ namespace rice_store.forms
                 string.IsNullOrWhiteSpace(userNameTextBox.Text) ||
                 string.IsNullOrWhiteSpace(phoneTextBox.Text) ||
                 string.IsNullOrWhiteSpace(emailTextBox.Text) ||
-                string.IsNullOrWhiteSpace(salaryNumericUpDown.Text))  // Kiểm tra Lương
+                string.IsNullOrWhiteSpace(salaryNumericUpDown.Text))
             {
                 MessageBox.Show("Tên, Username, SĐT, Email và Lương không thể để trống.");
                 return;
