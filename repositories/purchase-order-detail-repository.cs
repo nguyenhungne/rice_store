@@ -97,7 +97,7 @@ public class PurchaseOrderDetailRepository : IPurchaseOrderDetailRepository
     public async Task<IEnumerable<PurchaseOrderDetail>> GetPurchaseOrderDetailsOfEachInventoryAsync(IEnumerable<int> warehouseIds)
     {
         return await _context.PurchaseOrderDetail
-       .Where(p => warehouseIds.Contains(p.WarehouseId))
+       .Where(p => warehouseIds.Contains(p.WarehouseId) && p.ExpirationDate > DateTime.Now)
        .Include(p => p.PurchaseOrder)
            .ThenInclude(po => po.Supplier)
        .Include(p => p.Warehouse)
@@ -113,7 +113,7 @@ public class PurchaseOrderDetailRepository : IPurchaseOrderDetailRepository
         {
             throw new InvalidOperationException($"PurchaseOrderDetail with ID {purchaseDetailId} not found.");
         }
-        detail.Quantity -= quantity;
+        detail.QuantityRemaining -= quantity;
         await _context.SaveChangesAsync();
     }
 

@@ -5,14 +5,15 @@ public class AddingWarehouseData
     public int productId { get; set; }
     public int inventoryId { get; set; }
     public string batchNumber { get; set; }
-    public int minThreshold { get; set; }
+    //public int minThreshold { get; set; }
     public DateTime expirationDate { get; set; }
     public string productName { get; set; }
 }
 
 public class AddingPurchaseOrderDetailData
 {
-    public int quantity { get; set; }
+    public decimal quantity { get; set; }
+    public decimal quantityRemaining { get; set; }
     public decimal unitPrice { get; set; }
 }
 

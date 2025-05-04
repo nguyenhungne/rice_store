@@ -44,7 +44,7 @@ public class WarehouseService : IWarehouseService
             decimal totalSalesQuantity = salesOrderDetails.Sum(s => s.Quantity);
             decimal quantity = totalInboundQuantity - totalSalesQuantity;
 
-            string warehouseStatus = WarehouseStatusUtil.GetWarehouseStatus(quantity, warehouse.MinThreshold);
+            string warehouseStatus = WarehouseStatusUtil.GetWarehouseStatus(quantity, 50);
 
             if (status != null && warehouseStatus == status)
             {
@@ -52,7 +52,7 @@ public class WarehouseService : IWarehouseService
                 {
                     Id = warehouse.Id,
                     BatchNumber = warehouse.BatchNumber,
-                    MinThreshold = warehouse.MinThreshold,
+                    //MinThreshold = warehouse.MinThreshold,
                     ExpirationDate = warehouse.ExpirationDate,
                     totalInboundQuantity = totalInboundQuantity,
                     totalSalesQuantity = totalSalesQuantity,
@@ -66,7 +66,7 @@ public class WarehouseService : IWarehouseService
                 {
                     Id = warehouse.Id,
                     BatchNumber = warehouse.BatchNumber,
-                    MinThreshold = warehouse.MinThreshold,
+                    //MinThreshold = warehouse.MinThreshold,
                     ExpirationDate = warehouse.ExpirationDate,
                     totalInboundQuantity = totalInboundQuantity,
                     totalSalesQuantity = totalSalesQuantity,
@@ -94,7 +94,7 @@ public class WarehouseService : IWarehouseService
             decimal totalSalesQuantity = salesOrderDetails.Sum(s => s.Quantity);
             decimal quantity = totalInboundQuantity - totalSalesQuantity;
 
-            string warehouseStatus = WarehouseStatusUtil.GetWarehouseStatus(quantity, warehouse.MinThreshold);
+            string warehouseStatus = WarehouseStatusUtil.GetWarehouseStatus(quantity, 50);
 
             if (warehouseStatus == "Còn hàng")
             {
@@ -102,7 +102,7 @@ public class WarehouseService : IWarehouseService
                 {
                     Id = warehouse.Id,
                     BatchNumber = warehouse.BatchNumber,
-                    MinThreshold = warehouse.MinThreshold,
+                    //MinThreshold = warehouse.MinThreshold,
                     ExpirationDate = warehouse.ExpirationDate,
                     totalInboundQuantity = totalInboundQuantity,
                     totalSalesQuantity = totalSalesQuantity,

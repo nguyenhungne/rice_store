@@ -13,6 +13,7 @@ public interface IPurchaseOrderDetailService
     Task<PurchaseOrderDetail> AddPurchaseOrderDetailAsync(PurchaseOrderDetail detail);
     Task<PurchaseOrderDetail> UpdatePurchaseOrderDetailAsync(PurchaseOrderDetail detail);
     Task DeletePurchaseOrderDetailAsync(int id);
+    Task UpdateQuantityPurchaseOrderDetailAsync(int PurchaseDetailId, decimal quantity);
 }
 
 public class PurchaseOrderDetailService : IPurchaseOrderDetailService
@@ -77,7 +78,7 @@ public class PurchaseOrderDetailService : IPurchaseOrderDetailService
                 ProductId = addingWarehouseData.productId,
                 InventoryId = addingWarehouseData.inventoryId,
                 BatchNumber = WarehouseUtil.GenerateBatchNumber(addingWarehouseData.productName),
-                MinThreshold = addingWarehouseData.minThreshold,
+                //MinThreshold = addingWarehouseData.minThreshold,
                 ExpirationDate = addingWarehouseData.expirationDate,
             };
             newWarehouse = await _warehouseRepository.AddWarehouseAsync(newWarehouse);
@@ -91,6 +92,7 @@ public class PurchaseOrderDetailService : IPurchaseOrderDetailService
             Quantity = addingPurchaseOrderDetailData.quantity,
             UnitPrice = addingPurchaseOrderDetailData.unitPrice,
             ExpirationDate = addingWarehouseData.expirationDate,
+            QuantityRemaining = addingPurchaseOrderDetailData.quantityRemaining,
         };
         PurchaseOrderDetail newPurchaseOrderDetail = await _repository.AddPurchaseOrderDetailAsync(purchaseOrderDetail);
         purchaseOrderDetails.Add(newPurchaseOrderDetail);
@@ -119,5 +121,10 @@ public class PurchaseOrderDetailService : IPurchaseOrderDetailService
         IEnumerable<Warehouse> warehouses = await _warehouseRepository.GetWarehousesByInventoryIdAsync(inventoryID);
         IEnumerable<int> warehouseIds = warehouses.Select(w => w.Id); // Extract the Ids from the warehouses
         return await _repository.GetPurchaseOrderDetailsOfEachInventoryAsync(warehouseIds);
+    }
+
+    public async Task UpdateQuantityPurchaseOrderDetailAsync(int purchaseDetailId, decimal quantity)
+    {
+        await _repository.UpdateQuantityPurchaseOrderDetailAsync(purchaseDetailId, quantity);
     }
 }

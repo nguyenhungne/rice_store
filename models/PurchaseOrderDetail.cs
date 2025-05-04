@@ -27,6 +27,9 @@ namespace rice_store.models
         [Column("expiration_date")]
         public DateTime ExpirationDate { get; set; }
 
+        [Column("quantity_remaining")]
+        public decimal QuantityRemaining { get; set; }
+
         public PurchaseOrder PurchaseOrder { get; set; }
         public Warehouse Warehouse { get; set; }
     }

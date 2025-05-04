@@ -46,7 +46,8 @@ public class CustomerRepository : ICustomerRepository
 
     public async Task<Customer> AddCustomerAsync(Customer customer)
     {
-        if (_context.Customer.Any(c => c.Email == customer.Email))
+        if (!string.IsNullOrWhiteSpace(customer.Email) &&
+            _context.Customer.Any(c => c.Email == customer.Email))
         {
             throw new InvalidOperationException("Customer with this email already exists.");
         }
@@ -91,6 +92,18 @@ public class CustomerRepository : ICustomerRepository
     public async Task SaveChangesAsync()
     {
         await _context.SaveChangesAsync();
+    }
+
+    public async Task<Customer> GetCustomerByEmailAsync(string email)
+    {
+        return await _context.Customer
+            .FirstOrDefaultAsync(c => c.Email == email);
+    }
+
+    public async Task<Customer> GetCustomerByPhoneAsync(string phone)
+    {
+        return await _context.Customer
+            .FirstOrDefaultAsync(c => c.Phone == phone);
     }
 
 

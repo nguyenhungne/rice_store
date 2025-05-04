@@ -96,7 +96,7 @@ public class WarehouseRepository : IWarehouseRepository
         }
 
         existingWarehouse.BatchNumber = warehouse.BatchNumber;
-        existingWarehouse.MinThreshold = warehouse.MinThreshold;
+        //existingWarehouse.MinThreshold = warehouse.MinThreshold;
         existingWarehouse.ExpirationDate = warehouse.ExpirationDate;
         existingWarehouse.ProductId = warehouse.ProductId;
         existingWarehouse.InventoryId = warehouse.InventoryId;

@@ -27,7 +27,7 @@ namespace rice_store.forms
         InventoryService inventoryService;
         private IEnumerable<Customer> _allCustomers;
         private IEnumerable<Inventory> _allInventory;
-        private IEnumerable<PurchaseOrderDetail> _allPurchaseOrderDetails;
+        private IEnumerable<PurchaseOrderDetail> _allPurchaseOrderDetails = null;
         private AddingSalesOrder _newOrder = null;
         private List<AddingSalesOrderDetailData> localAddingSaleOrdersData;
         private List<AddingSalesOrderDetail> _salesOrderDetails = new(); // lưu các chi tiết tạm
@@ -96,37 +96,6 @@ namespace rice_store.forms
             // Set the default selection to "No selection"
             customerComboBox.SelectedIndex = 0; // Set to "khach vang lai" by default
 
-
-
-
-
-            // Load products into the combo box
-            //IEnumerable<PurchaseOrderDetail> purchaseOrderDetails = await purchaseOrderDetailService.GetAllPurchaseOrderDetailsAsync();
-            //_allPurchaseOrderDetails = purchaseOrderDetails;
-            //foreach (PurchaseOrderDetail purchaseOrderDetail in purchaseOrderDetails)
-            //{
-            //    productComboBox.Items.Add(purchaseOrderDetail.Warehouse.Product.Name + $"({purchaseOrderDetail.ExpirationDate.ToString("dd/MM/yyyy")})");
-            //}
-            //productComboBox.SelectedIndex = -1; // Set to no selection
-
-            //IEnumerable<PurchaseOrderDetail> products = await purchaseOrderDetailService.GetAllPurchaseOrderDetailsAsync(1);
-            //_allPurchaseOrderDetails = products;
-
-            //string result = "";
-            //foreach (var product in products)
-            //{
-            //    result += $"Product: {product.Warehouse.Product.Name}, Expiration: {product.ExpirationDate:dd/MM/yyyy}\n";
-            //}
-
-            //MessageBox.Show(string.IsNullOrEmpty(result) ? "No products found." : result);
-
-            //foreach (PurchaseOrderDetail stockProductDetail in products)
-            //{
-            //    productComboBox.Items.Add(stockProductDetail.Warehouse.Product.Name + $"({stockProductDetail.ExpirationDate.ToString("dd/MM/yyyy")})");
-            //}
-            //productComboBox.SelectedIndex = -1; // Set to no selection
-
-
             // Hardcode payment combo box items
             paymentCombobox.Items.Add("Tiền mặt");
             paymentCombobox.Items.Add("Chuyển khoản");
@@ -165,6 +134,7 @@ namespace rice_store.forms
                 }
 
                 previewAddingSalesOrderDataGrid.Rows.Add(
+                    selectedPurchaseOrderDetail.Id.ToString(),
                     selectedPurchaseOrderDetail.Warehouse.Product.Name,
                     selectedPurchaseOrderDetail.Warehouse.Product.Category.Name,
                     selectedPurchaseOrderDetail.ExpirationDate.ToString("dd/MM/yyyy"),
@@ -175,110 +145,7 @@ namespace rice_store.forms
             }
         }
 
-        private void addProductButton_Click(object sender, EventArgs e)
-        {
-            if (productComboBox.SelectedIndex <= 0)
-            {
-                MessageBox.Show("Vui lòng chọn sản phẩm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
-            int purchaseOrderDetailId = Convert.ToInt32(productComboBox.SelectedValue);
-
-
-            string productName = productComboBox.Text ?? string.Empty;
-            // Remove the expiration date part from the product name
-            if (productName.Contains("(") && productName.Contains(")"))
-            {
-                int startIndex = productName.IndexOf("(");
-                int endIndex = productName.IndexOf(")");
-                productName = productName.Remove(startIndex, endIndex - startIndex + 1).Trim();
-            }
-
-
-            string? customerName = customerComboBox.SelectedItem?.ToString() == "No selection" ? null : customerComboBox.SelectedItem.ToString();
-            string paymentMethod = paymentCombobox.SelectedItem?.ToString() ?? string.Empty;
-            decimal quantity = quantityInput.Value; //> 0 ? (int)quantityInput.Value : 1;
-
-
-            PurchaseOrderDetail? selectedPurchaseOrderDetail = _allPurchaseOrderDetails.FirstOrDefault(p => p.Id == purchaseOrderDetailId);
-
-            if (selectedPurchaseOrderDetail == null)
-            {
-                MessageBox.Show("Không tìm thấy sản phẩm trong kho.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            // Customer selectedCustomer =  _allCustomers.FirstOrDefault(c => c.Name == customerName);
-            Customer? selectedCustomer = customerName == null ? null : _allCustomers.FirstOrDefault(c => c.Name == customerName);
-
-            if (_selectedCustomer == null)
-            {
-                _selectedCustomer = selectedCustomer;
-                _paymentMethod = paymentMethod;
-            }
-
-            if (quantity <= 0)
-            {
-                MessageBox.Show("Số lượng phải lớn hơn 0.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (int.TryParse(stockTextbox.Text, out var stockQuantity))
-            {
-                if (quantity > stockQuantity)
-                {
-                    // xử lý nếu số lượng lớn hơn tồn kho
-                    MessageBox.Show("Số lượng vượt quá số lượng gạo có trong kho.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-            }
-
-
-            var existingItem = _salesOrderDetails
-                .FirstOrDefault(item => item.purchaseOrderDetailsId == selectedPurchaseOrderDetail.Id);
-            if (existingItem != null)
-            {
-                if (existingItem.quantity + quantity > stockQuantity)
-                {
-                    MessageBox.Show("Số lượng vượt quá số lượng gạo có trong kho.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                existingItem.quantity += quantity;
-                productComboBox.SelectedIndex = 0; // Set to no selection
-                quantityInput.Value = 1;
-                renderSalesOrderDatagrid();
-            }
-            else
-            {
-                if (selectedPurchaseOrderDetail != null)
-                {
-                    var detail = new AddingSalesOrderDetail
-                    {
-                        warehouseId = selectedPurchaseOrderDetail.WarehouseId,
-                        quantity = quantity,
-                        unitPrice = selectedPurchaseOrderDetail.Warehouse.Product.SellingPrice,
-                        purchaseOrderDetailsId = selectedPurchaseOrderDetail.Id,
-                    };
-
-                    _salesOrderDetails.Add(detail);
-
-
-                    // Remove all existing value in inputs
-                    productComboBox.SelectedIndex = 0; // Set to no selection
-                                                       //customerComboBox.SelectedIndex = 0; // Set to "No selection" by default
-                                                       //paymentCombobox.SelectedIndex = -1; // Set to no selection
-                    quantityInput.Value = 1; // Set to default value
-                                             //unitPriceInput.Value = 0; // Set to default value
-                                             //localAddingSaleOrdersData.Add(addingSalesOrderDetailData);
-                    renderSalesOrderDatagrid();
-                }
-                else
-                {
-                    MessageBox.Show("Không tìm thấy sản phẩm hoặc khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-        }
 
         private void deleteProductButton_Click(object sender, EventArgs e)
         {
@@ -335,24 +202,37 @@ namespace rice_store.forms
                 // Call the service to order the purchase
                 List<SalesOrderDetail> result = await salesOrderDetailService.AddInvoicesAsync(addingSalesOrderDetailData);
 
-                // Show success message
                 if (!result.IsNullOrEmpty())
                 {
-                    MessageBox.Show("Nhập hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    // Close the form and return to the previous one
-                    this.Close();
-                    sendNotificationForm.Show();
-                    sendNotificationForm.Activate();
-                    sendNotificationForm.reloadData();
+                    // Update the quantity of each product in the inventory
+                    foreach (var item in _salesOrderDetails)
+                    {
+                        await purchaseOrderDetailService.UpdateQuantityPurchaseOrderDetailAsync(item.purchaseOrderDetailsId, item.quantity);
+                    }
                 }
-                else
-                {
+                
                     MessageBox.Show("Nhập hàng thất bại, thử lại sau!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                    // Show success message
+                    if (!result.IsNullOrEmpty())
+                    {
+                        MessageBox.Show("Nhập hàng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Close the form and return to the previous one
+                        this.Close();
+                        sendNotificationForm.Show();
+                        sendNotificationForm.Activate();
+                        sendNotificationForm.reloadData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Nhập hàng thất bại, thử lại sau!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
 
 
-                // Refresh the DataGridView in the InventoryManagementForm
-                previewAddingSalesOrderDataGrid.Rows.Clear();
+
+
+                    // Refresh the DataGridView in the InventoryManagementForm
+                    previewAddingSalesOrderDataGrid.Rows.Clear();
+               
             }
             catch (Exception ex)
             {
@@ -422,9 +302,105 @@ namespace rice_store.forms
 
             PurchaseOrderDetail purchaseOrderDetail = await purchaseOrderDetailService.GetPurchaseOrderDetailByIdAsync(purchaseOrderDetailID);
 
+            stockTextbox.Text = purchaseOrderDetail.QuantityRemaining.ToString();
+        }
+
+        private async void addProductButton_Click(object sender, EventArgs e)
+        {
+            if (productComboBox.SelectedIndex <= 0)
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int purchaseOrderDetailId = Convert.ToInt32(productComboBox.SelectedValue);
 
 
-            stockTextbox.Text = purchaseOrderDetail.Quantity.ToString();
+            string productName = productComboBox.Text ?? string.Empty;
+
+
+            string? customerName = customerComboBox.SelectedItem?.ToString() == "No selection" ? null : customerComboBox.SelectedItem.ToString();
+            string paymentMethod = paymentCombobox.SelectedItem?.ToString() ?? string.Empty;
+            decimal quantity = quantityInput.Value; //> 0 ? (int)quantityInput.Value : 1;
+
+
+            PurchaseOrderDetail? selectedPurchaseOrderDetail = _allPurchaseOrderDetails.FirstOrDefault(p => p.Id == purchaseOrderDetailId);
+
+            if (selectedPurchaseOrderDetail == null)
+            {
+                MessageBox.Show("Không tìm thấy sản phẩm trong kho.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Customer selectedCustomer =  _allCustomers.FirstOrDefault(c => c.Name == customerName);
+            Customer? selectedCustomer = customerName == null ? null : _allCustomers.FirstOrDefault(c => c.Name == customerName);
+
+            if (_selectedCustomer == null)
+            {
+                _selectedCustomer = selectedCustomer;
+                _paymentMethod = paymentMethod;
+            }
+
+            if (quantity <= 0)
+            {
+                MessageBox.Show("Số lượng phải lớn hơn 0.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (decimal.TryParse(stockTextbox.Text, out var stockQuantity))
+            {
+                if (quantity > stockQuantity)
+                {
+                    // xử lý nếu số lượng lớn hơn tồn kho
+                    MessageBox.Show("Số lượng vượt quá số lượng gạo có trong kho.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+
+            var existingItem = _salesOrderDetails
+                .FirstOrDefault(item => item.purchaseOrderDetailsId == selectedPurchaseOrderDetail.Id);
+            if (existingItem != null)
+            {
+                if (existingItem.quantity + quantity > stockQuantity)
+                {
+                    MessageBox.Show("Số lượng vượt quá số lượng gạo có trong kho. ở đây", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                existingItem.quantity += quantity;
+                productComboBox.SelectedIndex = 0; // Set to no selection
+                quantityInput.Value = 1;
+                renderSalesOrderDatagrid();
+            }
+            else
+            {
+                if (selectedPurchaseOrderDetail != null)
+                {
+                    var detail = new AddingSalesOrderDetail
+                    {
+                        warehouseId = selectedPurchaseOrderDetail.WarehouseId,
+                        quantity = quantity,
+                        unitPrice = selectedPurchaseOrderDetail.Warehouse.Product.SellingPrice,
+                        purchaseOrderDetailsId = selectedPurchaseOrderDetail.Id,
+                    };
+
+                    _salesOrderDetails.Add(detail);
+
+
+                    // Remove all existing value in inputs
+                    productComboBox.SelectedIndex = 0; // Set to no selection
+                                                       //customerComboBox.SelectedIndex = 0; // Set to "No selection" by default
+                                                       //paymentCombobox.SelectedIndex = -1; // Set to no selection
+                    quantityInput.Value = 1; // Set to default value
+                                             //unitPriceInput.Value = 0; // Set to default value
+                                             //localAddingSaleOrdersData.Add(addingSalesOrderDetailData);
+                    renderSalesOrderDatagrid();
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy sản phẩm hoặc khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
     }
 }

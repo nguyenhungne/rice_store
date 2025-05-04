@@ -47,10 +47,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImportProductForm));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             panel5 = new Panel();
             previewAddingProductsDataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
@@ -75,8 +73,6 @@
             panel3 = new Panel();
             expirationDateTitle = new Label();
             expirationDatePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            minThresholdInput = new Guna.UI2.WinForms.Guna2NumericUpDown();
-            minThresholdTitle = new Label();
             label7 = new Label();
             productComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             panel2 = new Panel();
@@ -89,7 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)unitPriceInput).BeginInit();
             ((System.ComponentModel.ISupportInitialize)quantityInput).BeginInit();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)minThresholdInput).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -377,8 +372,6 @@
             // 
             panel3.Controls.Add(expirationDateTitle);
             panel3.Controls.Add(expirationDatePicker);
-            panel3.Controls.Add(minThresholdInput);
-            panel3.Controls.Add(minThresholdTitle);
             panel3.Controls.Add(label7);
             panel3.Controls.Add(productComboBox);
             panel3.Location = new Point(3, 115);
@@ -412,31 +405,6 @@
             expirationDatePicker.TabIndex = 25;
             expirationDatePicker.Value = new DateTime(2025, 4, 15, 11, 29, 10, 38);
             // 
-            // minThresholdInput
-            // 
-            minThresholdInput.BackColor = Color.Transparent;
-            minThresholdInput.BorderRadius = 17;
-            minThresholdInput.CustomizableEdges = customizableEdges15;
-            minThresholdInput.Font = new Font("Segoe UI", 9F);
-            minThresholdInput.Location = new Point(602, 158);
-            minThresholdInput.Margin = new Padding(3, 4, 3, 4);
-            minThresholdInput.Maximum = new decimal(new int[] { -1593835520, 466537709, 54210, 0 });
-            minThresholdInput.Name = "minThresholdInput";
-            minThresholdInput.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            minThresholdInput.Size = new Size(175, 36);
-            minThresholdInput.TabIndex = 24;
-            minThresholdInput.UpDownButtonFillColor = Color.FromArgb(255, 192, 128);
-            // 
-            // minThresholdTitle
-            // 
-            minThresholdTitle.AutoSize = true;
-            minThresholdTitle.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            minThresholdTitle.Location = new Point(443, 158);
-            minThresholdTitle.Name = "minThresholdTitle";
-            minThresholdTitle.Size = new Size(133, 31);
-            minThresholdTitle.TabIndex = 24;
-            minThresholdTitle.Text = "SL tối thiểu:";
-            // 
             // label7
             // 
             label7.AutoSize = true;
@@ -451,7 +419,7 @@
             // 
             productComboBox.BackColor = Color.Transparent;
             productComboBox.BorderRadius = 17;
-            productComboBox.CustomizableEdges = customizableEdges17;
+            productComboBox.CustomizableEdges = customizableEdges15;
             productComboBox.DrawMode = DrawMode.OwnerDrawFixed;
             productComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             productComboBox.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -461,8 +429,8 @@
             productComboBox.ItemHeight = 30;
             productComboBox.Location = new Point(199, 153);
             productComboBox.Name = "productComboBox";
-            productComboBox.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            productComboBox.Size = new Size(175, 36);
+            productComboBox.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            productComboBox.Size = new Size(578, 36);
             productComboBox.TabIndex = 17;
             // 
             // panel2
@@ -485,7 +453,7 @@
             backToInventoryButton.Location = new Point(8, 18);
             backToInventoryButton.Name = "backToInventoryButton";
             backToInventoryButton.PressedState.ImageSize = new Size(64, 64);
-            backToInventoryButton.ShadowDecoration.CustomizableEdges = customizableEdges19;
+            backToInventoryButton.ShadowDecoration.CustomizableEdges = customizableEdges17;
             backToInventoryButton.Size = new Size(80, 68);
             backToInventoryButton.TabIndex = 5;
             backToInventoryButton.Click += backToInventoryButton_Click;
@@ -520,7 +488,6 @@
             ((System.ComponentModel.ISupportInitialize)quantityInput).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)minThresholdInput).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
@@ -552,8 +519,6 @@
         private Label minThreshold;
         private Guna.UI2.WinForms.Guna2DateTimePicker startDateTimePicker;
         private Label expirationDateTitle;
-        private Label minThresholdTitle;
-        private Guna.UI2.WinForms.Guna2NumericUpDown minThresholdInput;
         private Guna.UI2.WinForms.Guna2DateTimePicker expirationDatePicker;
         private DataGridViewTextBoxColumn riceName;
         private DataGridViewTextBoxColumn categoryRice;

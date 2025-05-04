@@ -16,6 +16,8 @@ public interface ICustomerService
     Task<Customer> UpdateCustomerAsync(Customer customer);
     Task DeleteCustomerAsync(int id);
     Task<int> UpdateAllCustomerRanksAsync();
+    Task<Customer> GetCustomerByPhoneAsync(string phone);
+    Task<Customer> GetCustomerByEmailAsync(string email);
 }
 
 public class CustomerService : ICustomerService
@@ -88,5 +90,14 @@ public class CustomerService : ICustomerService
 
 
         return upgradedCustomers.Count;
+    }
+
+    public async Task<Customer> GetCustomerByPhoneAsync(string phone)
+    {
+        return await _customerRepository.GetCustomerByPhoneAsync(phone);
+    }
+    public async Task<Customer> GetCustomerByEmailAsync(string email)
+    {
+        return await _customerRepository.GetCustomerByEmailAsync(email);
     }
 }

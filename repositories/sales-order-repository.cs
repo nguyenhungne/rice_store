@@ -21,6 +21,7 @@ public class SalesOrderRepository : ISalesOrderRepository
     {
         return await _context.SalesOrder
                              .Include(s => s.Customer) // Optional: Include related customer data
+                             .IgnoreQueryFilters() // Ignore any global query filters
                              .ToListAsync();
     }
 

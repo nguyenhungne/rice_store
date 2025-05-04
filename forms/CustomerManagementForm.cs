@@ -94,24 +94,32 @@ namespace rice_store.forms
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            // Get the selected row index
-            int selectedRowIndex = customerDataGridView.CurrentCell.RowIndex;
-            if (selectedRowIndex >= 0)
+            try
             {
-                // Get the customer ID from the selected row
-                int customerId = (int)customerDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+                int selectedRowIndex = customerDataGridView.CurrentCell.RowIndex;
+                if (selectedRowIndex >= 0)
+                {
+                    // Get the customer ID from the selected row
+                    int customerId = (int)customerDataGridView.Rows[selectedRowIndex].Cells[0].Value;
 
-                // Open the CustomerInformationForm with the selected customer ID
-                CustomerInformationForm customerInfoForm = new CustomerInformationForm(customerId, this);
-                customerInfoForm.ShowDialog();
+                    // Open the CustomerInformationForm with the selected customer ID
+                    CustomerInformationForm customerInfoForm = new CustomerInformationForm(customerId, this);
+                    customerInfoForm.ShowDialog();
 
-                // Reload the form to refresh the data
-                CustomerManagementForm_Load(sender, e);
+                    // Reload the form to refresh the data
+                    CustomerManagementForm_Load(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Please select a customer to edit.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please select a customer to edit.");
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+     
+
         }
 
 

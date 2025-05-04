@@ -53,12 +53,6 @@
             addButton = new Guna.UI2.WinForms.Guna2Button();
             panel1 = new Panel();
             customerDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-            Id = new DataGridViewTextBoxColumn();
-            customerName = new DataGridViewTextBoxColumn();
-            customerPhoneNumber = new DataGridViewTextBoxColumn();
-            customerEmail = new DataGridViewTextBoxColumn();
-            customerAddress = new DataGridViewTextBoxColumn();
-            customerLoyaltyPoints = new DataGridViewTextBoxColumn();
             searchButton = new Guna.UI2.WinForms.Guna2Button();
             searchNameLabel = new Label();
             searchNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -68,6 +62,12 @@
             searchEmailLabel = new Label();
             panel2 = new Panel();
             updateRankCustomerButton = new Guna.UI2.WinForms.Guna2TileButton();
+            Id = new DataGridViewTextBoxColumn();
+            customerName = new DataGridViewTextBoxColumn();
+            customerPhoneNumber = new DataGridViewTextBoxColumn();
+            customerEmail = new DataGridViewTextBoxColumn();
+            customerAddress = new DataGridViewTextBoxColumn();
+            rank = new DataGridViewTextBoxColumn();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customerDataGridView).BeginInit();
@@ -157,7 +157,7 @@
             customerDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             customerDataGridView.ColumnHeadersHeight = 50;
             customerDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            customerDataGridView.Columns.AddRange(new DataGridViewColumn[] { Id, customerName, customerPhoneNumber, customerEmail, customerAddress, customerLoyaltyPoints });
+            customerDataGridView.Columns.AddRange(new DataGridViewColumn[] { Id, customerName, customerPhoneNumber, customerEmail, customerAddress, rank });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -194,43 +194,6 @@
             customerDataGridView.ThemeStyle.RowsStyle.Height = 29;
             customerDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             customerDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            // 
-            // Id
-            // 
-            Id.HeaderText = "Id";
-            Id.MinimumWidth = 6;
-            Id.Name = "Id";
-            Id.Visible = false;
-            // 
-            // customerName
-            // 
-            customerName.HeaderText = "Tên";
-            customerName.MinimumWidth = 6;
-            customerName.Name = "customerName";
-            // 
-            // customerPhoneNumber
-            // 
-            customerPhoneNumber.HeaderText = "SĐT";
-            customerPhoneNumber.MinimumWidth = 6;
-            customerPhoneNumber.Name = "customerPhoneNumber";
-            // 
-            // customerEmail
-            // 
-            customerEmail.HeaderText = "Email";
-            customerEmail.MinimumWidth = 6;
-            customerEmail.Name = "customerEmail";
-            // 
-            // customerAddress
-            // 
-            customerAddress.HeaderText = "Địa chỉ";
-            customerAddress.MinimumWidth = 6;
-            customerAddress.Name = "customerAddress";
-            // 
-            // customerLoyaltyPoints
-            // 
-            customerLoyaltyPoints.HeaderText = "Điểm tích lũy";
-            customerLoyaltyPoints.MinimumWidth = 6;
-            customerLoyaltyPoints.Name = "customerLoyaltyPoints";
             // 
             // searchButton
             // 
@@ -368,6 +331,43 @@
             updateRankCustomerButton.Text = "Cập nhật thứ hạng thành viên";
             updateRankCustomerButton.Click += updateRankCustomerButton_Click;
             // 
+            // Id
+            // 
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 6;
+            Id.Name = "Id";
+            Id.Visible = false;
+            // 
+            // customerName
+            // 
+            customerName.HeaderText = "Tên";
+            customerName.MinimumWidth = 6;
+            customerName.Name = "customerName";
+            // 
+            // customerPhoneNumber
+            // 
+            customerPhoneNumber.HeaderText = "SĐT";
+            customerPhoneNumber.MinimumWidth = 6;
+            customerPhoneNumber.Name = "customerPhoneNumber";
+            // 
+            // customerEmail
+            // 
+            customerEmail.HeaderText = "Email";
+            customerEmail.MinimumWidth = 6;
+            customerEmail.Name = "customerEmail";
+            // 
+            // customerAddress
+            // 
+            customerAddress.HeaderText = "Địa chỉ";
+            customerAddress.MinimumWidth = 6;
+            customerAddress.Name = "customerAddress";
+            // 
+            // rank
+            // 
+            rank.HeaderText = "Hạng thành viên";
+            rank.MinimumWidth = 6;
+            rank.Name = "rank";
+            // 
             // CustomerManagementForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -404,12 +404,12 @@
         private Guna.UI2.WinForms.Guna2Button editButton;
         private Guna.UI2.WinForms.Guna2Button deleteButton;
         private Panel panel2;
+        private Guna.UI2.WinForms.Guna2TileButton updateRankCustomerButton;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn customerName;
         private DataGridViewTextBoxColumn customerPhoneNumber;
         private DataGridViewTextBoxColumn customerEmail;
         private DataGridViewTextBoxColumn customerAddress;
-        private DataGridViewTextBoxColumn customerLoyaltyPoints;
-        private Guna.UI2.WinForms.Guna2TileButton updateRankCustomerButton;
+        private DataGridViewTextBoxColumn rank;
     }
 }

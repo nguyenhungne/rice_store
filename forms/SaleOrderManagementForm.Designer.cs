@@ -83,13 +83,14 @@
             mainPanel = new Panel();
             backToInventoryButton = new Guna.UI2.WinForms.Guna2ImageButton();
             previewAddingSalesOrderDataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
+            dataPanel = new Panel();
+            purchaseId = new DataGridViewTextBoxColumn();
             riceName = new DataGridViewTextBoxColumn();
             categoryRice = new DataGridViewTextBoxColumn();
             expirationDatetime = new DataGridViewTextBoxColumn();
             quantity = new DataGridViewTextBoxColumn();
             unitPrice = new DataGridViewTextBoxColumn();
             amount = new DataGridViewTextBoxColumn();
-            dataPanel = new Panel();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)quantityInput).BeginInit();
             panel3.SuspendLayout();
@@ -513,7 +514,7 @@
             previewAddingSalesOrderDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             previewAddingSalesOrderDataGrid.ColumnHeadersHeight = 30;
             previewAddingSalesOrderDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            previewAddingSalesOrderDataGrid.Columns.AddRange(new DataGridViewColumn[] { riceName, categoryRice, expirationDatetime, quantity, unitPrice, amount });
+            previewAddingSalesOrderDataGrid.Columns.AddRange(new DataGridViewColumn[] { purchaseId, riceName, categoryRice, expirationDatetime, quantity, unitPrice, amount });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -552,6 +553,22 @@
             previewAddingSalesOrderDataGrid.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             previewAddingSalesOrderDataGrid.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
             // 
+            // dataPanel
+            // 
+            dataPanel.Anchor = AnchorStyles.None;
+            dataPanel.Controls.Add(previewAddingSalesOrderDataGrid);
+            dataPanel.Location = new Point(-8, 390);
+            dataPanel.Name = "dataPanel";
+            dataPanel.Size = new Size(1144, 351);
+            dataPanel.TabIndex = 34;
+            // 
+            // purchaseId
+            // 
+            purchaseId.HeaderText = "purchaseID";
+            purchaseId.MinimumWidth = 6;
+            purchaseId.Name = "purchaseId";
+            purchaseId.Visible = false;
+            // 
             // riceName
             // 
             riceName.HeaderText = "Tên gạo";
@@ -588,15 +605,6 @@
             amount.MinimumWidth = 6;
             amount.Name = "amount";
             // 
-            // dataPanel
-            // 
-            dataPanel.Anchor = AnchorStyles.None;
-            dataPanel.Controls.Add(previewAddingSalesOrderDataGrid);
-            dataPanel.Location = new Point(-8, 390);
-            dataPanel.Name = "dataPanel";
-            dataPanel.Size = new Size(1144, 351);
-            dataPanel.TabIndex = 34;
-            // 
             // SaleOrderManagementForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -624,6 +632,8 @@
             dataPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
+
+        // Update the method signature to match the expected return type for the event handler
 
         #endregion
         private DataGridViewTextBoxColumn expirationDate;
@@ -653,12 +663,6 @@
         private Panel panel1;
         private Panel mainPanel;
         private Guna.UI2.WinForms.Guna2DataGridView previewAddingSalesOrderDataGrid;
-        private DataGridViewTextBoxColumn riceName;
-        private DataGridViewTextBoxColumn categoryRice;
-        private DataGridViewTextBoxColumn expirationDatetime;
-        private DataGridViewTextBoxColumn quantity;
-        private DataGridViewTextBoxColumn unitPrice;
-        private DataGridViewTextBoxColumn amount;
         private Panel dataPanel;
         private Panel panel5;
         private Panel panel6;
@@ -668,5 +672,12 @@
         private Guna.UI2.WinForms.Guna2TextBox stockTextbox;
         private Guna.UI2.WinForms.Guna2ComboBox paymentCombobox;
         private Guna.UI2.WinForms.Guna2Button resetButton;
+        private DataGridViewTextBoxColumn purchaseId;
+        private DataGridViewTextBoxColumn riceName;
+        private DataGridViewTextBoxColumn categoryRice;
+        private DataGridViewTextBoxColumn expirationDatetime;
+        private DataGridViewTextBoxColumn quantity;
+        private DataGridViewTextBoxColumn unitPrice;
+        private DataGridViewTextBoxColumn amount;
     }
 }

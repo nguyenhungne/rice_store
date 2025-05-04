@@ -113,14 +113,15 @@ namespace rice_store.forms
                     {
                         productId = selectedProduct.Id,
                         inventoryId = this.inventoryId,
-                        minThreshold = int.Parse(minThresholdInput.Text),
+                        //minThreshold = int.Parse(minThresholdInput.Text),
                         expirationDate = expirationDatePicker.Value,
                         productName = selectedProduct.Name,
                     },
                     purchaseOrderDetail = new AddingPurchaseOrderDetailData
                     {
-                        quantity = int.Parse(quantityInput.Text),
+                        quantity = decimal.Parse(quantityInput.Text),
                         unitPrice = decimal.Parse(unitPriceInput.Text),
+                        quantityRemaining =decimal.Parse(quantityInput.Text),
                     },
                     purchaseOrder = new AddingPurchaseOrderData
                     {
@@ -136,7 +137,7 @@ namespace rice_store.forms
                 supplierComboBox.SelectedItem = null;
                 quantityInput.Text = string.Empty;
                 unitPriceInput.Text = string.Empty;
-                minThresholdInput.Text = string.Empty;
+                //minThresholdInput.Text = string.Empty;
                 expirationDatePicker.Value = DateTime.Now;
             }
             else

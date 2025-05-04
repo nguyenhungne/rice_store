@@ -21,8 +21,8 @@ namespace rice_store.models
         [Column("batch_number")]
         public string BatchNumber { get; set; }
 
-        [Column("min_threshold")]
-        public int MinThreshold { get; set; }
+        //[Column("min_threshold")]
+        //public int MinThreshold { get; set; }
 
         [Column("expiration_date")]
         public DateTime ExpirationDate { get; set; }

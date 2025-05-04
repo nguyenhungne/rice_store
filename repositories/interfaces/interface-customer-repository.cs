@@ -11,4 +11,8 @@ public interface ICustomerRepository
     Task DeleteCustomerAsync(int id);
     Task<IEnumerable<Customer>> GetAllCustomersAsync();
     Task SaveChangesAsync();
+
+    Task<Customer> GetCustomerByPhoneAsync(string phone);
+
+    Task<Customer> GetCustomerByEmailAsync(string email);
 }
