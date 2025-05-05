@@ -1,0 +1,16 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Inventory Service" as InventoryService
+
+User -> App: Chọn hàng hóa và nhấn "Chi tiết"
+App -> InventoryService: Truy vấn lịch sử nhập hàng
+InventoryService -> App: Trả về lịch sử nhập hàng
+alt Không có lịch sử nhập hàng
+    InventoryService -> App: Hiển thị lỗi (Không có lịch sử)
+    App -> User: <font color=red><b>Hiển thị thông báo lỗi</b></font>
+else Lịch sử nhập hàng có sẵn
+    InventoryService -> App: Trả về lịch sử nhập hàng
+    App -> User: Hiển thị lịch sử nhập hàng
+end
+@enduml

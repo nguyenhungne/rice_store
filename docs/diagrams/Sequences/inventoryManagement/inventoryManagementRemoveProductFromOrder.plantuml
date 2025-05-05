@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Inventory Service" as InventoryService
+
+User -> App: Chọn sản phẩm và nhấn "Xóa"
+App -> InventoryService: Xóa chi tiết sản phẩm khỏi đơn nhập hàng
+alt Không tìm thấy sản phẩm
+    InventoryService -> App: Trả về danh sách rỗng
+    App -> User: <font color=green><b>Hiển thị kết quả rỗng</b></font>
+else Sản phẩm đã xóa
+    InventoryService -> App: Cập nhật danh sách đơn nhập hàng
+    App -> User: <font color=green><b>Hiển thị thông báo thành công</b></font>
+end
+@enduml

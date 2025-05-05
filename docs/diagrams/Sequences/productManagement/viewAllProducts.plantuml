@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Product Service" as ProdService
+
+User -> App: Chọn "Xem tất cả sản phẩm"
+App -> ProdService: Lấy và hiển thị tất cả sản phẩm
+ProdService -> App: Hiển thị danh sách sản phẩm
+App -> User: <font color=green><b>Hiển thị danh sách sản phẩm</b></font>
+@enduml

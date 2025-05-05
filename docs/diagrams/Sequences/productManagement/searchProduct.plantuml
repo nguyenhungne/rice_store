@@ -1,0 +1,16 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Product Service" as ProdService
+
+User -> App: Nhập từ khóa tìm kiếm vào ô tìm kiếm
+User -> App: Nhấn nút "Tìm kiếm"
+App -> ProdService: Lọc sản phẩm theo từ khóa
+alt Không tìm thấy sản phẩm
+    ProdService -> App: Trả về danh sách rỗng
+    App -> User: <font color=green><b>Hiển thị kết quả rỗng</b></font>
+else Sản phẩm tìm thấy
+    ProdService -> App: Hiển thị kết quả tìm kiếm
+    App -> User: <font color=green><b>Hiển thị kết quả tìm kiếm</b></font>
+end
+@enduml

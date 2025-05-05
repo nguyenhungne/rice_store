@@ -1,0 +1,8 @@
+@startuml
+actor User
+participant "WinForm App" as App
+
+User -> App: Yêu cầu đăng xuất
+App -> User: Đăng xuất thành công
+App -> User: <font color=green><b>Hiển thị thông báo thành công</b></font>
+@enduml

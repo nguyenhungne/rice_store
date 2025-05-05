@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Customer Service" as CustService
+participant "Email Service" as EmailService
+
+User -> App: Chọn "Cập nhật hạng thành viên"
+App -> CustService: Cập nhật hạng thành viên khách hàng
+CustService -> App: Xác nhận cập nhật hạng
+App -> User: <font color=green><b>Hiển thị thông báo thành công cập nhật hạng</b></font>
+
+App -> EmailService: Gửi email cho khách hàng thăng hạng
+EmailService -> App: Xác nhận email đã được gửi
+App -> User: <font color=green><b>Thông báo qua email đã được gửi</b></font>
+@enduml

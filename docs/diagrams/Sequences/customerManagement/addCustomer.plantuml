@@ -1,0 +1,17 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Customer Service" as CustService
+
+User -> App: Chọn "Thêm khách hàng"
+App -> App: Hiển thị giao diện thêm khách hàng
+User -> App: Nhập thông tin khách hàng
+App -> CustService: Xác nhận và thêm khách hàng
+alt Dữ liệu không hợp lệ
+    CustService -> App: Hiển thị lỗi (Dữ liệu không hợp lệ)
+    App -> User: <font color=red><b>Hiển thị thông báo lỗi</b></font>
+else Khách hàng đã được thêm thành công
+    CustService -> App: Xác nhận khách hàng đã được thêm
+    App -> User: <font color=green><b>Khách hàng đã được thêm thành công</b></font>
+end
+@enduml

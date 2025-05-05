@@ -1,0 +1,11 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Order Service" as OrderService
+
+User -> App: Chọn đơn hàng để xem
+User -> App: Nhấn "Xem chi tiết"
+App -> OrderService: Lấy chi tiết đơn hàng
+OrderService -> App: Trả về chi tiết đơn hàng
+App -> User: Hiển thị chi tiết đơn hàng (Sản phẩm, Hạn sử dụng, v.v.)
+@enduml

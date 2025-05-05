@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Inventory Service" as InventoryService
+
+User -> App: Nhập thông tin chi tiết đơn nhập hàng và nhấn "Thêm"
+App -> InventoryService: Thêm chi tiết đơn nhập hàng
+alt Dữ liệu không hợp lệ
+    InventoryService -> App: Hiển thị lỗi (Dữ liệu không hợp lệ)
+    App -> User: <font color=red><b>Hiển thị thông báo lỗi</b></font>
+else Dữ liệu hợp lệ
+    InventoryService -> App: Cập nhật đơn nhập hàng
+    App -> User: <font color=green><b>Hiển thị thông báo thành công</b></font>
+end
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Finance Service" as FinanceService
+
+User -> App: Chọn "Quản lý tài chính"
+App -> FinanceService: Hiển thị giao diện báo cáo tài chính
+User -> App: Chọn mốc thời gian và nhấn "Lọc"
+App -> FinanceService: Lọc báo cáo theo mốc thời gian
+FinanceService -> App: Trả về báo cáo tài chính đã lọc
+App -> User: Hiển thị báo cáo tài chính đã lọc
+@enduml

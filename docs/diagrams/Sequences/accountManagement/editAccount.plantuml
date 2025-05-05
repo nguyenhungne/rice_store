@@ -1,0 +1,17 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Account Service" as AccountService
+
+User -> App: Chọn "Chỉnh sửa tài khoản người dùng"
+App -> App: Hiển thị giao diện chỉnh sửa tài khoản
+User -> App: Sửa thông tin tài khoản
+App -> AccountService: Xác nhận và cập nhật thông tin tài khoản
+alt Dữ liệu không hợp lệ
+    AccountService -> App: Hiển thị lỗi (Dữ liệu không hợp lệ)
+    App -> User: <font color=red><b>Hiển thị thông báo lỗi</b></font>
+else Thông tin tài khoản đã được cập nhật
+    AccountService -> App: Xác nhận thông tin tài khoản đã được cập nhật
+    App -> User: <font color=green><b>Thông tin tài khoản đã được cập nhật thành công</b></font>
+end
+@enduml

@@ -1,0 +1,132 @@
+@startuml
+skinparam classAttributeIconSize 16
+skinparam classFontSize 14
+
+class Product {
+  +int id
+  +String name
+  +float weight
+  +String origin
+  +String quality
+  +decimal purchase_price
+  +decimal selling_price
+  +int category_id
+  +DateTime expiration_date
+  +void AddProduct(String name, float weight, String origin, String quality, decimal purchase_price, decimal selling_price, DateTime expiration_date)
+  +void UpdateProduct(int id, String name, float weight, String origin, String quality, decimal purchase_price, decimal selling_price, DateTime expiration_date)
+  +void DeleteProduct(int id)
+}
+
+class Category {
+  +int id
+  +String name
+  +void AddCategory(String name)
+  +void UpdateCategory(int id, String name)
+}
+
+class Warehouse {
+  +int id
+  +int product_id
+  +int inventory_id
+  +String batch_number
+  +int min_threshold
+  +DateTime expiration_date
+  +DateTime created_at
+  +void AddWarehouse(int product_id, int inventory_id, String batch_number, int min_threshold, DateTime expiration_date)
+  +void UpdateWarehouse(int id, int product_id, int inventory_id, String batch_number, int min_threshold, DateTime expiration_date)
+  +void DeleteWarehouse(int id)
+}
+
+class Inventory {
+  +int id
+  +String name
+  +void AddInventory(String name)
+  +void UpdateInventory(int id, String name)
+}
+
+class Supplier {
+  +int id
+  +String name
+  +String address
+  +String phone
+  +String email
+  +void AddSupplier(String name, String address, String phone, String email)
+  +void UpdateSupplier(int id, String name, String address, String phone, String email)
+}
+
+class PurchaseOrder {
+  +int id
+  +int supplier_id
+  +DateTime order_date
+  +decimal total_amount
+  +String status
+  +void CreatePurchaseOrder(int supplier_id, DateTime order_date, decimal total_amount, String status)
+  +void UpdatePurchaseOrder(int id, int supplier_id, DateTime order_date, decimal total_amount, String status)
+}
+
+class PurchaseOrderDetail {
+  +int id
+  +int purchase_order_id
+  +int ware_house_id
+  +int quantity
+  +decimal unit_price
+  +DateTime expiration_date
+  +void AddPurchaseOrderDetail(int purchase_order_id, int ware_house_id, int quantity, decimal unit_price, DateTime expiration_date)
+}
+
+class Customer {
+  +int id
+  +String name
+  +String phone
+  +String email
+  +String address
+  +int loyalty_points
+  +void AddCustomer(String name, String phone, String email, String address)
+  +void UpdateCustomer(int id, String name, String phone, String email, String address)
+  +void DeleteCustomer(int id)
+}
+
+class SalesOrder {
+  +int id
+  +int customer_id
+  +DateTime order_date
+  +String payment_method
+  +String status
+  +void CreateSalesOrder(int customer_id, DateTime order_date, String payment_method, String status)
+  +void UpdateSalesOrder(int id, int customer_id, DateTime order_date, String payment_method, String status)
+}
+
+class SalesOrderDetail {
+  +int id
+  +int sales_order_id
+  +int ware_house_id
+  +int quantity
+  +decimal unit_price
+  +void AddSalesOrderDetail(int sales_order_id, int ware_house_id, int quantity, decimal unit_price)
+}
+
+class User {
+  +int id
+  +String user_name
+  +String password
+  +String role
+  +String phone
+  +String email
+  +decimal salary
+  +boolean is_delete
+  +void AddUser(String user_name, String password, String role, String phone, String email)
+  +void UpdateUser(int id, String user_name, String password, String role, String phone, String email)
+  +void DeleteUser(int id)
+}
+
+Product "1" -- "0..*" Warehouse : "thuộc về" > 
+Product "1" -- "0..*" PurchaseOrderDetail : "có trong" >
+Category "1" -- "0..*" Product : "bao gồm" >
+Warehouse "1" -- "0..*" PurchaseOrderDetail : "chứa" >
+Supplier "1" -- "0..*" PurchaseOrder : "cung cấp" >
+Customer "1" -- "0..*" SalesOrder : "đặt" >
+SalesOrder "1" -- "0..*" SalesOrderDetail : "bao gồm" >
+Warehouse "1" -- "0..*" SalesOrderDetail : "có trong" >
+PurchaseOrder "1" -- "0..*" PurchaseOrderDetail : "bao gồm" >
+
+@enduml

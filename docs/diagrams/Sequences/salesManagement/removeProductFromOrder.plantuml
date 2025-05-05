@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Product Service" as ProdService
+
+User -> App: Chọn sản phẩm trong đơn hàng tạm
+App -> ProdService: Xóa sản phẩm khỏi đơn hàng tạm
+ProdService -> App: Cập nhật chi tiết đơn hàng
+App -> User: <font color=green><b>Sản phẩm đã được xóa thành công</b></font>
+@enduml

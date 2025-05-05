@@ -1,0 +1,19 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Product Service" as ProdService
+
+User -> App: Chọn "Quản lý sản phẩm"
+App -> App: Hiển thị giao diện quản lý sản phẩm
+
+User -> App: Chọn sản phẩm cần xóa
+App -> App: Hiển thị hộp thoại xác nhận xóa
+User -> App: Xác nhận xóa
+alt Sản phẩm có liên kết với đơn hàng
+    ProdService -> App: Hiển thị lỗi (Sản phẩm có liên kết với đơn hàng)
+    App -> User: <font color=red><b>Hiển thị thông báo lỗi</b></font>
+else Sản phẩm đã được xóa thành công
+    ProdService -> App: Xóa sản phẩm và cập nhật danh sách
+    App -> User: <font color=green><b>Hiển thị thông báo thành công</b></font>
+end
+@enduml

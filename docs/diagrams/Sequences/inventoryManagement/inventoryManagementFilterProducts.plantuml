@@ -1,0 +1,16 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Inventory Service" as InventoryService
+
+User -> App: Chọn tiêu chí lọc và nhấn "Lọc"
+App -> InventoryService: Lọc hàng hóa theo tiêu chí
+InventoryService -> App: Trả về kết quả lọc
+alt Không có hàng hóa phù hợp
+    InventoryService -> App: Trả về danh sách rỗng
+    App -> User: <font color=green><b>Hiển thị kết quả rỗng</b></font>
+else Hàng hóa phù hợp
+    InventoryService -> App: Trả về danh sách hàng hóa
+    App -> User: <font color=green><b>Hiển thị kết quả lọc</b></font>
+end
+@enduml

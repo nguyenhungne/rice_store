@@ -1,0 +1,16 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Customer Service" as CustService
+
+User -> App: Nhập từ khóa tìm kiếm
+User -> App: Nhấn "Tìm kiếm"
+App -> CustService: Lọc khách hàng theo tiêu chí
+alt Không tìm thấy khách hàng
+    CustService -> App: Hiển thị danh sách rỗng
+    App -> User: <font color=green><b>Hiển thị kết quả rỗng</b></font>
+else Khách hàng tìm thấy
+    CustService -> App: Hiển thị kết quả tìm kiếm
+    App -> User: <font color=green><b>Hiển thị kết quả tìm kiếm</b></font>
+end
+@enduml

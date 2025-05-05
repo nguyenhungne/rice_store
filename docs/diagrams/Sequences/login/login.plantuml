@@ -1,0 +1,18 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Authentication Service" as AuthService
+
+User -> App: Yêu cầu đăng nhập
+App -> AuthService: Kiểm tra thông tin đăng nhập (hardpassword)
+AuthService -> App: Trả về kết quả xác thực (Thành công/Thất bại)
+alt Đăng nhập thành công
+    AuthService -> App: Đăng nhập thành công
+    App -> User: Hiển thị giao diện chính
+    App -> User: <font color=green><b>Hiển thị thông báo thành công</b></font>
+else Đăng nhập thất bại
+    AuthService -> App: Hiển thị lỗi (Thông tin đăng nhập không hợp lệ)
+    App -> User: Hiển thị thông báo lỗi
+    App -> User: <font color=red><b>Hiển thị thông báo lỗi</b></font>
+end
+@enduml

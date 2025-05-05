@@ -1,0 +1,16 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Customer Service" as CustService
+
+User -> App: Chọn "Xóa khách hàng"
+App -> App: Hiển thị xác nhận xóa khách hàng
+User -> App: Xác nhận xóa
+alt Khách hàng tồn tại
+    CustService -> App: Xóa khách hàng khỏi hệ thống
+    App -> User: <font color=green><b>Khách hàng đã được xóa thành công</b></font>
+else Khách hàng không tìm thấy
+    CustService -> App: Hiển thị lỗi (Khách hàng không tìm thấy)
+    App -> User: <font color=red><b>Hiển thị thông báo lỗi</b></font>
+end
+@enduml

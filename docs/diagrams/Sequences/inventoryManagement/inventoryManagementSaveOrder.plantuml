@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Inventory Service" as InventoryService
+
+User -> App: Chọn "Lưu đơn nhập hàng"
+App -> InventoryService: Lưu đơn nhập hàng vào hệ thống
+alt Không có dữ liệu chi tiết
+    InventoryService -> App: Hiển thị lỗi (Không có chi tiết đơn nhập hàng)
+    App -> User: <font color=red><b>Hiển thị thông báo lỗi</b></font>
+else Đơn nhập hàng lưu thành công
+    InventoryService -> App: Cập nhật tồn kho
+    App -> User: <font color=green><b>Hiển thị thông báo thành công</b></font>
+end
+@enduml

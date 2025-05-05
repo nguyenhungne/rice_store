@@ -1,0 +1,17 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Invoice Service" as InvoiceService
+
+User -> App: Chọn đơn hàng để in
+User -> App: Nhấn "In hóa đơn"
+App -> InvoiceService: Chọn phương thức in (Máy in, PDF...)
+InvoiceService -> App: Xử lý yêu cầu in
+alt Máy in có sẵn
+    InvoiceService -> App: In hóa đơn
+    App -> User: Hiển thị thông báo in thành công
+else Lỗi máy in
+    InvoiceService -> App: Hiển thị lỗi máy in
+    App -> User: <font color=red><b>Hiển thị thông báo lỗi máy in</b></font>
+end
+@enduml

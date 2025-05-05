@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Customer Service" as CustService
+
+User -> App: Chọn "Quản lý khách hàng thân thiết"
+App -> CustService: Lấy danh sách khách hàng
+CustService -> App: Hiển thị danh sách khách hàng
+App -> User: Hiển thị danh sách khách hàng
+@enduml

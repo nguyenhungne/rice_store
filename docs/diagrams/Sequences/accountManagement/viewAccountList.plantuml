@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Account Service" as AccountService
+
+User -> App: Chọn "Quản lý tài khoản người dùng"
+App -> AccountService: Lấy danh sách tài khoản
+AccountService -> App: Trả về danh sách tài khoản
+App -> User: Hiển thị danh sách tài khoản
+@enduml

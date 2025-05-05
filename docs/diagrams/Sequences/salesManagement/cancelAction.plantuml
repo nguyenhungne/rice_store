@@ -1,0 +1,9 @@
+@startuml
+actor User
+participant "WinForm App" as App
+
+User -> App: Nhấn "Hủy thao tác"
+App -> App: Hủy đơn hàng hiện tại
+App -> User: <font color=green><b>Đơn hàng đã bị hủy</b></font>
+App -> App: Quay lại màn hình quản lý bán hàng
+@enduml

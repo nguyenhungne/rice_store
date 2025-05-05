@@ -1,0 +1,11 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Order Service" as OrderService
+
+User -> App: Chọn tiêu chí lọc (Ngày, Khách hàng...)
+User -> App: Nhấn "Lọc"
+App -> OrderService: Lọc đơn hàng theo tiêu chí
+OrderService -> App: Hiển thị danh sách đơn hàng đã lọc
+App -> User: Hiển thị danh sách đơn hàng đã lọc
+@enduml

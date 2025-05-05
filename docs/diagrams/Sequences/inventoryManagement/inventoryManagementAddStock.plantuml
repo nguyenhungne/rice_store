@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Inventory Service" as InventoryService
+
+User -> App: Chọn "Nhập hàng"
+App -> InventoryService: Hiển thị giao diện nhập hàng
+InventoryService -> App: Hiển thị form nhập hàng vào kho
+App -> User: Hiển thị form nhập hàng
+@enduml

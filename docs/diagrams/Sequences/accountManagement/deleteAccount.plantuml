@@ -1,0 +1,16 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Account Service" as AccountService
+
+User -> App: Chọn "Xóa tài khoản người dùng"
+App -> App: Hiển thị xác nhận xóa tài khoản
+User -> App: Xác nhận xóa
+alt Tài khoản tồn tại
+    AccountService -> App: Xóa tài khoản khỏi hệ thống
+    App -> User: <font color=green><b>Tài khoản đã được xóa thành công</b></font>
+else Tài khoản không tìm thấy
+    AccountService -> App: Hiển thị lỗi (Tài khoản không tìm thấy)
+    App -> User: <font color=red><b>Hiển thị thông báo lỗi</b></font>
+end
+@enduml

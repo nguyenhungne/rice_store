@@ -1,0 +1,19 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Order Service" as OrderService
+participant "Inventory Service" as InventoryService
+
+User -> App: Nhấn "Lưu đơn hàng"
+App -> OrderService: Xác nhận dữ liệu đơn hàng
+alt Dữ liệu đơn hàng hợp lệ
+    OrderService -> App: Lưu đơn hàng vào hệ thống
+    App -> InventoryService: Cập nhật tồn kho sau khi lưu đơn hàng
+    InventoryService -> App: Xác nhận cập nhật tồn kho
+    App -> User: <font color=green><b>Đơn hàng đã được lưu thành công</b></font>
+    App -> App: Quay lại màn hình quản lý bán hàng
+else Dữ liệu đơn hàng không hợp lệ
+    OrderService -> App: Hiển thị lỗi (Dữ liệu không hợp lệ)
+    App -> User: <font color=red><b>Hiển thị lỗi xác nhận</b></font>
+end
+@enduml

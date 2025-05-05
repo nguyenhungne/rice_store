@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Finance Service" as FinanceService
+
+User -> App: Chọn "Quản lý tài chính"
+App -> FinanceService: Lấy báo cáo tài chính
+FinanceService -> App: Trả về báo cáo tài chính
+App -> User: Hiển thị báo cáo tài chính (Doanh thu, Chi phí, Lợi nhuận)
+@enduml

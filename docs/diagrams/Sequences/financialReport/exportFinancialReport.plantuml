@@ -1,0 +1,12 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Finance Service" as FinanceService
+
+User -> App: Chọn "Quản lý tài chính"
+App -> App: Hiển thị bản xem trước báo cáo tài chính
+User -> App: Chọn "Xuất báo cáo"
+App -> FinanceService: Tạo PDF báo cáo tài chính
+FinanceService -> App: Trả về báo cáo PDF
+App -> User: Hiển thị thông báo thành công (Báo cáo đã được xuất thành công)
+@enduml

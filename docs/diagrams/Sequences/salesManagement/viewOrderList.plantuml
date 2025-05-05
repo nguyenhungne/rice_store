@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Order Service" as OrderService
+
+User -> App: Chọn "Quản lý đơn hàng"
+App -> OrderService: Lấy danh sách đơn hàng
+OrderService -> App: Hiển thị danh sách đơn hàng
+App -> User: Hiển thị danh sách đơn hàng
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Product Service" as ProdService
+participant "Inventory Service" as InventoryService
+
+User -> App: Chọn sản phẩm để thêm vào đơn hàng
+App -> InventoryService: Kiểm tra tồn kho tại chi nhánh
+InventoryService -> App: Trả về sản phẩm có sẵn và hạn sử dụng
+App -> User: Hiển thị sản phẩm có sẵn để chọn
+User -> App: Chọn sản phẩm và nhập số lượng
+App -> InventoryService: Kiểm tra số lượng so với tồn kho
+alt Tồn kho không đủ
+    InventoryService -> App: Hiển thị lỗi (Tồn kho không đủ)
+    App -> User: <font color=red><b>Hiển thị lỗi tồn kho</b></font>
+else Tồn kho đủ
+    App -> ProdService: Thêm sản phẩm vào đơn hàng tạm
+    ProdService -> App: Cập nhật chi tiết đơn hàng với sản phẩm và số tiền
+    App -> InventoryService: Cập nhật số lượng tồn kho
+    App -> User: <font color=green><b>Thêm sản phẩm thành công</b></font>
+end
+@enduml

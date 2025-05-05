@@ -1,0 +1,16 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Account Service" as AccountService
+
+User -> App: Nhập từ khóa tìm kiếm
+User -> App: Nhấn "Tìm kiếm"
+App -> AccountService: Lọc tài khoản theo tiêu chí
+alt Không tìm thấy tài khoản
+    AccountService -> App: Hiển thị danh sách rỗng
+    App -> User: <font color=green><b>Hiển thị kết quả rỗng</b></font>
+else Tài khoản tìm thấy
+    AccountService -> App: Hiển thị kết quả tìm kiếm
+    App -> User: <font color=green><b>Hiển thị kết quả tìm kiếm</b></font>
+end
+@enduml

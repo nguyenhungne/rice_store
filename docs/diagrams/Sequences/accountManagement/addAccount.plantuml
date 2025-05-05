@@ -1,0 +1,17 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Account Service" as AccountService
+
+User -> App: Chọn "Thêm tài khoản người dùng"
+App -> App: Hiển thị giao diện "Thêm tài khoản người dùng"
+User -> App: Nhập thông tin tài khoản
+App -> AccountService: Xác nhận và thêm tài khoản
+alt Dữ liệu không hợp lệ
+    AccountService -> App: Hiển thị lỗi (Dữ liệu không hợp lệ)
+    App -> User: <font color=red><b>Hiển thị thông báo lỗi</b></font>
+else Tài khoản đã được thêm thành công
+    AccountService -> App: Xác nhận tài khoản đã được thêm
+    App -> User: <font color=green><b>Tài khoản đã được thêm thành công</b></font>
+end
+@enduml
