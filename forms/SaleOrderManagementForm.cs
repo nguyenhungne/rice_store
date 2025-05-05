@@ -86,7 +86,7 @@ namespace rice_store.forms
             {
                 new Inventory { Id = -1, name = "--- Chọn chi nhánh ---" }
             };
-            displayListInventory.AddRange(inventories); // Thêm các kho 
+            displayListInventory.AddRange(inventories); // Thêm các kho
 
             inventoryCombobox.DataSource = displayListInventory;
             inventoryCombobox.DisplayMember = "name";
@@ -171,8 +171,6 @@ namespace rice_store.forms
 
         private async void saveButton_Click(object sender, EventArgs e)
         {
-
-
             try
             {
 
@@ -210,8 +208,8 @@ namespace rice_store.forms
                         await purchaseOrderDetailService.UpdateQuantityPurchaseOrderDetailAsync(item.purchaseOrderDetailsId, item.quantity);
                     }
                 }
-                
-                    
+
+
                     // Show success message
                     if (!result.IsNullOrEmpty())
                     {
@@ -232,7 +230,7 @@ namespace rice_store.forms
 
                     // Refresh the DataGridView in the InventoryManagementForm
                     previewAddingSalesOrderDataGrid.Rows.Clear();
-               
+
             }
             catch (Exception ex)
             {
@@ -258,11 +256,6 @@ namespace rice_store.forms
             IEnumerable<PurchaseOrderDetail> products = await purchaseOrderDetailService.GetAllPurchaseOrderDetailsAsync((int)inventoryCombobox.SelectedValue);
             _allPurchaseOrderDetails = products;
 
-            //foreach (PurchaseOrderDetail stockProductDetail in products)
-            //{
-            //    productComboBox.Items.Add(stockProductDetail.Warehouse.Product.Name + $"({stockProductDetail.ExpirationDate.ToString("dd/MM/yyyy")})");
-            //}
-
             var displayListProduct = products.Select(p => new
             {
                 DisplayName = $"{p.Warehouse.Product.Name} (Hạn sử dụng: {p.ExpirationDate.ToString("dd/MM/yyyy")})",
@@ -277,7 +270,7 @@ namespace rice_store.forms
 
             productComboBox.DataSource = displayListProduct;
             productComboBox.DisplayMember = "DisplayName";
-            productComboBox.ValueMember = "Id";       // Lưu ID (không hiển thị)
+            productComboBox.ValueMember = "Id";
             productComboBox.SelectedIndex = 0; // Set to no selection
         }
 
@@ -321,7 +314,7 @@ namespace rice_store.forms
 
             string? customerName = customerComboBox.SelectedItem?.ToString() == "No selection" ? null : customerComboBox.SelectedItem.ToString();
             string paymentMethod = paymentCombobox.SelectedItem?.ToString() ?? string.Empty;
-            decimal quantity = quantityInput.Value; //> 0 ? (int)quantityInput.Value : 1;
+            decimal quantity = quantityInput.Value;
 
 
             PurchaseOrderDetail? selectedPurchaseOrderDetail = _allPurchaseOrderDetails.FirstOrDefault(p => p.Id == purchaseOrderDetailId);
@@ -332,7 +325,6 @@ namespace rice_store.forms
                 return;
             }
 
-            // Customer selectedCustomer =  _allCustomers.FirstOrDefault(c => c.Name == customerName);
             Customer? selectedCustomer = customerName == null ? null : _allCustomers.FirstOrDefault(c => c.Name == customerName);
 
             if (_selectedCustomer == null)
@@ -351,7 +343,6 @@ namespace rice_store.forms
             {
                 if (quantity > stockQuantity)
                 {
-                    // xử lý nếu số lượng lớn hơn tồn kho
                     MessageBox.Show("Số lượng vượt quá số lượng gạo có trong kho.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
@@ -368,7 +359,7 @@ namespace rice_store.forms
                     return;
                 }
                 existingItem.quantity += quantity;
-                productComboBox.SelectedIndex = 0; // Set to no selection
+                productComboBox.SelectedIndex = 0;
                 quantityInput.Value = 1;
                 renderSalesOrderDatagrid();
             }

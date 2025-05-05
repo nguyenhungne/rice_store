@@ -28,26 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductManagementForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductManagementForm));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             label1 = new Label();
             searchButton = new Guna.UI2.WinForms.Guna2Button();
@@ -67,10 +69,9 @@
             productName = new DataGridViewTextBoxColumn();
             productWeight = new DataGridViewTextBoxColumn();
             productOrigin = new DataGridViewTextBoxColumn();
-            purchasePriceProduct = new DataGridViewTextBoxColumn();
             sellingPriceProduct = new DataGridViewTextBoxColumn();
-            expirationDateProduct = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
+            removeFilterButton = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel2.SuspendLayout();
             productDataGridPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)productDataGridView).BeginInit();
@@ -83,17 +84,18 @@
             guna2Panel2.BorderColor = Color.FromArgb(255, 128, 0);
             guna2Panel2.BorderRadius = 30;
             guna2Panel2.BorderThickness = 4;
+            guna2Panel2.Controls.Add(removeFilterButton);
             guna2Panel2.Controls.Add(label1);
             guna2Panel2.Controls.Add(searchButton);
             guna2Panel2.Controls.Add(label3);
             guna2Panel2.Controls.Add(productCategoryComboBox);
             guna2Panel2.Controls.Add(productNameTextBox);
             guna2Panel2.Controls.Add(label4);
-            guna2Panel2.CustomizableEdges = customizableEdges7;
-            guna2Panel2.Location = new Point(836, 30);
+            guna2Panel2.CustomizableEdges = customizableEdges9;
+            guna2Panel2.Location = new Point(836, 3);
             guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            guna2Panel2.Size = new Size(297, 250);
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            guna2Panel2.Size = new Size(297, 277);
             guna2Panel2.TabIndex = 11;
             // 
             // label1
@@ -112,7 +114,7 @@
             searchButton.BorderRadius = 20;
             searchButton.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
             searchButton.Cursor = Cursors.Hand;
-            searchButton.CustomizableEdges = customizableEdges1;
+            searchButton.CustomizableEdges = customizableEdges3;
             searchButton.DisabledState.BorderColor = Color.DarkGray;
             searchButton.DisabledState.CustomBorderColor = Color.DarkGray;
             searchButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -120,9 +122,9 @@
             searchButton.FillColor = Color.OrangeRed;
             searchButton.Font = new Font("Segoe UI", 9F);
             searchButton.ForeColor = Color.White;
-            searchButton.Location = new Point(8, 187);
+            searchButton.Location = new Point(8, 172);
             searchButton.Name = "searchButton";
-            searchButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            searchButton.ShadowDecoration.CustomizableEdges = customizableEdges4;
             searchButton.Size = new Size(273, 42);
             searchButton.TabIndex = 10;
             searchButton.Text = "Tìm Kiếm";
@@ -142,7 +144,7 @@
             // 
             productCategoryComboBox.BackColor = Color.Transparent;
             productCategoryComboBox.BorderRadius = 17;
-            productCategoryComboBox.CustomizableEdges = customizableEdges3;
+            productCategoryComboBox.CustomizableEdges = customizableEdges5;
             productCategoryComboBox.DrawMode = DrawMode.OwnerDrawFixed;
             productCategoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             productCategoryComboBox.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -152,14 +154,14 @@
             productCategoryComboBox.ItemHeight = 30;
             productCategoryComboBox.Location = new Point(86, 130);
             productCategoryComboBox.Name = "productCategoryComboBox";
-            productCategoryComboBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            productCategoryComboBox.ShadowDecoration.CustomizableEdges = customizableEdges6;
             productCategoryComboBox.Size = new Size(195, 36);
             productCategoryComboBox.TabIndex = 8;
             // 
             // productNameTextBox
             // 
             productNameTextBox.BorderRadius = 17;
-            productNameTextBox.CustomizableEdges = customizableEdges5;
+            productNameTextBox.CustomizableEdges = customizableEdges7;
             productNameTextBox.DefaultText = "";
             productNameTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             productNameTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -173,7 +175,7 @@
             productNameTextBox.Name = "productNameTextBox";
             productNameTextBox.PlaceholderText = "";
             productNameTextBox.SelectedText = "";
-            productNameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            productNameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges8;
             productNameTextBox.Size = new Size(195, 36);
             productNameTextBox.TabIndex = 6;
             // 
@@ -190,7 +192,7 @@
             // deleteProductButton
             // 
             deleteProductButton.BorderRadius = 25;
-            deleteProductButton.CustomizableEdges = customizableEdges9;
+            deleteProductButton.CustomizableEdges = customizableEdges11;
             deleteProductButton.DisabledState.BorderColor = Color.DarkGray;
             deleteProductButton.DisabledState.CustomBorderColor = Color.DarkGray;
             deleteProductButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -200,7 +202,7 @@
             deleteProductButton.ForeColor = Color.White;
             deleteProductButton.Location = new Point(297, 180);
             deleteProductButton.Name = "deleteProductButton";
-            deleteProductButton.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            deleteProductButton.ShadowDecoration.CustomizableEdges = customizableEdges12;
             deleteProductButton.Size = new Size(219, 54);
             deleteProductButton.TabIndex = 3;
             deleteProductButton.Text = "Xóa sản phẩm";
@@ -209,7 +211,7 @@
             // editProductButton
             // 
             editProductButton.BorderRadius = 25;
-            editProductButton.CustomizableEdges = customizableEdges11;
+            editProductButton.CustomizableEdges = customizableEdges13;
             editProductButton.DisabledState.BorderColor = Color.DarkGray;
             editProductButton.DisabledState.CustomBorderColor = Color.DarkGray;
             editProductButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -219,7 +221,7 @@
             editProductButton.ForeColor = Color.White;
             editProductButton.Location = new Point(586, 180);
             editProductButton.Name = "editProductButton";
-            editProductButton.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            editProductButton.ShadowDecoration.CustomizableEdges = customizableEdges14;
             editProductButton.Size = new Size(223, 54);
             editProductButton.TabIndex = 4;
             editProductButton.Text = "Chỉnh sửa sản phẩm";
@@ -228,7 +230,7 @@
             // addProductButton
             // 
             addProductButton.BorderRadius = 25;
-            addProductButton.CustomizableEdges = customizableEdges13;
+            addProductButton.CustomizableEdges = customizableEdges15;
             addProductButton.DisabledState.BorderColor = Color.DarkGray;
             addProductButton.DisabledState.CustomBorderColor = Color.DarkGray;
             addProductButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -238,7 +240,7 @@
             addProductButton.ForeColor = Color.White;
             addProductButton.Location = new Point(10, 180);
             addProductButton.Name = "addProductButton";
-            addProductButton.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            addProductButton.ShadowDecoration.CustomizableEdges = customizableEdges16;
             addProductButton.Size = new Size(216, 54);
             addProductButton.TabIndex = 2;
             addProductButton.Text = "Thêm sản phẩm";
@@ -286,15 +288,19 @@
             guna2Panel1.BackColor = Color.Transparent;
             guna2Panel1.BackgroundImage = (Image)resources.GetObject("guna2Panel1.BackgroundImage");
             guna2Panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            guna2Panel1.CustomizableEdges = customizableEdges15;
+            guna2Panel1.CustomizableEdges = customizableEdges17;
             guna2Panel1.Location = new Point(3, 30);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges18;
             guna2Panel1.Size = new Size(138, 107);
             guna2Panel1.TabIndex = 1;
             // 
             // productDataGridView
             // 
+            productDataGridView.AllowUserToAddRows = false;
+            productDataGridView.AllowUserToDeleteRows = false;
+            productDataGridView.AllowUserToResizeColumns = false;
+            productDataGridView.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
             productDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             productDataGridView.BorderStyle = BorderStyle.Fixed3D;
@@ -309,7 +315,7 @@
             productDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             productDataGridView.ColumnHeadersHeight = 50;
             productDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            productDataGridView.Columns.AddRange(new DataGridViewColumn[] { Id, productName, productWeight, productOrigin, purchasePriceProduct, sellingPriceProduct, expirationDateProduct });
+            productDataGridView.Columns.AddRange(new DataGridViewColumn[] { Id, productName, productWeight, productOrigin, sellingPriceProduct });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -377,26 +383,12 @@
             productOrigin.Name = "productOrigin";
             productOrigin.ReadOnly = true;
             // 
-            // purchasePriceProduct
-            // 
-            purchasePriceProduct.HeaderText = "Giá nhập";
-            purchasePriceProduct.MinimumWidth = 6;
-            purchasePriceProduct.Name = "purchasePriceProduct";
-            purchasePriceProduct.ReadOnly = true;
-            // 
             // sellingPriceProduct
             // 
             sellingPriceProduct.HeaderText = "Giá bán";
             sellingPriceProduct.MinimumWidth = 6;
             sellingPriceProduct.Name = "sellingPriceProduct";
             sellingPriceProduct.ReadOnly = true;
-            // 
-            // expirationDateProduct
-            // 
-            expirationDateProduct.HeaderText = "Ngày hết hạn";
-            expirationDateProduct.MinimumWidth = 6;
-            expirationDateProduct.Name = "expirationDateProduct";
-            expirationDateProduct.ReadOnly = true;
             // 
             // panel1
             // 
@@ -407,6 +399,27 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1150, 766);
             panel1.TabIndex = 0;
+            // 
+            // removeFilterButton
+            // 
+            removeFilterButton.BorderRadius = 20;
+            removeFilterButton.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
+            removeFilterButton.Cursor = Cursors.Hand;
+            removeFilterButton.CustomizableEdges = customizableEdges1;
+            removeFilterButton.DisabledState.BorderColor = Color.DarkGray;
+            removeFilterButton.DisabledState.CustomBorderColor = Color.DarkGray;
+            removeFilterButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            removeFilterButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            removeFilterButton.FillColor = Color.OrangeRed;
+            removeFilterButton.Font = new Font("Segoe UI", 9F);
+            removeFilterButton.ForeColor = Color.White;
+            removeFilterButton.Location = new Point(8, 220);
+            removeFilterButton.Name = "removeFilterButton";
+            removeFilterButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            removeFilterButton.Size = new Size(273, 42);
+            removeFilterButton.TabIndex = 11;
+            removeFilterButton.Text = "Bỏ Lọc";
+            removeFilterButton.Click += removeFilterButton_Click;
             // 
             // ProductManagementForm
             // 
@@ -437,20 +450,19 @@
         private Label label1;
         private Panel productDataGridPanel;
         private Guna.UI2.WinForms.Guna2DataGridView productDataGridView;
-        private DataGridViewTextBoxColumn productName;
-        private DataGridViewTextBoxColumn productWeight;
-        private DataGridViewTextBoxColumn productOrigin;
-        private DataGridViewTextBoxColumn purchasePriceProduct;
-        private DataGridViewTextBoxColumn sellingPriceProduct;
-        private DataGridViewTextBoxColumn expirationDateProduct;
         private Panel panel1;
         private Guna.UI2.WinForms.Guna2Button editProductButton;
         private Guna.UI2.WinForms.Guna2Button deleteProductButton;
         private Guna.UI2.WinForms.Guna2Button addProductButton;
-        private DataGridViewTextBoxColumn Id;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Label label5;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Label label2;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn productName;
+        private DataGridViewTextBoxColumn productWeight;
+        private DataGridViewTextBoxColumn productOrigin;
+        private DataGridViewTextBoxColumn sellingPriceProduct;
+        private Guna.UI2.WinForms.Guna2Button removeFilterButton;
     }
 }

@@ -73,7 +73,7 @@
             actionButton.FillColor = Color.SandyBrown;
             actionButton.Font = new Font("Segoe UI", 9F);
             actionButton.ForeColor = Color.White;
-            actionButton.Location = new Point(44, 494);
+            actionButton.Location = new Point(92, 494);
             actionButton.Name = "actionButton";
             actionButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
             actionButton.Size = new Size(321, 62);
@@ -92,13 +92,13 @@
             emailTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             emailTextBox.Font = new Font("Segoe UI", 9F);
             emailTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            emailTextBox.Location = new Point(117, 188);
+            emailTextBox.Location = new Point(162, 177);
             emailTextBox.Margin = new Padding(3, 4, 3, 4);
             emailTextBox.Name = "emailTextBox";
             emailTextBox.PlaceholderText = "";
             emailTextBox.SelectedText = "";
             emailTextBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            emailTextBox.Size = new Size(259, 39);
+            emailTextBox.Size = new Size(267, 39);
             emailTextBox.TabIndex = 18;
             // 
             // emailLabel
@@ -123,13 +123,13 @@
             phoneTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             phoneTextBox.Font = new Font("Segoe UI", 9F);
             phoneTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            phoneTextBox.Location = new Point(117, 112);
+            phoneTextBox.Location = new Point(162, 112);
             phoneTextBox.Margin = new Padding(3, 4, 3, 4);
             phoneTextBox.Name = "phoneTextBox";
             phoneTextBox.PlaceholderText = "";
             phoneTextBox.SelectedText = "";
             phoneTextBox.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            phoneTextBox.Size = new Size(259, 39);
+            phoneTextBox.Size = new Size(267, 39);
             phoneTextBox.TabIndex = 16;
             // 
             // phonelabel
@@ -154,13 +154,13 @@
             nameTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             nameTextBox.Font = new Font("Segoe UI", 9F);
             nameTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            nameTextBox.Location = new Point(117, 47);
+            nameTextBox.Location = new Point(162, 47);
             nameTextBox.Margin = new Padding(3, 4, 3, 4);
             nameTextBox.Name = "nameTextBox";
             nameTextBox.PlaceholderText = "";
             nameTextBox.SelectedText = "";
             nameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            nameTextBox.Size = new Size(259, 39);
+            nameTextBox.Size = new Size(267, 39);
             nameTextBox.TabIndex = 12;
             // 
             // nameLabel
@@ -177,7 +177,7 @@
             // 
             titleLabel.AutoSize = true;
             titleLabel.Font = new Font("Segoe UI", 18F);
-            titleLabel.Location = new Point(77, 2);
+            titleLabel.Location = new Point(92, -9);
             titleLabel.Name = "titleLabel";
             titleLabel.Size = new Size(276, 41);
             titleLabel.TabIndex = 10;
@@ -195,13 +195,13 @@
             userNameTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             userNameTextBox.Font = new Font("Segoe UI", 9F);
             userNameTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            userNameTextBox.Location = new Point(117, 251);
+            userNameTextBox.Location = new Point(162, 240);
             userNameTextBox.Margin = new Padding(3, 4, 3, 4);
             userNameTextBox.Name = "userNameTextBox";
             userNameTextBox.PlaceholderText = "";
             userNameTextBox.SelectedText = "";
             userNameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            userNameTextBox.Size = new Size(259, 39);
+            userNameTextBox.Size = new Size(267, 39);
             userNameTextBox.TabIndex = 21;
             // 
             // userNameLabel
@@ -226,14 +226,14 @@
             passwordTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             passwordTextBox.Font = new Font("Segoe UI", 9F);
             passwordTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            passwordTextBox.Location = new Point(117, 323);
+            passwordTextBox.Location = new Point(162, 323);
             passwordTextBox.Margin = new Padding(3, 4, 3, 4);
             passwordTextBox.Name = "passwordTextBox";
             passwordTextBox.PasswordChar = '*';
             passwordTextBox.PlaceholderText = "";
             passwordTextBox.SelectedText = "";
             passwordTextBox.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            passwordTextBox.Size = new Size(259, 39);
+            passwordTextBox.Size = new Size(267, 39);
             passwordTextBox.TabIndex = 23;
             passwordTextBox.UseSystemPasswordChar = true;
             // 
@@ -264,9 +264,9 @@
             roleComboBox.FormattingEnabled = true;
             roleComboBox.IntegralHeight = false;
             roleComboBox.ItemHeight = 20;
-            roleComboBox.Location = new Point(117, 393);
+            roleComboBox.Location = new Point(162, 393);
             roleComboBox.Name = "roleComboBox";
-            roleComboBox.Size = new Size(259, 28);
+            roleComboBox.Size = new Size(267, 28);
             roleComboBox.TabIndex = 25;
             // 
             // salaryLabel
@@ -285,12 +285,12 @@
             salaryNumericUpDown.BorderRadius = 18;
             salaryNumericUpDown.CustomizableEdges = customizableEdges13;
             salaryNumericUpDown.Font = new Font("Segoe UI", 9F);
-            salaryNumericUpDown.Location = new Point(117, 440);
+            salaryNumericUpDown.Location = new Point(162, 440);
             salaryNumericUpDown.Margin = new Padding(3, 4, 3, 4);
             salaryNumericUpDown.Maximum = new decimal(new int[] { -559939585, 902409669, 54, 0 });
             salaryNumericUpDown.Name = "salaryNumericUpDown";
             salaryNumericUpDown.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            salaryNumericUpDown.Size = new Size(259, 35);
+            salaryNumericUpDown.Size = new Size(267, 35);
             salaryNumericUpDown.TabIndex = 27;
             salaryNumericUpDown.UpDownButtonFillColor = Color.FromArgb(255, 192, 128);
             // 
@@ -298,7 +298,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(419, 568);
+            ClientSize = new Size(489, 568);
             Controls.Add(salaryNumericUpDown);
             Controls.Add(salaryLabel);
             Controls.Add(roleComboBox);

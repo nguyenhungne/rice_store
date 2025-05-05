@@ -30,40 +30,39 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            hamburgerButton = new Button();
             label1 = new Label();
             sidebar = new FlowLayoutPanel();
-            dashboardButtonPanel = new Panel();
+            productButtonPanel = new Panel();
             dashboardButton = new Button();
-            contractManagementPanel = new Panel();
-            contractManagementButton = new Button();
-            paymentManagementPanel = new Panel();
+            saleManagementPanel = new Panel();
+            saleManagementButton = new Button();
+            customerManagementPanel = new Panel();
             paymentManagementButton = new Button();
-            shortTermRentalManagementPanel = new Panel();
-            shortTermRentalManagementButton = new Button();
-            utilityBillManagementPanel = new Panel();
+            accountManagementPanel = new Panel();
+            accountManagementButton = new Button();
+            inventoryManagementPanel = new Panel();
             utilityBillManagementButton = new Button();
-            sendNotificationPanel = new Panel();
+            SupplierPanel = new Panel();
             sendNotificationButton = new Button();
-            systemSettingPanel = new Panel();
+            reportPanel = new Panel();
             systemSettingButton = new Button();
             sidebarTransition = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             sidebar.SuspendLayout();
-            dashboardButtonPanel.SuspendLayout();
-            contractManagementPanel.SuspendLayout();
-            paymentManagementPanel.SuspendLayout();
-            shortTermRentalManagementPanel.SuspendLayout();
-            utilityBillManagementPanel.SuspendLayout();
-            sendNotificationPanel.SuspendLayout();
-            systemSettingPanel.SuspendLayout();
+            productButtonPanel.SuspendLayout();
+            saleManagementPanel.SuspendLayout();
+            customerManagementPanel.SuspendLayout();
+            accountManagementPanel.SuspendLayout();
+            inventoryManagementPanel.SuspendLayout();
+            SupplierPanel.SuspendLayout();
+            reportPanel.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -71,7 +70,6 @@
             panel1.BackColor = Color.FromArgb(255, 255, 128);
             panel1.Controls.Add(guna2Panel2);
             panel1.Controls.Add(guna2Panel1);
-            panel1.Controls.Add(hamburgerButton);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -83,10 +81,10 @@
             // 
             guna2Panel2.BackgroundImage = (Image)resources.GetObject("guna2Panel2.BackgroundImage");
             guna2Panel2.BackgroundImageLayout = ImageLayout.Stretch;
-            guna2Panel2.CustomizableEdges = customizableEdges13;
+            guna2Panel2.CustomizableEdges = customizableEdges1;
             guna2Panel2.Location = new Point(517, 3);
             guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2Panel2.Size = new Size(78, 63);
             guna2Panel2.TabIndex = 4;
             // 
@@ -94,22 +92,12 @@
             // 
             guna2Panel1.BackgroundImage = (Image)resources.GetObject("guna2Panel1.BackgroundImage");
             guna2Panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            guna2Panel1.CustomizableEdges = customizableEdges15;
+            guna2Panel1.CustomizableEdges = customizableEdges3;
             guna2Panel1.Location = new Point(942, 3);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Panel1.Size = new Size(78, 63);
             guna2Panel1.TabIndex = 3;
-            // 
-            // hamburgerButton
-            // 
-            hamburgerButton.Location = new Point(21, 24);
-            hamburgerButton.Name = "hamburgerButton";
-            hamburgerButton.Size = new Size(123, 29);
-            hamburgerButton.TabIndex = 2;
-            hamburgerButton.Text = "Expand";
-            hamburgerButton.UseVisualStyleBackColor = true;
-            hamburgerButton.Click += hamburgerButton_Click;
             // 
             // label1
             // 
@@ -127,13 +115,13 @@
             // sidebar
             // 
             sidebar.BackColor = Color.FromArgb(38, 50, 56);
-            sidebar.Controls.Add(dashboardButtonPanel);
-            sidebar.Controls.Add(contractManagementPanel);
-            sidebar.Controls.Add(paymentManagementPanel);
-            sidebar.Controls.Add(shortTermRentalManagementPanel);
-            sidebar.Controls.Add(utilityBillManagementPanel);
-            sidebar.Controls.Add(sendNotificationPanel);
-            sidebar.Controls.Add(systemSettingPanel);
+            sidebar.Controls.Add(productButtonPanel);
+            sidebar.Controls.Add(saleManagementPanel);
+            sidebar.Controls.Add(customerManagementPanel);
+            sidebar.Controls.Add(accountManagementPanel);
+            sidebar.Controls.Add(inventoryManagementPanel);
+            sidebar.Controls.Add(SupplierPanel);
+            sidebar.Controls.Add(reportPanel);
             sidebar.Dock = DockStyle.Left;
             sidebar.FlowDirection = FlowDirection.TopDown;
             sidebar.Location = new Point(0, 69);
@@ -141,14 +129,15 @@
             sidebar.Size = new Size(299, 719);
             sidebar.TabIndex = 1;
             // 
-            // dashboardButtonPanel
+            // productButtonPanel
             // 
-            dashboardButtonPanel.Controls.Add(dashboardButton);
-            dashboardButtonPanel.Location = new Point(3, 60);
-            dashboardButtonPanel.Margin = new Padding(3, 60, 3, 20);
-            dashboardButtonPanel.Name = "dashboardButtonPanel";
-            dashboardButtonPanel.Size = new Size(295, 60);
-            dashboardButtonPanel.TabIndex = 6;
+            productButtonPanel.Controls.Add(dashboardButton);
+            productButtonPanel.Location = new Point(3, 60);
+            productButtonPanel.Margin = new Padding(3, 60, 3, 20);
+            productButtonPanel.Name = "productButtonPanel";
+            productButtonPanel.Size = new Size(295, 60);
+            productButtonPanel.TabIndex = 6;
+            productButtonPanel.Visible = false;
             // 
             // dashboardButton
             // 
@@ -168,42 +157,44 @@
             dashboardButton.UseVisualStyleBackColor = false;
             dashboardButton.Click += handleDashboardButtonClick;
             // 
-            // contractManagementPanel
+            // saleManagementPanel
             // 
-            contractManagementPanel.Controls.Add(contractManagementButton);
-            contractManagementPanel.Cursor = Cursors.Hand;
-            contractManagementPanel.Location = new Point(3, 143);
-            contractManagementPanel.Margin = new Padding(3, 3, 3, 20);
-            contractManagementPanel.Name = "contractManagementPanel";
-            contractManagementPanel.Size = new Size(295, 60);
-            contractManagementPanel.TabIndex = 7;
+            saleManagementPanel.Controls.Add(saleManagementButton);
+            saleManagementPanel.Cursor = Cursors.Hand;
+            saleManagementPanel.Location = new Point(3, 143);
+            saleManagementPanel.Margin = new Padding(3, 3, 3, 20);
+            saleManagementPanel.Name = "saleManagementPanel";
+            saleManagementPanel.Size = new Size(295, 60);
+            saleManagementPanel.TabIndex = 7;
+            saleManagementPanel.Visible = false;
             // 
-            // contractManagementButton
+            // saleManagementButton
             // 
-            contractManagementButton.BackColor = Color.FromArgb(38, 50, 56);
-            contractManagementButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            contractManagementButton.ForeColor = Color.White;
-            contractManagementButton.Image = (Image)resources.GetObject("contractManagementButton.Image");
-            contractManagementButton.ImageAlign = ContentAlignment.MiddleLeft;
-            contractManagementButton.Location = new Point(-22, -19);
-            contractManagementButton.Name = "contractManagementButton";
-            contractManagementButton.Padding = new Padding(35, 0, 0, 0);
-            contractManagementButton.Size = new Size(349, 97);
-            contractManagementButton.TabIndex = 4;
-            contractManagementButton.Text = "               Quản lí Bán Hàng";
-            contractManagementButton.TextAlign = ContentAlignment.MiddleLeft;
-            contractManagementButton.UseVisualStyleBackColor = false;
-            contractManagementButton.Click += contractManagementButton_Click;
+            saleManagementButton.BackColor = Color.FromArgb(38, 50, 56);
+            saleManagementButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            saleManagementButton.ForeColor = Color.White;
+            saleManagementButton.Image = (Image)resources.GetObject("saleManagementButton.Image");
+            saleManagementButton.ImageAlign = ContentAlignment.MiddleLeft;
+            saleManagementButton.Location = new Point(-22, -19);
+            saleManagementButton.Name = "saleManagementButton";
+            saleManagementButton.Padding = new Padding(35, 0, 0, 0);
+            saleManagementButton.Size = new Size(349, 97);
+            saleManagementButton.TabIndex = 4;
+            saleManagementButton.Text = "               Quản lí Bán Hàng";
+            saleManagementButton.TextAlign = ContentAlignment.MiddleLeft;
+            saleManagementButton.UseVisualStyleBackColor = false;
+            saleManagementButton.Click += contractManagementButton_Click;
             // 
-            // paymentManagementPanel
+            // customerManagementPanel
             // 
-            paymentManagementPanel.Controls.Add(paymentManagementButton);
-            paymentManagementPanel.Cursor = Cursors.Hand;
-            paymentManagementPanel.Location = new Point(3, 226);
-            paymentManagementPanel.Margin = new Padding(3, 3, 3, 20);
-            paymentManagementPanel.Name = "paymentManagementPanel";
-            paymentManagementPanel.Size = new Size(295, 60);
-            paymentManagementPanel.TabIndex = 7;
+            customerManagementPanel.Controls.Add(paymentManagementButton);
+            customerManagementPanel.Cursor = Cursors.Hand;
+            customerManagementPanel.Location = new Point(3, 226);
+            customerManagementPanel.Margin = new Padding(3, 3, 3, 20);
+            customerManagementPanel.Name = "customerManagementPanel";
+            customerManagementPanel.Size = new Size(295, 60);
+            customerManagementPanel.TabIndex = 7;
+            customerManagementPanel.Visible = false;
             // 
             // paymentManagementButton
             // 
@@ -222,42 +213,44 @@
             paymentManagementButton.UseVisualStyleBackColor = false;
             paymentManagementButton.Click += paymentManagementButton_Click;
             // 
-            // shortTermRentalManagementPanel
+            // accountManagementPanel
             // 
-            shortTermRentalManagementPanel.Controls.Add(shortTermRentalManagementButton);
-            shortTermRentalManagementPanel.Cursor = Cursors.Hand;
-            shortTermRentalManagementPanel.Location = new Point(3, 309);
-            shortTermRentalManagementPanel.Margin = new Padding(3, 3, 3, 20);
-            shortTermRentalManagementPanel.Name = "shortTermRentalManagementPanel";
-            shortTermRentalManagementPanel.Size = new Size(295, 60);
-            shortTermRentalManagementPanel.TabIndex = 7;
+            accountManagementPanel.Controls.Add(accountManagementButton);
+            accountManagementPanel.Cursor = Cursors.Hand;
+            accountManagementPanel.Location = new Point(3, 309);
+            accountManagementPanel.Margin = new Padding(3, 3, 3, 20);
+            accountManagementPanel.Name = "accountManagementPanel";
+            accountManagementPanel.Size = new Size(295, 60);
+            accountManagementPanel.TabIndex = 7;
+            accountManagementPanel.Visible = false;
             // 
-            // shortTermRentalManagementButton
+            // accountManagementButton
             // 
-            shortTermRentalManagementButton.BackColor = Color.FromArgb(38, 50, 56);
-            shortTermRentalManagementButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            shortTermRentalManagementButton.ForeColor = Color.White;
-            shortTermRentalManagementButton.Image = (Image)resources.GetObject("shortTermRentalManagementButton.Image");
-            shortTermRentalManagementButton.ImageAlign = ContentAlignment.MiddleLeft;
-            shortTermRentalManagementButton.Location = new Point(-22, -19);
-            shortTermRentalManagementButton.Name = "shortTermRentalManagementButton";
-            shortTermRentalManagementButton.Padding = new Padding(35, 0, 0, 0);
-            shortTermRentalManagementButton.Size = new Size(349, 97);
-            shortTermRentalManagementButton.TabIndex = 4;
-            shortTermRentalManagementButton.Text = "               Quản Lí TK Nhân Sự";
-            shortTermRentalManagementButton.TextAlign = ContentAlignment.MiddleLeft;
-            shortTermRentalManagementButton.UseVisualStyleBackColor = false;
-            shortTermRentalManagementButton.Click += shortTermRentalManagementButton_Click;
+            accountManagementButton.BackColor = Color.FromArgb(38, 50, 56);
+            accountManagementButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            accountManagementButton.ForeColor = Color.White;
+            accountManagementButton.Image = (Image)resources.GetObject("accountManagementButton.Image");
+            accountManagementButton.ImageAlign = ContentAlignment.MiddleLeft;
+            accountManagementButton.Location = new Point(-22, -19);
+            accountManagementButton.Name = "accountManagementButton";
+            accountManagementButton.Padding = new Padding(35, 0, 0, 0);
+            accountManagementButton.Size = new Size(349, 97);
+            accountManagementButton.TabIndex = 4;
+            accountManagementButton.Text = "               Quản Lí TK Nhân Sự";
+            accountManagementButton.TextAlign = ContentAlignment.MiddleLeft;
+            accountManagementButton.UseVisualStyleBackColor = false;
+            accountManagementButton.Click += shortTermRentalManagementButton_Click;
             // 
-            // utilityBillManagementPanel
+            // inventoryManagementPanel
             // 
-            utilityBillManagementPanel.Controls.Add(utilityBillManagementButton);
-            utilityBillManagementPanel.Cursor = Cursors.Hand;
-            utilityBillManagementPanel.Location = new Point(3, 392);
-            utilityBillManagementPanel.Margin = new Padding(3, 3, 3, 20);
-            utilityBillManagementPanel.Name = "utilityBillManagementPanel";
-            utilityBillManagementPanel.Size = new Size(295, 60);
-            utilityBillManagementPanel.TabIndex = 7;
+            inventoryManagementPanel.Controls.Add(utilityBillManagementButton);
+            inventoryManagementPanel.Cursor = Cursors.Hand;
+            inventoryManagementPanel.Location = new Point(3, 392);
+            inventoryManagementPanel.Margin = new Padding(3, 3, 3, 20);
+            inventoryManagementPanel.Name = "inventoryManagementPanel";
+            inventoryManagementPanel.Size = new Size(295, 60);
+            inventoryManagementPanel.TabIndex = 7;
+            inventoryManagementPanel.Visible = false;
             // 
             // utilityBillManagementButton
             // 
@@ -276,15 +269,16 @@
             utilityBillManagementButton.UseVisualStyleBackColor = false;
             utilityBillManagementButton.Click += utilityBillManagementButton_Click;
             // 
-            // sendNotificationPanel
+            // SupplierPanel
             // 
-            sendNotificationPanel.Controls.Add(sendNotificationButton);
-            sendNotificationPanel.Cursor = Cursors.Hand;
-            sendNotificationPanel.Location = new Point(3, 475);
-            sendNotificationPanel.Margin = new Padding(3, 3, 3, 20);
-            sendNotificationPanel.Name = "sendNotificationPanel";
-            sendNotificationPanel.Size = new Size(295, 60);
-            sendNotificationPanel.TabIndex = 7;
+            SupplierPanel.Controls.Add(sendNotificationButton);
+            SupplierPanel.Cursor = Cursors.Hand;
+            SupplierPanel.Location = new Point(3, 475);
+            SupplierPanel.Margin = new Padding(3, 3, 3, 20);
+            SupplierPanel.Name = "SupplierPanel";
+            SupplierPanel.Size = new Size(295, 60);
+            SupplierPanel.TabIndex = 7;
+            SupplierPanel.Visible = false;
             // 
             // sendNotificationButton
             // 
@@ -303,15 +297,16 @@
             sendNotificationButton.UseVisualStyleBackColor = false;
             sendNotificationButton.Click += sendNotificationButton_Click_1;
             // 
-            // systemSettingPanel
+            // reportPanel
             // 
-            systemSettingPanel.Controls.Add(systemSettingButton);
-            systemSettingPanel.Cursor = Cursors.Hand;
-            systemSettingPanel.Location = new Point(3, 558);
-            systemSettingPanel.Margin = new Padding(3, 3, 3, 20);
-            systemSettingPanel.Name = "systemSettingPanel";
-            systemSettingPanel.Size = new Size(295, 60);
-            systemSettingPanel.TabIndex = 7;
+            reportPanel.Controls.Add(systemSettingButton);
+            reportPanel.Cursor = Cursors.Hand;
+            reportPanel.Location = new Point(3, 558);
+            reportPanel.Margin = new Padding(3, 3, 3, 20);
+            reportPanel.Name = "reportPanel";
+            reportPanel.Size = new Size(295, 60);
+            reportPanel.TabIndex = 7;
+            reportPanel.Visible = false;
             // 
             // systemSettingButton
             // 
@@ -351,13 +346,13 @@
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             sidebar.ResumeLayout(false);
-            dashboardButtonPanel.ResumeLayout(false);
-            contractManagementPanel.ResumeLayout(false);
-            paymentManagementPanel.ResumeLayout(false);
-            shortTermRentalManagementPanel.ResumeLayout(false);
-            utilityBillManagementPanel.ResumeLayout(false);
-            sendNotificationPanel.ResumeLayout(false);
-            systemSettingPanel.ResumeLayout(false);
+            productButtonPanel.ResumeLayout(false);
+            saleManagementPanel.ResumeLayout(false);
+            customerManagementPanel.ResumeLayout(false);
+            accountManagementPanel.ResumeLayout(false);
+            inventoryManagementPanel.ResumeLayout(false);
+            SupplierPanel.ResumeLayout(false);
+            reportPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -366,22 +361,21 @@
         private Panel panel1;
         private Label label1;
         private FlowLayoutPanel sidebar;
-        private Panel dashboardButtonPanel;
+        private Panel productButtonPanel;
         private Button dashboardButton;
-        private Panel contractManagementPanel;
-        private Button contractManagementButton;
-        private Panel paymentManagementPanel;
+        private Panel saleManagementPanel;
+        private Button saleManagementButton;
+        private Panel customerManagementPanel;
         private Button paymentManagementButton;
-        private Panel shortTermRentalManagementPanel;
-        private Button shortTermRentalManagementButton;
-        private Panel utilityBillManagementPanel;
+        private Panel accountManagementPanel;
+        private Button accountManagementButton;
+        private Panel inventoryManagementPanel;
         private Button utilityBillManagementButton;
-        private Panel sendNotificationPanel;
+        private Panel SupplierPanel;
         private Button sendNotificationButton;
-        private Panel systemSettingPanel;
+        private Panel reportPanel;
         private Button systemSettingButton;
         private System.Windows.Forms.Timer sidebarTransition;
-        private Button hamburgerButton;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
     }

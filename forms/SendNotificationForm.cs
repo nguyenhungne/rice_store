@@ -24,6 +24,7 @@ namespace rice_store.forms
         private SalesOrderDetailService salesOrderDetailService;
         private IEnumerable<SalesOrderDetail> allSaleOrdersDetail;
         private SalesOrderService salesOrderService;
+        private CustomerService customerService;
         private IEnumerable<SalesOrder> allSaleOrder;
         private PrintDocument printDocument = new PrintDocument();
         private InvoiceDTO _currentInvoice = null;
@@ -32,6 +33,7 @@ namespace rice_store.forms
             salesOrderDetailService = Program.ServiceProvider.GetRequiredService<SalesOrderDetailService>();
             salesOrderService = Program.ServiceProvider.GetRequiredService<SalesOrderService>();
             orderDetailsForm = new OrderDetailsForm(this, 0);
+            customerService = Program.ServiceProvider.GetRequiredService<CustomerService>();
             InitializeComponent();
         }
 
@@ -45,6 +47,18 @@ namespace rice_store.forms
             IEnumerable<SalesOrder> salesOrders = await salesOrderService.GetAllSalesOrdersAsync();
             allSaleOrder = salesOrders;
             renderDataGrid(allSaleOrder);
+
+            // Set customerComboBox to display customer names
+            CustomerFilter filter = new CustomerFilter
+            {
+                Email = null,
+                Phone = null,
+                Name = null,
+            };
+            var customers = await customerService.GetAllCustomersAsync(filter);
+            customerCombobox.DataSource = customers.ToList();
+            customerCombobox.DisplayMember = "Name";
+            customerCombobox.ValueMember = "Id";
         }
 
         public async void reloadData()
@@ -403,7 +417,7 @@ namespace rice_store.forms
             {
                 var row = salePurchaseDataGridView.Rows[e.RowIndex];
                 string? saleOrderId = row.Cells["orderID"].Value.ToString();
-            
+
                 if (saleOrderId == null)
                 {
                     MessageBox.Show("Please select a valid inventory item.");
@@ -411,12 +425,46 @@ namespace rice_store.forms
                 }
                 int orderIDInt = int.Parse(saleOrderId);
 
-                OrderDetailsForm orderDetailsForm= new OrderDetailsForm(this, orderIDInt);
+                OrderDetailsForm orderDetailsForm = new OrderDetailsForm(this, orderIDInt);
                 orderDetailsForm.MdiParent = this.MdiParent;
                 orderDetailsForm.Dock = DockStyle.Fill;
                 orderDetailsForm.Show();
                 this.Close();
             }
+        }
+
+        private async void filterButton_Click(object sender, EventArgs e)
+        {
+            SalesOrdersFilter filter = new SalesOrdersFilter
+            {
+                CustomerId = customerCombobox.SelectedValue as int?,
+
+                StartDate = startDateTimePicker.Value,
+                EndDate = endDateTimePicker.Value
+            };
+
+            IEnumerable<SalesOrder> filteredSalesOrders = await salesOrderService.GetAllSalesOrdersAsync(filter);
+
+            renderDataGrid(filteredSalesOrders);
+        }
+
+        private async void removeFilterButton_Click(object sender, EventArgs e)
+        {
+            customerCombobox.SelectedIndex = -1;
+
+            startDateTimePicker.Value = DateTime.Today;
+            endDateTimePicker.Value = DateTime.Today;
+
+            SalesOrdersFilter filter = new SalesOrdersFilter
+            {
+                CustomerId = null,
+                StartDate = null,
+                EndDate = null
+            };
+
+            IEnumerable<SalesOrder> salesOrders = await salesOrderService.GetAllSalesOrdersAsync(filter);
+
+            renderDataGrid(salesOrders);
         }
     }
 }

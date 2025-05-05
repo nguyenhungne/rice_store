@@ -55,7 +55,6 @@ namespace rice_store.forms
             titleLabel.Text = $"Thông tin của sản phẩm {product.Name}";
             productNameTextBox.Text = product.Name;
             productOriginTextBox.Text = product.Origin;
-            purchasePriceTextBox.Text = product.PurchasePrice.ToString();
             sellingPriceTextBox.Text = product.SellingPrice.ToString();
             productQualityTextBox.Text = product.Quality.ToString();
             await loadProductCategoryComboBox(product);
@@ -84,84 +83,104 @@ namespace rice_store.forms
 
         private async void actionButton_Click(object sender, EventArgs e)
         {
-            if (!decimal.TryParse(purchasePriceTextBox.Text, out decimal purchasePrice))
+            try
             {
-                MessageBox.Show("Vui lòng nhập giá trị hợp lệ cho giá mua.");
-                return;
-            }
-
-            if (!decimal.TryParse(sellingPriceTextBox.Text, out decimal sellingPrice))
-            {
-                MessageBox.Show("Vui lòng nhập giá trị hợp lệ cho giá bán.");
-                return;
-            }
-
-            if (!float.TryParse("3", out float weight))
-            {
-                MessageBox.Show("Vui lòng nhập giá trị hợp lệ cho trọng lượng.");
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(productNameTextBox.Text) ||
-                string.IsNullOrWhiteSpace(productOriginTextBox.Text) ||
-                string.IsNullOrWhiteSpace(productQualityTextBox.Text))
-            {
-                MessageBox.Show("Tên sản phẩm, Xuất xứ, Chất lượng không thể để trống.");
-                return;
-            }
-
-            if (_productId == null)
-            {
-                Product newProduct = new Product
+                // Validate Selling Price
+                if (!decimal.TryParse(sellingPriceTextBox.Text, out decimal sellingPrice) || sellingPrice <= 0)
                 {
-                    Name = productNameTextBox.Text,
-                    Weight = weight,
-                    Origin = productOriginTextBox.Text,
-                    PurchasePrice = purchasePrice,
-                    SellingPrice = sellingPrice,
-                    Quality = productQualityTextBox.Text,
-                    CategoryId = categoryComboBox.SelectedValue != null ? (int)categoryComboBox.SelectedValue : 0,
-                    ExpirationDate = DateTime.Now.AddDays(30)
-                };
+                    MessageBox.Show("Vui lòng nhập giá trị hợp lệ cho giá bán.");
+                    return;
+                }
 
-                Product addedProduct = await productService.AddProductAsync(newProduct);
-
-                if (addedProduct != null)
+                // Validate Weight
+                if (!float.TryParse("3", out float weight) || weight <= 0)
                 {
-                    productManagementForm.ProductManagementForm_Load(sender, e); // Refresh the product list in the main form
-                    backButton_Click(sender, e); // Close the current form
+                    MessageBox.Show("Vui lòng nhập giá trị hợp lệ cho trọng lượng.");
+                    return;
+                }
+
+                // Validate Product Name, Origin, and Quality
+                if (string.IsNullOrWhiteSpace(productNameTextBox.Text))
+                {
+                    MessageBox.Show("Tên sản phẩm không thể để trống.");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(productOriginTextBox.Text))
+                {
+                    MessageBox.Show("Xuất xứ không thể để trống.");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(productQualityTextBox.Text))
+                {
+                    MessageBox.Show("Chất lượng không thể để trống.");
+                    return;
+                }
+
+                // Validate Category
+                if (categoryComboBox.SelectedValue == null || (int)categoryComboBox.SelectedValue <= 0)
+                {
+                    MessageBox.Show("Vui lòng chọn danh mục cho sản phẩm.");
+                    return;
+                }
+
+                if (_productId == null)
+                {
+                    // Add Product
+                    Product newProduct = new Product
+                    {
+                        Name = productNameTextBox.Text,
+                        Weight = weight,
+                        Origin = productOriginTextBox.Text,
+                        SellingPrice = sellingPrice,
+                        Quality = productQualityTextBox.Text,
+                        CategoryId = (int)categoryComboBox.SelectedValue,
+                    };
+
+                    Product addedProduct = await productService.AddProductAsync(newProduct);
+
+                    if (addedProduct != null)
+                    {
+                        productManagementForm.ProductManagementForm_Load(sender, e); // Refresh the product list in the main form
+                        backButton_Click(sender, e); // Close the current form
+                    }
+                    else
+                    {
+                        MessageBox.Show("Có lỗi xảy ra khi thêm sản phẩm.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Có lỗi xảy ra khi thêm sản phẩm.");
+                    // Update Product
+                    Product updatedProduct = new Product
+                    {
+                        Id = _productId.Value,
+                        Name = productNameTextBox.Text,
+                        Weight = weight,
+                        Origin = productOriginTextBox.Text,
+                        SellingPrice = sellingPrice,
+                        Quality = productQualityTextBox.Text,
+                        CategoryId = (int)categoryComboBox.SelectedValue
+                    };
+
+                    Product updatedProductResult = await productService.UpdateProductAsync(updatedProduct);
+
+                    if (updatedProductResult != null)
+                    {
+                        productManagementForm.ProductManagementForm_Load(sender, e); // Refresh the product list in the main form
+                        backButton_Click(sender, e); // Close the current form
+                    }
+                    else
+                    {
+                        MessageBox.Show("Có lỗi xảy ra khi cập nhật sản phẩm.");
+                    }
                 }
             }
-            else
+            catch (Exception ex)
             {
-                Product updatedProduct = new Product
-                {
-                    Id = _productId.Value,
-                    Name = productNameTextBox.Text,
-                    Weight = weight,
-                    Origin = productOriginTextBox.Text,
-                    PurchasePrice = purchasePrice,
-                    SellingPrice = sellingPrice,
-                    Quality = productQualityTextBox.Text,
-                    CategoryId = (int)categoryComboBox.SelectedValue,
-                    ExpirationDate = DateTime.Now.AddDays(30)
-                };
-
-                Product updatedProductResult = await productService.UpdateProductAsync(updatedProduct);
-
-                if (updatedProductResult != null)
-                {
-                    productManagementForm.ProductManagementForm_Load(sender, e); // Refresh the product list in the main form
-                    backButton_Click(sender, e); // Close the current form
-                }
-                else
-                {
-                    MessageBox.Show("Có lỗi xảy ra khi cập nhật sản phẩm.");
-                }
+                // Handle unexpected exceptions
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}");
             }
         }
 

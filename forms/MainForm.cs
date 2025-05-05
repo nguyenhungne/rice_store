@@ -23,6 +23,7 @@ namespace rice_store.forms
         CustomerManagementForm? customerManagementForm;
         UserManagementForm? userManagementForm;
         ReportForm? reportForm;
+        private HomeForm? homeForm;
         InventoryListForm? inventoryListForm;
         public MainForm()
         {
@@ -33,34 +34,40 @@ namespace rice_store.forms
         public void SetUserRole(string role)
         {
             _userRole = role;
-            // *TODO: Apply user role permissions when modifying the UI
-            // ApplyUserRolePermissions();
+            ApplyUserRolePermissions();
         }
 
-        // private void ApplyUserRolePermissions()
-        // {
-        //     if (_userRole == "admin")
-        //     {
-        //
-        //         adminPanel.Visible = true;
-        //     }
-        //     else if (_userRole == "warehouse_staff")
-        //     {
-        //         warehousePanel.Visible = true;
-        //     }
-        //     else if (_userRole == "sales_staff")
-        //     {
-        //         salesPanel.Visible = true;
-        //     }
-        //     else if (_userRole == "accountant")
-        //     {
-        //         accountantPanel.Visible = true;
-        //     }
-        //     else
-        //     {
-        //         guestPanel.Visible = true;
-        //     }
-        // }
+        private void ApplyUserRolePermissions()
+        {
+            if (_userRole == "admin")
+            {
+                productButtonPanel.Visible = true;
+                saleManagementPanel.Visible = true;
+                customerManagementPanel.Visible = true;
+                accountManagementPanel.Visible = true;
+                inventoryManagementPanel.Visible = true;
+                SupplierPanel.Visible = true;
+                reportPanel.Visible = true;
+            }
+            else if (_userRole == "warehouse_staff")
+            {
+                inventoryManagementPanel.Visible = true;
+                SupplierPanel.Visible = true;
+            }
+            else if (_userRole == "sales_staff")
+            {
+                saleManagementPanel.Visible = true;
+                customerManagementPanel.Visible = true;
+            }
+            else if (_userRole == "accountant")
+            {
+                reportPanel.Visible = true;
+            }
+            else
+            {
+                productButtonPanel.Visible = true;
+            }
+        }
 
         bool isSidebarExpanded = true;
         private void mdiProp()
@@ -81,13 +88,13 @@ namespace rice_store.forms
                 {
                     isSidebarExpanded = false;
                     sidebarTransition.Stop();
-                    dashboardButtonPanel.Width = sidebar.Width;
-                    contractManagementPanel.Width = sidebar.Width;
-                    paymentManagementPanel.Width = sidebar.Width;
-                    shortTermRentalManagementPanel.Width = sidebar.Width;
-                    utilityBillManagementPanel.Width = sidebar.Width;
-                    sendNotificationPanel.Width = sidebar.Width;
-                    systemSettingPanel.Width = sidebar.Width;
+                    productButtonPanel.Width = sidebar.Width;
+                    saleManagementPanel.Width = sidebar.Width;
+                    customerManagementPanel.Width = sidebar.Width;
+                    accountManagementPanel.Width = sidebar.Width;
+                    inventoryManagementPanel.Width = sidebar.Width;
+                    SupplierPanel.Width = sidebar.Width;
+                    reportPanel.Width = sidebar.Width;
                 }
             }
             else
@@ -97,19 +104,31 @@ namespace rice_store.forms
                 {
                     isSidebarExpanded = true;
                     sidebarTransition.Stop();
-                    dashboardButtonPanel.Width = 250;
-                    contractManagementPanel.Width = 250;
-                    paymentManagementPanel.Width = 250;
-                    shortTermRentalManagementPanel.Width = 250;
-                    utilityBillManagementPanel.Width = 250;
-                    sendNotificationPanel.Width = 250;
-                    systemSettingPanel.Width = 250;
+                    productButtonPanel.Width = 250;
+                    saleManagementPanel.Width = 250;
+                    customerManagementPanel.Width = 250;
+                    accountManagementPanel.Width = 250;
+                    inventoryManagementPanel.Width = 250;
+                    SupplierPanel.Width = 250;
+                    reportPanel.Width = 250;
                 }
             }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            if (homeForm == null)
+            {
+                homeForm = new HomeForm();
+                homeForm.FormClosed += (s, args) => homeForm = null!;
+                homeForm.MdiParent = this;
+                homeForm.Dock = DockStyle.Fill;
+                homeForm.Show();
+            }
+            else
+            {
+                homeForm.Activate();
+            }
         }
 
 

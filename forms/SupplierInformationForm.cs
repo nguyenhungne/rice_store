@@ -83,7 +83,6 @@ namespace rice_store.forms
                 }
                 else
                 {
-                    // Cập nhật nhà cung cấp hiện tại
                     Supplier updatedSupplier = new Supplier
                     {
                         Id = supplierId.Value,

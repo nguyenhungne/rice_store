@@ -42,8 +42,6 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             backButton = new Guna.UI2.WinForms.Guna2Button();
             titleLabel = new Label();
@@ -51,7 +49,6 @@
             productNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             productOriginTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             productQualityTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            purchasePriceTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             sellingPriceTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             categoryComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             productNameLabel = new Label();
@@ -59,7 +56,6 @@
             panel2 = new Panel();
             productCategoryLabel = new Label();
             sellingPriceLabel = new Label();
-            purchasePriceLabel = new Label();
             productQualityLabel = new Label();
             guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -194,31 +190,10 @@
             productQualityTextBox.Size = new Size(289, 59);
             productQualityTextBox.TabIndex = 6;
             // 
-            // purchasePriceTextBox
-            // 
-            purchasePriceTextBox.BorderRadius = 25;
-            purchasePriceTextBox.CustomizableEdges = customizableEdges11;
-            purchasePriceTextBox.DefaultText = "";
-            purchasePriceTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            purchasePriceTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            purchasePriceTextBox.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            purchasePriceTextBox.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            purchasePriceTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            purchasePriceTextBox.Font = new Font("Segoe UI", 9F);
-            purchasePriceTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            purchasePriceTextBox.Location = new Point(805, 208);
-            purchasePriceTextBox.Margin = new Padding(3, 4, 3, 4);
-            purchasePriceTextBox.Name = "purchasePriceTextBox";
-            purchasePriceTextBox.PlaceholderText = "";
-            purchasePriceTextBox.SelectedText = "";
-            purchasePriceTextBox.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            purchasePriceTextBox.Size = new Size(273, 59);
-            purchasePriceTextBox.TabIndex = 8;
-            // 
             // sellingPriceTextBox
             // 
             sellingPriceTextBox.BorderRadius = 25;
-            sellingPriceTextBox.CustomizableEdges = customizableEdges13;
+            sellingPriceTextBox.CustomizableEdges = customizableEdges11;
             sellingPriceTextBox.DefaultText = "";
             sellingPriceTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             sellingPriceTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -227,12 +202,12 @@
             sellingPriceTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             sellingPriceTextBox.Font = new Font("Segoe UI", 9F);
             sellingPriceTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            sellingPriceTextBox.Location = new Point(264, 317);
+            sellingPriceTextBox.Location = new Point(805, 208);
             sellingPriceTextBox.Margin = new Padding(3, 4, 3, 4);
             sellingPriceTextBox.Name = "sellingPriceTextBox";
             sellingPriceTextBox.PlaceholderText = "";
             sellingPriceTextBox.SelectedText = "";
-            sellingPriceTextBox.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            sellingPriceTextBox.ShadowDecoration.CustomizableEdges = customizableEdges12;
             sellingPriceTextBox.Size = new Size(289, 59);
             sellingPriceTextBox.TabIndex = 10;
             // 
@@ -240,7 +215,7 @@
             // 
             categoryComboBox.BackColor = Color.Transparent;
             categoryComboBox.BorderRadius = 25;
-            categoryComboBox.CustomizableEdges = customizableEdges15;
+            categoryComboBox.CustomizableEdges = customizableEdges13;
             categoryComboBox.DrawMode = DrawMode.OwnerDrawFixed;
             categoryComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             categoryComboBox.FocusedColor = Color.FromArgb(94, 148, 255);
@@ -248,9 +223,9 @@
             categoryComboBox.Font = new Font("Segoe UI", 10F);
             categoryComboBox.ForeColor = Color.FromArgb(68, 88, 112);
             categoryComboBox.ItemHeight = 50;
-            categoryComboBox.Location = new Point(805, 317);
+            categoryComboBox.Location = new Point(280, 308);
             categoryComboBox.Name = "categoryComboBox";
-            categoryComboBox.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            categoryComboBox.ShadowDecoration.CustomizableEdges = customizableEdges14;
             categoryComboBox.Size = new Size(273, 56);
             categoryComboBox.TabIndex = 12;
             // 
@@ -279,13 +254,11 @@
             panel2.Anchor = AnchorStyles.None;
             panel2.Controls.Add(productCategoryLabel);
             panel2.Controls.Add(sellingPriceLabel);
-            panel2.Controls.Add(purchasePriceLabel);
             panel2.Controls.Add(productQualityLabel);
             panel2.Controls.Add(productOriginLabel);
             panel2.Controls.Add(productNameLabel);
             panel2.Controls.Add(categoryComboBox);
             panel2.Controls.Add(sellingPriceTextBox);
-            panel2.Controls.Add(purchasePriceTextBox);
             panel2.Controls.Add(productQualityTextBox);
             panel2.Controls.Add(productOriginTextBox);
             panel2.Controls.Add(productNameTextBox);
@@ -298,7 +271,7 @@
             // 
             productCategoryLabel.AutoSize = true;
             productCategoryLabel.Font = new Font("Segoe UI", 20F);
-            productCategoryLabel.Location = new Point(589, 317);
+            productCategoryLabel.Location = new Point(64, 308);
             productCategoryLabel.Name = "productCategoryLabel";
             productCategoryLabel.Size = new Size(81, 46);
             productCategoryLabel.TabIndex = 18;
@@ -308,21 +281,11 @@
             // 
             sellingPriceLabel.AutoSize = true;
             sellingPriceLabel.Font = new Font("Segoe UI", 20F);
-            sellingPriceLabel.Location = new Point(50, 317);
+            sellingPriceLabel.Location = new Point(591, 208);
             sellingPriceLabel.Name = "sellingPriceLabel";
             sellingPriceLabel.Size = new Size(133, 46);
             sellingPriceLabel.TabIndex = 17;
             sellingPriceLabel.Text = "Giá bán";
-            // 
-            // purchasePriceLabel
-            // 
-            purchasePriceLabel.AutoSize = true;
-            purchasePriceLabel.Font = new Font("Segoe UI", 20F);
-            purchasePriceLabel.Location = new Point(589, 208);
-            purchasePriceLabel.Name = "purchasePriceLabel";
-            purchasePriceLabel.Size = new Size(152, 46);
-            purchasePriceLabel.TabIndex = 16;
-            purchasePriceLabel.Text = "Giá nhập";
             // 
             // productQualityLabel
             // 
@@ -411,7 +374,6 @@
         private Guna.UI2.WinForms.Guna2TextBox productNameTextBox;
         private Guna.UI2.WinForms.Guna2TextBox productOriginTextBox;
         private Guna.UI2.WinForms.Guna2TextBox productQualityTextBox;
-        private Guna.UI2.WinForms.Guna2TextBox purchasePriceTextBox;
         private Guna.UI2.WinForms.Guna2TextBox sellingPriceTextBox;
         private Guna.UI2.WinForms.Guna2ComboBox categoryComboBox;
         private Label productNameLabel;
@@ -422,7 +384,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Label sellingPriceLabel;
-        private Label purchasePriceLabel;
         private Label productQualityLabel;
         private Label productCategoryLabel;
         private Panel panel3;

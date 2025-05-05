@@ -23,18 +23,12 @@ namespace rice_store.models
         [Column("quality")]
         public string Quality { get; set; }
 
-        [Column("purchase_price")]
-        public decimal PurchasePrice { get; set; }
-
         [Column("selling_price")]
         public decimal SellingPrice { get; set; }
 
         [ForeignKey("Category")]
         [Column("category_id")]
         public int CategoryId { get; set; }
-
-        [Column("expiration_date")]
-        public DateTime ExpirationDate { get; set; }
 
         [Column("is_deleted")]
         public bool IsDeleted { get; set; } = false;

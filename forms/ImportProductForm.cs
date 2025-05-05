@@ -165,6 +165,11 @@ namespace rice_store.forms
 
                 // Refresh the DataGridView in the InventoryManagementForm
                 previewAddingProductsDataGrid.Rows.Clear();
+                // Redirect to the InventoryManagementForm
+                inventoryManagementForm.InventoryManagementForm_Load(sender, e);
+                inventoryManagementForm.Show();
+                inventoryManagementForm.Activate();
+                this.Close();
             }
             catch (Exception ex)
             {

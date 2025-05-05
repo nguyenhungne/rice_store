@@ -6,7 +6,7 @@ using rice_store.services.type;
 
 public interface ISalesOrderRepository
 {
-    Task<IEnumerable<SalesOrder>> GetAllSalesOrdersAsync();
+    Task<IEnumerable<SalesOrder>> GetAllSalesOrdersAsync(SalesOrdersFilter? filter = null);
     Task<SalesOrder> GetSalesOrderByIdAsync(int id);
     Task<SalesOrder> AddSalesOrderAsync(SalesOrder salesOrder);
     Task<SalesOrder> UpdateSalesOrderAsync(SalesOrder salesOrder);

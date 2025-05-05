@@ -39,17 +39,15 @@ public class PurchaseOrderDetailRepository : IPurchaseOrderDetailRepository
     {
         IQueryable<PurchaseOrderDetail> query = _context.PurchaseOrderDetail
             .Include(p => p.PurchaseOrder)
-            .ThenInclude(po => po.Supplier)
+                .ThenInclude(po => po.Supplier)
             .Include(p => p.Warehouse)
-            .Where(p => p.WarehouseId == warehouseId);
+            .Where(p => p.WarehouseId == warehouseId && p.ExpirationDate >= DateTime.Today); // chỉ lấy hàng chưa hết hạn
 
-        // Apply filter for PurchaseOrderId if provided
         if (filter?.purchaseOrderId.HasValue == true)
         {
             query = query.Where(p => p.PurchaseOrderId == filter.purchaseOrderId.Value);
         }
 
-        // Apply filter for SupplierId if provided
         if (filter?.supplierId.HasValue == true)
         {
             query = query.Where(p => p.PurchaseOrder.SupplierId == filter.supplierId.Value);

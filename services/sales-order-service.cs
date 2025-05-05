@@ -6,7 +6,7 @@ using rice_store.services.type;
 
 public interface ISalesOrderService
 {
-    Task<IEnumerable<SalesOrder>> GetAllSalesOrdersAsync();
+    Task<IEnumerable<SalesOrder>> GetAllSalesOrdersAsync(SalesOrdersFilter? filter = null);
     Task<SalesOrder> GetSalesOrderByIdAsync(int id);
     Task<SalesOrder> AddSalesOrderAsync(SalesOrder salesOrder);
     Task<List<SalesReportDTO>> GetFilteredSalesDataAsync(int startMonth, int endMonth, int year);
@@ -23,9 +23,9 @@ public class SalesOrderService : ISalesOrderService
         _salesOrderRepository = salesOrderRepository;
     }
 
-    public async Task<IEnumerable<SalesOrder>> GetAllSalesOrdersAsync()
+    public async Task<IEnumerable<SalesOrder>> GetAllSalesOrdersAsync(SalesOrdersFilter? filter = null)
     {
-        return await _salesOrderRepository.GetAllSalesOrdersAsync();
+        return await _salesOrderRepository.GetAllSalesOrdersAsync(filter);
     }
 
     public async Task<List<SalesReportDTO>> GetFilteredSalesDataAsync(int startMonth, int endMonth, int year)

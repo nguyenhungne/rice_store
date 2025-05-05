@@ -17,12 +17,33 @@ public class SalesOrderRepository : ISalesOrderRepository
         _context = context;
     }
 
-    public async Task<IEnumerable<SalesOrder>> GetAllSalesOrdersAsync()
+    public async Task<IEnumerable<SalesOrder>> GetAllSalesOrdersAsync(SalesOrdersFilter? filter = null)
     {
-        return await _context.SalesOrder
-                             .Include(s => s.Customer) // Optional: Include related customer data
-                             .IgnoreQueryFilters() // Ignore any global query filters
-                             .ToListAsync();
+        var query = _context.SalesOrder.Include(s => s.Customer)
+                                    .IgnoreQueryFilters();
+
+        if (filter != null)
+        {
+            if (filter.CustomerId.HasValue)
+            {
+                query = query.Where(s => s.CustomerId == filter.CustomerId.Value);
+            }
+
+            if (filter.StartDate.HasValue && filter.EndDate.HasValue)
+            {
+                query = query.Where(s => s.OrderDate >= filter.StartDate.Value && s.OrderDate <= filter.EndDate.Value);
+            }
+            else if (filter.StartDate.HasValue)
+            {
+                query = query.Where(s => s.OrderDate >= filter.StartDate.Value);
+            }
+            else if (filter.EndDate.HasValue)
+            {
+                query = query.Where(s => s.OrderDate <= filter.EndDate.Value);
+            }
+        }
+
+        return await query.ToListAsync();
     }
 
     public async Task<SalesOrder> GetSalesOrderByIdAsync(int id)

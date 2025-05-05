@@ -72,9 +72,7 @@ namespace rice_store.forms
                     product.Name,
                     product.Weight,
                     product.Origin,
-                    product.PurchasePrice,
-                    product.SellingPrice,
-                    product.ExpirationDate.ToString("yyyy-MM-dd")
+                    product.SellingPrice
                 );
             }
         }
@@ -148,6 +146,32 @@ namespace rice_store.forms
             else
             {
                 MessageBox.Show("Hãy chọn một sản phẩm để xóa.");
+            }
+        }
+
+        private async void removeFilterButton_Click(object sender, EventArgs e)
+        {
+            productNameTextBox.Clear();
+            productCategoryComboBox.SelectedIndex = -1;
+
+            ProductFilter filter = new ProductFilter
+            {
+                ProductName = string.Empty,
+                CategoryId = null
+            };
+
+            IEnumerable<Product> products = await productService.GetAllProductsAsync(filter);
+
+            productDataGridView.Rows.Clear();
+            foreach (var product in products)
+            {
+                productDataGridView.Rows.Add(
+                    product.Id,
+                    product.Name,
+                    product.Weight,
+                    product.Origin,
+                    product.SellingPrice
+                );
             }
         }
     }

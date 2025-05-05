@@ -68,9 +68,7 @@ public class ProductRepository : IProductRepository
         existingProduct.Name = product.Name;
         existingProduct.Origin = product.Origin;
         existingProduct.Weight = product.Weight;
-        existingProduct.PurchasePrice = product.PurchasePrice;
         existingProduct.SellingPrice = product.SellingPrice;
-        existingProduct.ExpirationDate = product.ExpirationDate;
         existingProduct.CategoryId = product.CategoryId;
 
         await _context.SaveChangesAsync();

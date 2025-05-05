@@ -77,53 +77,70 @@ namespace rice_store.forms
 
         private async void actionButton_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(nameTextBox.Text) ||
-                string.IsNullOrWhiteSpace(userNameTextBox.Text) ||
-                string.IsNullOrWhiteSpace(phoneTextBox.Text) ||
-                string.IsNullOrWhiteSpace(emailTextBox.Text) ||
-                string.IsNullOrWhiteSpace(salaryNumericUpDown.Text))
+            try
             {
-                MessageBox.Show("Tên, Username, SĐT, Email và Lương không thể để trống.");
-                return;
+                // Kiểm tra các trường bắt buộc
+                if (string.IsNullOrWhiteSpace(nameTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(userNameTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(phoneTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(emailTextBox.Text) ||
+                    string.IsNullOrWhiteSpace(salaryNumericUpDown.Text))
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ các trường: Tên, Username, SĐT, Email và Lương.");
+                    return;
+                }
+
+                if (roleComboBox.SelectedItem == null)
+                {
+                    MessageBox.Show("Vui lòng chọn vai trò cho người dùng.");
+                    return;
+                }
+
+                string selectedRole = roleComboBox.SelectedItem.ToString();
+
+                string roleValue = selectedRole switch
+                {
+                    "Admin" => "admin",
+                    "Warehouse Staff" => "warehouse_staff",
+                    "Sales Staff" => "sales_staff",
+                    "Accountant" => "accountant",
+                    _ => throw new InvalidOperationException("Vai trò không hợp lệ.")
+                };
+
+                if (!decimal.TryParse(salaryNumericUpDown.Text, out decimal salary))
+                {
+                    MessageBox.Show("Lương phải là một số hợp lệ.");
+                    return;
+                }
+
+                models.User user = new models.User
+                {
+                    Id = userId ?? 0,
+                    Name = nameTextBox.Text.Trim(),
+                    Phone = phoneTextBox.Text.Trim(),
+                    Username = userNameTextBox.Text.Trim(),
+                    Password = passwordTextBox.Text,
+                    Email = emailTextBox.Text.Trim(),
+                    Salary = salary,
+                    Role = roleValue
+                };
+
+                if (userId == null)
+                {
+                    await userService.AddUserAsync(user);
+                }
+                else
+                {
+                    await userService.UpdateUserAsync(user);
+                }
+
+                userManagementForm.UserManagementForm_Load(sender, e);
+                this.Close();
             }
-
-            string selectedRole = roleComboBox.SelectedItem.ToString();
-
-            string roleValue = selectedRole switch
+            catch (Exception ex)
             {
-                "Admin" => "admin",
-                "Warehouse Staff" => "warehouse_staff",
-                "Sales Staff" => "sales_staff",
-                "Accountant" => "accountant",
-                _ => throw new InvalidOperationException("Invalid role selected")
-            };
-
-            models.User user = new models.User
-            {
-                Id = userId ?? 0,
-                Name = nameTextBox.Text,
-                Phone = phoneTextBox.Text,
-                Username = userNameTextBox.Text,
-                Password = passwordTextBox.Text,
-                Email = emailTextBox.Text,
-                Salary = decimal.Parse(salaryNumericUpDown.Text),
-                Role = roleValue
-            };
-
-            if (userId == null)
-            {
-                // Add new user
-                await userService.AddUserAsync(user);
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
-            {
-                // Update existing user
-                await userService.UpdateUserAsync(user);
-            }
-            // Refresh the user management form to show updated data
-            userManagementForm.UserManagementForm_Load(sender, e); // Reload the user management form to refresh the data
-
-            this.Close();  // Close the form after saving
         }
     }
 }
