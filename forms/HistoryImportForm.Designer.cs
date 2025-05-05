@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -38,15 +40,17 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoryImportForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HistoryImportForm));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
             panel3 = new Panel();
+            endDateTimePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             clearFilter = new Guna.UI2.WinForms.Guna2Button();
             startDateTimePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             supplierComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -56,7 +60,8 @@
             filterButton = new Guna.UI2.WinForms.Guna2Button();
             purchaseOrderCodeComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             panel2 = new Panel();
-            backToInventoryButton = new Guna.UI2.WinForms.Guna2ImageButton();
+            backbtn = new Guna.UI2.WinForms.Guna2Button();
+            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             titleLabel = new Label();
             purchaseOrderDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             purchaseID = new DataGridViewTextBoxColumn();
@@ -64,7 +69,6 @@
             date = new DataGridViewTextBoxColumn();
             quantity = new DataGridViewTextBoxColumn();
             price = new DataGridViewTextBoxColumn();
-            endDateTimePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
@@ -74,6 +78,7 @@
             // panel1
             // 
             panel1.Anchor = AnchorStyles.None;
+            panel1.BackColor = Color.PeachPuff;
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(purchaseOrderDataGridView);
@@ -98,9 +103,26 @@
             panel3.Size = new Size(1144, 135);
             panel3.TabIndex = 3;
             // 
+            // endDateTimePicker
+            // 
+            endDateTimePicker.BorderRadius = 17;
+            endDateTimePicker.Checked = true;
+            endDateTimePicker.CustomizableEdges = customizableEdges1;
+            endDateTimePicker.Font = new Font("Segoe UI", 9F);
+            endDateTimePicker.Format = DateTimePickerFormat.Long;
+            endDateTimePicker.Location = new Point(710, 78);
+            endDateTimePicker.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
+            endDateTimePicker.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
+            endDateTimePicker.Name = "endDateTimePicker";
+            endDateTimePicker.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            endDateTimePicker.Size = new Size(260, 36);
+            endDateTimePicker.TabIndex = 12;
+            endDateTimePicker.Value = new DateTime(2025, 4, 15, 11, 29, 10, 38);
+            // 
             // clearFilter
             // 
             clearFilter.BorderRadius = 17;
+            clearFilter.Cursor = Cursors.Hand;
             clearFilter.CustomizableEdges = customizableEdges3;
             clearFilter.DisabledState.BorderColor = Color.DarkGray;
             clearFilter.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -109,7 +131,7 @@
             clearFilter.FillColor = Color.FromArgb(255, 192, 128);
             clearFilter.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             clearFilter.ForeColor = Color.White;
-            clearFilter.Location = new Point(1001, 78);
+            clearFilter.Location = new Point(987, 78);
             clearFilter.Name = "clearFilter";
             clearFilter.ShadowDecoration.CustomizableEdges = customizableEdges4;
             clearFilter.Size = new Size(129, 36);
@@ -150,7 +172,7 @@
             supplierComboBox.Name = "supplierComboBox";
             supplierComboBox.ShadowDecoration.CustomizableEdges = customizableEdges8;
             supplierComboBox.Size = new Size(260, 36);
-            supplierComboBox.TabIndex = 8;
+            supplierComboBox.TabIndex = 1;
             // 
             // label4
             // 
@@ -185,6 +207,7 @@
             // filterButton
             // 
             filterButton.BorderRadius = 17;
+            filterButton.Cursor = Cursors.Hand;
             filterButton.CustomizableEdges = customizableEdges9;
             filterButton.DisabledState.BorderColor = Color.DarkGray;
             filterButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -193,7 +216,7 @@
             filterButton.FillColor = Color.FromArgb(255, 192, 128);
             filterButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             filterButton.ForeColor = Color.White;
-            filterButton.Location = new Point(1001, 31);
+            filterButton.Location = new Point(987, 31);
             filterButton.Name = "filterButton";
             filterButton.ShadowDecoration.CustomizableEdges = customizableEdges10;
             filterButton.Size = new Size(129, 36);
@@ -217,32 +240,48 @@
             purchaseOrderCodeComboBox.Name = "purchaseOrderCodeComboBox";
             purchaseOrderCodeComboBox.ShadowDecoration.CustomizableEdges = customizableEdges12;
             purchaseOrderCodeComboBox.Size = new Size(260, 36);
-            purchaseOrderCodeComboBox.TabIndex = 1;
+            purchaseOrderCodeComboBox.TabIndex = 0;
             // 
             // panel2
             // 
-            panel2.Controls.Add(backToInventoryButton);
+            panel2.Controls.Add(backbtn);
+            panel2.Controls.Add(guna2Panel1);
             panel2.Controls.Add(titleLabel);
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
             panel2.Size = new Size(1144, 97);
             panel2.TabIndex = 2;
             // 
-            // backToInventoryButton
+            // backbtn
             // 
-            backToInventoryButton.CheckedState.ImageSize = new Size(64, 64);
-            backToInventoryButton.Cursor = Cursors.Hand;
-            backToInventoryButton.HoverState.ImageSize = new Size(64, 64);
-            backToInventoryButton.Image = (Image)resources.GetObject("backToInventoryButton.Image");
-            backToInventoryButton.ImageOffset = new Point(0, 0);
-            backToInventoryButton.ImageRotate = 0F;
-            backToInventoryButton.Location = new Point(11, 16);
-            backToInventoryButton.Name = "backToInventoryButton";
-            backToInventoryButton.PressedState.ImageSize = new Size(64, 64);
-            backToInventoryButton.ShadowDecoration.CustomizableEdges = customizableEdges13;
-            backToInventoryButton.Size = new Size(80, 68);
-            backToInventoryButton.TabIndex = 5;
-            backToInventoryButton.Click += backToInventoryButton_Click;
+            backbtn.BorderRadius = 17;
+            backbtn.Cursor = Cursors.Hand;
+            backbtn.CustomizableEdges = customizableEdges13;
+            backbtn.DisabledState.BorderColor = Color.DarkGray;
+            backbtn.DisabledState.CustomBorderColor = Color.DarkGray;
+            backbtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            backbtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            backbtn.FillColor = Color.FromArgb(255, 192, 128);
+            backbtn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            backbtn.ForeColor = Color.White;
+            backbtn.Location = new Point(956, 48);
+            backbtn.Name = "backbtn";
+            backbtn.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            backbtn.Size = new Size(160, 36);
+            backbtn.TabIndex = 13;
+            backbtn.Text = "Trở về";
+            backbtn.Click += backbtn_Click;
+            // 
+            // guna2Panel1
+            // 
+            guna2Panel1.BackgroundImage = (Image)resources.GetObject("guna2Panel1.BackgroundImage");
+            guna2Panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            guna2Panel1.CustomizableEdges = customizableEdges15;
+            guna2Panel1.Location = new Point(7, 7);
+            guna2Panel1.Name = "guna2Panel1";
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            guna2Panel1.Size = new Size(98, 87);
+            guna2Panel1.TabIndex = 6;
             // 
             // titleLabel
             // 
@@ -283,6 +322,7 @@
             purchaseOrderDataGridView.GridColor = Color.FromArgb(231, 229, 255);
             purchaseOrderDataGridView.Location = new Point(0, 254);
             purchaseOrderDataGridView.Name = "purchaseOrderDataGridView";
+            purchaseOrderDataGridView.ReadOnly = true;
             purchaseOrderDataGridView.RowHeadersVisible = false;
             purchaseOrderDataGridView.RowHeadersWidth = 51;
             purchaseOrderDataGridView.Size = new Size(1147, 512);
@@ -300,7 +340,7 @@
             purchaseOrderDataGridView.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             purchaseOrderDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             purchaseOrderDataGridView.ThemeStyle.HeaderStyle.Height = 24;
-            purchaseOrderDataGridView.ThemeStyle.ReadOnly = false;
+            purchaseOrderDataGridView.ThemeStyle.ReadOnly = true;
             purchaseOrderDataGridView.ThemeStyle.RowsStyle.BackColor = Color.White;
             purchaseOrderDataGridView.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             purchaseOrderDataGridView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
@@ -315,48 +355,37 @@
             purchaseID.HeaderText = "Mã lô hàng";
             purchaseID.MinimumWidth = 6;
             purchaseID.Name = "purchaseID";
+            purchaseID.ReadOnly = true;
             // 
             // suplier
             // 
             suplier.HeaderText = "Nhà cung cấp";
             suplier.MinimumWidth = 6;
             suplier.Name = "suplier";
+            suplier.ReadOnly = true;
             // 
             // date
             // 
             date.HeaderText = "Ngày nhập hàng";
             date.MinimumWidth = 6;
             date.Name = "date";
+            date.ReadOnly = true;
             // 
             // quantity
             // 
             quantity.HeaderText = "Số lượng";
             quantity.MinimumWidth = 6;
             quantity.Name = "quantity";
+            quantity.ReadOnly = true;
             // 
             // price
             // 
             price.HeaderText = "Giá nhập";
             price.MinimumWidth = 6;
             price.Name = "price";
+            price.ReadOnly = true;
             price.Resizable = DataGridViewTriState.True;
             price.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // endDateTimePicker
-            // 
-            endDateTimePicker.BorderRadius = 17;
-            endDateTimePicker.Checked = true;
-            endDateTimePicker.CustomizableEdges = customizableEdges1;
-            endDateTimePicker.Font = new Font("Segoe UI", 9F);
-            endDateTimePicker.Format = DateTimePickerFormat.Long;
-            endDateTimePicker.Location = new Point(710, 78);
-            endDateTimePicker.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
-            endDateTimePicker.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
-            endDateTimePicker.Name = "endDateTimePicker";
-            endDateTimePicker.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            endDateTimePicker.Size = new Size(260, 36);
-            endDateTimePicker.TabIndex = 12;
-            endDateTimePicker.Value = new DateTime(2025, 4, 15, 11, 29, 10, 38);
             // 
             // HistoryImportForm
             // 
@@ -392,7 +421,6 @@
         private Label label2;
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
         private Guna.UI2.WinForms.Guna2ComboBox supplierComboBox;
-        private Guna.UI2.WinForms.Guna2ImageButton backToInventoryButton;
         private DataGridViewTextBoxColumn purchaseID;
         private DataGridViewTextBoxColumn suplier;
         private DataGridViewTextBoxColumn date;
@@ -403,5 +431,7 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker endDateTimePikcer;
         private Guna.UI2.WinForms.Guna2DateTimePicker endDateTimePicker;
         private Guna.UI2.WinForms.Guna2DateTimePicker startDateTimePicker;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Button backbtn;
     }
 }

@@ -97,7 +97,7 @@ public class PurchaseOrderDetailRepository : IPurchaseOrderDetailRepository
     public async Task<IEnumerable<PurchaseOrderDetail>> GetPurchaseOrderDetailsOfEachInventoryAsync(IEnumerable<int> warehouseIds)
     {
         return await _context.PurchaseOrderDetail
-       .Where(p => warehouseIds.Contains(p.WarehouseId) && p.ExpirationDate > DateTime.Now)
+       .Where(p => warehouseIds.Contains(p.WarehouseId) && p.ExpirationDate > DateTime.Now && p.QuantityRemaining > 0)
        .Include(p => p.PurchaseOrder)
            .ThenInclude(po => po.Supplier)
        .Include(p => p.Warehouse)

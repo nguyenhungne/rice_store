@@ -75,6 +75,7 @@ public class SalesOrderDetailRepository : ISalesOrderDetailRepository
             .Where(s => s.SalesOrderId == OrderId)
             .Include(s => s.SalesOrder)
             .Include(i => i.Warehouse.Inventory)
+            .Include(i => i.Warehouse.Product)
             .Include(c => c.SalesOrder.Customer)
             .ToListAsync();
     }

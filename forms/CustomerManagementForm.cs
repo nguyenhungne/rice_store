@@ -30,12 +30,12 @@ namespace rice_store.forms
 
         public async void CustomerManagementForm_Load(object sender, EventArgs e)
         {
-            // Set the font for the DataGridView
-            customerDataGridView.Font = new Font("Segoe UI", 10, FontStyle.Regular);
-            // Set font for the header row
-            customerDataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 11, FontStyle.Bold);
-            // Set font for the rows
-            customerDataGridView.DefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Regular);
+            //// Set the font for the DataGridView
+            //customerDataGridView.Font = new Font("Segoe UI", 10, FontStyle.Regular);
+            //// Set font for the header row
+            //customerDataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 11, FontStyle.Bold);
+            //// Set font for the rows
+            //customerDataGridView.DefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Regular);
 
             CustomerFilter filter = new CustomerFilter
             {
@@ -51,7 +51,7 @@ namespace rice_store.forms
             customerDataGridView.Rows.Clear();
             foreach (Customer customer in customers)
             {
-                customerDataGridView.Rows.Add(customer.Id, customer.Name, customer.Phone, customer.Email, customer.Address);
+                customerDataGridView.Rows.Add(customer.Id, customer.Name, customer.Phone, customer.Email, customer.Address, customer.Rank);
             }
         }
 
@@ -118,15 +118,19 @@ namespace rice_store.forms
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin" + ex.Message, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-     
+
 
         }
 
 
-        private async void updateRankCustomerButton_Click(object sender, EventArgs e)
+
+
+
+        //update rank customer
+        private async void updateRankCustomerButton_Click_1(object sender, EventArgs e)
         {
             int numberUpgrated = await customerService.UpdateAllCustomerRanksAsync();
-            if(numberUpgrated <= 0)
+            if (numberUpgrated <= 0)
             {
                 MessageBox.Show("Không có khách hàng nào đủ điều kiện để thăng hạng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;

@@ -58,13 +58,6 @@ namespace rice_store.forms
 
         }
 
-        private void backToInventoryButton_Click(object sender, EventArgs e)
-        {
-            // Close the form and return to the previous one
-            this.Close();
-            inventoryManagementForm.Show();
-            inventoryManagementForm.Activate();
-        }
 
         private async void HistoryImportForm_Load(object sender, EventArgs e)
         {
@@ -173,6 +166,13 @@ namespace rice_store.forms
                 PurchaseOrder purchaseOrder = purchaseOrderDetail.PurchaseOrder;
                 purchaseOrderDataGridView.Rows.Add(purchaseOrderDetail.Id, purchaseOrder.Supplier.Name, purchaseOrder.OrderDate, purchaseOrderDetail.Quantity, purchaseOrderDetail.UnitPrice);
             }
+        }
+
+        private void backbtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            inventoryManagementForm.Show();
+            inventoryManagementForm.Activate();
         }
     }
 }

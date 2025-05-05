@@ -69,7 +69,7 @@ namespace rice_store.forms
 
         private string GetMonthName(int month) => $"Tháng {month}";
 
-        private async void filterButton_Click_1(object sender, EventArgs e) => await LoadDataAndRenderChartAsync();
+        private async void filterButton_Click(object sender, EventArgs e) => await LoadDataAndRenderChartAsync();
 
         private async Task LoadDataAndRenderChartAsync()
         {
@@ -223,5 +223,8 @@ namespace rice_store.forms
                 e.Graphics.DrawString(totals[i], fontBold, brush, new RectangleF(left + i * cellWidth, y, cellWidth, cellHeight), centerAlign);
             }
         }
+
+        
+        
     }
 }

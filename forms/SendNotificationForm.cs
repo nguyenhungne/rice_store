@@ -20,6 +20,7 @@ namespace rice_store.forms
 {
     public partial class SendNotificationForm : Form
     {
+        private OrderDetailsForm orderDetailsForm;
         private SalesOrderDetailService salesOrderDetailService;
         private IEnumerable<SalesOrderDetail> allSaleOrdersDetail;
         private SalesOrderService salesOrderService;
@@ -30,6 +31,7 @@ namespace rice_store.forms
         {
             salesOrderDetailService = Program.ServiceProvider.GetRequiredService<SalesOrderDetailService>();
             salesOrderService = Program.ServiceProvider.GetRequiredService<SalesOrderService>();
+            orderDetailsForm = new OrderDetailsForm(this, 0);
             InitializeComponent();
         }
 
@@ -159,7 +161,7 @@ namespace rice_store.forms
 
             // Company info (left side)
             float leftColumnX = left + 30;
-       
+
             e.Graphics.DrawString($"Chi nhánh: {_currentInvoice.Inventory}", fontCompanyName, Brushes.Black, leftColumnX, y);
             y += 25;
             e.Graphics.DrawString("Điện thoại: 028-1234-5678", fontNormal, Brushes.Black, leftColumnX, y);
@@ -172,7 +174,7 @@ namespace rice_store.forms
             StringFormat rightAlignFormat = new StringFormat();
             rightAlignFormat.Alignment = StringAlignment.Center;
             e.Graphics.DrawString("HÓA ĐƠN BÁN HÀNG", fontHeaderBold, Brushes.Black,
-                new RectangleF(rightColumnX - 8, y, pageWidth - rightColumnX + left -25, 25), rightAlignFormat);
+                new RectangleF(rightColumnX - 8, y, pageWidth - rightColumnX + left - 25, 25), rightAlignFormat);
 
             y += 25;
 
@@ -393,6 +395,28 @@ namespace rice_store.forms
                 Height = 600
             };
             preview.ShowDialog();
+        }
+
+        private void salePurchaseDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == salePurchaseDataGridView.Columns["detail"].Index && e.RowIndex >= 0)
+            {
+                var row = salePurchaseDataGridView.Rows[e.RowIndex];
+                string? saleOrderId = row.Cells["orderID"].Value.ToString();
+            
+                if (saleOrderId == null)
+                {
+                    MessageBox.Show("Please select a valid inventory item.");
+                    return;
+                }
+                int orderIDInt = int.Parse(saleOrderId);
+
+                OrderDetailsForm orderDetailsForm= new OrderDetailsForm(this, orderIDInt);
+                orderDetailsForm.MdiParent = this.MdiParent;
+                orderDetailsForm.Dock = DockStyle.Fill;
+                orderDetailsForm.Show();
+                this.Close();
+            }
         }
     }
 }

@@ -10,6 +10,7 @@
 
 namespace rice_store.Properties {
     using System;
+    using System.Drawing;
 
 
     /// <summary>
@@ -23,7 +24,12 @@ namespace rice_store.Properties {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
-
+        internal static readonly Image icons8_user_100;
+        internal static readonly Image icons8_supplier_64;
+        internal static readonly Image icons8_sell_100;
+        internal static readonly Image icons8_create_order_48;
+        internal static readonly Image icons8_financial_growth_64__1_;
+        internal static Image Card__10_;
         private static global::System.Resources.ResourceManager resourceMan;
 
         private static global::System.Globalization.CultureInfo resourceCulture;
@@ -31,6 +37,8 @@ namespace rice_store.Properties {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Resources() {
         }
+
+        public static Image pngtree_customer_loyalty_line_icon_png_image_9010149 { get; internal set; }
 
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.

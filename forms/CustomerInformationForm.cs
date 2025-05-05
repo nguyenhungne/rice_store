@@ -123,11 +123,6 @@ namespace rice_store.forms
                     }
                 }
             }
-
-            
-
-
-
                 if (_customerId == null)
                 {
                     try

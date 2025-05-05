@@ -28,16 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             actionButton = new Guna.UI2.WinForms.Guna2Button();
             emailTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             emailLabel = new Label();
@@ -52,23 +52,27 @@
             // 
             // actionButton
             // 
-            actionButton.CustomizableEdges = customizableEdges11;
+            actionButton.BorderRadius = 27;
+            actionButton.Cursor = Cursors.Hand;
+            actionButton.CustomizableEdges = customizableEdges1;
             actionButton.DisabledState.BorderColor = Color.DarkGray;
             actionButton.DisabledState.CustomBorderColor = Color.DarkGray;
             actionButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             actionButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            actionButton.FillColor = Color.SandyBrown;
             actionButton.Font = new Font("Segoe UI", 9F);
             actionButton.ForeColor = Color.White;
-            actionButton.Location = new Point(38, 450);
+            actionButton.Location = new Point(18, 382);
             actionButton.Name = "actionButton";
-            actionButton.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            actionButton.Size = new Size(309, 62);
+            actionButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            actionButton.Size = new Size(324, 61);
             actionButton.TabIndex = 35;
             actionButton.Click += actionButton_Click;
             // 
             // emailTextBox
             // 
-            emailTextBox.CustomizableEdges = customizableEdges13;
+            emailTextBox.BorderRadius = 20;
+            emailTextBox.CustomizableEdges = customizableEdges3;
             emailTextBox.DefaultText = "";
             emailTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             emailTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -77,12 +81,12 @@
             emailTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             emailTextBox.Font = new Font("Segoe UI", 9F);
             emailTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            emailTextBox.Location = new Point(88, 195);
+            emailTextBox.Location = new Point(88, 230);
             emailTextBox.Margin = new Padding(3, 4, 3, 4);
             emailTextBox.Name = "emailTextBox";
             emailTextBox.PlaceholderText = "";
             emailTextBox.SelectedText = "";
-            emailTextBox.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            emailTextBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
             emailTextBox.Size = new Size(259, 39);
             emailTextBox.TabIndex = 34;
             // 
@@ -90,7 +94,7 @@
             // 
             emailLabel.AutoSize = true;
             emailLabel.Font = new Font("Segoe UI", 12F);
-            emailLabel.Location = new Point(16, 195);
+            emailLabel.Location = new Point(12, 230);
             emailLabel.Name = "emailLabel";
             emailLabel.Size = new Size(59, 28);
             emailLabel.TabIndex = 33;
@@ -98,7 +102,8 @@
             // 
             // nameTextBox
             // 
-            nameTextBox.CustomizableEdges = customizableEdges15;
+            nameTextBox.BorderRadius = 20;
+            nameTextBox.CustomizableEdges = customizableEdges5;
             nameTextBox.DefaultText = "";
             nameTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             nameTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -107,12 +112,12 @@
             nameTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             nameTextBox.Font = new Font("Segoe UI", 9F);
             nameTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            nameTextBox.Location = new Point(88, 54);
+            nameTextBox.Location = new Point(88, 77);
             nameTextBox.Margin = new Padding(3, 4, 3, 4);
             nameTextBox.Name = "nameTextBox";
             nameTextBox.PlaceholderText = "";
             nameTextBox.SelectedText = "";
-            nameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges16;
+            nameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges6;
             nameTextBox.Size = new Size(259, 39);
             nameTextBox.TabIndex = 30;
             // 
@@ -120,7 +125,7 @@
             // 
             nameLabel.AutoSize = true;
             nameLabel.Font = new Font("Segoe UI", 12F);
-            nameLabel.Location = new Point(16, 54);
+            nameLabel.Location = new Point(18, 77);
             nameLabel.Name = "nameLabel";
             nameLabel.Size = new Size(41, 28);
             nameLabel.TabIndex = 29;
@@ -138,7 +143,8 @@
             // 
             // phoneTextBox
             // 
-            phoneTextBox.CustomizableEdges = customizableEdges17;
+            phoneTextBox.BorderRadius = 20;
+            phoneTextBox.CustomizableEdges = customizableEdges7;
             phoneTextBox.DefaultText = "";
             phoneTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             phoneTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -147,12 +153,12 @@
             phoneTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             phoneTextBox.Font = new Font("Segoe UI", 9F);
             phoneTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            phoneTextBox.Location = new Point(88, 119);
+            phoneTextBox.Location = new Point(88, 146);
             phoneTextBox.Margin = new Padding(3, 4, 3, 4);
             phoneTextBox.Name = "phoneTextBox";
             phoneTextBox.PlaceholderText = "";
             phoneTextBox.SelectedText = "";
-            phoneTextBox.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            phoneTextBox.ShadowDecoration.CustomizableEdges = customizableEdges8;
             phoneTextBox.Size = new Size(259, 39);
             phoneTextBox.TabIndex = 32;
             // 
@@ -160,7 +166,7 @@
             // 
             phonelabel.AutoSize = true;
             phonelabel.Font = new Font("Segoe UI", 12F);
-            phonelabel.Location = new Point(15, 119);
+            phonelabel.Location = new Point(12, 146);
             phonelabel.Name = "phonelabel";
             phonelabel.Size = new Size(47, 28);
             phonelabel.TabIndex = 31;
@@ -168,7 +174,8 @@
             // 
             // addressTextBox
             // 
-            addressTextBox.CustomizableEdges = customizableEdges19;
+            addressTextBox.BorderRadius = 20;
+            addressTextBox.CustomizableEdges = customizableEdges9;
             addressTextBox.DefaultText = "";
             addressTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             addressTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -177,12 +184,12 @@
             addressTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             addressTextBox.Font = new Font("Segoe UI", 9F);
             addressTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            addressTextBox.Location = new Point(88, 263);
+            addressTextBox.Location = new Point(88, 310);
             addressTextBox.Margin = new Padding(3, 4, 3, 4);
             addressTextBox.Name = "addressTextBox";
             addressTextBox.PlaceholderText = "";
             addressTextBox.SelectedText = "";
-            addressTextBox.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            addressTextBox.ShadowDecoration.CustomizableEdges = customizableEdges10;
             addressTextBox.Size = new Size(259, 39);
             addressTextBox.TabIndex = 37;
             // 
@@ -190,7 +197,7 @@
             // 
             addressLabel.AutoSize = true;
             addressLabel.Font = new Font("Segoe UI", 12F);
-            addressLabel.Location = new Point(11, 263);
+            addressLabel.Location = new Point(11, 310);
             addressLabel.Name = "addressLabel";
             addressLabel.Size = new Size(71, 28);
             addressLabel.TabIndex = 36;
@@ -200,7 +207,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(376, 524);
+            ClientSize = new Size(376, 481);
             Controls.Add(addressTextBox);
             Controls.Add(addressLabel);
             Controls.Add(actionButton);

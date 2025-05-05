@@ -211,7 +211,7 @@ namespace rice_store.forms
                     }
                 }
                 
-                    MessageBox.Show("Nhập hàng thất bại, thử lại sau!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
                     // Show success message
                     if (!result.IsNullOrEmpty())
                     {

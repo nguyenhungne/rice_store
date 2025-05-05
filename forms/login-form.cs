@@ -1,5 +1,7 @@
 using System;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
+
 using Microsoft.Extensions.DependencyInjection;
 
 using rice_store.models;
@@ -24,29 +26,38 @@ namespace rice_store.forms
 
         private void buttonLoginClick(object sender, EventArgs e)
         {
+
+        }
+
+        private void MainFormClosed(object? sender, FormClosedEventArgs e)
+        {
+            // When MainForm is closed, close the LoginForm as well
+            this.Close();
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
             string email = txtEmail.Text;
             string password = txtPassword.Text;
 
             User? authenticatedUser = _authService.Authenticate(email, password);
 
             if (authenticatedUser != null)
-        {
-            _mainForm.SetUserRole(authenticatedUser.Role);
-
-            this.Hide();
-            _mainForm.Show();
-        }
-        else
-        {
-            MessageBox.Show("Invalid Email or Password!");
-        }
-        }
-
-        private void MainFormClosed(object? sender, FormClosedEventArgs e)
             {
-                // When MainForm is closed, close the LoginForm as well
-                this.Close();
-            }
+                _mainForm.SetUserRole(authenticatedUser.Role);
 
+                this.Hide();
+                _mainForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Email or Password!");
+            }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

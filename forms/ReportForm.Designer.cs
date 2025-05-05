@@ -44,6 +44,9 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReportForm));
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
@@ -58,9 +61,11 @@
             endMonthLabel = new Label();
             yearComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             yearLabel = new Label();
-            filterButton = new Guna.UI2.WinForms.Guna2Button();
             generateReportButton = new Guna.UI2.WinForms.Guna2Button();
             panel2 = new Panel();
+            filterButton = new Guna.UI2.WinForms.Guna2Button();
+            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)mainChart).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -68,11 +73,12 @@
             // 
             // mainChart
             // 
+            mainChart.BackColor = Color.PeachPuff;
             chartArea1.Name = "ChartArea1";
             mainChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             mainChart.Legends.Add(legend1);
-            mainChart.Location = new Point(3, 12);
+            mainChart.Location = new Point(3, 3);
             mainChart.Name = "mainChart";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -95,7 +101,7 @@
             mainChart.Series.Add(series2);
             mainChart.Series.Add(series3);
             mainChart.Series.Add(series4);
-            mainChart.Size = new Size(1098, 523);
+            mainChart.Size = new Size(1126, 435);
             mainChart.TabIndex = 0;
             mainChart.Text = "Thu nhập";
             // 
@@ -113,14 +119,15 @@
             // 
             panel1.Anchor = AnchorStyles.None;
             panel1.Controls.Add(mainChart);
-            panel1.Location = new Point(12, 169);
+            panel1.Location = new Point(0, 278);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1104, 538);
+            panel1.Size = new Size(1129, 441);
             panel1.TabIndex = 2;
             // 
             // startMonthComboBox
             // 
             startMonthComboBox.BackColor = Color.Transparent;
+            startMonthComboBox.BorderRadius = 17;
             startMonthComboBox.CustomizableEdges = customizableEdges1;
             startMonthComboBox.DrawMode = DrawMode.OwnerDrawFixed;
             startMonthComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -138,6 +145,7 @@
             // endMonthComboBox
             // 
             endMonthComboBox.BackColor = Color.Transparent;
+            endMonthComboBox.BorderRadius = 17;
             endMonthComboBox.CustomizableEdges = customizableEdges3;
             endMonthComboBox.DrawMode = DrawMode.OwnerDrawFixed;
             endMonthComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -165,6 +173,7 @@
             // yearComboBox
             // 
             yearComboBox.BackColor = Color.Transparent;
+            yearComboBox.BorderRadius = 17;
             yearComboBox.CustomizableEdges = customizableEdges5;
             yearComboBox.DrawMode = DrawMode.OwnerDrawFixed;
             yearComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -173,7 +182,7 @@
             yearComboBox.Font = new Font("Segoe UI", 10F);
             yearComboBox.ForeColor = Color.FromArgb(68, 88, 112);
             yearComboBox.ItemHeight = 30;
-            yearComboBox.Location = new Point(154, 97);
+            yearComboBox.Location = new Point(884, 40);
             yearComboBox.Name = "yearComboBox";
             yearComboBox.ShadowDecoration.CustomizableEdges = customizableEdges6;
             yearComboBox.Size = new Size(196, 36);
@@ -183,50 +192,35 @@
             // 
             yearLabel.AutoSize = true;
             yearLabel.Font = new Font("Segoe UI", 12F);
-            yearLabel.Location = new Point(10, 97);
+            yearLabel.Location = new Point(795, 40);
             yearLabel.Name = "yearLabel";
             yearLabel.Size = new Size(54, 28);
             yearLabel.TabIndex = 6;
             yearLabel.Text = "Năm";
             // 
-            // filterButton
-            // 
-            filterButton.CustomizableEdges = customizableEdges7;
-            filterButton.DisabledState.BorderColor = Color.DarkGray;
-            filterButton.DisabledState.CustomBorderColor = Color.DarkGray;
-            filterButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            filterButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            filterButton.Font = new Font("Segoe UI", 9F);
-            filterButton.ForeColor = Color.White;
-            filterButton.Location = new Point(404, 97);
-            filterButton.Name = "filterButton";
-            filterButton.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            filterButton.Size = new Size(333, 36);
-            filterButton.TabIndex = 8;
-            filterButton.Text = "Lọc";
-            filterButton.Click += filterButton_Click_1;
-            // 
             // generateReportButton
             // 
-            generateReportButton.CustomizableEdges = customizableEdges9;
+            generateReportButton.BorderRadius = 40;
+            generateReportButton.Cursor = Cursors.Hand;
+            generateReportButton.CustomizableEdges = customizableEdges7;
             generateReportButton.DisabledState.BorderColor = Color.DarkGray;
             generateReportButton.DisabledState.CustomBorderColor = Color.DarkGray;
             generateReportButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             generateReportButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            generateReportButton.FillColor = Color.SandyBrown;
             generateReportButton.Font = new Font("Segoe UI", 9F);
             generateReportButton.ForeColor = Color.White;
-            generateReportButton.Location = new Point(792, 39);
+            generateReportButton.Location = new Point(780, 9);
             generateReportButton.Name = "generateReportButton";
-            generateReportButton.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            generateReportButton.ShadowDecoration.CustomizableEdges = customizableEdges8;
             generateReportButton.Size = new Size(303, 100);
             generateReportButton.TabIndex = 9;
-            generateReportButton.Text = "Tạo Report";
+            generateReportButton.Text = "Xuất báo cáo";
             generateReportButton.Click += generateReportButton_Click;
             // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.None;
-            panel2.Controls.Add(generateReportButton);
             panel2.Controls.Add(filterButton);
             panel2.Controls.Add(yearComboBox);
             panel2.Controls.Add(yearLabel);
@@ -234,16 +228,62 @@
             panel2.Controls.Add(endMonthLabel);
             panel2.Controls.Add(startMonthComboBox);
             panel2.Controls.Add(startMonthlabel);
-            panel2.Location = new Point(12, 8);
+            panel2.Location = new Point(3, 120);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1105, 155);
+            panel2.Size = new Size(1126, 155);
             panel2.TabIndex = 10;
+            // 
+            // filterButton
+            // 
+            filterButton.BorderRadius = 20;
+            filterButton.Cursor = Cursors.Hand;
+            filterButton.CustomizableEdges = customizableEdges9;
+            filterButton.DisabledState.BorderColor = Color.DarkGray;
+            filterButton.DisabledState.CustomBorderColor = Color.DarkGray;
+            filterButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            filterButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            filterButton.FillColor = Color.SandyBrown;
+            filterButton.Font = new Font("Segoe UI", 9F);
+            filterButton.ForeColor = Color.White;
+            filterButton.Location = new Point(762, 97);
+            filterButton.Name = "filterButton";
+            filterButton.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            filterButton.Size = new Size(318, 42);
+            filterButton.TabIndex = 10;
+            filterButton.Text = "Lọc";
+            filterButton.Click += filterButton_Click;
+            // 
+            // guna2Panel1
+            // 
+            guna2Panel1.BackColor = Color.Transparent;
+            guna2Panel1.BackgroundImage = (Image)resources.GetObject("guna2Panel1.BackgroundImage");
+            guna2Panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            guna2Panel1.CustomizableEdges = customizableEdges11;
+            guna2Panel1.Location = new Point(6, 3);
+            guna2Panel1.Name = "guna2Panel1";
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2Panel1.Size = new Size(131, 111);
+            guna2Panel1.TabIndex = 11;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 22.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(143, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(371, 50);
+            label1.TabIndex = 12;
+            label1.Text = "QUẢN LÍ TÀI CHÍNH";
             // 
             // ReportForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.PeachPuff;
             ClientSize = new Size(1129, 719);
+            Controls.Add(label1);
+            Controls.Add(generateReportButton);
+            Controls.Add(guna2Panel1);
             Controls.Add(panel2);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -255,6 +295,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -273,8 +314,10 @@
         private Label endMonthLabel;
         private Guna.UI2.WinForms.Guna2ComboBox yearComboBox;
         private Label yearLabel;
-        private Guna.UI2.WinForms.Guna2Button filterButton;
         private Guna.UI2.WinForms.Guna2Button generateReportButton;
         private Panel panel2;
+        private Guna.UI2.WinForms.Guna2Button filterButton;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Label label1;
     }
 }

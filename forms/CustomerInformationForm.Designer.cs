@@ -72,6 +72,7 @@
             // 
             // nameTextBox
             // 
+            nameTextBox.BorderRadius = 17;
             nameTextBox.CustomizableEdges = customizableEdges1;
             nameTextBox.DefaultText = "";
             nameTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -88,10 +89,11 @@
             nameTextBox.SelectedText = "";
             nameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges2;
             nameTextBox.Size = new Size(259, 39);
-            nameTextBox.TabIndex = 2;
+            nameTextBox.TabIndex = 0;
             // 
             // addressTextBox
             // 
+            addressTextBox.BorderRadius = 17;
             addressTextBox.CustomizableEdges = customizableEdges3;
             addressTextBox.DefaultText = "";
             addressTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -108,7 +110,7 @@
             addressTextBox.SelectedText = "";
             addressTextBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
             addressTextBox.Size = new Size(259, 39);
-            addressTextBox.TabIndex = 4;
+            addressTextBox.TabIndex = 3;
             // 
             // addressLabel
             // 
@@ -122,6 +124,7 @@
             // 
             // phoneTextBox
             // 
+            phoneTextBox.BorderRadius = 17;
             phoneTextBox.CustomizableEdges = customizableEdges5;
             phoneTextBox.DefaultText = "";
             phoneTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -138,7 +141,7 @@
             phoneTextBox.SelectedText = "";
             phoneTextBox.ShadowDecoration.CustomizableEdges = customizableEdges6;
             phoneTextBox.Size = new Size(259, 39);
-            phoneTextBox.TabIndex = 6;
+            phoneTextBox.TabIndex = 1;
             // 
             // phonelabel
             // 
@@ -152,6 +155,7 @@
             // 
             // emailTextBox
             // 
+            emailTextBox.BorderRadius = 17;
             emailTextBox.CustomizableEdges = customizableEdges7;
             emailTextBox.DefaultText = "";
             emailTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -168,7 +172,7 @@
             emailTextBox.SelectedText = "";
             emailTextBox.ShadowDecoration.CustomizableEdges = customizableEdges8;
             emailTextBox.Size = new Size(259, 39);
-            emailTextBox.TabIndex = 8;
+            emailTextBox.TabIndex = 2;
             // 
             // emailLabel
             // 
@@ -182,25 +186,28 @@
             // 
             // actionButton
             // 
+            actionButton.BorderRadius = 20;
+            actionButton.Cursor = Cursors.Hand;
             actionButton.CustomizableEdges = customizableEdges9;
             actionButton.DisabledState.BorderColor = Color.DarkGray;
             actionButton.DisabledState.CustomBorderColor = Color.DarkGray;
             actionButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             actionButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            actionButton.FillColor = Color.SandyBrown;
             actionButton.Font = new Font("Segoe UI", 9F);
             actionButton.ForeColor = Color.White;
-            actionButton.Location = new Point(38, 413);
+            actionButton.Location = new Point(30, 359);
             actionButton.Name = "actionButton";
             actionButton.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            actionButton.Size = new Size(299, 62);
-            actionButton.TabIndex = 9;
+            actionButton.Size = new Size(319, 49);
+            actionButton.TabIndex = 4;
             actionButton.Click += actionButton_Click;
             // 
             // CustomerInformationForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(387, 498);
+            ClientSize = new Size(387, 454);
             Controls.Add(actionButton);
             Controls.Add(emailTextBox);
             Controls.Add(emailLabel);

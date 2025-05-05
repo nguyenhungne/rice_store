@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryListForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -38,40 +39,52 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             filterButton = new Guna.UI2.WinForms.Guna2GradientButton();
             inventoryNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             inventoryNameLabel = new Label();
             label1 = new Label();
-            guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             panel2 = new Panel();
             inventoryDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             inventoryId = new DataGridViewTextBoxColumn();
             inventoryName = new DataGridViewTextBoxColumn();
             InventoryDetail = new DataGridViewButtonColumn();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)inventoryDataGridView).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(guna2Panel1);
             panel1.Controls.Add(filterButton);
             panel1.Controls.Add(inventoryNameTextBox);
             panel1.Controls.Add(inventoryNameLabel);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(guna2PictureBox1);
             panel1.Location = new Point(2, 9);
             panel1.Name = "panel1";
             panel1.Size = new Size(1121, 157);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
+            // guna2Panel1
+            // 
+            guna2Panel1.BackColor = Color.Transparent;
+            guna2Panel1.BackgroundImage = (Image)resources.GetObject("guna2Panel1.BackgroundImage");
+            guna2Panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            guna2Panel1.CustomizableEdges = customizableEdges1;
+            guna2Panel1.Location = new Point(3, 0);
+            guna2Panel1.Name = "guna2Panel1";
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Panel1.Size = new Size(184, 154);
+            guna2Panel1.TabIndex = 24;
+            // 
             // filterButton
             // 
             filterButton.BorderRadius = 15;
             filterButton.Cursor = Cursors.Hand;
-            filterButton.CustomizableEdges = customizableEdges1;
+            filterButton.CustomizableEdges = customizableEdges3;
             filterButton.DisabledState.BorderColor = Color.DarkGray;
             filterButton.DisabledState.CustomBorderColor = Color.DarkGray;
             filterButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -83,16 +96,16 @@
             filterButton.ForeColor = Color.White;
             filterButton.Location = new Point(952, 110);
             filterButton.Name = "filterButton";
-            filterButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            filterButton.ShadowDecoration.CustomizableEdges = customizableEdges4;
             filterButton.Size = new Size(151, 44);
             filterButton.TabIndex = 23;
-            filterButton.Text = "Lọc";
+            filterButton.Text = "Tìm kiếm";
             filterButton.Click += filterButton_Click;
             // 
             // inventoryNameTextBox
             // 
             inventoryNameTextBox.BorderRadius = 17;
-            inventoryNameTextBox.CustomizableEdges = customizableEdges3;
+            inventoryNameTextBox.CustomizableEdges = customizableEdges5;
             inventoryNameTextBox.DefaultText = "";
             inventoryNameTextBox.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             inventoryNameTextBox.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
@@ -106,7 +119,7 @@
             inventoryNameTextBox.Name = "inventoryNameTextBox";
             inventoryNameTextBox.PlaceholderText = "";
             inventoryNameTextBox.SelectedText = "";
-            inventoryNameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            inventoryNameTextBox.ShadowDecoration.CustomizableEdges = customizableEdges6;
             inventoryNameTextBox.Size = new Size(340, 36);
             inventoryNameTextBox.TabIndex = 22;
             // 
@@ -124,40 +137,32 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label1.Location = new Point(112, 3);
+            label1.Location = new Point(184, 22);
             label1.Name = "label1";
             label1.Size = new Size(312, 41);
             label1.TabIndex = 11;
             label1.Text = "QUẢN LÍ KHO HÀNG";
             // 
-            // guna2PictureBox1
-            // 
-            guna2PictureBox1.CustomizableEdges = customizableEdges5;
-            guna2PictureBox1.ImageRotate = 0F;
-            guna2PictureBox1.Location = new Point(18, 3);
-            guna2PictureBox1.Name = "guna2PictureBox1";
-            guna2PictureBox1.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2PictureBox1.Size = new Size(88, 86);
-            guna2PictureBox1.TabIndex = 1;
-            guna2PictureBox1.TabStop = false;
-            // 
             // panel2
             // 
             panel2.Controls.Add(inventoryDataGridView);
-            panel2.Location = new Point(6, 170);
+            panel2.Location = new Point(-4, 170);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1117, 548);
+            panel2.Size = new Size(1138, 548);
             panel2.TabIndex = 1;
             // 
             // inventoryDataGridView
             // 
+            inventoryDataGridView.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
             inventoryDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            inventoryDataGridView.BorderStyle = BorderStyle.Fixed3D;
+            inventoryDataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Raised;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 192, 128);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(255, 128, 0);
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             inventoryDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -173,11 +178,12 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             inventoryDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             inventoryDataGridView.GridColor = Color.FromArgb(231, 229, 255);
-            inventoryDataGridView.Location = new Point(14, 14);
+            inventoryDataGridView.Location = new Point(6, 14);
             inventoryDataGridView.Name = "inventoryDataGridView";
+            inventoryDataGridView.ReadOnly = true;
             inventoryDataGridView.RowHeadersVisible = false;
             inventoryDataGridView.RowHeadersWidth = 51;
-            inventoryDataGridView.Size = new Size(1097, 531);
+            inventoryDataGridView.Size = new Size(1129, 531);
             inventoryDataGridView.TabIndex = 0;
             inventoryDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             inventoryDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -187,12 +193,12 @@
             inventoryDataGridView.ThemeStyle.BackColor = Color.White;
             inventoryDataGridView.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
             inventoryDataGridView.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            inventoryDataGridView.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            inventoryDataGridView.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.Raised;
             inventoryDataGridView.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
             inventoryDataGridView.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             inventoryDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             inventoryDataGridView.ThemeStyle.HeaderStyle.Height = 22;
-            inventoryDataGridView.ThemeStyle.ReadOnly = false;
+            inventoryDataGridView.ThemeStyle.ReadOnly = true;
             inventoryDataGridView.ThemeStyle.RowsStyle.BackColor = Color.White;
             inventoryDataGridView.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             inventoryDataGridView.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
@@ -207,24 +213,29 @@
             inventoryId.HeaderText = "Mã Kho Hàng";
             inventoryId.MinimumWidth = 6;
             inventoryId.Name = "inventoryId";
+            inventoryId.ReadOnly = true;
             // 
             // inventoryName
             // 
             inventoryName.HeaderText = "Tên Kho Hàng";
             inventoryName.MinimumWidth = 6;
             inventoryName.Name = "inventoryName";
+            inventoryName.ReadOnly = true;
             // 
             // InventoryDetail
             // 
-            InventoryDetail.HeaderText = "Chi tiết";
+            InventoryDetail.HeaderText = "Quản lí kho này";
             InventoryDetail.MinimumWidth = 6;
             InventoryDetail.Name = "InventoryDetail";
+            InventoryDetail.ReadOnly = true;
+            InventoryDetail.Text = "Chọn";
+            InventoryDetail.UseColumnTextForButtonValue = true;
             // 
             // InventoryListForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.PapayaWhip;
+            BackColor = Color.PeachPuff;
             ClientSize = new Size(1129, 719);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -234,7 +245,6 @@
             Load += InventoryListForm_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
             panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)inventoryDataGridView).EndInit();
             ResumeLayout(false);
@@ -245,13 +255,13 @@
         private Panel panel1;
         private Panel panel2;
         private Guna.UI2.WinForms.Guna2DataGridView inventoryDataGridView;
-        private DataGridViewTextBoxColumn inventoryId;
-        private DataGridViewTextBoxColumn inventoryName;
-        private DataGridViewButtonColumn InventoryDetail;
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Label label1;
         private Guna.UI2.WinForms.Guna2TextBox inventoryNameTextBox;
         private Label inventoryNameLabel;
         private Guna.UI2.WinForms.Guna2GradientButton filterButton;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private DataGridViewTextBoxColumn inventoryId;
+        private DataGridViewTextBoxColumn inventoryName;
+        private DataGridViewButtonColumn InventoryDetail;
     }
 }

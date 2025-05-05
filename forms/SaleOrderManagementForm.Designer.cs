@@ -52,6 +52,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SaleOrderManagementForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges25 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -78,12 +80,12 @@
             panel2 = new Panel();
             panel1 = new Panel();
             panel5 = new Panel();
+            guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             panel6 = new Panel();
             titleLabel = new Label();
             mainPanel = new Panel();
             backToInventoryButton = new Guna.UI2.WinForms.Guna2ImageButton();
             previewAddingSalesOrderDataGrid = new Guna.UI2.WinForms.Guna2DataGridView();
-            dataPanel = new Panel();
             purchaseId = new DataGridViewTextBoxColumn();
             riceName = new DataGridViewTextBoxColumn();
             categoryRice = new DataGridViewTextBoxColumn();
@@ -91,6 +93,7 @@
             quantity = new DataGridViewTextBoxColumn();
             unitPrice = new DataGridViewTextBoxColumn();
             amount = new DataGridViewTextBoxColumn();
+            dataPanel = new Panel();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)quantityInput).BeginInit();
             panel3.SuspendLayout();
@@ -452,17 +455,30 @@
             // panel5
             // 
             panel5.Anchor = AnchorStyles.None;
+            panel5.Controls.Add(guna2Panel1);
             panel5.Controls.Add(panel6);
             panel5.Controls.Add(titleLabel);
             panel5.Location = new Point(2, 9);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1116, 85);
+            panel5.Size = new Size(1116, 80);
             panel5.TabIndex = 2;
+            // 
+            // guna2Panel1
+            // 
+            guna2Panel1.BackColor = Color.Transparent;
+            guna2Panel1.BackgroundImage = (Image)resources.GetObject("guna2Panel1.BackgroundImage");
+            guna2Panel1.BackgroundImageLayout = ImageLayout.Stretch;
+            guna2Panel1.CustomizableEdges = customizableEdges23;
+            guna2Panel1.Location = new Point(4, 0);
+            guna2Panel1.Name = "guna2Panel1";
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            guna2Panel1.Size = new Size(86, 71);
+            guna2Panel1.TabIndex = 3;
             // 
             // panel6
             // 
             panel6.Anchor = AnchorStyles.None;
-            panel6.Location = new Point(-11, 89);
+            panel6.Location = new Point(-11, 87);
             panel6.Name = "panel6";
             panel6.Size = new Size(1142, 289);
             panel6.TabIndex = 2;
@@ -471,11 +487,11 @@
             // 
             titleLabel.AutoSize = true;
             titleLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            titleLabel.Location = new Point(9, 5);
+            titleLabel.Location = new Point(107, 0);
             titleLabel.Name = "titleLabel";
-            titleLabel.Size = new Size(256, 41);
+            titleLabel.Size = new Size(254, 41);
             titleLabel.TabIndex = 1;
-            titleLabel.Text = "NHẬP HÓA ĐƠN";
+            titleLabel.Text = "TẠO ĐƠN HÀNG";
             // 
             // mainPanel
             // 
@@ -496,7 +512,7 @@
             backToInventoryButton.Location = new Point(8, 18);
             backToInventoryButton.Name = "backToInventoryButton";
             backToInventoryButton.PressedState.ImageSize = new Size(64, 64);
-            backToInventoryButton.ShadowDecoration.CustomizableEdges = customizableEdges23;
+            backToInventoryButton.ShadowDecoration.CustomizableEdges = customizableEdges25;
             backToInventoryButton.Size = new Size(80, 68);
             backToInventoryButton.TabIndex = 5;
             // 
@@ -504,6 +520,8 @@
             // 
             dataGridViewCellStyle1.BackColor = Color.White;
             previewAddingSalesOrderDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            previewAddingSalesOrderDataGrid.BorderStyle = BorderStyle.Fixed3D;
+            previewAddingSalesOrderDataGrid.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Raised;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 192, 128);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -527,6 +545,7 @@
             previewAddingSalesOrderDataGrid.Location = new Point(3, 3);
             previewAddingSalesOrderDataGrid.MultiSelect = false;
             previewAddingSalesOrderDataGrid.Name = "previewAddingSalesOrderDataGrid";
+            previewAddingSalesOrderDataGrid.ReadOnly = true;
             previewAddingSalesOrderDataGrid.RowHeadersVisible = false;
             previewAddingSalesOrderDataGrid.RowHeadersWidth = 51;
             previewAddingSalesOrderDataGrid.Size = new Size(1135, 337);
@@ -539,12 +558,12 @@
             previewAddingSalesOrderDataGrid.ThemeStyle.BackColor = Color.White;
             previewAddingSalesOrderDataGrid.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
             previewAddingSalesOrderDataGrid.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
-            previewAddingSalesOrderDataGrid.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            previewAddingSalesOrderDataGrid.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.Raised;
             previewAddingSalesOrderDataGrid.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             previewAddingSalesOrderDataGrid.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             previewAddingSalesOrderDataGrid.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             previewAddingSalesOrderDataGrid.ThemeStyle.HeaderStyle.Height = 30;
-            previewAddingSalesOrderDataGrid.ThemeStyle.ReadOnly = false;
+            previewAddingSalesOrderDataGrid.ThemeStyle.ReadOnly = true;
             previewAddingSalesOrderDataGrid.ThemeStyle.RowsStyle.BackColor = Color.White;
             previewAddingSalesOrderDataGrid.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             previewAddingSalesOrderDataGrid.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -552,6 +571,56 @@
             previewAddingSalesOrderDataGrid.ThemeStyle.RowsStyle.Height = 29;
             previewAddingSalesOrderDataGrid.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
             previewAddingSalesOrderDataGrid.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            // 
+            // purchaseId
+            // 
+            purchaseId.HeaderText = "purchaseID";
+            purchaseId.MinimumWidth = 6;
+            purchaseId.Name = "purchaseId";
+            purchaseId.ReadOnly = true;
+            purchaseId.Visible = false;
+            // 
+            // riceName
+            // 
+            riceName.HeaderText = "Tên gạo";
+            riceName.MinimumWidth = 6;
+            riceName.Name = "riceName";
+            riceName.ReadOnly = true;
+            // 
+            // categoryRice
+            // 
+            categoryRice.HeaderText = "Loại gạo";
+            categoryRice.MinimumWidth = 6;
+            categoryRice.Name = "categoryRice";
+            categoryRice.ReadOnly = true;
+            // 
+            // expirationDatetime
+            // 
+            expirationDatetime.HeaderText = "Ngày hết hạn";
+            expirationDatetime.MinimumWidth = 6;
+            expirationDatetime.Name = "expirationDatetime";
+            expirationDatetime.ReadOnly = true;
+            // 
+            // quantity
+            // 
+            quantity.HeaderText = "Số lượng";
+            quantity.MinimumWidth = 6;
+            quantity.Name = "quantity";
+            quantity.ReadOnly = true;
+            // 
+            // unitPrice
+            // 
+            unitPrice.HeaderText = "Giá mua";
+            unitPrice.MinimumWidth = 6;
+            unitPrice.Name = "unitPrice";
+            unitPrice.ReadOnly = true;
+            // 
+            // amount
+            // 
+            amount.HeaderText = "Thành tiền";
+            amount.MinimumWidth = 6;
+            amount.Name = "amount";
+            amount.ReadOnly = true;
             // 
             // dataPanel
             // 
@@ -562,54 +631,11 @@
             dataPanel.Size = new Size(1144, 351);
             dataPanel.TabIndex = 34;
             // 
-            // purchaseId
-            // 
-            purchaseId.HeaderText = "purchaseID";
-            purchaseId.MinimumWidth = 6;
-            purchaseId.Name = "purchaseId";
-            purchaseId.Visible = false;
-            // 
-            // riceName
-            // 
-            riceName.HeaderText = "Tên gạo";
-            riceName.MinimumWidth = 6;
-            riceName.Name = "riceName";
-            // 
-            // categoryRice
-            // 
-            categoryRice.HeaderText = "Loại gạo";
-            categoryRice.MinimumWidth = 6;
-            categoryRice.Name = "categoryRice";
-            // 
-            // expirationDatetime
-            // 
-            expirationDatetime.HeaderText = "Ngày hết hạn";
-            expirationDatetime.MinimumWidth = 6;
-            expirationDatetime.Name = "expirationDatetime";
-            // 
-            // quantity
-            // 
-            quantity.HeaderText = "Số lượng";
-            quantity.MinimumWidth = 6;
-            quantity.Name = "quantity";
-            // 
-            // unitPrice
-            // 
-            unitPrice.HeaderText = "Giá mua";
-            unitPrice.MinimumWidth = 6;
-            unitPrice.Name = "unitPrice";
-            // 
-            // amount
-            // 
-            amount.HeaderText = "Thành tiền";
-            amount.MinimumWidth = 6;
-            amount.Name = "amount";
-            // 
             // SaleOrderManagementForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.PapayaWhip;
+            BackColor = Color.PeachPuff;
             ClientSize = new Size(1129, 719);
             Controls.Add(dataPanel);
             Controls.Add(panel4);
@@ -679,5 +705,6 @@
         private DataGridViewTextBoxColumn quantity;
         private DataGridViewTextBoxColumn unitPrice;
         private DataGridViewTextBoxColumn amount;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
     }
 }

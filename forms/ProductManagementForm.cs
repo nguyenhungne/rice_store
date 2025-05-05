@@ -40,7 +40,7 @@ namespace rice_store.forms
             // Initialize the filter
             ProductFilter filter = new ProductFilter
             {
-                ProductId = productIdTextBox.Text,
+                //ProductId = productIdTextBox.Text,
                 ProductName = productNameTextBox.Text,
                 CategoryId = (int?)productCategoryComboBox.SelectedValue
             };

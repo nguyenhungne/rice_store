@@ -121,7 +121,7 @@ namespace rice_store.forms
                     {
                         quantity = decimal.Parse(quantityInput.Text),
                         unitPrice = decimal.Parse(unitPriceInput.Text),
-                        quantityRemaining =decimal.Parse(quantityInput.Text),
+                        quantityRemaining = decimal.Parse(quantityInput.Text),
                     },
                     purchaseOrder = new AddingPurchaseOrderData
                     {
@@ -188,6 +188,13 @@ namespace rice_store.forms
             {
                 MessageBox.Show("Vui lòng chọn sản phẩm cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            inventoryManagementForm.Show();
+            inventoryManagementForm.Activate();
         }
     }
 }

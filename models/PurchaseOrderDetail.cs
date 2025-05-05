@@ -21,7 +21,7 @@ namespace rice_store.models
         [Column("quantity")]
         public decimal Quantity { get; set; }
 
-        [Column("unit_price")]
+        [Column("unit_price")]      
         public decimal UnitPrice { get; set; }
 
         [Column("expiration_date")]
