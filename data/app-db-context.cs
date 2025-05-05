@@ -73,6 +73,19 @@ namespace rice_store.data
                 .HasQueryFilter(s => !s.IsDeleted);
             modelBuilder.Entity<Category>()
                 .HasQueryFilter(c => !c.IsDeleted);
+
+            // Seed data for Category
+            modelBuilder.Entity<Category>().HasData(
+                new Category { Id = 1, Name = "Gạo Tám Thơm", IsDeleted = false },
+                new Category { Id = 2, Name = "Gạo ST25", IsDeleted = false },
+                new Category { Id = 3, Name = "Gạo Lứt", IsDeleted = false },
+                new Category { Id = 4, Name = "Gạo Nếp", IsDeleted = false },
+                new Category { Id = 5, Name = "Gạo Tài Nguyên", IsDeleted = false },
+                new Category { Id = 6, Name = "Gạo Hương Lài", IsDeleted = false },
+                new Category { Id = 7, Name = "Gạo Nhật", IsDeleted = false },
+                new Category { Id = 8, Name = "Gạo Tấm", IsDeleted = false },
+                new Category { Id = 9, Name = "Gạo Hữu Cơ", IsDeleted = false }
+            );
         }
     }
 }
