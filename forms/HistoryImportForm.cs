@@ -112,7 +112,7 @@ namespace rice_store.forms
             foreach (PurchaseOrderDetail purchaseOrderDetail in purchaseOrderDetails)
             {
                 PurchaseOrder purchaseOrder = purchaseOrderDetail.PurchaseOrder;
-                purchaseOrderDataGridView.Rows.Add(purchaseOrderDetail.Id, purchaseOrder.Supplier.Name, purchaseOrder.OrderDate, purchaseOrderDetail.Quantity, purchaseOrderDetail.UnitPrice);
+                purchaseOrderDataGridView.Rows.Add(purchaseOrderDetail.Id, purchaseOrder.Supplier.Name, purchaseOrder.OrderDate, purchaseOrderDetail.ExpirationDate, purchaseOrderDetail.Quantity, purchaseOrderDetail.UnitPrice);
             }
         }
 

@@ -67,6 +67,7 @@
             purchaseID = new DataGridViewTextBoxColumn();
             suplier = new DataGridViewTextBoxColumn();
             date = new DataGridViewTextBoxColumn();
+            ex_date = new DataGridViewTextBoxColumn();
             quantity = new DataGridViewTextBoxColumn();
             price = new DataGridViewTextBoxColumn();
             panel1.SuspendLayout();
@@ -310,7 +311,7 @@
             purchaseOrderDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             purchaseOrderDataGridView.ColumnHeadersHeight = 24;
             purchaseOrderDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            purchaseOrderDataGridView.Columns.AddRange(new DataGridViewColumn[] { purchaseID, suplier, date, quantity, price });
+            purchaseOrderDataGridView.Columns.AddRange(new DataGridViewColumn[] { purchaseID, suplier, date, ex_date, quantity, price });
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
@@ -371,6 +372,13 @@
             date.Name = "date";
             date.ReadOnly = true;
             // 
+            // ex_date
+            // 
+            ex_date.HeaderText = "Hạn sử dụng";
+            ex_date.MinimumWidth = 6;
+            ex_date.Name = "ex_date";
+            ex_date.ReadOnly = true;
+            // 
             // quantity
             // 
             quantity.HeaderText = "Số lượng";
@@ -421,11 +429,6 @@
         private Label label2;
         private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker1;
         private Guna.UI2.WinForms.Guna2ComboBox supplierComboBox;
-        private DataGridViewTextBoxColumn purchaseID;
-        private DataGridViewTextBoxColumn suplier;
-        private DataGridViewTextBoxColumn date;
-        private DataGridViewTextBoxColumn quantity;
-        private DataGridViewTextBoxColumn price;
         private Guna.UI2.WinForms.Guna2Button clearFilter;
         private Guna.UI2.WinForms.Guna2DateTimePicker startDateTimePikcer;
         private Guna.UI2.WinForms.Guna2DateTimePicker endDateTimePikcer;
@@ -433,5 +436,11 @@
         private Guna.UI2.WinForms.Guna2DateTimePicker startDateTimePicker;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Button backbtn;
+        private DataGridViewTextBoxColumn purchaseID;
+        private DataGridViewTextBoxColumn suplier;
+        private DataGridViewTextBoxColumn date;
+        private DataGridViewTextBoxColumn ex_date;
+        private DataGridViewTextBoxColumn quantity;
+        private DataGridViewTextBoxColumn price;
     }
 }

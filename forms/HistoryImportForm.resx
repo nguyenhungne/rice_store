@@ -121,7 +121,7 @@
   <data name="guna2Panel1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAABXJJREFUaEPtl9tPXFUUxkmT9sWiD/InmOiD0bYvPtgHfaSltIVSCq0UigJVqFS5
+        DgAACw4BQL7hQQAABXJJREFUaEPtl9tPXFUUxkmT9sWiD/InmOiD0bYvPtgHfaSltIVSCq0UigJVqFS5
         VC1J06TeojEFY1Nra1TSxBQK0UbtheFSxjIwl859GC5zO8xwaeXiH7Dca599mD0zGzinc2bsAyv5Mod9
         znB+a823vzmTs1mbtVmb9XRX2/jy3jbvitTm+xeSddaLWoFPPCvwsWcZPnKjluCMawlaXYvQ6lyEFqJm
         xz9UTfbH8CHRBw8fUZ22PYJG2wI0Whfgfes8nLIQmWcj9aPz+ez26RcBjIjhCTgRgivwZzh4BG9xMnCH
@@ -154,6 +154,9 @@
     <value>True</value>
   </metadata>
   <metadata name="date.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ex_date.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="quantity.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
