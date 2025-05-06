@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using rice_store.data;
 
@@ -11,9 +12,11 @@ using rice_store.data;
 namespace rice_store.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250506142319_SeedInventoryData")]
+    partial class SeedInventoryData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -458,20 +461,6 @@ namespace rice_store.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Email = "admin@gmail.com",
-                            IsDeleted = false,
-                            Name = "Admin",
-                            Password = "AIxwOS46v70PpHu8LtlqqZvUnhWXJ/y6Dy5qvrOp1gE=",
-                            Phone = "123456789",
-                            Role = "admin",
-                            Salary = 10000000m,
-                            Username = "admin"
-                        });
                 });
 
             modelBuilder.Entity("rice_store.models.Warehouse", b =>

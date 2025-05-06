@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Configuration;
 
 using rice_store.models;
+using rice_store.services;
 
 using System.IO;
 
@@ -85,6 +86,30 @@ namespace rice_store.data
                 new Category { Id = 7, Name = "Gạo Nhật", IsDeleted = false },
                 new Category { Id = 8, Name = "Gạo Tấm", IsDeleted = false },
                 new Category { Id = 9, Name = "Gạo Hữu Cơ", IsDeleted = false }
+            );
+
+            // Seed data for Inventory
+            modelBuilder.Entity<Inventory>().HasData(
+                new Inventory { Id = 1, name = "Quận 7, Tp. Hồ Chí Minh" },
+                new Inventory { Id = 2, name = "Quận 10, Tp. Hồ Chí Minh" },
+                new Inventory { Id = 3, name = "Quận Thủ Đức, Tp. Hồ Chí Minh" }
+            );
+
+            // Seed admin user
+            string hashedPassword = HashingService.HashPassword("Password123");
+            modelBuilder.Entity<User>().HasData(
+                new User
+                {
+                    Id = 1,
+                    Username = "admin",
+                    Password = hashedPassword,
+                    Role = "admin",
+                    Name = "Admin",
+                    Phone = "123456789",
+                    Email = "admin@gmail.com",
+                    Salary = 10000000,
+                    IsDeleted = false
+                }
             );
         }
     }
