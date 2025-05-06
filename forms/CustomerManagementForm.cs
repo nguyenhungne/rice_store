@@ -63,22 +63,30 @@ namespace rice_store.forms
 
         private async void deleteButton_Click(object sender, EventArgs e)
         {
-            // Get the selected row index
-            int selectedRowIndex = customerDataGridView.CurrentCell.RowIndex;
-            if (selectedRowIndex >= 0)
+            try
             {
-                // Get the customer ID from the selected row
-                int customerId = (int)customerDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+                // Get the selected row index
+                int selectedRowIndex = customerDataGridView.CurrentCell.RowIndex;
+                if (selectedRowIndex >= 0)
+                {
+                    // Get the customer ID from the selected row
+                    int customerId = (int)customerDataGridView.Rows[selectedRowIndex].Cells[0].Value;
 
-                // Delete the customer using the service
-                await customerService.DeleteCustomerAsync(customerId);
+                    // Delete the customer using the service
+                    await customerService.DeleteCustomerAsync(customerId);
 
-                // Reload the form to refresh the data
-                CustomerManagementForm_Load(sender, e);
+                    // Reload the form to refresh the data
+                    CustomerManagementForm_Load(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Please select a customer to delete.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please select a customer to delete.");
+                // Handle the exception (log it, show an error message, etc.)
+                MessageBox.Show($"An error occurred while deleting the customer: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

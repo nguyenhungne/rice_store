@@ -337,6 +337,10 @@
             // 
             // SupplierDataGridView
             // 
+            SupplierDataGridView.AllowUserToAddRows = false;
+            SupplierDataGridView.AllowUserToDeleteRows = false;
+            SupplierDataGridView.AllowUserToResizeColumns = false;
+            SupplierDataGridView.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
             SupplierDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             SupplierDataGridView.BorderStyle = BorderStyle.Fixed3D;

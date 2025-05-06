@@ -101,6 +101,7 @@
             logoutBtn.Size = new Size(141, 49);
             logoutBtn.TabIndex = 5;
             logoutBtn.Text = "Đăng xuất";
+            logoutBtn.Click += logoutBtn_Click;
             // 
             // guna2Panel2
             // 

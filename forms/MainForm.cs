@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -285,6 +285,24 @@ namespace rice_store.forms
         private void onShortTermRentalManagementFormClosed(object? sender, FormClosedEventArgs e)
         {
             userManagementForm = null!;
+        }
+
+        private void logoutBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            // Hide panel and show login form
+            productButtonPanel.Visible = false;
+            saleManagementPanel.Visible = false;
+            customerManagementPanel.Visible = false;
+            accountManagementPanel.Visible = false;
+            inventoryManagementPanel.Visible = false;
+            SupplierPanel.Visible = false;
+            reportPanel.Visible = false;
+
+            // Show login form
+            LoginForm loginForm = new LoginForm();
+            loginForm.FormClosed += (s, args) => Application.Exit();
+            loginForm.Show();
         }
     }
 }

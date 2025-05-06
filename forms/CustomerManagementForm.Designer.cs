@@ -346,6 +346,10 @@
             // 
             // customerDataGridView
             // 
+            customerDataGridView.AllowUserToAddRows = false;
+            customerDataGridView.AllowUserToDeleteRows = false;
+            customerDataGridView.AllowUserToResizeColumns = false;
+            customerDataGridView.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.White;
             customerDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             customerDataGridView.BorderStyle = BorderStyle.Fixed3D;
