@@ -107,6 +107,29 @@ namespace rice_store.forms
 
             if (selectedProduct != null && selectedSupplier != null)
             {
+                // Validate input fields
+                if (string.IsNullOrWhiteSpace(quantityInput.Text) || string.IsNullOrWhiteSpace(unitPriceInput.Text))
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin số lượng và đơn giá.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!decimal.TryParse(quantityInput.Text, out decimal quantity) || quantity <= 0)
+                {
+                    MessageBox.Show("Số lượng không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (!decimal.TryParse(unitPriceInput.Text, out decimal unitPrice) || unitPrice <= 0)
+                {
+                    MessageBox.Show("Đơn giá không hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                // valid expiration date
+                if (expirationDatePicker.Value < DateTime.Now)
+                {
+                    MessageBox.Show("Bạn đang nhập hàng đã hết hạn sử dụng. Hãy liên hệ nhà cung cấp", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 AddingProductsData addingProductsData = new AddingProductsData
                 {
                     warehouse = new AddingWarehouseData

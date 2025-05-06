@@ -86,21 +86,29 @@ namespace rice_store.forms
 
         private async void deleteButton_Click(object sender, EventArgs e)
         {
-            if (SupplierDataGridView.CurrentCell != null)
+            try
             {
-                int selectedRowIndex = SupplierDataGridView.CurrentCell.RowIndex;
-                int supplierId = (int)SupplierDataGridView.Rows[selectedRowIndex].Cells[0].Value;
-                var result = MessageBox.Show("Are you sure you want to delete this supplier?", "Confirm Delete", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
+                if (SupplierDataGridView.CurrentCell != null)
                 {
-                    await _supplierService.DeleteSupplierAsync(supplierId);
-                    SuplierManagementForm_Load(sender, e);
+                    int selectedRowIndex = SupplierDataGridView.CurrentCell.RowIndex;
+                    int supplierId = (int)SupplierDataGridView.Rows[selectedRowIndex].Cells[0].Value;
+                    var result = MessageBox.Show("Are you sure you want to delete this supplier?", "Confirm Delete", MessageBoxButtons.YesNo);
+                    if (result == DialogResult.Yes)
+                    {
+                        await _supplierService.DeleteSupplierAsync(supplierId);
+                        SuplierManagementForm_Load(sender, e);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a supplier to delete.");
                 }
             }
-            else
+            catch
             {
-                MessageBox.Show("Please select a supplier to delete.");
+                MessageBox.Show("Dữ liệu nhà cung cấp tồn tại trong các dữ liệu đơn hàng. Không thể xóa!");
             }
+            
         }
     }
 }

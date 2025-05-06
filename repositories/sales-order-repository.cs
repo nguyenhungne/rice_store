@@ -85,7 +85,7 @@ public class SalesOrderRepository : ISalesOrderRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task updateTotalAmountSaleOrderAsync(decimal totalAmount, int saleOrderId)
+    public async Task updateTotalAmountSaleOrderAsync(decimal totalAmount, int saleOrderId, string rankNow)
     {
         // T�m ??n h�ng theo ID
         var saleOrder = await _context.SalesOrder.FindAsync(saleOrderId);
@@ -97,6 +97,7 @@ public class SalesOrderRepository : ISalesOrderRepository
 
         // C?p nh?t gi� tr? TotalAmount
         saleOrder.Total_amount = totalAmount;
+        saleOrder.Status = rankNow;
 
         // L?u thay ??i v�o database
         await _context.SaveChangesAsync();

@@ -74,7 +74,7 @@ namespace rice_store.forms
             foreach (SalesOrder saleOrder in saleOrders)
             {
                 string customerName = saleOrder.Customer != null ? saleOrder.Customer.Name : "Khách vãng lai";
-                string customerRank = saleOrder.Customer != null ? saleOrder.Customer.Rank : "Không có";
+                string customerRank = saleOrder.Status !=null ? saleOrder.Status : "Không có";
 
                 salePurchaseDataGridView.Rows.Add(saleOrder.Id, customerName, saleOrder.OrderDate.ToString("dd/MM/yyyy"), CustomerUtils.GetOriginalTotal(saleOrder.Total_amount, customerRank).ToString("N0") + " VND", saleOrder.Total_amount.ToString("N0") + " VND");
             }
@@ -90,6 +90,12 @@ namespace rice_store.forms
 
         private async Task LoadInvoice()
         {
+            //Kiểm tra DataGridView có dữ liệu hay không
+            if (salePurchaseDataGridView.Rows.Count == 0 || salePurchaseDataGridView.CurrentCell == null)
+            {
+                MessageBox.Show("Danh sách đơn hàng đang trống hoặc chưa chọn đơn hàng nào.");
+                return;
+            }
             int selectedRowIndex = salePurchaseDataGridView.CurrentCell.RowIndex;
             if (selectedRowIndex < 0)
             {
@@ -114,7 +120,7 @@ namespace rice_store.forms
             string customerPhone = customer != null ? customer.Phone : "";
             string customerAddress = customer != null ? customer.Address : "";
             string customerEmail = customer != null ? customer.Email : "";
-            string customerRank = customer != null ? customer.Rank : "Không có";
+            string customerRank = salesOrder.Status !=null ? salesOrder.Status : "Không có";
             string inventoryName = salesOrderDetails.First().Warehouse.Inventory.name;
 
             _currentInvoice = new InvoiceDTO

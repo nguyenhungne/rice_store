@@ -135,7 +135,4 @@ This README file provides detailed onboarding instructions for setting up the pr
 
 ## 📌 Project By:
 - **Nguyễn Quốc Nhật Hùng**
-- **Lương Mình Tân**
-- **Trần Duy Anh**
-- **Trương Dương Hưng**
-- **Bùi Gia Bảo**
+- **Lương Minh Tân**

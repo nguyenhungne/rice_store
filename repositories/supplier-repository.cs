@@ -85,9 +85,21 @@ public class SupplierRepository : ISupplierRepository
             throw new InvalidOperationException($"Supplier with ID {id} not found.");
         }
 
-        supplier.IsDeleted = true;
+        try
+        {
+            _context.Supplier.Remove(supplier);
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception)
+        {
+            //roll back state entity
+            _context.Entry(supplier).State = EntityState.Unchanged;
+            throw;
+        }
+    }
 
-        _context.Supplier.Update(supplier);
-        await _context.SaveChangesAsync();
+    public async Task<bool> CheckEmailExistsAsync(string email)
+    {
+        return await _context.Supplier.AnyAsync(s => s.Email == email);
     }
 }

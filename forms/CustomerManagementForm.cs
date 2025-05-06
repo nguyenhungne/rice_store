@@ -144,6 +144,8 @@ namespace rice_store.forms
                 return;
             }
             MessageBox.Show($"Cập nhật thành công: {numberUpgrated} khách hàng được thăng hạng.\nĐã gửi thông báo CSKH.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // Reload the form to refresh the data
+            CustomerManagementForm_Load(sender, e);
         }
     }
 }

@@ -57,30 +57,7 @@ public class SalesOrderDetailService : ISalesOrderDetailService
     public async Task<List<SalesOrderDetail>> AddInvoicesAsync(AddingSalesOrderDetailData addingSalesOrdersDetailData)
     {
         List<SalesOrderDetail> salesOrderDetails = new List<SalesOrderDetail>();
-        //foreach (AddingSalesOrderDetailData detailData in addingSalesOrdersDetailData)
-        //{
-
-        //    AddingSalesOrder addingSalesOrder = detailData.salesOrder;
-        //    AddingSalesOrderDetail addingSalesOrderDetail = detailData.salesOrderDetail;
-
-        //    SalesOrder createdSalesOrder = await _salesOrderRepository.AddSalesOrderAsync(new SalesOrder
-        //    {
-        //        OrderDate = addingSalesOrder.orderDate,
-        //        PaymentMethod = addingSalesOrder.paymentMethod,
-        //        Status = "Completed",
-        //        CustomerId = addingSalesOrder.customerId
-        //    });
-
-        //    SalesOrderDetail salesOrderDetail = await _salesOrderDetailRepository.AddSalesOrderDetailAsync(new SalesOrderDetail
-        //    {
-        //       // Quantity = addingSalesOrderDetail.quantity,
-        //        UnitPrice = addingSalesOrderDetail.unitPrice,
-        //        SalesOrderId = createdSalesOrder.Id,
-        //        WarehouseId = addingSalesOrderDetail.warehouseId
-        //    });
-
-        //    salesOrderDetails.Add(salesOrderDetail);
-        //}
+        
 
         AddingSalesOrder addingSalesOrder = addingSalesOrdersDetailData.salesOrder;
 
@@ -124,7 +101,7 @@ public class SalesOrderDetailService : ISalesOrderDetailService
 
         decimal totalAmountNew = CustomerUtils.GetTotalAmountAfterDiscount(totalAmount, customerRank);
 
-        await _salesOrderRepository.updateTotalAmountSaleOrderAsync(totalAmountNew, newOrder.Id);
+        await _salesOrderRepository.updateTotalAmountSaleOrderAsync(totalAmountNew, newOrder.Id, customerRank);
 
 
         return salesOrderDetails;

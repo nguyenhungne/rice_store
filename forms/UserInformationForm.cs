@@ -96,6 +96,21 @@ namespace rice_store.forms
                     return;
                 }
 
+                // Validate email format and phone number
+                if (!phoneTextBox.Text.All(char.IsDigit))
+                {
+                    MessageBox.Show("Số điện thoại chỉ được chứa chữ số.", "Lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (!IsValidEmail(emailTextBox.Text))
+                {
+                    MessageBox.Show("Email không đúng định dạng.", "Lỗi",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 string selectedRole = roleComboBox.SelectedItem.ToString();
 
                 string roleValue = selectedRole switch
@@ -140,6 +155,18 @@ namespace rice_store.forms
             catch (Exception ex)
             {
                 MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
             }
         }
     }

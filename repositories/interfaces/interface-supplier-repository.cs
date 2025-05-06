@@ -7,4 +7,5 @@ public interface ISupplierRepository
     Task<Supplier> AddSupplierAsync(Supplier supplier);
     Task<Supplier> UpdateSupplierAsync(Supplier supplier);
     Task DeleteSupplierAsync(int id);
+    Task<bool> CheckEmailExistsAsync(string email);
 }

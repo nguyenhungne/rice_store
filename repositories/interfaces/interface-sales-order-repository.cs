@@ -12,7 +12,7 @@ public interface ISalesOrderRepository
     Task<SalesOrder> UpdateSalesOrderAsync(SalesOrder salesOrder);
     Task<List<SalesReportDTO>> GetFilteredSalesDataAsync(int startMonth, int endMonth, int year);
 
-    Task updateTotalAmountSaleOrderAsync(decimal totalAmount, int saleOrderId);
+    Task updateTotalAmountSaleOrderAsync(decimal totalAmount, int saleOrderId, string rankNow);
     Task DeleteSalesOrderAsync(int id);
     Task<decimal> GetTotalAmountByCustomerIdAsync(int customerId);
 

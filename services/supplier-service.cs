@@ -7,6 +7,8 @@ public interface ISupplierService
     Task<Supplier> AddSupplierAsync(Supplier supplier);
     Task<Supplier> UpdateSupplierAsync(Supplier supplier);
     Task DeleteSupplierAsync(int id);
+
+    Task<bool> CheckEmailExistsAsync(string email);
 }
 
 public class SupplierService : ISupplierService
@@ -41,5 +43,10 @@ public class SupplierService : ISupplierService
     public async Task DeleteSupplierAsync(int id)
     {
         await _supplierRepository.DeleteSupplierAsync(id);
+    }
+
+    public async Task<bool> CheckEmailExistsAsync(string email)
+    {
+        return await _supplierRepository.CheckEmailExistsAsync(email);
     }
 }

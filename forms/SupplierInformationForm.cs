@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -66,10 +68,35 @@ namespace rice_store.forms
                 return;
             }
 
+            // Validate email format and phone number
+            if (!phone.All(char.IsDigit))
+            {
+                MessageBox.Show("Số điện thoại chỉ được chứa chữ số.", "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!IsValidEmail(email))
+            {
+                MessageBox.Show("Email không đúng định dạng.", "Lỗi",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+
             try
             {
                 if (supplierId == null)
                 {
+                    // Kiểm tra email đã tồn tại chưa (chỉ khi thêm mới)
+                    bool emailExists = await supplierService.CheckEmailExistsAsync(email);
+                    if (emailExists)
+                    {
+                        MessageBox.Show("Email này đã được sử dụng bởi nhà cung cấp khác.", "Lỗi",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     // Thêm nhà cung cấp mới
                     Supplier newSupplier = new Supplier
                     {
@@ -83,6 +110,14 @@ namespace rice_store.forms
                 }
                 else
                 {
+                    // Kiểm tra email đã tồn tại chưa (chỉ khi thêm mới)
+                    bool emailExists = await supplierService.CheckEmailExistsAsync(email);
+                    if (emailExists)
+                    {
+                        MessageBox.Show("Email này đã được sử dụng bởi nhà cung cấp khác.", "Lỗi",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     Supplier updatedSupplier = new Supplier
                     {
                         Id = supplierId.Value,
@@ -102,5 +137,21 @@ namespace rice_store.forms
                 MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        /// Validate email format
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
+
+
 }

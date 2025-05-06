@@ -147,15 +147,17 @@ namespace rice_store.forms
                 }
                 else
                 {
-                    // Update existing customer
-                    Customer updatedCustomer = new Customer
+                    Customer customer = await customerService.GetCustomerByIdAsync(_customerId.Value);
+                // Update existing customer
+                Customer updatedCustomer = new Customer
                     {
                         Id = _customerId.Value,
                         Name = name,
                         Phone = phone,
                         Email = email,
                         Address = address,
-                    };
+                        Rank = customer.Rank // Keep the existing rank
+                };
                     await customerService.UpdateCustomerAsync(updatedCustomer);
                 }
 
