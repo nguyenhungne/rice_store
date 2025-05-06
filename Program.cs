@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using rice_store.forms;
 using rice_store.data;
 using rice_store.services;
+using rice_store.Tests;
 
 namespace rice_store
 {
@@ -17,6 +18,9 @@ namespace rice_store
         [STAThread]
         static void Main()
         {
+
+            // Run tests
+            UtilsTests.RunAllTests();
 
             Application.SetHighDpiMode(HighDpiMode.PerMonitorV2);
 
