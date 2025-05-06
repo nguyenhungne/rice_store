@@ -208,7 +208,7 @@
             sellingPriceTextBox.PlaceholderText = "";
             sellingPriceTextBox.SelectedText = "";
             sellingPriceTextBox.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            sellingPriceTextBox.Size = new Size(289, 59);
+            sellingPriceTextBox.Size = new Size(273, 59);
             sellingPriceTextBox.TabIndex = 10;
             // 
             // categoryComboBox
@@ -223,10 +223,10 @@
             categoryComboBox.Font = new Font("Segoe UI", 10F);
             categoryComboBox.ForeColor = Color.FromArgb(68, 88, 112);
             categoryComboBox.ItemHeight = 50;
-            categoryComboBox.Location = new Point(280, 308);
+            categoryComboBox.Location = new Point(264, 308);
             categoryComboBox.Name = "categoryComboBox";
             categoryComboBox.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            categoryComboBox.Size = new Size(273, 56);
+            categoryComboBox.Size = new Size(289, 56);
             categoryComboBox.TabIndex = 12;
             // 
             // productNameLabel

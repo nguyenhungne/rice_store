@@ -39,6 +39,8 @@ namespace rice_store.forms
             int currentYear = DateTime.Now.Year;
             int year = currentYear;
 
+            yeartxt.Text = year.ToString();
+
             purchaseData = await purchaseOrderService.GetFilteredPurchaseDataAsync(start, end, year);
             salesData = await salesOrderService.GetFilteredSalesDataAsync(start, end, year);
 
@@ -92,6 +94,16 @@ namespace rice_store.forms
             mainChart.Series["expense"].Points.DataBindXY(
                 expenseTable.AsEnumerable().Select(r => r["Month"]).ToArray(),
                 expenseTable.AsEnumerable().Select(r => r["Revenue"]).ToArray());
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -30,6 +30,8 @@
         {
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -48,9 +50,8 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            removeFilterButton = new Guna.UI2.WinForms.Guna2Button();
             label1 = new Label();
             searchButton = new Guna.UI2.WinForms.Guna2Button();
             label3 = new Label();
@@ -71,7 +72,6 @@
             productOrigin = new DataGridViewTextBoxColumn();
             sellingPriceProduct = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
-            removeFilterButton = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel2.SuspendLayout();
             productDataGridPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)productDataGridView).BeginInit();
@@ -92,18 +92,39 @@
             guna2Panel2.Controls.Add(productNameTextBox);
             guna2Panel2.Controls.Add(label4);
             guna2Panel2.CustomizableEdges = customizableEdges9;
-            guna2Panel2.Location = new Point(836, 3);
+            guna2Panel2.Location = new Point(836, 12);
             guna2Panel2.Name = "guna2Panel2";
             guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            guna2Panel2.Size = new Size(297, 277);
+            guna2Panel2.Size = new Size(297, 268);
             guna2Panel2.TabIndex = 11;
+            // 
+            // removeFilterButton
+            // 
+            removeFilterButton.BorderRadius = 20;
+            removeFilterButton.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
+            removeFilterButton.Cursor = Cursors.Hand;
+            removeFilterButton.CustomizableEdges = customizableEdges1;
+            removeFilterButton.DisabledState.BorderColor = Color.DarkGray;
+            removeFilterButton.DisabledState.CustomBorderColor = Color.DarkGray;
+            removeFilterButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            removeFilterButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            removeFilterButton.FillColor = Color.OrangeRed;
+            removeFilterButton.Font = new Font("Segoe UI", 9F);
+            removeFilterButton.ForeColor = Color.White;
+            removeFilterButton.Location = new Point(8, 213);
+            removeFilterButton.Name = "removeFilterButton";
+            removeFilterButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            removeFilterButton.Size = new Size(273, 42);
+            removeFilterButton.TabIndex = 11;
+            removeFilterButton.Text = "Bỏ Lọc";
+            removeFilterButton.Click += removeFilterButton_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 15F, FontStyle.Italic);
-            label1.Location = new Point(24, 27);
+            label1.Location = new Point(24, 24);
             label1.Name = "label1";
             label1.Size = new Size(240, 35);
             label1.TabIndex = 2;
@@ -122,7 +143,7 @@
             searchButton.FillColor = Color.OrangeRed;
             searchButton.Font = new Font("Segoe UI", 9F);
             searchButton.ForeColor = Color.White;
-            searchButton.Location = new Point(8, 172);
+            searchButton.Location = new Point(8, 165);
             searchButton.Name = "searchButton";
             searchButton.ShadowDecoration.CustomizableEdges = customizableEdges4;
             searchButton.Size = new Size(273, 42);
@@ -134,7 +155,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(8, 83);
+            label3.Location = new Point(8, 71);
             label3.Name = "label3";
             label3.Size = new Size(72, 28);
             label3.TabIndex = 5;
@@ -152,7 +173,7 @@
             productCategoryComboBox.Font = new Font("Segoe UI", 10F);
             productCategoryComboBox.ForeColor = Color.FromArgb(68, 88, 112);
             productCategoryComboBox.ItemHeight = 30;
-            productCategoryComboBox.Location = new Point(86, 130);
+            productCategoryComboBox.Location = new Point(86, 122);
             productCategoryComboBox.Name = "productCategoryComboBox";
             productCategoryComboBox.ShadowDecoration.CustomizableEdges = customizableEdges6;
             productCategoryComboBox.Size = new Size(195, 36);
@@ -170,7 +191,7 @@
             productNameTextBox.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             productNameTextBox.Font = new Font("Segoe UI", 9F);
             productNameTextBox.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            productNameTextBox.Location = new Point(86, 83);
+            productNameTextBox.Location = new Point(86, 71);
             productNameTextBox.Margin = new Padding(3, 4, 3, 4);
             productNameTextBox.Name = "productNameTextBox";
             productNameTextBox.PlaceholderText = "";
@@ -183,7 +204,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(8, 130);
+            label4.Location = new Point(8, 122);
             label4.Name = "label4";
             label4.Size = new Size(79, 28);
             label4.TabIndex = 7;
@@ -192,6 +213,7 @@
             // deleteProductButton
             // 
             deleteProductButton.BorderRadius = 25;
+            deleteProductButton.Cursor = Cursors.Hand;
             deleteProductButton.CustomizableEdges = customizableEdges11;
             deleteProductButton.DisabledState.BorderColor = Color.DarkGray;
             deleteProductButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -203,7 +225,7 @@
             deleteProductButton.Location = new Point(297, 180);
             deleteProductButton.Name = "deleteProductButton";
             deleteProductButton.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            deleteProductButton.Size = new Size(219, 54);
+            deleteProductButton.Size = new Size(216, 54);
             deleteProductButton.TabIndex = 3;
             deleteProductButton.Text = "Xóa sản phẩm";
             deleteProductButton.Click += deleteProductButton_Click;
@@ -211,6 +233,7 @@
             // editProductButton
             // 
             editProductButton.BorderRadius = 25;
+            editProductButton.Cursor = Cursors.Hand;
             editProductButton.CustomizableEdges = customizableEdges13;
             editProductButton.DisabledState.BorderColor = Color.DarkGray;
             editProductButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -222,7 +245,7 @@
             editProductButton.Location = new Point(586, 180);
             editProductButton.Name = "editProductButton";
             editProductButton.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            editProductButton.Size = new Size(223, 54);
+            editProductButton.Size = new Size(216, 54);
             editProductButton.TabIndex = 4;
             editProductButton.Text = "Chỉnh sửa sản phẩm";
             editProductButton.Click += editProductButton_Click;
@@ -230,6 +253,7 @@
             // addProductButton
             // 
             addProductButton.BorderRadius = 25;
+            addProductButton.Cursor = Cursors.Hand;
             addProductButton.CustomizableEdges = customizableEdges15;
             addProductButton.DisabledState.BorderColor = Color.DarkGray;
             addProductButton.DisabledState.CustomBorderColor = Color.DarkGray;
@@ -399,27 +423,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1150, 766);
             panel1.TabIndex = 0;
-            // 
-            // removeFilterButton
-            // 
-            removeFilterButton.BorderRadius = 20;
-            removeFilterButton.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDotDot;
-            removeFilterButton.Cursor = Cursors.Hand;
-            removeFilterButton.CustomizableEdges = customizableEdges1;
-            removeFilterButton.DisabledState.BorderColor = Color.DarkGray;
-            removeFilterButton.DisabledState.CustomBorderColor = Color.DarkGray;
-            removeFilterButton.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            removeFilterButton.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            removeFilterButton.FillColor = Color.OrangeRed;
-            removeFilterButton.Font = new Font("Segoe UI", 9F);
-            removeFilterButton.ForeColor = Color.White;
-            removeFilterButton.Location = new Point(8, 220);
-            removeFilterButton.Name = "removeFilterButton";
-            removeFilterButton.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            removeFilterButton.Size = new Size(273, 42);
-            removeFilterButton.TabIndex = 11;
-            removeFilterButton.Text = "Bỏ Lọc";
-            removeFilterButton.Click += removeFilterButton_Click;
             // 
             // ProductManagementForm
             // 

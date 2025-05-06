@@ -139,7 +139,7 @@ namespace rice_store.forms
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Error: {ex.Message}");
+                        MessageBox.Show("Dữ liệu sản phẩm tồn tại trong các dữ liệu đơn hàng. Không thể xóa!");
                     }
                 }
             }

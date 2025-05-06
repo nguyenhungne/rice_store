@@ -76,13 +76,21 @@ public class ProductRepository : IProductRepository
     }
 
     public async Task DeleteProductAsync(int id)
-{
-    Product product = await _context.Product.FindAsync(id)
-                      ?? throw new InvalidOperationException($"Product with ID {id} not found.");
+    {
+        Product product = await _context.Product.FindAsync(id)
+                          ?? throw new InvalidOperationException($"Product with ID {id} not found.");
 
-    product.IsDeleted = true;
+        try
+        {
+            _context.Product.Remove(product);
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception)
+        {
+            //roll back state entity
+            _context.Entry(product).State = EntityState.Unchanged;
+            throw;
+        }
+    }
 
-    _context.Product.Update(product);
-    await _context.SaveChangesAsync();
-}
 }

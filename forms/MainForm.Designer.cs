@@ -29,12 +29,15 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
+            logoutBtn = new Guna.UI2.WinForms.Guna2Button();
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             label1 = new Label();
@@ -68,6 +71,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(255, 255, 128);
+            panel1.Controls.Add(logoutBtn);
             panel1.Controls.Add(guna2Panel2);
             panel1.Controls.Add(guna2Panel1);
             panel1.Controls.Add(label1);
@@ -77,14 +81,35 @@
             panel1.Size = new Size(1446, 69);
             panel1.TabIndex = 0;
             // 
+            // logoutBtn
+            // 
+            logoutBtn.BorderColor = Color.White;
+            logoutBtn.BorderRadius = 10;
+            logoutBtn.BorderThickness = 3;
+            logoutBtn.Cursor = Cursors.Hand;
+            logoutBtn.CustomizableEdges = customizableEdges1;
+            logoutBtn.DisabledState.BorderColor = Color.DarkGray;
+            logoutBtn.DisabledState.CustomBorderColor = Color.DarkGray;
+            logoutBtn.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            logoutBtn.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            logoutBtn.FillColor = Color.FromArgb(255, 128, 0);
+            logoutBtn.Font = new Font("Segoe UI", 9F);
+            logoutBtn.ForeColor = Color.White;
+            logoutBtn.Location = new Point(1293, 10);
+            logoutBtn.Name = "logoutBtn";
+            logoutBtn.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            logoutBtn.Size = new Size(141, 49);
+            logoutBtn.TabIndex = 5;
+            logoutBtn.Text = "Đăng xuất";
+            // 
             // guna2Panel2
             // 
             guna2Panel2.BackgroundImage = (Image)resources.GetObject("guna2Panel2.BackgroundImage");
             guna2Panel2.BackgroundImageLayout = ImageLayout.Stretch;
-            guna2Panel2.CustomizableEdges = customizableEdges1;
+            guna2Panel2.CustomizableEdges = customizableEdges3;
             guna2Panel2.Location = new Point(517, 3);
             guna2Panel2.Name = "guna2Panel2";
-            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            guna2Panel2.ShadowDecoration.CustomizableEdges = customizableEdges4;
             guna2Panel2.Size = new Size(78, 63);
             guna2Panel2.TabIndex = 4;
             // 
@@ -92,10 +117,10 @@
             // 
             guna2Panel1.BackgroundImage = (Image)resources.GetObject("guna2Panel1.BackgroundImage");
             guna2Panel1.BackgroundImageLayout = ImageLayout.Stretch;
-            guna2Panel1.CustomizableEdges = customizableEdges3;
+            guna2Panel1.CustomizableEdges = customizableEdges5;
             guna2Panel1.Location = new Point(942, 3);
             guna2Panel1.Name = "guna2Panel1";
-            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges6;
             guna2Panel1.Size = new Size(78, 63);
             guna2Panel1.TabIndex = 3;
             // 
@@ -378,5 +403,6 @@
         private System.Windows.Forms.Timer sidebarTransition;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Button logoutBtn;
     }
 }
