@@ -1,0 +1,18 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Supplier Service" as SupplierService
+
+User -> App: Chọn "Quản lý nhà cung cấp"  
+App -> App: Hiển thị danh sách nhà cung cấp  
+User -> App: Chọn nhà cung cấp cần xóa  
+App -> App: Hiển thị hộp thoại xác nhận xóa  
+User -> App: Xác nhận xóa  
+alt Sản phẩm có liên kết  
+    SupplierService -> App: <font color=red><b>Hiển thị lỗi: Sản phẩm có liên kết</b></font>  
+    App -> User: <font color=red><b>Hiển thị thông báo lỗi</b></font>  
+else Xóa thành công  
+    SupplierService -> App: <font color=green><b>Xóa nhà cung cấp thành công</b></font>  
+    App -> User: <font color=green><b>Hiển thị thông báo thành công</b></font>  
+end  
+@enduml

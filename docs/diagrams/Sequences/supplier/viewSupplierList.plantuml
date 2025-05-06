@@ -1,0 +1,10 @@
+@startuml
+actor User
+participant "WinForm App" as App
+participant "Supplier Service" as SupplierService
+
+User -> App: Chọn "Quản lý nhà cung cấp"  
+App -> SupplierService: Lấy danh sách nhà cung cấp  
+SupplierService -> App: Trả về danh sách nhà cung cấp  
+App -> User: <font color=green><b>Hiển thị danh sách nhà cung cấp</b></font>  
+@enduml
